@@ -7,3 +7,4 @@ set(CMAKE_CXX_STANDARD 11)
 
 # Adding source directory
 add_subdirectory(src)
+add_subdirectory(test)
