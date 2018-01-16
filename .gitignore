@@ -1,0 +1,8 @@
+# Executable directories
+
+bin/
+build/
+install/
+lib/
+
+*~
