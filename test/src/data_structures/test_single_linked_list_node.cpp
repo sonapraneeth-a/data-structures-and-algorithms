@@ -21,7 +21,7 @@ TEST_F(SingleLinkedListNodeTest, SetGetData)
     EXPECT_EQ(23, node.get_data());
 }
 
-TEST_F(SingleLinkedListNodeTest, StringNode)
+TEST_F(SingleLinkedListNodeTest, ToString)
 {
     int num = 115;
     single_linked_list_node<int> node(num);
