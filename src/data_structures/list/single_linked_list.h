@@ -9,6 +9,7 @@ class single_linked_list
 public:
 
     single_linked_list_node<T> *head;
+    unsigned int size;
 
     single_linked_list();
     single_linked_list(T value);
@@ -16,6 +17,9 @@ public:
     single_linked_list_node<T>* get_head();
     void print_list();
     std::string to_string();
+    unsigned int get_size();
+    void delete_head();
+    void clear();
     void insert(T value);
 
 };
