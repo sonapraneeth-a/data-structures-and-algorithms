@@ -1,5 +1,5 @@
 #include "single_linked_list.h"
-#include "random.h"
+#include "utilities.h"
 #include "gtest/gtest.h"
 using namespace std;
 
@@ -34,17 +34,22 @@ class SingleLinkedListDeleteTest : public SingleLinkedListTest
 class SingleLinkedListSizeTest : public SingleLinkedListTest
 {};
 
-TEST_F(SingleLinkedListTest, InitHead)
+class SingleLinkedListStringTest : public SingleLinkedListTest
+{};
+
+TEST_F(SingleLinkedListTest, InitHeadDefault)
 {
-    single_linked_list<int> list(10);
-    EXPECT_EQ(10, list.get_head()->get_data());
+    int number = get_random_int();
+    single_linked_list<int> list(number);
+    EXPECT_EQ(number, list.get_head()->get_data());
 }
 
-TEST_F(SingleLinkedListTest, PrintList)
+TEST_F(SingleLinkedListTest, InitHeadInsert)
 {
-    std::string obtained_answer = _list_int_2.to_string();
-    std::string expected_answer = "1000 -> 2000 -> 0";
-    EXPECT_EQ(expected_answer, obtained_answer);
+    int number = get_random_int();
+    single_linked_list<int> list;
+    list.insert(number);
+    EXPECT_EQ(number, list.get_head()->get_data());
 }
 
 TEST_F(SingleLinkedListTest, ClearList)
@@ -54,10 +59,32 @@ TEST_F(SingleLinkedListTest, ClearList)
     EXPECT_EQ(0, _list_int_2.get_size());
 }
 
+TEST_F(SingleLinkedListStringTest, StringListZero)
+{
+    std::string obtained_answer = _list_int_0.to_string();
+    std::string expected_answer = "0";
+    EXPECT_EQ(expected_answer, obtained_answer);
+}
+
+TEST_F(SingleLinkedListStringTest, StringListOne)
+{
+    std::string obtained_answer = _list_int_1.to_string();
+    std::string expected_answer = "100 -> 0";
+    EXPECT_EQ(expected_answer, obtained_answer);
+}
+
+TEST_F(SingleLinkedListStringTest, StringListTwo)
+{
+    std::string obtained_answer = _list_int_2.to_string();
+    std::string expected_answer = "1000 -> 2000 -> 0";
+    EXPECT_EQ(expected_answer, obtained_answer);
+}
+
 TEST_F(SingleLinkedListInsertTest, InsertHead)
 {
-    _list_int_0.insert(10);
-    EXPECT_EQ(10, _list_int_0.get_head()->get_data());
+    int number = get_random_int();
+    _list_int_0.insert(number);
+    EXPECT_EQ(number, _list_int_0.get_head()->get_data());
 }
 
 TEST_F(SingleLinkedListSizeTest, ZeroListSize)
