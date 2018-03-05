@@ -1,12 +1,12 @@
 # Executable directories
 
-bin/
-build/
-install/
-./lib/
+Bin/
+Build/
+Install/
+Lib/
 gh-pages/
-logs/
-log/
+Logs/
+Log/
 
 #
 
