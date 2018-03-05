@@ -4,6 +4,9 @@ bin/
 build/
 install/
 ./lib/
+gh-pages/
+logs/
+log/
 
 #
 
