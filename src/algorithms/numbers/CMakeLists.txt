@@ -6,7 +6,9 @@ set(CMAKE_CXX_STANDARD 11)
 message("--     Generating CMake for Numbers")
 
 set(COMMON_HEADER ../../headers/default_headers.h)
-set(SOURCE_FILES ${COMMON_HEADER} big_integer.h big_integer.cpp)
+set(BIG_INTEGER_SOURCE_FILES ${COMMON_HEADER} big_integer.h big_integer.cpp)
+set(RANDOM_NUMBER_SOURCE_FILES ${COMMON_HEADER} random_number.h random_number.cpp)
+set(SOURCE_FILES ${BIG_INTEGER_SOURCE_FILES} ${RANDOM_NUMBER_SOURCE_FILES})
 include_directories(numbers)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
@@ -22,6 +24,6 @@ target_link_libraries(numbers_main numbers_static)
 
 install(TARGETS numbers_shared DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
 install(TARGETS numbers_static DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
-install(FILES big_integer.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
+install(FILES big_integer.h random_number.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
 
 message("--     Completing generation of CMake files for Numbers")
