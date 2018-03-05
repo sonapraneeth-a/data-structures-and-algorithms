@@ -10,12 +10,12 @@
 #include <string>
 #include <vector>
 
-class random_number
+class RandomNumber
 {
     std::string generator = "LCG"; // Linear congruential Generators
     int number;
 
-    std::vector<int> gen_list();
+    std::vector<int> gen_List();
     int gen_num(std::string = "LCG");
     int gen_lcg(int a = 1, int b = 1, int m = 1);
 };

@@ -1,30 +1,30 @@
-#include "single_linked_list.h"
+#include "SingleLinkedList.h"
 #include <iostream>
 
 template <typename T>
-single_linked_list<T>::single_linked_list()
+SingleLinkedList<T>::SingleLinkedList()
 {
     head = nullptr;
     this->size = 0;
 }
 
 template <typename T>
-single_linked_list<T>::single_linked_list(T value)
+SingleLinkedList<T>::SingleLinkedList(T value)
 {
-    head = new single_linked_list_node<T>(value);
+    head = new SingleLinkedListNode<T>(value);
     this->size = 1;
 }
 
 template <typename T>
-single_linked_list_node<T>* single_linked_list<T>::get_head()
+SingleLinkedListNode<T>* SingleLinkedList<T>::get_head()
 {
     return head;
 }
 
 template <typename T>
-void single_linked_list<T>::print_list()
+void SingleLinkedList<T>::print_List()
 {
-    single_linked_list_node<T> *temp = this->head;
+    SingleLinkedListNode<T> *temp = this->head;
     while (temp)
     {
         std::cout << temp->get_data() << " ";
@@ -35,9 +35,9 @@ void single_linked_list<T>::print_list()
 }
 
 template <typename T>
-std::string single_linked_list<T>::to_string()
+std::string SingleLinkedList<T>::to_string()
 {
-    single_linked_list_node<T> *temp = this->head;
+    SingleLinkedListNode<T> *temp = this->head;
     std::stringstream out;
     while (temp)
     {
@@ -49,12 +49,12 @@ std::string single_linked_list<T>::to_string()
 }
 
 template <typename T>
-void single_linked_list<T>::insert(T value)
+void SingleLinkedList<T>::insert(T value)
 {
-    single_linked_list_node<T> *temp = this->head;
+    SingleLinkedListNode<T> *temp = this->head;
     if(temp == nullptr)
     {
-        this->head = new single_linked_list_node<T>(value);
+        this->head = new SingleLinkedListNode<T>(value);
         this->size = 1;
         return;
     }
@@ -62,21 +62,21 @@ void single_linked_list<T>::insert(T value)
     {
         temp = temp->get_next();
     }
-    temp->set_next(new single_linked_list_node<T>(value));
+    temp->set_next(new SingleLinkedListNode<T>(value));
     this->size++;
     return;
 }
 
 template <typename T>
-unsigned int single_linked_list<T>::get_size()
+unsigned int SingleLinkedList<T>::get_size()
 {
     return this->size;
 }
 
 template <typename T>
-void single_linked_list<T>::delete_head()
+void SingleLinkedList<T>::delete_head()
 {
-    single_linked_list_node<T> *temp = this->head;
+    SingleLinkedListNode<T> *temp = this->head;
     if(temp == nullptr)
     {
         exit(-1);
@@ -87,9 +87,9 @@ void single_linked_list<T>::delete_head()
 }
 
 template <typename T>
-void single_linked_list<T>::clear()
+void SingleLinkedList<T>::clear()
 {
-    single_linked_list_node<T> *temp = this->head;
+    SingleLinkedListNode<T> *temp = this->head;
     if(temp == nullptr)
     {
         return ;
@@ -101,7 +101,7 @@ void single_linked_list<T>::clear()
     return ;
 }
 
-template class single_linked_list<int>;
-template class single_linked_list<double>;
-template class single_linked_list<char>;
-template class single_linked_list<std::string>;
+template class SingleLinkedList<int>;
+template class SingleLinkedList<double>;
+template class SingleLinkedList<char>;
+template class SingleLinkedList<std::string>;

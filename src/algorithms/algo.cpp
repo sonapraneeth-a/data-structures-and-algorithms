@@ -1,7 +1,7 @@
 #ifndef ALGO_H
 #define ALGO_H
 
-int algo_version()
+int Algo_version()
 {
     return 0;
 }

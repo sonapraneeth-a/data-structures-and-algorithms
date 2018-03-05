@@ -6,7 +6,7 @@
 #define DATA_STRUCTURES_AND_ALGORITHMS_LOGGING_H
 
 
-class logging {
+class Logging {
 
 };
 

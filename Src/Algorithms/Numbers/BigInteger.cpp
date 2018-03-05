@@ -1,13 +1,13 @@
-#include "big_integer.h"
+#include "BigInteger.h"
 
 BigInteger::BigInteger()
 {
     integer = "0";
 }
 
-BigInteger::BigInteger(std::string input_number)
+BigInteger::BigInteger(std::string inputNumber)
 {
-    std::string input = input_number;
+    std::string input = inputNumber;
     if(validate_string(input)) {
         this->integer = input;
         this->integer_size = (unsigned int) input.size() + 2;

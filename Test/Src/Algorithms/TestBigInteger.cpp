@@ -1,4 +1,4 @@
-#include "big_integer.h"
+#include "BigInteger.h"
 #include "gtest/gtest.h"
 
 class BigIntegerTest : public ::testing::Test
@@ -19,20 +19,20 @@ class BigIntegerValidStringTest : public BigIntegerTest
 
 TEST_F(BigIntegerValidStringTest, PlusSignPositiveTest)
 {
-    std::string positive_sign_integer_one = "123";
-    std::string positive_sign_integer_two = "+123";
-    std::string positive_sign_integer_three = " +123";
-    EXPECT_EQ(true, test1.validate_string(positive_sign_integer_one));
-    EXPECT_EQ(true, test1.validate_string(positive_sign_integer_two));
-    EXPECT_EQ(true, test1.validate_string(positive_sign_integer_three));
+    std::string positive_signInteger_one = "123";
+    std::string positive_signInteger_two = "+123";
+    std::string positive_signInteger_three = " +123";
+    EXPECT_EQ(true, test1.validate_string(positive_signInteger_one));
+    EXPECT_EQ(true, test1.validate_string(positive_signInteger_two));
+    EXPECT_EQ(true, test1.validate_string(positive_signInteger_three));
 }
 
 TEST_F(BigIntegerValidStringTest, PlusSignNegativeTest)
 {
-    std::string positive_sign_integer_one = "++123";
-    std::string positive_sign_integer_two = " +1 23";
-    EXPECT_NE(true, test1.validate_string(positive_sign_integer_one));
-    EXPECT_NE(true, test1.validate_string(positive_sign_integer_two));
+    std::string positive_signInteger_one = "++123";
+    std::string positive_signInteger_two = " +1 23";
+    EXPECT_NE(true, test1.validate_string(positive_signInteger_one));
+    EXPECT_NE(true, test1.validate_string(positive_signInteger_two));
 }
 
 TEST_F(BigIntegerValidStringTest, NegativeTest)

@@ -1,21 +1,21 @@
 #ifndef DS_LIST_SLL_H
 #define DS_LIST_SLL_H
 
-#include "single_linked_list_node.h"
+#include "SingleLinkedListNode.h"
 
 template <typename T>
-class single_linked_list
+class SingleLinkedList
 {
 public:
 
-    single_linked_list_node<T> *head;
+    SingleLinkedListNode<T> *head;
     unsigned int size;
 
-    single_linked_list();
-    single_linked_list(T value);
+    SingleLinkedList();
+    SingleLinkedList(T value);
 
-    single_linked_list_node<T>* get_head();
-    void print_list();
+    SingleLinkedListNode<T>* get_head();
+    void print_List();
     std::string to_string();
     unsigned int get_size();
     void delete_head();
