@@ -4,16 +4,25 @@ Bin/
 Build/
 Install/
 Lib/
-gh-pages/
+
+# Log directories
+
 Logs/
 Log/
+
+# CSS
 .sass-cache/
+*.map
+
+# Documentation files
+
+gh-pages/
 
 #
 
 *~
 
-#
+# IDEA Project files
 
 .idea/
 
