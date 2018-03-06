@@ -7,8 +7,11 @@ message("--     Generating CMake for Numbers")
 
 set(COMMON_HEADER ../../Headers/DefaultHeaders.h)
 set(BIG_INTEGER_SOURCE_FILES ${COMMON_HEADER} BigInteger.h BigInteger.cpp)
+set(FIBONACCI_SOURCE_FILES ${COMMON_HEADER} Fibonacci.h Fibonacci.cpp)
 set(RANDOM_NUMBER_SOURCE_FILES ${COMMON_HEADER} RandomNumber.h RandomNumber.cpp)
-set(SOURCE_FILES ${BIG_INTEGER_SOURCE_FILES} ${RANDOM_NUMBER_SOURCE_FILES})
+set(FACTORIZATION_SOURCE_FILES ${COMMON_HEADER} Factorization.h Factorization.cpp)
+set(SOURCE_FILES ${BIG_INTEGER_SOURCE_FILES} ${RANDOM_NUMBER_SOURCE_FILES} ${FIBONACCI_SOURCE_FILES}
+                ${FACTORIZATION_SOURCE_FILES})
 include_directories(Numbers)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
