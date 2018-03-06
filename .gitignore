@@ -7,6 +7,7 @@ Lib/
 gh-pages/
 Logs/
 Log/
+.sass-cache/
 
 #
 
