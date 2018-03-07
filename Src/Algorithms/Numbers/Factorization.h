@@ -13,17 +13,27 @@
 #ifndef FACTORIZATION_H
 #define FACTORIZATION_H
 
+#include "DefaultHeaders.h"
 
-unsigned int
-NaiveGCD(int numOne, int numTwo);
+ULLI
+NaiveGCD(LLI numOne, LLI numTwo);
 
-unsigned int
-EuclideanGCD(int numOne, int numTwo);
+ULLI
+EuclideanGCDRecursive(LLI numOne, LLI numTwo);
 
-int
-LCM(int numOne, int numTwo);
+ULLI
+EuclideanGCDIterative(LLI numOne, LLI numTwo);
+
+ULLI
+GCD(LLI numOne, LLI numTwo);
+
+LLI
+LCM(LLI numOne, LLI numTwo);
+
+std::vector<ULLI>
+PrimeFactorization(LLI number);
 
 bool
-IsPrime(int number);
+IsPrime(LLI number);
 
 #endif //FACTORIZATION_H
