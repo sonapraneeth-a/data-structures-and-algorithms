@@ -9,20 +9,23 @@ include_directories("../Src/Algorithms/Numbers")
 
 set(CMAKE_CXX_STANDARD 11)
 
+SET(TEST_PREFIX Test)
+
 SET(DS_DIR ./Src/DataStructures)
 SET(NUMBERS_DIR Numbers)
 
 SET(ALGO_DIR ./Src/Algorithms)
 SET(LIST_DIR List)
 
-set(LIST_TEST_FILES ${DS_DIR}/${LIST_DIR}/TestSingleLinkedListNode.cpp ${DS_DIR}/${LIST_DIR}/TestSingleLinkedList.cpp)
-add_executable(DataStructuresTest ${DS_DIR}/DataStructuresTest.cpp ${LIST_TEST_FILES})
+set(LIST_TEST_FILES ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedListNode.cpp
+                    ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedList.cpp)
+add_executable(DataStructuresTest ${DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest)
 
-set(BIG_INTEGER_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/TestBigInteger.cpp)
-set(FIBONACCI_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/TestFibonacci.cpp)
-set(FACTORIZATION_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/TestFactorization.cpp)
-add_executable(AlgorithmsTest ${ALGO_DIR}/AlgorithmsTest.cpp ${BIG_INTEGER_TEST_FILES} ${FIBONACCI_TEST_FILES}
+set(BIG_INTEGER_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-BigInteger.cpp)
+set(FIBONACCI_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-Fibonacci.cpp)
+set(FACTORIZATION_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-Factorization.cpp)
+add_executable(AlgorithmsTest ${ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES} ${FIBONACCI_TEST_FILES}
                             ${FACTORIZATION_TEST_FILES})
 target_link_libraries(AlgorithmsTest AlgoStatic gtest)
 
