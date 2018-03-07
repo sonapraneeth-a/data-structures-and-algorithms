@@ -1,3 +1,4 @@
+#include "DefaultHeaders.h"
 #include "BigInteger.h"
 #include "Factorization.h"
 
@@ -11,7 +12,13 @@ void RunBigInteger()
 
 void RunFactorization()
 {
-    std::cout << "GCD of 357 and 234 is: " << EuclideanGCD(357, 234) << "\n";
+    // int numOne = 624129, numTwo = 2061517;
+    LLI numOne = 1406700, numTwo = 164115;
+    EXECUTE_FUNC_UNIT("ns",
+                      std::cout << "GCD of " << numOne << " and " << numTwo << " is: " << NaiveGCD(numOne, numTwo) << "\n";)
+    EXECUTE_FUNC_UNIT("us",
+                      std::cout << "GCD of " << numOne << " and " << numTwo << " is: " << EuclideanGCDRecursive(numOne,
+                                                                                                                numTwo) << "\n";)
     return;
 }
 
