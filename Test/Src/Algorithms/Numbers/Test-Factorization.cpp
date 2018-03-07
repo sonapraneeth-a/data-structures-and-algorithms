@@ -1,5 +1,6 @@
 #include "Factorization.h"
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
 #include <vector>
 
 class GCDNumber
@@ -66,6 +67,9 @@ class EuclideanGCDRecursiveTest : public FactorizationTest
 {};
 
 class EuclideanGCDIterativeTest : public FactorizationTest
+{};
+
+class PrimeFactorizationTest : public FactorizationTest
 {};
 
 TEST_F(NaiveGCDTest, ZeroNumberTest)
@@ -200,3 +204,36 @@ TEST_F(EuclideanGCDIterativeTest, PositiveLargeNumberTest)
     }
 }
 
+// https://stackoverflow.com/questions/12340470/compare-containers-with-googletest
+TEST_F(PrimeFactorizationTest, SmallNumberCornerTest)
+{
+    std::vector< std::pair<ULLI, ULLI> > prime_factors_1;
+    std::vector< std::pair<ULLI, ULLI> > prime_factors_0;
+    EXPECT_THAT(prime_factors_0,
+                ::testing::ContainerEq(PrimeFactorization(0)));
+    EXPECT_THAT(prime_factors_1,
+                ::testing::ContainerEq(PrimeFactorization(1)));
+}
+
+TEST_F(PrimeFactorizationTest, PrimeNumberTest)
+{
+    std::vector< std::pair<ULLI, ULLI> > prime_factors_2, prime_factors_3, prime_factors_5;
+    prime_factors_2.emplace_back(2, 1);
+    prime_factors_3.emplace_back(3, 1);
+    prime_factors_5.emplace_back(5, 1);
+    EXPECT_THAT(prime_factors_2,
+                ::testing::ContainerEq(PrimeFactorization(2)));
+    EXPECT_THAT(prime_factors_3,
+                ::testing::ContainerEq(PrimeFactorization(3)));
+    EXPECT_THAT(prime_factors_5,
+                ::testing::ContainerEq(PrimeFactorization(5)));
+}
+
+TEST_F(PrimeFactorizationTest, CompositeNumberTest)
+{
+    std::vector< std::pair<ULLI, ULLI> > prime_factors_100;
+    prime_factors_100.emplace_back(2, 2);
+    prime_factors_100.emplace_back(5, 2);
+    EXPECT_THAT(prime_factors_100,
+                ::testing::ContainerEq(PrimeFactorization(100)));
+}

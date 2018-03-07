@@ -136,3 +136,24 @@ LCM(LLI numOne, LLI numTwo)
     LLI answer = lesser * multiplier;
     return answer;
 }
+
+std::vector< std::pair<ULLI, ULLI> >
+PrimeFactorization(LLI number)
+{
+    std::vector< std::pair<ULLI, ULLI> > PrimeFactors;
+    ULLI factor = 2, count = 0;
+    while(factor <= sqrt(number))
+    {
+        while(number%factor == 0)
+        {
+            number = number/factor;
+            count++;
+        }
+        if(count > 0) { PrimeFactors.emplace_back(factor, count); }
+        if(factor == 2) {factor++;}
+        else {factor+=2;}
+        count = 0;
+    }
+    if(number > 1) {PrimeFactors.emplace_back(number, 1);}
+    return PrimeFactors;
+}

@@ -30,7 +30,7 @@ GCD(LLI numOne, LLI numTwo);
 LLI
 LCM(LLI numOne, LLI numTwo);
 
-std::vector<ULLI>
+std::vector< std::pair<ULLI, ULLI> >
 PrimeFactorization(LLI number);
 
 bool
