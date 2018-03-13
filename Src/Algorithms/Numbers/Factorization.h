@@ -1,13 +1,16 @@
-/*!
- * \addtogroup Numbers
- * \ingroup Numbers
+/**
+ *      Created on: 06 March 2018
+ *   Last modified: 13 March 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Code for algorithms related to factorization of numbers
  */
 
 /**
- *      Created on: 06 March 2018
- *   Last modified: 06 March 2018
- *          Author: Sona Praneeth Akula
- *         Details: Code for algorithms related to factorization of numbers
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 06-03-2018             Sona Praneeth Akula   - Creation of the file
+ * 13-03-2018             Sona Praneeth Akula   - Updation of the documentation
  */
 
 #ifndef FACTORIZATION_H
