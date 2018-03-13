@@ -1,11 +1,6 @@
-/*!
- * \addtogroup Numbers
- * \ingroup Numbers
- */
-
 /**
  *      Created on: 06 March 2018
- *   Last modified: 06 March 2018
+ *   Last modified: 13 March 2018
  *          Author: Sona Praneeth Akula
  *         Details: Code for algorithms related to factorization of numbers
  */
@@ -13,6 +8,7 @@
 #include "Factorization.h"
 
 /*!
+ * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Naive brute force algorithm for calculating GCD of two numbers
  *          <b>Time Complexity: </b> O(N)
@@ -46,6 +42,7 @@ NaiveGCD(LLI numOne, LLI numTwo)
 }
 
 /*!
+ * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Recursive Euclidean algorithm for calculating GCD of two numbers
  *          <b>Time Complexity: </b> O(log N)
@@ -71,6 +68,7 @@ EuclideanGCDRecursive(LLI numOne, LLI numTwo)
 }
 
 /*!
+ * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Iterative algorithm for calculating GCD of two numbers
  *          <b>Time Complexity: </b> O(log N)
@@ -103,6 +101,7 @@ EuclideanGCDIterative(LLI numOne, LLI numTwo)
 }
 
 /*!
+ * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Best performance algorithm for calculating GCD of two numbers
  *          <b>Time Complexity: </b> O(log N)
@@ -118,6 +117,7 @@ GCD(LLI numOne, LLI numTwo)
 }
 
 /*!
+ * @ingroup Factors
  * @brief   Calculates LCM of two numbers
  * @details Best performance algorithm for calculating LCM of two numbers
  *          <b>Time Complexity: </b> O(log N)
@@ -137,6 +137,16 @@ LCM(LLI numOne, LLI numTwo)
     return answer;
 }
 
+/*!
+ * @ingroup Prime
+ * @brief   Calculates prime factorization of a number
+ * @details Example: 100 = 2<sup>2</sup> x 5<sup>2</sup>
+ *
+ * @param [in] [long long int] number - Number whose prime factorization is required
+ * @return [out] [vector<pair<unsigned long long int, unsigned long long int>>] - List containing a pair of numbers where
+ *          the first number in the pair is the prime factor and the second number in the pair is power of the prime
+ *          factor. <br/> Example: 25 = 5<sup>2</sup>. Now the function will return [(5, 2)]
+ */
 std::vector< std::pair<ULLI, ULLI> >
 PrimeFactorization(LLI number)
 {
@@ -157,3 +167,67 @@ PrimeFactorization(LLI number)
     if(number > 1) {PrimeFactors.emplace_back(number, 1);}
     return PrimeFactors;
 }
+
+/*!
+ * @todo Complete the implementation of the function SieveOfErastosthenes
+ * @ingroup Prime
+ * @brief   Gets all the prime numbers lesser than or equal to the specified number
+ * @details
+ *
+ * @param  [in] [long long int] number
+ * @return [out] [vector<unsinged long long int>] - Vector of primes less than or equal to the given number
+ */
+std::vector< ULLI >
+SieveOfEratosthenes(LLI number)
+{
+
+}
+
+/*!
+ * @ingroup Prime
+ * @brief   Naive algorithm to determine if a number is prime
+ * @details <b>Time Complexity</b>: O(N)
+ *
+ * @param  [in] [long long int] number - Number which should be tested for primality
+ * @return [out] [bool] - <i>true</i> if number is prime else <i>false</i>
+ */
+bool
+IsPrimeNaive(LLI number)
+{
+    if(number <= 1) { return false; }
+    for(LLI divisor = 2; divisor < number; divisor++)
+    {
+        if(number%divisor == 0) { return false; }
+    }
+    return true;
+}
+
+/*!
+ * @ingroup Prime
+ * @brief   Best algorithm to determine if a number is prime
+ * @details <b>Time Complexity</b>: O(\sqrt(N))
+ *
+ * @param  [in] [long long int] number - Number which should be tested for primality
+ * @return [out] [bool] - <i>true</i> if number is prime else <i>false</i>
+ */
+bool
+IsPrime(LLI number)
+{
+    if (number == 0 || number == 1)
+    {
+        return true;
+    }
+    else if (number == 2 || number == 3)
+    {
+        return true;
+    }
+    for(LLI divisor = 2; divisor <= sqrt(number); divisor++)
+    {
+        if(number%divisor == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+

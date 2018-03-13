@@ -33,6 +33,12 @@ LCM(LLI numOne, LLI numTwo);
 std::vector< std::pair<ULLI, ULLI> >
 PrimeFactorization(LLI number);
 
+std::vector< ULLI >
+SieveOfEratosthenes(LLI number);
+
+bool
+IsPrimeNaive(LLI number);
+
 bool
 IsPrime(LLI number);
 
