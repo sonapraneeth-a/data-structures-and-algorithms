@@ -1,24 +1,28 @@
-/*!
- * \defgroup Numbers
- * \addtogroup Numbers
- * \ingroup Numbers
+/**
+ *      Created on: 06 March 2018
+ *   Last modified: 13 March 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Implementation Code for fibonacci numbers
  */
 
 /**
- *      Created on: 06 March 2018
- *   Last modified: 06 March 2018
- *          Author: Sona Praneeth Akula
- *         Details: Code for fibonacci numbers
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 06-03-2018             Sona Praneeth Akula   - Creation of the file
+ * 13-03-2018             Sona Praneeth Akula   - Updation of the documentation
  */
 
 #include "Fibonacci.h"
 
 /*!
+ * @todo Create test cases and check for the correctness of the algorithm
+ * @ingroup Fibonacci
  * @brief   Get the nth fibonacci number
  * @details Recursive approach to get nth fibonacci number
  *
- * @param  [in] index - index of fibonacci number
- * @return [out] [int] - index th fibonacci number
+ * @param  [in] [unsigned int ] index - Index of fibonacci number
+ * @return [out] [unsigned long long int] - Index<sup>th</sup> fibonacci number
  */
 unsigned long long int
 GetNthFibonacciRecursive(unsigned int index)
@@ -40,11 +44,13 @@ GetNthFibonacciRecursive(unsigned int index)
 }
 
 /*!
+ * @todo Create test cases and check for the correctness of the algorithm
+ * @ingroup Fibonacci
  * @brief   Get the nth fibonacci number
  * @details Iterative approach to get nth fibonacci number
  *
- * @param  [in] index - index of fibonacci number
- * @return [out] [int] - index th fibonacci number
+ * @param  [in] [unsigned int ] index - Index of fibonacci number
+ * @return [out] [unsigned long long int] - Index<sup>th</sup> fibonacci number
  */
 unsigned long long int
 GetNthFibonacciIterative(unsigned int index)
@@ -71,4 +77,19 @@ GetNthFibonacciIterative(unsigned int index)
         }
         return fn;
     }
+}
+
+/*!
+ * @todo Complete the implementation of the function
+ * @ingroup Fibonacci
+ * @brief   Gets the fibonacci series of specified length
+ * @details
+ *
+ * @param  [in] [unsigned int] length - Length of fibonacci series required
+ * @return [out] [vector<unsigned long long int>] - Fibonacci series of the required length
+ */
+std::vector<ULLI>
+FibonacciSeries(unsigned int length)
+{
+    // Series: 0 1 1 2 3 5 ...
 }
