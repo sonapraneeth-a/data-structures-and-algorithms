@@ -17,6 +17,8 @@ Log/
 # Documentation files
 
 gh-pages/
+doxygen/
+mkdocs/
 
 #
 
