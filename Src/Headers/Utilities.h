@@ -1,9 +1,10 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include "DefaultHeaders.h"
+#include <random>
+#include <ctime>
 
-int get_Random_int(int start=100, int end=100000, std::string mode="fixed")
+int GetRandomInt(int start=100, int end=100000, std::string mode="Fixed")
 {
     int number;
     if (mode == "Random")
@@ -21,7 +22,7 @@ int get_Random_int(int start=100, int end=100000, std::string mode="fixed")
     return number;
 }
 
-double get_Random_double(int start=100, int end=100000, std::string mode="fixed")
+double GetRandomDouble(int start=100, int end=100000, std::string mode="Fixed")
 {
     std::random_device rd;
     std::mt19937 mt(rd());

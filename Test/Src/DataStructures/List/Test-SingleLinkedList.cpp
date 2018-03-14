@@ -39,14 +39,14 @@ class SingleLinkedListStringTest : public SingleLinkedListTest
 
 TEST_F(SingleLinkedListTest, InitHeadDefault)
 {
-    int number = get_Random_int();
+    int number = GetRandomInt();
     SingleLinkedList<int> List(number);
     EXPECT_EQ(number, List.GetHead()->get_data());
 }
 
 TEST_F(SingleLinkedListTest, InitHeadInsert)
 {
-    int number = get_Random_int();
+    int number = GetRandomInt();
     SingleLinkedList<int> List;
     List.Insert(number);
     EXPECT_EQ(number, List.GetHead()->get_data());
@@ -82,7 +82,7 @@ TEST_F(SingleLinkedListStringTest, StringListTwo)
 
 TEST_F(SingleLinkedListInsertTest, InsertHead)
 {
-    int number = get_Random_int();
+    int number = GetRandomInt();
     _List_int_0.Insert(number);
     EXPECT_EQ(number, _List_int_0.GetHead()->get_data());
 }
