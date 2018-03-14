@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("-- Generating CMake for Data Structures and Algorithms")
 
+add_subdirectory(Headers)
 include_directories(Headers)
 
 add_subdirectory(DataStructures)
