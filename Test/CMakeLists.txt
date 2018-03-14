@@ -12,6 +12,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 SET(TEST_PREFIX Test)
 
+SET(HEADERS_DIR ../Src/Headers)
+
 SET(DS_DIR ./Src/DataStructures)
 SET(NUMBERS_DIR Numbers)
 
@@ -20,7 +22,7 @@ SET(LIST_DIR List)
 
 set(LIST_TEST_FILES ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedListNode.cpp
                     ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedList.cpp)
-add_executable(DataStructuresTest ${DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES})
+add_executable(DataStructuresTest ${DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${HEADERS_DIR}/Utilities.cpp)
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
 set(BIG_INTEGER_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-BigInteger.cpp)
