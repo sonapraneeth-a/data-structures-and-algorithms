@@ -1,0 +1,798 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Sona Praneeth Akula">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>Fibonacci Numbers - Data Structures and Algorithms</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.78aab2dc.css">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#algorithms-related-to-fibonacci-numbers" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Data Structures and Algorithms" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Data Structures and Algorithms
+              </span>
+              <span class="md-header-nav__topic">
+                Fibonacci Numbers
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/sonapraneeth-a/data-structures-and-algorithms/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Data Structures and Algorithms
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/sonapraneeth-a/data-structures-and-algorithms/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Data Structures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Data Structures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      List
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        List
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ds/list/single-linked-list/" title="Single Linked List" class="md-nav__link">
+      Single Linked List
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Algorithms
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Algorithms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Fibonacci Numbers
+      </label>
+    
+    <a href="./" title="Fibonacci Numbers" class="md-nav__link md-nav__link--active">
+      Fibonacci Numbers
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-algorithm-to-get-nth-fibonacci-number" title="Recursive algorithm to get Nth fibonacci number" class="md-nav__link">
+    Recursive algorithm to get Nth fibonacci number
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-algorithm-to-get-nth-fibonacci-number" title="Iterative algorithm to get Nth fibonacci number" class="md-nav__link">
+    Iterative algorithm to get Nth fibonacci number
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code_1" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fibonacci-series" title="Fibonacci Series" class="md-nav__link">
+    Fibonacci Series
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_2" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code_2" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../factorization/" title="Factorization of numbers" class="md-nav__link">
+      Factorization of numbers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../todo/" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-algorithm-to-get-nth-fibonacci-number" title="Recursive algorithm to get Nth fibonacci number" class="md-nav__link">
+    Recursive algorithm to get Nth fibonacci number
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-algorithm-to-get-nth-fibonacci-number" title="Iterative algorithm to get Nth fibonacci number" class="md-nav__link">
+    Iterative algorithm to get Nth fibonacci number
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code_1" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fibonacci-series" title="Fibonacci Series" class="md-nav__link">
+    Fibonacci Series
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_2" title="Details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pseudo-code_2" title="Pseudo code" class="md-nav__link">
+    Pseudo code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sonapraneeth-a/data-structures-and-algorithms/edit/master/docs/algo/numbers/fibonacci/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="algorithms-related-to-fibonacci-numbers">Algorithms related to Fibonacci numbers<a class="headerlink" href="#algorithms-related-to-fibonacci-numbers" title="Permanent link">&para;</a></h1>
+<p><strong>Source:</strong> <a href="https://github.com/sonapraneeth-a/data-structures-and-algorithms/blob/master/Src/Algorithms/Numbers/Fibonacci.cpp">Link</a></p>
+<h2 id="recursive-algorithm-to-get-nth-fibonacci-number">Recursive algorithm to get N<sup>th</sup> fibonacci number<a class="headerlink" href="#recursive-algorithm-to-get-nth-fibonacci-number" title="Permanent link">&para;</a></h2>
+<h3 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h3>
+<p><strong>Time Complexity:</strong> <span><span class="MathJax_Preview">O(2^N)</span><script type="math/tex">O(2^N)</script></span> where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is the number which is input to the algorithm</p>
+<p><strong>Space Complexity:</strong> <span><span class="MathJax_Preview">O(2^N)</span><script type="math/tex">O(2^N)</script></span> where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is the number which is input to the algorithm</p>
+<p><strong>Explanation:</strong></p>
+<h3 id="pseudo-code">Pseudo code<a class="headerlink" href="#pseudo-code" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Fib</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Fib(0) = 0</span>
+    <span class="c1">// Fib(1) = 1</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="k">return</span> <span class="n">N</span><span class="p">;}</span>
+</span>    <span class="cm">/* Recursive relation: F(N) = F(N-1) + F(N-2) */</span>
+    <span class="k">return</span> <span class="n">Fib</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fib</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition danger">
+<p class="admonition-title">Hanging</p>
+<p>If <strong>N</strong> is a very large number, the recursion stack could go deep leading to hanging of the program.</p>
+</div>
+<h2 id="iterative-algorithm-to-get-nth-fibonacci-number">Iterative algorithm to get N<sup>th</sup> fibonacci number<a class="headerlink" href="#iterative-algorithm-to-get-nth-fibonacci-number" title="Permanent link">&para;</a></h2>
+<h3 id="details_1">Details<a class="headerlink" href="#details_1" title="Permanent link">&para;</a></h3>
+<p><strong>Time Complexity:</strong> O(N) where N is the number which is input to the algorithm</p>
+<p><strong>Space Complexity:</strong> O(1)</p>
+<p><strong>Explanation:</strong></p>
+<h3 id="pseudo-code_1">Pseudo code<a class="headerlink" href="#pseudo-code_1" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Fib</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">fn_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// F(N-2) =&gt; Fib(0) = 0</span>
+    <span class="n">fn_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">// F(N-1) =&gt; Fib(1) = 1</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// F(N)</span>
+    <span class="cm">/* Recursive relation: F(N) = F(N-1) + F(N-2) */</span>
+    <span class="n">ForLoop</span><span class="p">(</span><span class="n">i</span> <span class="n">from</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">N</span><span class="p">)</span> <span class="c1">// O(N)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="n">fn</span> <span class="o">=</span> <span class="n">fn_1</span> <span class="o">+</span> <span class="n">fn_2</span><span class="p">;</span>  <span class="c1">// O(1)</span>
+</span><span class="hll">        <span class="n">fn_2</span> <span class="o">=</span> <span class="n">fn_1</span><span class="p">;</span>       <span class="c1">// O(1)</span>
+</span><span class="hll">        <span class="n">fn_1</span> <span class="o">=</span> <span class="n">fn</span><span class="p">;</span>         <span class="c1">// O(1)</span>
+</span>    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">fn</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Best Algorithm for calculating N<sup>th</sup> fibonacci number</p>
+<p>From the above discussion, it is evident that iterative version of calculating n<sup>th</sup> fibonacci number is the best.</p>
+</div>
+<h2 id="fibonacci-series">Fibonacci Series<a class="headerlink" href="#fibonacci-series" title="Permanent link">&para;</a></h2>
+<h3 id="details_2">Details<a class="headerlink" href="#details_2" title="Permanent link">&para;</a></h3>
+<p><strong>Time Complexity:</strong> O(N) where N is the length of the series required</p>
+<p><strong>Space Complexity:</strong> O(N) where N is the length of the series required</p>
+<p><strong>Explanation:</strong></p>
+<h3 id="pseudo-code_2">Pseudo code<a class="headerlink" href="#pseudo-code_2" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">FibSeries</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">empty</span><span class="p">;</span>
+    <span class="n">fn_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="c1">// F(N-2) =&gt; Fib(0) = 0</span>
+    <span class="n">fn_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">// F(N-1) =&gt; Fib(1) = 1</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// F(N)</span>
+<span class="hll">    <span class="n">series</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">fn_2</span><span class="p">);</span>
+</span><span class="hll">    <span class="n">series</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">fn_1</span><span class="p">);</span>
+</span>    <span class="cm">/* Recursive relation: F(N) = F(N-1) + F(N-2) */</span>
+    <span class="n">ForLoop</span><span class="p">(</span><span class="n">i</span> <span class="n">from</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">N</span><span class="p">)</span> <span class="c1">// O(N)</span>
+    <span class="p">{</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">fn_1</span> <span class="o">+</span> <span class="n">fn_2</span><span class="p">;</span>  <span class="c1">// O(1)</span>
+        <span class="n">fn_2</span> <span class="o">=</span> <span class="n">fn_1</span><span class="p">;</span>       <span class="c1">// O(1)</span>
+        <span class="n">fn_1</span> <span class="o">=</span> <span class="n">fn</span><span class="p">;</span>         <span class="c1">// O(1)</span>
+<span class="hll">        <span class="n">series</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">fn</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">fn</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../ds/list/single-linked-list/" title="Single Linked List" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Single Linked List
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../factorization/" title="Factorization of numbers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Factorization of numbers
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Sona Praneeth Akula 2018
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/latex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-90733014-1","sonapraneeth-a.github.io"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

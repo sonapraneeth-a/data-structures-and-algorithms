@@ -1,0 +1,214 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Data Structures and Algorithms\n\u00b6\n\n\nThis is the documentation for the source code on data structures and algorithms.",
+            "title": "Home"
+        },
+        {
+            "location": "/#data-structures-and-algorithms",
+            "text": "This is the documentation for the source code on data structures and algorithms.",
+            "title": "Data Structures and Algorithms"
+        },
+        {
+            "location": "/ds/list/single-linked-list/",
+            "text": "Welcome to MkDocs\n\u00b6\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\u00b6\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\u00b6\n\n\n1\n2\n3\n4\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Single Linked List"
+        },
+        {
+            "location": "/ds/list/single-linked-list/#welcome-to-mkdocs",
+            "text": "For full documentation visit  mkdocs.org .",
+            "title": "Welcome to MkDocs"
+        },
+        {
+            "location": "/ds/list/single-linked-list/#commands",
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
+            "title": "Commands"
+        },
+        {
+            "location": "/ds/list/single-linked-list/#project-layout",
+            "text": "1\n2\n3\n4 mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Project layout"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/",
+            "text": "Algorithms related to Fibonacci numbers\n\u00b6\n\n\nSource:\n \nLink\n\n\nRecursive algorithm to get N\nth\n fibonacci number\n\u00b6\n\n\nDetails\n\u00b6\n\n\nTime Complexity:\n \nO(2^N)\nO(2^N)\n where \nN\nN\n is the number which is input to the algorithm\n\n\nSpace Complexity:\n \nO(2^N)\nO(2^N)\n where \nN\nN\n is the number which is input to the algorithm\n\n\nExplanation:\n\n\nPseudo code\n\u00b6\n\n\n1\n2\n3\n4\n5\n6\n7\n8\nFib\n(\nN\n)\n\n\n{\n\n    \n// Fib(0) = 0\n\n    \n// Fib(1) = 1\n\n\n    \nif\n \n(\nN\n \n<=\n \n1\n)\n \n{\nreturn\n \nN\n;}\n\n\n    \n/* Recursive relation: F(N) = F(N-1) + F(N-2) */\n\n    \nreturn\n \nFib\n(\nN\n \n-\n \n1\n)\n \n+\n \nFib\n(\nN\n \n-\n \n2\n);\n\n\n}\n\n\n\n\n\n\n\n\n\nHanging\n\n\nIf \nN\n is a very large number, the recursion stack could go deep leading to hanging of the program.\n\n\n\n\nIterative algorithm to get N\nth\n fibonacci number\n\u00b6\n\n\nDetails\n\u00b6\n\n\nTime Complexity:\n O(N) where N is the number which is input to the algorithm\n\n\nSpace Complexity:\n O(1)\n\n\nExplanation:\n\n\nPseudo code\n\u00b6\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\nFib\n(\nN\n)\n\n\n{\n\n    \nfn_2\n \n=\n \n0\n;\n   \n// F(N-2) => Fib(0) = 0\n\n    \nfn_1\n \n=\n \n1\n;\n   \n// F(N-1) => Fib(1) = 1\n\n    \nfn\n \n=\n \n0\n;\n     \n// F(N)\n\n    \n/* Recursive relation: F(N) = F(N-1) + F(N-2) */\n\n    \nForLoop\n(\ni\n \nfrom\n \n2\n \nto\n \nN\n)\n \n// O(N)\n\n    \n{\n\n\n        \nfn\n \n=\n \nfn_1\n \n+\n \nfn_2\n;\n  \n// O(1)\n\n\n        \nfn_2\n \n=\n \nfn_1\n;\n       \n// O(1)\n\n\n        \nfn_1\n \n=\n \nfn\n;\n         \n// O(1)\n\n\n    \n}\n\n    \nreturn\n \nfn\n;\n\n\n}\n\n\n\n\n\n\n\n\n\nBest Algorithm for calculating N\nth\n fibonacci number\n\n\nFrom the above discussion, it is evident that iterative version of calculating n\nth\n fibonacci number is the best.\n\n\n\n\nFibonacci Series\n\u00b6\n\n\nDetails\n\u00b6\n\n\nTime Complexity:\n O(N) where N is the length of the series required\n\n\nSpace Complexity:\n O(N) where N is the length of the series required\n\n\nExplanation:\n\n\nPseudo code\n\u00b6\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\nFibSeries\n(\nN\n)\n\n\n{\n\n    \nseries\n \n=\n \nempty\n;\n\n    \nfn_2\n \n=\n \n0\n;\n   \n// F(N-2) => Fib(0) = 0\n\n    \nfn_1\n \n=\n \n1\n;\n   \n// F(N-1) => Fib(1) = 1\n\n    \nfn\n \n=\n \n0\n;\n     \n// F(N)\n\n\n    \nseries\n.\npush\n(\nfn_2\n);\n\n\n    \nseries\n.\npush\n(\nfn_1\n);\n\n\n    \n/* Recursive relation: F(N) = F(N-1) + F(N-2) */\n\n    \nForLoop\n(\ni\n \nfrom\n \n2\n \nto\n \nN\n)\n \n// O(N)\n\n    \n{\n\n        \nfn\n \n=\n \nfn_1\n \n+\n \nfn_2\n;\n  \n// O(1)\n\n        \nfn_2\n \n=\n \nfn_1\n;\n       \n// O(1)\n\n        \nfn_1\n \n=\n \nfn\n;\n         \n// O(1)\n\n\n        \nseries\n.\npush\n(\nfn\n);\n\n\n    \n}\n\n    \nreturn\n \nfn\n;\n\n\n}",
+            "title": "Fibonacci Numbers"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#algorithms-related-to-fibonacci-numbers",
+            "text": "Source:   Link",
+            "title": "Algorithms related to Fibonacci numbers"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#recursive-algorithm-to-get-nth-fibonacci-number",
+            "text": "",
+            "title": "Recursive algorithm to get Nth fibonacci number"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#details",
+            "text": "Time Complexity:   O(2^N) O(2^N)  where  N N  is the number which is input to the algorithm  Space Complexity:   O(2^N) O(2^N)  where  N N  is the number which is input to the algorithm  Explanation:",
+            "title": "Details"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#pseudo-code",
+            "text": "1\n2\n3\n4\n5\n6\n7\n8 Fib ( N )  { \n     // Fib(0) = 0 \n     // Fib(1) = 1       if   ( N   <=   1 )   { return   N ;}       /* Recursive relation: F(N) = F(N-1) + F(N-2) */ \n     return   Fib ( N   -   1 )   +   Fib ( N   -   2 );  }     Hanging  If  N  is a very large number, the recursion stack could go deep leading to hanging of the program.",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#iterative-algorithm-to-get-nth-fibonacci-number",
+            "text": "",
+            "title": "Iterative algorithm to get Nth fibonacci number"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#details_1",
+            "text": "Time Complexity:  O(N) where N is the number which is input to the algorithm  Space Complexity:  O(1)  Explanation:",
+            "title": "Details"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#pseudo-code_1",
+            "text": "1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14 Fib ( N )  { \n     fn_2   =   0 ;     // F(N-2) => Fib(0) = 0 \n     fn_1   =   1 ;     // F(N-1) => Fib(1) = 1 \n     fn   =   0 ;       // F(N) \n     /* Recursive relation: F(N) = F(N-1) + F(N-2) */ \n     ForLoop ( i   from   2   to   N )   // O(N) \n     {           fn   =   fn_1   +   fn_2 ;    // O(1)           fn_2   =   fn_1 ;         // O(1)           fn_1   =   fn ;           // O(1)       } \n     return   fn ;  }     Best Algorithm for calculating N th  fibonacci number  From the above discussion, it is evident that iterative version of calculating n th  fibonacci number is the best.",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#fibonacci-series",
+            "text": "",
+            "title": "Fibonacci Series"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#details_2",
+            "text": "Time Complexity:  O(N) where N is the length of the series required  Space Complexity:  O(N) where N is the length of the series required  Explanation:",
+            "title": "Details"
+        },
+        {
+            "location": "/algo/numbers/fibonacci/#pseudo-code_2",
+            "text": "1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18 FibSeries ( N )  { \n     series   =   empty ; \n     fn_2   =   0 ;     // F(N-2) => Fib(0) = 0 \n     fn_1   =   1 ;     // F(N-1) => Fib(1) = 1 \n     fn   =   0 ;       // F(N)       series . push ( fn_2 );       series . push ( fn_1 );       /* Recursive relation: F(N) = F(N-1) + F(N-2) */ \n     ForLoop ( i   from   2   to   N )   // O(N) \n     { \n         fn   =   fn_1   +   fn_2 ;    // O(1) \n         fn_2   =   fn_1 ;         // O(1) \n         fn_1   =   fn ;           // O(1)           series . push ( fn );       } \n     return   fn ;  }",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/",
+            "text": "Algorithms related to Factorization of numbers\n\u00b6\n\n\nSource:\n \nLink\n\n\nNaive GCD algorithm\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nEuclidean GCD algorithm (Recursive version)\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nEuclidean GCD algorithm (Iterative version)\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nLCM\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nPrimeFactorization\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nIsPrimeNaive\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6\n\n\nIsPrime\n\u00b6\n\n\nPseudo code\n\u00b6\n\n\nTime Complexity\n\u00b6",
+            "title": "Factorization of numbers"
+        },
+        {
+            "location": "/algo/numbers/factorization/#algorithms-related-to-factorization-of-numbers",
+            "text": "Source:   Link",
+            "title": "Algorithms related to Factorization of numbers"
+        },
+        {
+            "location": "/algo/numbers/factorization/#naive-gcd-algorithm",
+            "text": "",
+            "title": "Naive GCD algorithm"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#euclidean-gcd-algorithm-recursive-version",
+            "text": "",
+            "title": "Euclidean GCD algorithm (Recursive version)"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_1",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_1",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#euclidean-gcd-algorithm-iterative-version",
+            "text": "",
+            "title": "Euclidean GCD algorithm (Iterative version)"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_2",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_2",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#lcm",
+            "text": "",
+            "title": "LCM"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_3",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_3",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#primefactorization",
+            "text": "",
+            "title": "PrimeFactorization"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_4",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_4",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#isprimenaive",
+            "text": "",
+            "title": "IsPrimeNaive"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_5",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_5",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/algo/numbers/factorization/#isprime",
+            "text": "",
+            "title": "IsPrime"
+        },
+        {
+            "location": "/algo/numbers/factorization/#pseudo-code_6",
+            "text": "",
+            "title": "Pseudo code"
+        },
+        {
+            "location": "/algo/numbers/factorization/#time-complexity_6",
+            "text": "",
+            "title": "Time Complexity"
+        },
+        {
+            "location": "/todo/",
+            "text": "List of tasks to complete\n\u00b6\n\n\n\n\nTasks for algorithms module\n\n\nTasks for \nFibonacci\n\n\n Create test cases and check for the correctness of the algorithm. \nGetNthFibonacciRecursive\n\n\n Create test cases and check for the correctness of the algorithm. \nGetNthFibonacciIterative\n\n\n\n\n\n\nTasks for \nFactorization\n\n\n Create test cases and check for the correctness of the algorithm. \nNaiveGCD\n\n\n Create test cases and check for the correctness of the algorithm. \nEuclideanGCDRecursive\n\n\n Create test cases and check for the correctness of the algorithm. \nEuclideanGCDIterative\n\n\n Create test cases and check for the correctness of the algorithm. \nLCM\n\n\n Create test cases and check for the correctness of the algorithm. \nPrimeFactorization\n\n\n Create test cases and check for the correctness of the algorithm.\nIsPrimeNaive\n\n\n Create test cases and check for the correctness of the algorithm.\nIsPrime\n\n\n Complete the implementation of the function \nSieveOfEratosthenes",
+            "title": "TODO"
+        },
+        {
+            "location": "/todo/#list-of-tasks-to-complete",
+            "text": "Tasks for algorithms module  Tasks for  Fibonacci   Create test cases and check for the correctness of the algorithm.  GetNthFibonacciRecursive   Create test cases and check for the correctness of the algorithm.  GetNthFibonacciIterative    Tasks for  Factorization   Create test cases and check for the correctness of the algorithm.  NaiveGCD   Create test cases and check for the correctness of the algorithm.  EuclideanGCDRecursive   Create test cases and check for the correctness of the algorithm.  EuclideanGCDIterative   Create test cases and check for the correctness of the algorithm.  LCM   Create test cases and check for the correctness of the algorithm.  PrimeFactorization   Create test cases and check for the correctness of the algorithm. IsPrimeNaive   Create test cases and check for the correctness of the algorithm. IsPrime   Complete the implementation of the function  SieveOfEratosthenes",
+            "title": "List of tasks to complete"
+        }
+    ]
+}
