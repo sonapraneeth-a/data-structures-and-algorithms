@@ -77,7 +77,7 @@ protected:
     std::vector<GCDNumber> GCD_PositivePrimeNumber;
     std::vector<GCDNumber> GCD_PositiveLargeNumber;
 
-    std::vector<PrimeNumber> PrimeNumber;
+    // std::vector<PrimeNumber> PrimeNumber;
 
 };
 
