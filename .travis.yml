@@ -12,5 +12,5 @@ before_script:
 
 script:
     - pwd
-    - .\Scripts\build.bat
-    - .\Scripts\run.bat
+    - ./Scripts/build.bat
+    - ./Scripts/run.bat
