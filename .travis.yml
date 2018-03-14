@@ -15,5 +15,7 @@ before_script:
 script:
     - pwd
     - ./Scripts/build-unix.bat
-    - ls -la ./Build/test/
+    - pwd
+    - ls -lah ./Build/*
+    - ls -lah ./Build/test/
     - ./Scripts/run.bat
