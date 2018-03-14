@@ -1,7 +1,0 @@
-<map id="SingleLinkedListNode::get_next" name="SingleLinkedListNode::get_next">
-<area shape="rect" id="node2" href="$dd/dfb/classSingleLinkedList.html#aba6dfff7f7f87c928e103573238f2559" title="Print the contents of the single linked list on console. " alt="" coords="209,5,383,32"/>
-<area shape="rect" id="node3" href="$dd/dfb/classSingleLinkedList.html#a9e8a777c8b5d55faa69f085dc8090fe4" title="Return the list as string. " alt="" coords="209,56,383,83"/>
-<area shape="rect" id="node4" href="$dd/dfb/classSingleLinkedList.html#a7970e76ba5bc2e65f2361b2b803752e3" title="Insert a node at the end of list. " alt="" coords="217,107,375,133"/>
-<area shape="rect" id="node6" href="$dd/dfb/classSingleLinkedList.html#a0ea03b2f610e0ee1e0b8791ee93af4d3" title="Delete the head of the list. " alt="" coords="200,157,392,184"/>
-<area shape="rect" id="node5" href="$d3/da5/MainList_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="440,107,491,133"/>
-</map>
