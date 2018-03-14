@@ -3,6 +3,6 @@
 int main()
 {
     SingleLinkedList<int> List;
-    List.insert(20);
+    List.Insert(20);
     return 0;
 }

@@ -8,19 +8,19 @@ class SingleLinkedList
 {
 public:
 
-    SingleLinkedListNode<T> *head;
-    unsigned int size;
+    SingleLinkedListNode<T> *Head;
+    unsigned int Size;
 
     SingleLinkedList();
-    SingleLinkedList(T value);
+    SingleLinkedList(T Value);
 
-    SingleLinkedListNode<T>* get_head();
-    void print_List();
-    std::string to_string();
-    unsigned int get_size();
-    void delete_head();
-    void clear();
-    void insert(T value);
+    SingleLinkedListNode<T>* GetHead();
+    void PrintList();
+    std::string ToString();
+    unsigned int GetSize();
+    void DeleteHead();
+    void Clear();
+    void Insert(T Value);
 
 };
 
