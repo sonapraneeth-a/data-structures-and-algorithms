@@ -21,7 +21,7 @@ include_directories(Algorithms/Numbers)
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
 # Adding the source code for executable
-add_executable(DataStructuresAndAlgorithms main.cpp)
+add_executable(DataStructuresAndAlgorithms Main.cpp)
 target_link_libraries(DataStructuresAndAlgorithms DsStatic)
 
 message("-- Completing generation of CMake files for Data Structures and Algorithms")
