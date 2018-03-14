@@ -18,4 +18,4 @@ script:
     - pwd
     - make -f ./Build/Test/Makefile
     - ls -lah ./Build/*
-    - ./Scripts/run.bat
+    - ./Scripts/run-unix.bat
