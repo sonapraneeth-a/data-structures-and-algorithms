@@ -3,9 +3,9 @@
 set -x
 
 echo "Running data structures test"
-chmod +x ./Build/test/DataStructuresTest
+chmod +x ./Build/Test/DataStructuresTest
 ./Build/Test/DataStructuresTest
 
 echo "Running algorithms test"
-chmod +x ./Build/test/AlgorithmsTest
+chmod +x ./Build/Test/AlgorithmsTest
 ./Build/Test/AlgorithmsTest
