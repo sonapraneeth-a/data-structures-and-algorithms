@@ -17,5 +17,5 @@ script:
     - ./Scripts/build-unix.bat
     - pwd
     - ls -lah ./Build/*
-    - ls -lah ./Build/test/
+    - make -f ./Build/Test/Makefile
     - ./Scripts/run.bat
