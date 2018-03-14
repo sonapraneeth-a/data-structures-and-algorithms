@@ -16,6 +16,27 @@ public:
         this->numTwo = b;
     }
 };
+
+class PrimeNumber
+{
+public:
+    ULLI number;
+    ULLI exponent;
+    bool answer;
+    PrimeNumber(ULLI number, bool answer)
+    {
+        this->answer = answer;
+        this->number = number;
+        this->exponent = 1;
+    }
+    PrimeNumber(ULLI number, ULLI exponent)
+    {
+        this->answer = true;
+        this->number = number;
+        this->exponent = exponent;
+    }
+};
+
 class FactorizationTest : public ::testing::Test
 {
 protected:
@@ -55,6 +76,8 @@ protected:
     std::vector<GCDNumber> GCD_PositiveCompositeNumber;
     std::vector<GCDNumber> GCD_PositivePrimeNumber;
     std::vector<GCDNumber> GCD_PositiveLargeNumber;
+
+    std::vector<PrimeNumber> PrimeNumber;
 
 };
 
