@@ -1,0 +1,50 @@
+site_name: Data Structures and Algorithms
+repo_url: https://github.com/sonapraneeth-a/data-structures-and-algorithms/
+site_description:
+site_author: Sona Praneeth Akula
+copyright: "&copy; Sona Praneeth Akula 2018"
+google_analytics: ['UA-90733014-1', 'sonapraneeth-a.github.io']
+remote_name: docs-mkdocs
+pages:
+    - "Home": index.md
+    - "Data Structures":
+        - "List":
+            - "Single Linked List":  ds/list/single-linked-list/index.md
+    - "Algorithms":
+        - "Fibonacci Numbers": algo/numbers/fibonacci/index.md
+        - "Factorization of numbers": algo/numbers/factorization/index.md
+    - "TODO": todo/index.md
+theme:
+    name: "material"
+use_directory_urls: true
+# Extensions
+markdown_extensions:
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+    - admonition
+    - codehilite:
+        linenums: true
+    - footnotes
+    - meta
+    - toc:
+        permalink: true
+extra_javascript:
+    - "js/latex.js"
+    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML'
+dev_addr: "127.0.0.1:5000"
+plugins:
+    - search
