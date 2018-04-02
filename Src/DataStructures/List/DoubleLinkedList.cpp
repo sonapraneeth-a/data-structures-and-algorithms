@@ -1,51 +1,51 @@
-#include "SingleLinkedList.h"
+#include "DoubleLinkedList.h"
 #include <iostream>
 
 /*!
- * @brief   SingleLinkedList Constructor with no value for head
- * @details Create a pointer to the head of the single linked list. But head of the list will not contain any value.
+ * @brief   DoubleLinkedList Constructor with no value for head
+ * @details Create a pointer to the head of the Double linked list. But head of the list will not contain any value.
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  */
 template <typename T>
-SingleLinkedList<T>::SingleLinkedList()
+DoubleLinkedList<T>::DoubleLinkedList()
 {
     Head = nullptr;
     this->Size = 0;
 }
 
 /*!
- * @brief   SingleLinkedList Constructor with input value for head
+ * @brief   DoubleLinkedList Constructor with input value for head
  * @details Create a pointer to the head of the linked list. But head of the list will contain the value
  *          provided the program
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
- * @param [in] Value - value to be put in the single linked list node
+ * @param [in] Value - value to be put in the Double linked list node
  * @return
  */
 template <typename T>
-SingleLinkedList<T>::SingleLinkedList(T Value)
+DoubleLinkedList<T>::DoubleLinkedList(T Value)
 {
-    Head = new SingleLinkedListNode<T>(Value);
+    Head = new DoubleLinkedListNode<T>(Value);
     this->Size = 1;
 }
 
 /*!
- * @brief   Get pointer to head of single linked list
+ * @brief   Get pointer to head of Double linked list
  * @details
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  * @param
- * @return [out] SingleLinkedListNode * - Pointer to the head of the single linked list node
+ * @return [out] DoubleLinkedListNode * - Pointer to the head of the Double linked list node
  */
 template <typename T>
-SingleLinkedListNode<T>* SingleLinkedList<T>::GetHead()
+DoubleLinkedListNode<T>* DoubleLinkedList<T>::GetHead()
 {
     return Head;
 }
 
 /*!
- * @brief   Print the contents of the single linked list on console
+ * @brief   Print the contents of the Double linked list on console
  * @details
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
@@ -53,9 +53,9 @@ SingleLinkedListNode<T>* SingleLinkedList<T>::GetHead()
  * @return
  */
 template <typename T>
-void SingleLinkedList<T>::PrintList()
+void DoubleLinkedList<T>::PrintList()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->Head;
     while (temp)
     {
         std::cout << temp->GetData() << " ";
@@ -71,12 +71,12 @@ void SingleLinkedList<T>::PrintList()
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  * @param
- * @return [out] std::string - String representation of the single linked list
+ * @return [out] std::string - String representation of the Double linked list
  */
 template <typename T>
-std::string SingleLinkedList<T>::ToString()
+std::string DoubleLinkedList<T>::ToString()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->Head;
     std::stringstream out;
     while (temp)
     {
@@ -92,16 +92,16 @@ std::string SingleLinkedList<T>::ToString()
  * @details
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
- * @param [in] Value - The value to be inserted into the single linked list
+ * @param [in] Value - The value to be inserted into the Double linked list
  * @return
  */
 template <typename T>
-void SingleLinkedList<T>::Insert(T Value)
+void DoubleLinkedList<T>::Insert(T Value)
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->Head;
     if(temp == nullptr)
     {
-        this->Head = new SingleLinkedListNode<T>(Value);
+        this->Head = new DoubleLinkedListNode<T>(Value);
         this->Size = 1;
         return;
     }
@@ -109,37 +109,37 @@ void SingleLinkedList<T>::Insert(T Value)
     {
         temp = temp->GetNext();
     }
-    temp->SetNext(new SingleLinkedListNode<T>(Value));
+    temp->SetNext(new DoubleLinkedListNode<T>(Value));
     this->Size++;
     return;
 }
 
 /*!
- * @brief  Get the length of the single linked list
+ * @brief  Get the length of the Double linked list
  * @details
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  * @param
- * @return [out] unsigned int - Size of the single linked list
+ * @return [out] unsigned int - Size of the Double linked list
  */
 template <typename T>
-unsigned int SingleLinkedList<T>::GetSize()
+unsigned int DoubleLinkedList<T>::GetSize()
 {
     return this->Size;
 }
 
 /*!
  * @brief   Delete the head of the list
- * @details Removes the first element from the start of the single linked list
+ * @details Removes the first element from the start of the Double linked list
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  * @param
  * @return
  */
 template <typename T>
-void SingleLinkedList<T>::DeleteHead()
+void DoubleLinkedList<T>::DeleteHead()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->Head;
     if(temp == nullptr)
     {
         exit(-1);
@@ -150,17 +150,17 @@ void SingleLinkedList<T>::DeleteHead()
 }
 
 /*!
- * @brief   Clear the single linked list
- * @details Removes all the nods from the single linked list
+ * @brief   Clear the Double linked list
+ * @details Removes all the nods from the Double linked list
  *
  * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
  * @param
  * @return void
  */
 template <typename T>
-void SingleLinkedList<T>::Clear()
+void DoubleLinkedList<T>::Clear()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->Head;
     if(temp == nullptr)
     {
         return ;
@@ -172,7 +172,7 @@ void SingleLinkedList<T>::Clear()
     return ;
 }
 
-template class SingleLinkedList<int>;
-template class SingleLinkedList<double>;
-template class SingleLinkedList<char>;
-template class SingleLinkedList<std::string>;
+template class DoubleLinkedList<int>;
+template class DoubleLinkedList<double>;
+template class DoubleLinkedList<char>;
+template class DoubleLinkedList<std::string>;

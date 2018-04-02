@@ -8,26 +8,26 @@ template<typename T>
 class SingleLinkedListNode
 {
 public:
-    T data;
-    SingleLinkedListNode<T> *next;
+    T Data;
+    SingleLinkedListNode<T> *Next;
 
     SingleLinkedListNode();
-    SingleLinkedListNode(T value);
+    SingleLinkedListNode(T Value);
 
-    T get_data();
-    SingleLinkedListNode<T>* get_next();
-    void set_data(T value);
-    void set_next(SingleLinkedListNode<T> *next_link);
+    T GetData();
+    SingleLinkedListNode<T>* GetNext();
+    void SetData(T Value);
+    void SetNext(SingleLinkedListNode<T> *NextLink);
 
-    std::string to_string();
+    std::string ToString();
 
     ~SingleLinkedListNode();
 };
 
 template<typename T>
-std::ostream& operator <<(std::ostream& os, const SingleLinkedListNode<T>& node)
+std::ostream& operator <<(std::ostream& os, const SingleLinkedListNode<T>& Node)
 {
-    os << node.data << " -> " << node.next << "\n";
+    os << Node.Data << " -> " << Node.Next << "\n";
     return os;
 }
 

@@ -1,48 +1,48 @@
 #include "SingleLinkedListNode.h"
 
 template <typename T>
-SingleLinkedListNode<T>::SingleLinkedListNode(T value)
+SingleLinkedListNode<T>::SingleLinkedListNode(T Value)
 {
-    data = value;
-    next = nullptr;
+    Data = Value;
+    Next = nullptr;
 }
 
 template <typename T>
-T SingleLinkedListNode<T>::get_data()
+T SingleLinkedListNode<T>::GetData()
 {
-    return this->data;
+    return this->Data;
 }
 
 template <typename T>
-SingleLinkedListNode<T>* SingleLinkedListNode<T>::get_next()
+SingleLinkedListNode<T>* SingleLinkedListNode<T>::GetNext()
 {
-    return this->next;
+    return this->Next;
 }
 
 template <typename T>
-void SingleLinkedListNode<T>::set_data(T value)
+void SingleLinkedListNode<T>::SetData(T Value)
 {
-    data = value;
+    Data = Value;
 }
 
 template <typename T>
-void SingleLinkedListNode<T>::set_next(SingleLinkedListNode<T> *next_link)
+void SingleLinkedListNode<T>::SetNext(SingleLinkedListNode<T> *NextLink)
 {
-    next = next_link;
+    Next = NextLink;
 }
 
 template <typename T>
-std::string SingleLinkedListNode<T>::to_string()
+std::string SingleLinkedListNode<T>::ToString()
 {
     std::stringstream out;
-    out << this->data << " -> " << this->next;
+    out << this->Data << " -> " << this->Next;
     return out.str();
 }
 
 template <typename T>
 SingleLinkedListNode<T>::~SingleLinkedListNode()
 {
-    next = nullptr;
+    Next = nullptr;
 }
 
 template class SingleLinkedListNode<int>;
