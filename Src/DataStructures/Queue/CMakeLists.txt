@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Queue")
 
-set(SOURCE_FILES Queue.cpp Queue.h)
+set(SOURCE_FILES Queue.cpp Queue.h QueueNode.cpp QueueNode.h)
 include_directories(Queue)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
