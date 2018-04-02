@@ -1,5 +1,5 @@
-#ifndef DOCUMENTATION_H
-#define DOCUMENTATION_H
+#ifndef ALGORITHMS_DOCUMENTATION_H
+#define ALGORITHMS_DOCUMENTATION_H
 
 /**
  * @defgroup Algorithms
@@ -35,4 +35,4 @@
  * @brief    Algorithms related to factors of a number
  */
 
-#endif // DOCUMENTATION_H
+#endif // ALGORITHMS_DOCUMENTATION_H
