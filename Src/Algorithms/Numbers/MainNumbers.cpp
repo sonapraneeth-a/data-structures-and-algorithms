@@ -5,8 +5,8 @@
 void RunBigInteger()
 {
     BigInteger number;
-    std::string positive_signInteger = "+123";
-    std::cout << number.validate_string(positive_signInteger) << "\n";
+    //std::string positive_signInteger = "+123";
+    //std::cout << number.validate_string(positive_signInteger) << "\n";
     return;
 }
 
@@ -35,6 +35,6 @@ void RunPrimeFactorization()
 
 int main()
 {
-    RunPrimeFactorization();
+    RunBigInteger();
     return 0;
 }

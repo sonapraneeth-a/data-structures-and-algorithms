@@ -8,11 +8,13 @@
 class BigInteger
 {
 private:
+
     unsigned int *number;
     bool sign = true;
     unsigned int integer_size = 0;
-public:
     std::string integer;
+
+public:
 
     BigInteger();
     BigInteger(std::string input);

@@ -92,5 +92,5 @@ bool BigInteger::validate_string(std::string &input)
 
 BigInteger::~BigInteger()
 {
-    free(number);
+    //free(number);
 }
