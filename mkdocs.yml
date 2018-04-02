@@ -1,10 +1,11 @@
 site_name: Data Structures and Algorithms
 repo_url: https://github.com/sonapraneeth-a/data-structures-and-algorithms/
-site_description:
+site_description: Implementation of data structures and algorithms in C++
 site_author: Sona Praneeth Akula
 copyright: "&copy; Sona Praneeth Akula 2018"
 google_analytics: ['UA-90733014-1', 'sonapraneeth-a.github.io']
 remote_name: docs-mkdocs
+edit_uri: edit/mkdocs/docs/
 pages:
     - "Home": index.md
     - "Data Structures":
