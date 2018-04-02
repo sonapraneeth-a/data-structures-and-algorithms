@@ -1,13 +1,34 @@
+/**
+ *      Created on: 22 March 2018
+ *   Last modified: 22 March 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: General Header file
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 22-03-2018             Sona Praneeth Akula   - Creation of file
+ *                                              - Added definitions for timing functions
+ */
+
 #ifndef DEFAULT_HEADERS
 #define DEFAULT_HEADERS
 
 #include <iostream>
 #include "Utilities.h"
+#include "Exceptions/Exceptions.h"
 #include <ctime>
 #include <chrono>
 
 #define ULLI unsigned long long int
 #define LLI long long int
+
+#define MAJOR_VERSION 0
+#define MINOR_VERSION 3
+#define PATCH_VERSION 0
+
 
 #define EXECUTE_FUNC(func) \
     {\
