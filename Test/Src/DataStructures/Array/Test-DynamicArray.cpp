@@ -34,7 +34,7 @@ protected:
 
     DynamicArray<int> _Array_int_0;
     DynamicArray<int> _Array_int_1;
-    DynamicArray<int> *_Array_int_10 = new DynamicArray<int>(10);
+    DynamicArray<int> *_Array_int_10 = new DynamicArray<int>(10, 0);
 
 };
 
@@ -78,5 +78,5 @@ TEST_F(DynamicArrayElementAccessTest, GetBackTest)
 TEST_F(DynamicArrayElementAccessTest, OperatorTest)
 {
     EXPECT_EQ(10, _Array_int_1[0]);
-    EXPECT_EQ(0, _Array_int_10[2]);
+    EXPECT_EQ(0, (*_Array_int_10)[2]);
 }
