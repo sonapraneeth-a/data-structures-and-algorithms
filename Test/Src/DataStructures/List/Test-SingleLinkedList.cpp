@@ -41,7 +41,7 @@ TEST_F(SingleLinkedListTest, InitHeadDefault)
 {
     int number = GetRandomInt();
     SingleLinkedList<int> List(number);
-    EXPECT_EQ(number, List.GetHead()->get_data());
+    EXPECT_EQ(number, List.GetHead()->GetData());
 }
 
 TEST_F(SingleLinkedListTest, InitHeadInsert)
@@ -49,7 +49,7 @@ TEST_F(SingleLinkedListTest, InitHeadInsert)
     int number = GetRandomInt();
     SingleLinkedList<int> List;
     List.Insert(number);
-    EXPECT_EQ(number, List.GetHead()->get_data());
+    EXPECT_EQ(number, List.GetHead()->GetData());
 }
 
 TEST_F(SingleLinkedListTest, ClearList)
@@ -84,7 +84,7 @@ TEST_F(SingleLinkedListInsertTest, InsertHead)
 {
     int number = GetRandomInt();
     _List_int_0.Insert(number);
-    EXPECT_EQ(number, _List_int_0.GetHead()->get_data());
+    EXPECT_EQ(number, _List_int_0.GetHead()->GetData());
 }
 
 TEST_F(SingleLinkedListSizeTest, ZeroListSize)
