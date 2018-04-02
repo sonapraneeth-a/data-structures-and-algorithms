@@ -45,7 +45,7 @@ DynamicArray<T>::DynamicArray()
 }
 
 /**
- * @todo Find a way to initialize the 10 values in the dynamic array wth default values for their type
+ * @todo Find a way to initialize the values in the dynamic array wth default values for their type
  * @brief   Constructor for DynamicArray which determines the initial capacity of the dynamic array
  * @details Allocates memory for an array of size given the user. All values are garbage in nature
  *
@@ -63,6 +63,34 @@ DynamicArray<T>::DynamicArray(ULLI Capacity)
     {
         // Throw exception when memory allocation fails
         throw MemoryAllocationException();
+    }
+}
+
+/**
+ * @todo Find a way to initialize the values in the dynamic array wth default values for their type
+ * @brief   Constructor for DynamicArray which determines the initial capacity of the dynamic array
+ *          and assigns each element of the Array with DefaultValue
+ * @details Allocates memory for an array of size given the user. All values are garbage in nature
+ *
+ * @tparam T Generic parameter
+ * @param [unsigned long long int] Capacity - Capacity of the DynamicArray
+ * @param [T] DefaultValue - Value which should be used to fill the DynamicArray
+ */
+template <typename T>
+DynamicArray<T>::DynamicArray(ULLI Capacity, T DefaultValue)
+{
+    this->Capacity = Capacity;
+    this->Size = Capacity;
+    // Allocating memory for the array
+    this->_Array = new (std::nothrow) T[this->Capacity];
+    if(!this->_Array)
+    {
+        // Throw exception when memory allocation fails
+        throw MemoryAllocationException();
+    }
+    for (ULLI index = 0; index < this->Size; ++index)
+    {
+        this->_Array[index] = DefaultValue;
     }
 }
 

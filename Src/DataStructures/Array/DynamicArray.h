@@ -39,6 +39,7 @@ public:
 
     DynamicArray();
     DynamicArray(ULLI Capacity);
+    DynamicArray(ULLI Capacity, T DefaultValue);
 
     T Get(ULLI index) const;
     T operator[] (ULLI index) const;
