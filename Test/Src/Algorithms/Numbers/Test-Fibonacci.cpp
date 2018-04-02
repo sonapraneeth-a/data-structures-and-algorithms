@@ -37,7 +37,7 @@ TEST_F(FibonacciTest, SimpleIndexTestRecursive)
     EXPECT_EQ(0, GetNthFibonacciRecursive(0));
     EXPECT_EQ(1, GetNthFibonacciRecursive(1));
     EXPECT_EQ(1, GetNthFibonacciRecursive(2));
-    EXPECT_EQ(34, GetNthFibonacciRecursive(8));
+    EXPECT_EQ(21, GetNthFibonacciRecursive(8));
 }
 
 TEST_F(FibonacciTest, SimpleIndexTestIterative)
@@ -45,7 +45,7 @@ TEST_F(FibonacciTest, SimpleIndexTestIterative)
     EXPECT_EQ(0, GetNthFibonacciIterative(0));
     EXPECT_EQ(1, GetNthFibonacciIterative(1));
     EXPECT_EQ(1, GetNthFibonacciIterative(2));
-    EXPECT_EQ(34, GetNthFibonacciIterative(8));
+    EXPECT_EQ(21, GetNthFibonacciIterative(8));
 }
 
 TEST_F(FibonacciTest, SeriesTest)
