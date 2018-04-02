@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for List")
 
-set(SOURCE_FILES SingleLinkedListNode.h SingleLinkedListNode.cpp SingleLinkedList.cpp SingleLinkedList.h)
+set(SLL_SOURCE_FILES SingleLinkedListNode.h SingleLinkedListNode.cpp SingleLinkedList.cpp SingleLinkedList.h)
+set(DLL_SOURCE_FILES DoubleLinkedListNode.h DoubleLinkedListNode.cpp DoubleLinkedList.cpp DoubleLinkedList.h)
+set(SOURCE_FILES ${SLL_SOURCE_FILES} ${DLL_SOURCE_FILES})
 include_directories(List)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
@@ -21,6 +23,6 @@ target_link_libraries(MainList ListStatic)
 
 install(TARGETS ListShared DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
 install(TARGETS ListStatic DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
-install(FILES SingleLinkedListNode.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
+install(FILES SingleLinkedListNode.h SingleLinkedList.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
 
 message("--     Completing generation of CMake files for List")
