@@ -9,13 +9,13 @@ install:
 
 before_script:
     - echo "Before script"
-    - chmod +x ./Scripts/build-unix.bat
-    - chmod +x ./Scripts/run-unix.bat
+    - chmod +x ./Scripts/Travis/Build.bat
+    - chmod +x ./Scripts/Travis/Run.bat
 
 script:
     - pwd
-    - ./Scripts/build-unix.bat
+    - ./Scripts/Travis/Build.bat
     - pwd
     - make -f ./Build/Test/Makefile
     - ls -lah ./Build/*
-    - ./Scripts/run-unix.bat
+    - ./Scripts/Run.bat
