@@ -18,4 +18,4 @@ script:
     - pwd
     - make -f ./Build/Test/Makefile
     - ls -lah ./Build/*
-    - ./Scripts/Run.bat
+    - ./Scripts/Travis/Run.bat
