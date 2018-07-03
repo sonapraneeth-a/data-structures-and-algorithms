@@ -1,0 +1,14 @@
+//
+// Created by pranas on 4/1/2018.
+//
+
+#ifndef DATASTRUCTURESANDALGORITHMS_VECTOR_H
+#define DATASTRUCTURESANDALGORITHMS_VECTOR_H
+
+
+class Vector {
+
+};
+
+
+#endif //DATASTRUCTURESANDALGORITHMS_VECTOR_H
