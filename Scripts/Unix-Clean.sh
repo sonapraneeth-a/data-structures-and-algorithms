@@ -2,5 +2,6 @@
 
 set -x
 
-rm -rf Include/ Lib/
+echo "Removing Include and Lib directories"
+rm -rf Include/ Lib/ Bin/
 rm Main
