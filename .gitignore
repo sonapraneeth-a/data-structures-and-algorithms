@@ -1,0 +1,33 @@
+# Executable directories
+
+Main
+
+Bin/
+Build*/
+Install/
+Lib/
+Include/
+
+# Log directories
+
+Logs/
+Log/
+
+# CSS
+.sass-cache/
+*.map
+
+# Documentation files
+
+gh-pages/
+doxygen/
+mkdocs/
+
+#
+
+*~
+
+# IDEA Project files
+
+.idea/
+

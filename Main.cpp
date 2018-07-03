@@ -2,8 +2,8 @@
 // Created by pranas on 7/3/2018.
 //
 
-#include "Include/DefaultHeaders.h"
-#include "Include/Factorization.h"
+#include "DefaultHeaders.h"
+#include "Factorization.h"
 
 int main()
 {
