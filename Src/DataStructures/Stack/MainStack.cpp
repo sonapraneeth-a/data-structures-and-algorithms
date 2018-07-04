@@ -14,7 +14,6 @@
  */
 
 #include "Stack.h"
-#include "Exceptions.h"
 
 
 int main(int argc, char **argv)
@@ -25,7 +24,7 @@ int main(int argc, char **argv)
     {
         std::cout << "Pushing " << array[index] << "\n";
         stack.Push(array[index]);
-        std::cout << "Pushed " << stack.Peek() << "\n";
+        std::cout << "Pushed " << stack.Peek() << ".Stack size: " << stack.GetSize() << "\n";
     }
     try
     {

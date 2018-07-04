@@ -1,6 +1,17 @@
-//
-// Created by pranas on 3/21/2018.
-//
+/**
+ *      Created on: 21 March 2018
+ *   Last modified: 22 March 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Implementation for stack node
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 21-03-2018             Sona Praneeth Akula   - Creation of the file
+ * 22-03-2018             Sona Praneeth Akula   - Completed function signatures
+ */
 
 #include "StackNode.h"
 
