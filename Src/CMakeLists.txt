@@ -20,9 +20,6 @@ add_subdirectory(Algorithms)
 include_directories(Algorithms)
 include_directories(Algorithms/Numbers)
 
-add_subdirectory(Logging)
-include_directories(Logging)
-
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
