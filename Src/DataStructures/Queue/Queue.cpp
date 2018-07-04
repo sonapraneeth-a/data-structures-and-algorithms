@@ -15,7 +15,7 @@
  */
 
 #include "Queue.h"
-#include "Exceptions/Exceptions.h"
+#include "Exceptions.h"
 
 /**
  *
@@ -95,6 +95,39 @@ template <typename T>
 bool Queue<T>::IsEmpty()
 {
     return this->Head == nullptr;
+}
+
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <typename T>
+T Queue<T>::GetHead()
+{
+   return this->Head->GetData();
+}
+
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <typename T>
+T Queue<T>::GetTail()
+{
+    return this->Tail->GetData();
+}
+
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <typename T>
+ULLI Queue<T>::GetSize()
+{
+    return this->Size;
 }
 
 /**

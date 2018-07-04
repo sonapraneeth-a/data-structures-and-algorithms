@@ -34,6 +34,9 @@ public:
     void Enqueue(T Value);
     T Dequeue();
     bool IsEmpty();
+    T GetHead();
+    T GetTail();
+    ULLI GetSize();
 
     ~Queue();
 };
