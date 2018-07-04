@@ -7,7 +7,7 @@
 
 #define LLI long long int
 
-int
+inline int
 GetRandomInt(int start=100, int end=100000, std::string mode="Fixed")
 {
     int number;
@@ -26,7 +26,7 @@ GetRandomInt(int start=100, int end=100000, std::string mode="Fixed")
     return number;
 }
 
-double
+inline double
 GetRandomDouble(int start=100, int end=100000, std::string mode="Fixed")
 {
     std::random_device rd;
