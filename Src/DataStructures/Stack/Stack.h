@@ -18,6 +18,7 @@
 #define STACK_H
 
 #include "StackNode.h"
+#include "Exceptions.h"
 
 template <typename T>
 class Stack
@@ -41,5 +42,6 @@ public:
 
 };
 
+#include "Stack.cpp"
 
 #endif //STACK_H

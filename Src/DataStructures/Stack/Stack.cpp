@@ -20,8 +20,6 @@
  * 17-04-2018             Sona Praneeth Akula   - Added function to return size of the stack
  */
 
-#include "Stack.h"
-#include "Exceptions.h"
 
 /**
  * @brief   Empty Stack constructor
@@ -88,6 +86,8 @@ T Stack<T>::Pop()
         this->Top = this->Top->GetNext();
         // Free the memory for the top of the stack in order to remove the element
         delete TempNode;
+        // Reduce the size of the stack by 1
+        this->Size--;
         // Return the value which was present at the top of the stack to the
         // caller function
         return Value;
@@ -110,6 +110,8 @@ void Stack<T>::Push(T Value)
     {
         // Set the top of the stack if the top of the stack is empty
         this->Top = new StackNode<T>(Value);
+        // Increase the size of the stack by 1
+        this->Size++;
     }
     else if(this->MaxSize == 0 || this->Size < this->MaxSize)
     {
@@ -117,6 +119,7 @@ void Stack<T>::Push(T Value)
         StackNode<T> *TempNode = new StackNode<T>(Value);
         TempNode->SetNext(this->Top);
         this->Top = TempNode;
+        // Increase the size of the stack by 1
         this->Size++;
     }
     else
@@ -170,5 +173,3 @@ Stack<T>::~Stack()
     this->MaxSize = 0;
 }
 
-
-template class Stack<int>;

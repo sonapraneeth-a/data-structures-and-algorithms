@@ -13,7 +13,6 @@
  * 22-03-2018             Sona Praneeth Akula   - Completed function signatures
  */
 
-#include "StackNode.h"
 
 /**
  *
@@ -93,5 +92,3 @@ StackNode<T>::~StackNode()
 {
     Next = nullptr;
 }
-
-template class StackNode<int>;

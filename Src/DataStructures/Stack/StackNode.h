@@ -42,5 +42,6 @@ public:
 
 };
 
+#include "StackNode.cpp"
 
 #endif //STACK_NODE_H
