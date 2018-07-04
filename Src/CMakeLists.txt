@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("-- Generating CMake for Data Structures and Algorithms")
 
-add_subdirectory(Headers)
 include_directories(Headers)
 
 add_subdirectory(DataStructures)
@@ -20,6 +19,9 @@ include_directories(DataStructures/Queue)
 add_subdirectory(Algorithms)
 include_directories(Algorithms)
 include_directories(Algorithms/Numbers)
+
+add_subdirectory(Logging)
+include_directories(Logging)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
