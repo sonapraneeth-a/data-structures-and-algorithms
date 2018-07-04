@@ -16,7 +16,6 @@
 #ifndef OPCODES_H
 #define OPCODES_H
 
-
 enum class STATUS
 {
     FAILURE = -1,

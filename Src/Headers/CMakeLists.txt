@@ -10,7 +10,9 @@ message("--   Generating CMake for Headers")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
-set(HEADER_FILES DefaultHeaders.h Exceptions/Exceptions.h OpCodes.h)
+include_directories(Headers)
+
+set(HEADER_FILES DefaultHeaders.h Exceptions.h OpCodes.h)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")

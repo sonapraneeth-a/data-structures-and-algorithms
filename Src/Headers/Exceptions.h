@@ -66,6 +66,46 @@ public:
 /**
  *
  */
+class OverflowException
+{
+private:
+    std::string PrefixMessage;
+    std::string ExtraMessage;
+    std::string StandardMessage;
+public:
+    /**
+     *
+     */
+    explicit OverflowException()
+    {
+        PrefixMessage = "Exception::";
+        ExtraMessage = "";
+        StandardMessage = "Overflow. ";
+    }
+    /**
+     *
+     * @param Message
+     */
+    explicit OverflowException(const std::string &Message)
+    {
+        PrefixMessage = "Exception::";
+        StandardMessage = "";
+        ExtraMessage = Message;
+    }
+    /**
+     *
+     * @return
+     */
+    std::string what() const noexcept(true)
+    {
+        std::string Message = PrefixMessage + StandardMessage + ExtraMessage;
+        return Message;
+    }
+};
+
+/**
+ *
+ */
 class OutOfBoundsException
 {
 private:
