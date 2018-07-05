@@ -22,7 +22,4 @@
 #include "Exceptions.h"
 
 
-#define ULLI unsigned long long int
-#define LLI long long int
-
 #endif

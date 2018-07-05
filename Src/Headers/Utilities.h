@@ -9,6 +9,9 @@
 #define MINOR_VERSION 3
 #define PATCH_VERSION 0
 
+#define ULLI unsigned long long int
+#define LLI long long int
+
 #define EXECUTE_FUNC(func) \
     {\
         std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();\
