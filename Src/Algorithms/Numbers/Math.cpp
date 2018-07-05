@@ -1,6 +1,18 @@
-//
-// Created by pranas on 7/5/2018.
-//
+/**
+ *      Created on: 05 July 2018
+ *   Last modified: 05 July 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Code for algorithms related to maths
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 05-07-2018             Sona Praneeth Akula   - Creation of the file
+ */
+
+#include "Math.h"
 
 ULLI
 Math::ExponentiationRecursive(ULLI number, ULLI exponent)

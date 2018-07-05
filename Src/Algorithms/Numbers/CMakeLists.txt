@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Numbers")
 
+include_directories(../../Headers)
+
 set(BIG_INTEGER_SOURCE_FILES BigInteger.h BigInteger.cpp)
 set(FIBONACCI_SOURCE_FILES Fibonacci.h Fibonacci.cpp)
 set(MATH_SOURCE_FILES Math.h Math.cpp)
