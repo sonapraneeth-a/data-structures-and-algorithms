@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 March 2018
- *   Last modified: 13 March 2018
+ *   Last modified: 03 May 2018
  *          Author: Sona Praneeth Akula
  *         Details: Code for algorithms related to factorization of numbers
  */
@@ -11,6 +11,9 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 06-03-2018             Sona Praneeth Akula   - Creation of the file
  * 13-03-2018             Sona Praneeth Akula   - Updation of the documentation
+ * 03-05-2018             Sona Praneeth Akula   - Updated time complexity of algorithms
+ *                                              - Need to verify the time complexity of algorithms
+ *                                                is correct or not
  */
 
 #include "Factorization.h"
@@ -18,10 +21,11 @@
 
 /*!
  * @todo Create test cases and check for the correctness of the algorithm
+ * @todo Check what is N in the time complexity
  * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Naive brute force algorithm for calculating GCD of two numbers
- *          <b>Time Complexity: </b> O(N)
+ *          <b>Time Complexity: </b> O(N), where N is the input number
  *
  * @param  [in] [long long int] numOne - First number
  * @param  [in] [long long int] numTwo - Second number
@@ -56,10 +60,11 @@ NaiveGCD(LLI numOne, LLI numTwo)
 
 /*!
  * @todo Create test cases and check for the correctness of the algorithm
+ * @todo Check what is N in the time complexity
  * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Recursive Euclidean algorithm for calculating GCD of two numbers
- *          <b>Time Complexity: </b> O(log N)
+ *          <b>Time Complexity: </b> O(log N), where N is the input number
  *
  * @param  [in] [long long int] numOne - First number
  * @param  [in] [long long int] numTwo - Second number
@@ -84,10 +89,11 @@ EuclideanGCDRecursive(LLI numOne, LLI numTwo)
 
 /*!
  * @todo Create test cases and check for the correctness of the algorithm
+ * @todo Check what is N in the time complexity
  * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Iterative algorithm for calculating GCD of two numbers
- *          <b>Time Complexity: </b> O(log N)
+ *          <b>Time Complexity: </b> O(log N), where N is the input number
  *
  * @param  [in] [long long int] numOne - First number
  * @param  [in] [long long int] numTwo - Second number
@@ -117,10 +123,11 @@ EuclideanGCDIterative(LLI numOne, LLI numTwo)
 }
 
 /*!
+ * @todo Check what is N in the time complexity
  * @ingroup Factors
  * @brief   Calculates GCD of two numbers
  * @details Best performance algorithm for calculating GCD of two numbers
- *          <b>Time Complexity: </b> O(log N)
+ *          <b>Time Complexity: </b> O(log N), where N is the input number
  *
  * @param  [in] [long long int] numOne - First number
  * @param  [in] [long long int] numTwo - Second number
@@ -135,10 +142,11 @@ GCD(LLI numOne, LLI numTwo)
 
 /*!
  * @todo Create test cases and check for the correctness of the algorithm
+ * @todo Check what is N in the time complexity
  * @ingroup Factors
  * @brief   Calculates LCM of two numbers
  * @details Best performance algorithm for calculating LCM of two numbers
- *          <b>Time Complexity: </b> O(log N)
+ *          <b>Time Complexity: </b> O(log N), where N is the input number
  *
  * @param  [in] [long long int] numOne - First number
  * @param  [in] [long long int] numTwo - Second number
@@ -160,9 +168,11 @@ LCM(LLI numOne, LLI numTwo)
 /*!
  * @todo Find the link which detailed about this (emplace_back better than push_back for constructors)
  * @todo Create test cases and check for the correctness of the algorithm
+ * @todo Verify the time complexity of the algorithm
  * @ingroup Prime
  * @brief   Calculates prime factorization of a number
  * @details Example: 100 = 2<sup>2</sup> x 5<sup>2</sup>
+ *          <b>Time Complexity: <b> O(&radic; N)
  *
  * @param [in] [long long int] number - Number whose prime factorization is required
  * @return [out] [vector<pair<unsigned long long int, unsigned long long int>>] - List containing a pair of numbers where
@@ -206,17 +216,32 @@ PrimeFactorization(LLI number)
  * @param  [in] [long long int] number
  * @return [out] [vector<unsinged long long int>] - Vector of primes less than or equal to the given number
  */
-std::vector< ULLI >
-SieveOfEratosthenes(LLI number)
+std::vector<ULLI>
+SieveOfEratosthenes(ULLI number)
 {
-
+    // Reference URL: https://drive.google.com/file/d/0B-W-TWxgtybGYWFWZHB5MDMyU3c/view
+    std::vector<ULLI> primes;
+    // isPrime vector starts from 2 in number series
+    std::vector<bool> isPrime(number-1, true);
+    for (ULLI index = 2; index <= number; ++index)
+    {
+        if(isPrime[index-2])
+        {
+            primes.push_back(index);
+        }
+        for (ULLI loop_index = index*index; loop_index <= number; loop_index+=index)
+        {
+            isPrime[loop_index-2] = false;
+        }
+    }
+    return primes;
 }
 
 /*!
  * @todo Create test cases and check for the correctness of the algorithm
  * @ingroup Prime
  * @brief   Naive algorithm to determine if a number is prime
- * @details <b>Time Complexity</b>: O(N)
+ * @details <b>Time Complexity</b>: O(N), where N is the input number
  *
  * @param  [in] [long long int] number - Number which should be tested for primality
  * @return [out] [bool] - <i>true</i> if number is prime else <i>false</i>

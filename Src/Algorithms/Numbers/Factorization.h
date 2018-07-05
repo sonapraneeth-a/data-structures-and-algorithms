@@ -37,12 +37,12 @@ std::vector< std::pair<ULLI, ULLI> >
 PrimeFactorization(LLI number);
 
 std::vector< ULLI >
-SieveOfEratosthenes(LLI number);
+SieveOfEratosthenes(ULLI number);
 
 bool
-IsPrimeNaive(LLI number);
+IsPrimeNaive(ULLI number);
 
 bool
-IsPrime(LLI number);
+IsPrime(ULLI number);
 
 #endif //FACTORIZATION_H
