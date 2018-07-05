@@ -114,7 +114,7 @@ void PrintOneDArray(T Array[], LLI start, LLI end)
     std::cout << "\n";
 }
 
-void
+inline void
 PrintVersion()
 {
     std::cout << MAJOR_VERSION << "." << MINOR_VERSION << "." << PATCH_VERSION << "\n";
