@@ -229,7 +229,6 @@ Math::SieveOfEratosthenes(ULLI number)
     {
         if(isPrime[index])
         {
-            std::cout << index << "," << primes.size() << "\n";
             primes.push_back(index);
         }
         for (ULLI loop_index = index*index; loop_index <= number; loop_index+=index)

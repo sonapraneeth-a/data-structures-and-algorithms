@@ -18,6 +18,10 @@
 
 #include "DefaultHeaders.h"
 
+/*!
+ *  \addtogroup Math
+ *  @{
+ */
 namespace Math
 {
     ULLI
@@ -47,5 +51,5 @@ namespace Math
     bool
     IsPrime(ULLI number);
 }
-
+/*! @} End of Doxygen Groups*/
 #endif //FACTORIZATION_H
