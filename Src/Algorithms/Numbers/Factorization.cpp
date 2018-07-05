@@ -32,7 +32,7 @@
  * @return [out] [unsgined long long int] GCD of the two numbers
  */
 ULLI
-NaiveGCD(LLI numOne, LLI numTwo)
+Math::NaiveGCD(LLI numOne, LLI numTwo)
 {
     // Negativity of a number does not affect the final result
     // gcd(-a, -b) = gcd(-a, b) = gcd(a, -b) = gcd(a, b)
@@ -71,7 +71,7 @@ NaiveGCD(LLI numOne, LLI numTwo)
  * @return [out] [unsgined long long int] GCD of the two numbers
  */
 ULLI
-EuclideanGCDRecursive(LLI numOne, LLI numTwo)
+Math::EuclideanGCDRecursive(LLI numOne, LLI numTwo)
 {
     // Negativity of a number does not affect the final result
     // gcd(-a, -b) = gcd(-a, b) = gcd(a, -b) = gcd(a, b)
@@ -84,7 +84,7 @@ EuclideanGCDRecursive(LLI numOne, LLI numTwo)
     // gcd(a, 0) = gcd(0, a) = a;
     if(lesser == 0) { return greater; }
     // gcd(a, b) = gcd(b, a%b) for a >= b
-    return EuclideanGCDRecursive(lesser, greater % lesser);
+    return Math::EuclideanGCDRecursive(lesser, greater % lesser);
 }
 
 /*!
@@ -100,7 +100,7 @@ EuclideanGCDRecursive(LLI numOne, LLI numTwo)
  * @return [out] [unsgined long long int] GCD of the two numbers
  */
 ULLI
-EuclideanGCDIterative(LLI numOne, LLI numTwo)
+Math::EuclideanGCDIterative(LLI numOne, LLI numTwo)
 {
     // Negativity of a number does not affect the final result
     // gcd(-a, -b) = gcd(-a, b) = gcd(a, -b) = gcd(a, b)
@@ -134,10 +134,10 @@ EuclideanGCDIterative(LLI numOne, LLI numTwo)
  * @return [out] [unsgined long long int] GCD of the two numbers
  */
 ULLI
-GCD(LLI numOne, LLI numTwo)
+Math::GCD(LLI numOne, LLI numTwo)
 {
     // Best algorithm in terms of CPU time and asymptotic time complexity
-    return EuclideanGCDIterative(numOne, numTwo);
+    return Math::EuclideanGCDIterative(numOne, numTwo);
 }
 
 /*!
@@ -153,10 +153,10 @@ GCD(LLI numOne, LLI numTwo)
  * @return [out] [long long int] LCM of the two numbers
  */
 LLI
-LCM(LLI numOne, LLI numTwo)
+Math::LCM(LLI numOne, LLI numTwo)
 {
     // Use the best algorithm to calculate GCD
-    ULLI gcd = GCD(numOne, numTwo);
+    ULLI gcd = Math::GCD(numOne, numTwo);
     ULLI greater = (numOne >= numTwo) ? (ULLI) numOne : (ULLI) numTwo;
     ULLI lesser = (numOne < numTwo) ? (ULLI) numOne : (ULLI) numTwo;
     // Lemma: GCD x LCM = numOne * numTwo
@@ -180,7 +180,7 @@ LCM(LLI numOne, LLI numTwo)
  *          factor. <br/> Example: 25 = 5<sup>2</sup>. Now the function will return [(5, 2)]
  */
 std::vector< std::pair<ULLI, ULLI> >
-PrimeFactorization(LLI number)
+Math::PrimeFactorization(LLI number)
 {
     std::vector< std::pair<ULLI, ULLI> > PrimeFactors;
     ULLI factor = 2, count = 0;
@@ -217,21 +217,24 @@ PrimeFactorization(LLI number)
  * @return [out] [vector<unsinged long long int>] - Vector of primes less than or equal to the given number
  */
 std::vector<ULLI>
-SieveOfEratosthenes(ULLI number)
+Math::SieveOfEratosthenes(ULLI number)
 {
     // Reference URL: https://drive.google.com/file/d/0B-W-TWxgtybGYWFWZHB5MDMyU3c/view
     std::vector<ULLI> primes;
     // isPrime vector starts from 2 in number series
     std::vector<bool> isPrime(number-1, true);
+    isPrime[0] = false;
+    isPrime[1] = false;
     for (ULLI index = 2; index <= number; ++index)
     {
-        if(isPrime[index-2])
+        if(isPrime[index])
         {
+            std::cout << index << "," << primes.size() << "\n";
             primes.push_back(index);
         }
         for (ULLI loop_index = index*index; loop_index <= number; loop_index+=index)
         {
-            isPrime[loop_index-2] = false;
+            isPrime[loop_index] = false;
         }
     }
     return primes;
@@ -247,7 +250,7 @@ SieveOfEratosthenes(ULLI number)
  * @return [out] [bool] - <i>true</i> if number is prime else <i>false</i>
  */
 bool
-IsPrimeNaive(LLI number)
+Math::IsPrimeNaive(ULLI number)
 {
     if(number <= 1) { return false; }
     // Loop through all divisors until the number to check if the number
@@ -270,7 +273,7 @@ IsPrimeNaive(LLI number)
  * @return [out] [bool] - <i>true</i> if number is prime else <i>false</i>
  */
 bool
-IsPrime(LLI number)
+Math::IsPrime(ULLI number)
 {
     if (number == 0 || number == 1)
     {

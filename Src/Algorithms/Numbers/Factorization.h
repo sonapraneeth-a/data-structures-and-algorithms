@@ -18,31 +18,34 @@
 
 #include "DefaultHeaders.h"
 
-ULLI
-NaiveGCD(LLI numOne, LLI numTwo);
+namespace Math
+{
+    ULLI
+    NaiveGCD(LLI numOne, LLI numTwo);
 
-ULLI
-EuclideanGCDRecursive(LLI numOne, LLI numTwo);
+    ULLI
+    EuclideanGCDRecursive(LLI numOne, LLI numTwo);
 
-ULLI
-EuclideanGCDIterative(LLI numOne, LLI numTwo);
+    ULLI
+    EuclideanGCDIterative(LLI numOne, LLI numTwo);
 
-ULLI
-GCD(LLI numOne, LLI numTwo);
+    ULLI
+    GCD(LLI numOne, LLI numTwo);
 
-LLI
-LCM(LLI numOne, LLI numTwo);
+    LLI
+    LCM(LLI numOne, LLI numTwo);
 
-std::vector< std::pair<ULLI, ULLI> >
-PrimeFactorization(LLI number);
+    std::vector<std::pair<ULLI, ULLI> >
+    PrimeFactorization(LLI number);
 
-std::vector< ULLI >
-SieveOfEratosthenes(ULLI number);
+    std::vector<ULLI>
+    SieveOfEratosthenes(ULLI number);
 
-bool
-IsPrimeNaive(ULLI number);
+    bool
+    IsPrimeNaive(ULLI number);
 
-bool
-IsPrime(ULLI number);
+    bool
+    IsPrime(ULLI number);
+}
 
 #endif //FACTORIZATION_H

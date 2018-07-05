@@ -133,12 +133,12 @@ TEST_F(NaiveGCDTest, ZeroNumberTest)
     unsigned int numTests = GCD_ZeroInput.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": NaiveGCD("
+        /*std::cout << "Running test case " << index << ": Math::NaiveGCD("
                   << GCD_ZeroInput[index].numOne << ", "
                   << GCD_ZeroInput[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_ZeroInput[index].answer,
-                  NaiveGCD(GCD_ZeroInput[index].numOne,
-                           GCD_ZeroInput[index].numTwo));
+                  Math::NaiveGCD(GCD_ZeroInput[index].numOne,
+                                 GCD_ZeroInput[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -149,12 +149,12 @@ TEST_F(NaiveGCDTest, PositiveCompositeNumberTest)
     unsigned int numTests = GCD_PositiveCompositeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": NaiveGCD("
+        /*std::cout << "Running test case " << index << ": Math::NaiveGCD("
                   << GCD_PositiveCompositeNumber[index].numOne << ", "
                   << GCD_PositiveCompositeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveCompositeNumber[index].answer,
-                  NaiveGCD(GCD_PositiveCompositeNumber[index].numOne,
-                           GCD_PositiveCompositeNumber[index].numTwo));
+                  Math::NaiveGCD(GCD_PositiveCompositeNumber[index].numOne,
+                                 GCD_PositiveCompositeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -165,12 +165,12 @@ TEST_F(NaiveGCDTest, PositivePrimeNumberTest)
     unsigned int numTests = GCD_PositivePrimeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": NaiveGCD("
+        /*std::cout << "Running test case " << index << ": Math::NaiveGCD("
                   << GCD_PositivePrimeNumber[index].numOne << ", "
                   << GCD_PositivePrimeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositivePrimeNumber[index].answer,
-                  NaiveGCD(GCD_PositivePrimeNumber[index].numOne,
-                           GCD_PositivePrimeNumber[index].numTwo));
+                  Math::NaiveGCD(GCD_PositivePrimeNumber[index].numOne,
+                                 GCD_PositivePrimeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -182,21 +182,21 @@ TEST_F(NaiveGCDTest, PositiveLargeNumberTest)
     TEST_TIMEOUT_BEGIN
     for(unsigned int index = 0; index < numTests-1; index++)
     {
-        /*std::cout << "Running test case " << index << ": NaiveGCD("
+        /*std::cout << "Running test case " << index << ": Math::NaiveGCD("
                   << GCD_PositiveLargeNumber[index].numOne << ", "
                   << GCD_PositiveLargeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveLargeNumber[index].answer,
-                  NaiveGCD(GCD_PositiveLargeNumber[index].numOne,
-                           GCD_PositiveLargeNumber[index].numTwo));
+                  Math::NaiveGCD(GCD_PositiveLargeNumber[index].numOne,
+                                 GCD_PositiveLargeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     TEST_TIMEOUT_FAIL_END(1000);
     /*TEST_TIMEOUT_BEGIN
-    std::cout << "Running test case " << numTests-1 << ": NaiveGCD("
+    std::cout << "Running test case " << numTests-1 << ": Math::NaiveGCD("
               << GCD_PositiveLargeNumber[numTests-1].numOne << ", "
               << GCD_PositiveLargeNumber[numTests-1].numTwo << ")\n";
     EXPECT_EQ(GCD_PositiveLargeNumber[numTests-1].answer,
-              NaiveGCD(GCD_PositiveLargeNumber[numTests-1].numOne,
+              Math::NaiveGCD(GCD_PositiveLargeNumber[numTests-1].numOne,
                        GCD_PositiveLargeNumber[numTests-1].numTwo));
     //std::cout << "Success\n";
     TEST_TIMEOUT_FAIL_END(1000)*/
@@ -208,12 +208,12 @@ TEST_F(EuclideanGCDRecursiveTest, ZeroNumberTest)
     unsigned int numTests = GCD_ZeroInput.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDRecursive("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDRecursive("
                   << GCD_ZeroInput[index].numOne << ", "
                   << GCD_ZeroInput[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_ZeroInput[index].answer,
-                  EuclideanGCDRecursive(GCD_ZeroInput[index].numOne,
-                                        GCD_ZeroInput[index].numTwo));
+                  Math::EuclideanGCDRecursive(GCD_ZeroInput[index].numOne,
+                                              GCD_ZeroInput[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -224,12 +224,12 @@ TEST_F(EuclideanGCDRecursiveTest, PositiveCompositeNumberTest)
     unsigned int numTests = GCD_PositiveCompositeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDRecursive("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDRecursive("
                   << GCD_PositiveCompositeNumber[index].numOne << ", "
                   << GCD_PositiveCompositeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveCompositeNumber[index].answer,
-                  EuclideanGCDRecursive(GCD_PositiveCompositeNumber[index].numOne,
-                                        GCD_PositiveCompositeNumber[index].numTwo));
+                  Math::EuclideanGCDRecursive(GCD_PositiveCompositeNumber[index].numOne,
+                                              GCD_PositiveCompositeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -240,12 +240,12 @@ TEST_F(EuclideanGCDRecursiveTest, PositivePrimeNumberTest)
     unsigned int numTests = GCD_PositivePrimeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDRecursive("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDRecursive("
                   << GCD_PositivePrimeNumber[index].numOne << ", "
                   << GCD_PositivePrimeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositivePrimeNumber[index].answer,
-                  EuclideanGCDRecursive(GCD_PositivePrimeNumber[index].numOne,
-                                        GCD_PositivePrimeNumber[index].numTwo));
+                  Math::EuclideanGCDRecursive(GCD_PositivePrimeNumber[index].numOne,
+                                              GCD_PositivePrimeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -256,12 +256,12 @@ TEST_F(EuclideanGCDRecursiveTest, PositiveLargeNumberTest)
     unsigned int numTests = GCD_PositiveLargeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDRecursive("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDRecursive("
                   << GCD_PositiveLargeNumber[index].numOne << ", "
                   << GCD_PositiveLargeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveLargeNumber[index].answer,
-                  EuclideanGCDRecursive(GCD_PositiveLargeNumber[index].numOne,
-                                        GCD_PositiveLargeNumber[index].numTwo));
+                  Math::EuclideanGCDRecursive(GCD_PositiveLargeNumber[index].numOne,
+                                              GCD_PositiveLargeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -272,12 +272,12 @@ TEST_F(EuclideanGCDIterativeTest, ZeroNumberTest)
     unsigned int numTests = GCD_ZeroInput.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDIterative("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDIterative("
                   << GCD_ZeroInput[index].numOne << ", "
                   << GCD_ZeroInput[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_ZeroInput[index].answer,
-                  EuclideanGCDIterative(GCD_ZeroInput[index].numOne,
-                                        GCD_ZeroInput[index].numTwo));
+                  Math::EuclideanGCDIterative(GCD_ZeroInput[index].numOne,
+                                              GCD_ZeroInput[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -288,12 +288,12 @@ TEST_F(EuclideanGCDIterativeTest, PositiveCompositeNumberTest)
     unsigned int numTests = GCD_PositiveCompositeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDIterative("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDIterative("
                   << GCD_PositiveCompositeNumber[index].numOne << ", "
                   << GCD_PositiveCompositeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveCompositeNumber[index].answer,
-                  EuclideanGCDIterative(GCD_PositiveCompositeNumber[index].numOne,
-                                        GCD_PositiveCompositeNumber[index].numTwo));
+                  Math::EuclideanGCDIterative(GCD_PositiveCompositeNumber[index].numOne,
+                                              GCD_PositiveCompositeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -304,12 +304,12 @@ TEST_F(EuclideanGCDIterativeTest, PositivePrimeNumberTest)
     unsigned int numTests = GCD_PositivePrimeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDIterative("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDIterative("
                   << GCD_PositivePrimeNumber[index].numOne << ", "
                   << GCD_PositivePrimeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositivePrimeNumber[index].answer,
-                  EuclideanGCDIterative(GCD_PositivePrimeNumber[index].numOne,
-                                        GCD_PositivePrimeNumber[index].numTwo));
+                  Math::EuclideanGCDIterative(GCD_PositivePrimeNumber[index].numOne,
+                                              GCD_PositivePrimeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -320,12 +320,12 @@ TEST_F(EuclideanGCDIterativeTest, PositiveLargeNumberTest)
     unsigned int numTests = GCD_PositiveLargeNumber.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": EuclideanGCDIterative("
+        /*std::cout << "Running test case " << index << ": Math::EuclideanGCDIterative("
                   << GCD_PositiveLargeNumber[index].numOne << ", "
                   << GCD_PositiveLargeNumber[index].numTwo << ")\n";*/
         EXPECT_EQ(GCD_PositiveLargeNumber[index].answer,
-                  EuclideanGCDIterative(GCD_PositiveLargeNumber[index].numOne,
-                                        GCD_PositiveLargeNumber[index].numTwo));
+                  Math::EuclideanGCDIterative(GCD_PositiveLargeNumber[index].numOne,
+                                              GCD_PositiveLargeNumber[index].numTwo));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -337,9 +337,9 @@ TEST_F(PrimeFactorizationTest, SmallNumberCornerTest)
     std::vector< std::pair<ULLI, ULLI> > prime_factors_1;
     std::vector< std::pair<ULLI, ULLI> > prime_factors_0;
     EXPECT_THAT(prime_factors_0,
-                ::testing::ContainerEq(PrimeFactorization(0)));
+                ::testing::ContainerEq(Math::PrimeFactorization(0)));
     EXPECT_THAT(prime_factors_1,
-                ::testing::ContainerEq(PrimeFactorization(1)));
+                ::testing::ContainerEq(Math::PrimeFactorization(1)));
 }
 
 TEST_F(PrimeFactorizationTest, PrimeNumberTest)
@@ -349,11 +349,11 @@ TEST_F(PrimeFactorizationTest, PrimeNumberTest)
     prime_factors_3.emplace_back(3, 1);
     prime_factors_5.emplace_back(5, 1);
     EXPECT_THAT(prime_factors_2,
-                ::testing::ContainerEq(PrimeFactorization(2)));
+                ::testing::ContainerEq(Math::PrimeFactorization(2)));
     EXPECT_THAT(prime_factors_3,
-                ::testing::ContainerEq(PrimeFactorization(3)));
+                ::testing::ContainerEq(Math::PrimeFactorization(3)));
     EXPECT_THAT(prime_factors_5,
-                ::testing::ContainerEq(PrimeFactorization(5)));
+                ::testing::ContainerEq(Math::PrimeFactorization(5)));
 }
 
 TEST_F(PrimeFactorizationTest, CompositeNumberTest)
@@ -362,7 +362,7 @@ TEST_F(PrimeFactorizationTest, CompositeNumberTest)
     prime_factors_100.emplace_back(2, 2);
     prime_factors_100.emplace_back(5, 2);
     EXPECT_THAT(prime_factors_100,
-                ::testing::ContainerEq(PrimeFactorization(100)));
+                ::testing::ContainerEq(Math::PrimeFactorization(100)));
 }
 
 TEST_F(SieveOfEratosthenesTest, SmallNumbersTest)
@@ -370,10 +370,10 @@ TEST_F(SieveOfEratosthenesTest, SmallNumbersTest)
     unsigned int numTests = Sieve_SmallNumbers.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": SieveOfEratosthenes("
+        /*std::cout << "Running test case " << index << ": Math::SieveOfEratosthenes("
                   << Sieve_SmallNumbers[index].first << ")\n";*/
         EXPECT_THAT(Sieve_SmallNumbers[index].second,
-                    ::testing::ContainerEq(SieveOfEratosthenes(Sieve_SmallNumbers[index].first)));
+                    ::testing::ContainerEq(Math::SieveOfEratosthenes(Sieve_SmallNumbers[index].first)));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
@@ -384,10 +384,10 @@ TEST_F(SieveOfEratosthenesTest, LargeNumbersTest)
     unsigned int numTests = Sieve_LargeNumbers.size();
     for(unsigned int index = 0; index < numTests; index++)
     {
-        /*std::cout << "Running test case " << index << ": SieveOfEratosthenes("
+        /*std::cout << "Running test case " << index << ": Math::SieveOfEratosthenes("
                   << Sieve_LargeNumbers[index].first << ")\n";*/
         EXPECT_THAT(Sieve_LargeNumbers[index].second,
-                    ::testing::ContainerEq(SieveOfEratosthenes(Sieve_LargeNumbers[index].first)));
+                    ::testing::ContainerEq(Math::SieveOfEratosthenes(Sieve_LargeNumbers[index].first)));
         //std::cout << "Success\n";
     }
     //std::cout << "\n";
