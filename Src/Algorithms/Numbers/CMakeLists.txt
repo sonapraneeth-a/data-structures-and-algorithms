@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(List)
+project(Numbers)
 
 set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Numbers")
 
-set(COMMON_HEADER ../../Headers/DefaultHeaders.h)
-set(BIG_INTEGER_SOURCE_FILES ${COMMON_HEADER} BigInteger.h BigInteger.cpp)
-set(FIBONACCI_SOURCE_FILES ${COMMON_HEADER} Fibonacci.h Fibonacci.cpp)
-set(RANDOM_NUMBER_SOURCE_FILES ${COMMON_HEADER} RandomNumber.h RandomNumber.cpp)
-set(FACTORIZATION_SOURCE_FILES ${COMMON_HEADER} Factorization.h Factorization.cpp)
+set(BIG_INTEGER_SOURCE_FILES BigInteger.h BigInteger.cpp)
+set(FIBONACCI_SOURCE_FILES Fibonacci.h Fibonacci.cpp)
+set(MATH_SOURCE_FILES Math.h Math.cpp)
+set(RANDOM_NUMBER_SOURCE_FILES RandomNumber.h RandomNumber.cpp)
+set(FACTORIZATION_SOURCE_FILES Factorization.h Factorization.cpp)
 set(SOURCE_FILES ${BIG_INTEGER_SOURCE_FILES} ${RANDOM_NUMBER_SOURCE_FILES} ${FIBONACCI_SOURCE_FILES}
-                ${FACTORIZATION_SOURCE_FILES})
+                ${FACTORIZATION_SOURCE_FILES} ${MATH_SOURCE_FILES})
 include_directories(Numbers)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
