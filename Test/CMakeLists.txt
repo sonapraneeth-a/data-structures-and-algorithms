@@ -25,7 +25,7 @@ SET(TEST_HEADERS_DIR ./Src/Headers)
 include_directories("./Lib/googletest/googletest/include")
 include_directories("./Lib/googletest/googlemock/include")
 
-include_directories(${TEST_HEADERS_DIR})
+include_directories("${TEST_HEADERS_DIR}")
 
 include_directories("${SRC_DS_DIR}/List")
 include_directories("${SRC_DS_DIR}/Array")
