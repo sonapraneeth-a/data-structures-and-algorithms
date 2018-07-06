@@ -36,6 +36,7 @@ include_directories("${SRC_DS_DIR}/Geometry")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
 
+include_directories("${SRC_HEADERS_DIR}")
 include_directories("${TEST_HEADERS_DIR}")
 
 add_subdirectory("./Lib/googletest")
