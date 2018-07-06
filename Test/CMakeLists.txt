@@ -20,10 +20,12 @@ SET(TEST_QUEUE_DIR ${TEST_DS_DIR}/Queue)
 SET(TEST_GEOMETRY_DIR ${TEST_DS_DIR}/Geometry)
 SET(TEST_STRING_DIR ${TEST_DS_DIR}/String)
 
+SET(TEST_HEADERS_DIR ./Src/Headers)
+
 include_directories("./Lib/googletest/googletest/include")
 include_directories("./Lib/googletest/googlemock/include")
 
-include_directories(${SRC_HEADERS_DIR})
+include_directories(${TEST_HEADERS_DIR})
 
 include_directories("${SRC_DS_DIR}/List")
 include_directories("${SRC_DS_DIR}/Array")
@@ -33,6 +35,8 @@ include_directories("${SRC_DS_DIR}/String")
 include_directories("${SRC_DS_DIR}/Geometry")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
+
+include_directories("${TEST_SRC_HEADERS}")
 
 add_subdirectory("./Lib/googletest")
 
