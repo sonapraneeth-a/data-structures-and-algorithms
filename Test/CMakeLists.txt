@@ -1,48 +1,57 @@
 cmake_minimum_required(VERSION 3.5.1)
 project(MainTest)
 
-add_subdirectory("./Lib/googletest")
-include_directories("./Lib/googletest/googletest/include")
-include_directories("./Lib/googletest/googlemock/include")
-include_directories(./Src/Headers)
-include_directories(../Src/Headers)
-include_directories("../Src/DataStructures/List")
-include_directories("../Src/DataStructures/Array")
-include_directories("../Src/DataStructures/Stack")
-include_directories("../Src/DataStructures/Queue")
-include_directories("../Src/DataStructures/String")
-include_directories("../Src/Algorithms/Numbers")
-
 set(CMAKE_CXX_STANDARD 11)
 
-SET(TEST_PREFIX Test)
+SET(TEST_PREFIX Test-)
 
-SET(HEADERS_DIR ../Src/Headers)
+SET(SRC_HEADERS_DIR ../Src/Headers)
+SET(SRC_DS_DIR ../Src/DataStructures)
+SET(SRC_ALGO_DIR ../Src/Algorithms)
 
-SET(ALGO_DIR ./Src/Algorithms)
-SET(NUMBERS_DIR Numbers)
+SET(TEST_ALGO_DIR ./Src/Algorithms)
+SET(TEST_NUMBERS_DIR ${TEST_ALGO_DIR}/Numbers)
 
-SET(DS_DIR ./Src/DataStructures)
-SET(LIST_DIR List)
-SET(ARRAY_DIR Array)
-SET(STACK_DIR Stack)
-SET(QUEUE_DIR Queue)
-SET(STRING_DIR String)
+SET(TEST_DS_DIR ./Src/DataStructures)
+SET(TEST_LIST_DIR ${TEST_DS_DIR}/List)
+SET(TEST_ARRAY_DIR ${TEST_DS_DIR}/Array)
+SET(TEST_STACK_DIR ${TEST_DS_DIR}/Stack)
+SET(TEST_QUEUE_DIR ${TEST_DS_DIR}/Queue)
+SET(TEST_GEOMETRY_DIR ${TEST_DS_DIR}/Geometry)
+SET(TEST_STRING_DIR ${TEST_DS_DIR}/String)
 
-set(LIST_TEST_FILES ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedListNode.cpp
-                    ${DS_DIR}/${LIST_DIR}/${TEST_PREFIX}-SingleLinkedList.cpp)
-set(ARRAY_TEST_FILES ${DS_DIR}/${ARRAY_DIR}/${TEST_PREFIX}-DynamicArray.cpp)
-set(STACK_TEST_FILES ${DS_DIR}/${STACK_DIR}/${TEST_PREFIX}-Stack.cpp)
-set(STRING_TEST_FILES ${DS_DIR}/${STRING_DIR}/${TEST_PREFIX}-String.cpp)
+include_directories("./Lib/googletest/googletest/include")
+include_directories("./Lib/googletest/googlemock/include")
+
+include_directories(${SRC_HEADERS_DIR})
+
+include_directories("${SRC_DS_DIR}/List")
+include_directories("${SRC_DS_DIR}/Array")
+include_directories("${SRC_DS_DIR}/Stack")
+include_directories("${SRC_DS_DIR}/Queue")
+include_directories("${SRC_DS_DIR}/String")
+include_directories("${SRC_DS_DIR}/Geometry")
+
+include_directories("${SRC_ALGO_DIR}/Numbers")
+
+add_subdirectory("./Lib/googletest")
+
+set(LIST_TEST_FILES ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedListNode.cpp
+                    ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedList.cpp)
+set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
+set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
+set(GEOMETRY_TEST_FILES ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}VectorNd.cpp
+                        ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}Vector2d.cpp)
 add_executable(DataStructuresTest
-                    ${DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
-                    ${STACK_TEST_FILES} ${STRING_TEST_FILES})
+                    ${TEST_DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
+                    ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${GEOMETRY_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
-set(BIG_INTEGER_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-BigInteger.cpp)
-set(FIBONACCI_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-Fibonacci.cpp)
-set(FACTORIZATION_TEST_FILES ${ALGO_DIR}/${NUMBERS_DIR}/${TEST_PREFIX}-Factorization.cpp)
-add_executable(AlgorithmsTest ${ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES} ${FIBONACCI_TEST_FILES}
+set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
+set(FIBONACCI_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
+set(FACTORIZATION_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Factorization.cpp)
+add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES} ${FIBONACCI_TEST_FILES}
                             ${FACTORIZATION_TEST_FILES})
 target_link_libraries(AlgorithmsTest AlgoStatic gtest)
 
