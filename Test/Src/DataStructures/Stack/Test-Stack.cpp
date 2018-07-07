@@ -62,5 +62,4 @@ TEST_F(StackSizeTest, GreaterThanZeroSizeTest)
 TEST_F(StackElementAccessTest, PeekTest)
 {
     EXPECT_EQ(10, _Stack_int_1.Peek());
-    EXPECT_EQ(0, _Stack_int_10->Peek());
 }
