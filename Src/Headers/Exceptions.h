@@ -109,7 +109,7 @@ public:
 class OutOfBoundsException
 {
 private:
-    std::string PrefixMessage;
+    std::string PrefixMessage = "OutOfBoundsException::";
     std::string ExtraMessage;
     std::string StandardMessage;
 public:
@@ -118,9 +118,8 @@ public:
      */
     explicit OutOfBoundsException()
     {
-        PrefixMessage = "Exception::";
         ExtraMessage = "";
-        StandardMessage = "Index out of bounds for the data structure. ";
+        StandardMessage = "Index out of bounds for the data structure.";
     }
     /**
      *
@@ -128,9 +127,8 @@ public:
      */
     explicit OutOfBoundsException(const std::string &Message)
     {
-        PrefixMessage = "Exception::";
         ExtraMessage = Message;
-        StandardMessage = "Index out of bounds for the data structure. ";
+        StandardMessage = "Index out of bounds for the data structure.";
     }
     // Reference URL: http://en.cppreference.com/w/cpp/language/except_spec
     // Reference URL: http://en.cppreference.com/w/cpp/language/noexcept_spec
@@ -140,7 +138,11 @@ public:
      */
     std::string what() const noexcept(true)
     {
-        std::string Message = PrefixMessage + StandardMessage + ExtraMessage;
+        std::string Message = "";
+        if (ExtraMessage != "")
+            Message = PrefixMessage + StandardMessage + " " + ExtraMessage;
+        else
+            Message = PrefixMessage + StandardMessage + ExtraMessage;
         return Message;
     }
 };
@@ -162,7 +164,7 @@ public:
     {
         PrefixMessage = "Exception::";
         ExtraMessage = "";
-        StandardMessage = "Memory allocation for the data structure failed. ";
+        StandardMessage = "Memory allocation for the data structure failed.";
     }
     /**
      *
@@ -172,7 +174,7 @@ public:
     {
         PrefixMessage = "Exception::";
         ExtraMessage = Message;
-        StandardMessage = "Memory allocation for the data structure failed. ";
+        StandardMessage = "Memory allocation for the data structure failed.";
     }
     /**
      *
