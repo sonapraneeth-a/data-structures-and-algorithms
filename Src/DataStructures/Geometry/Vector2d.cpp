@@ -20,14 +20,14 @@ template <typename T>
 T
 Geometry::Vector2d<T>::GetX()
 {
-    return this->CoOrd[0];
+    return this->GetNthCoOrdinate(0);
 }
 
 template <typename T>
 T
 Geometry::Vector2d<T>::GetY()
 {
-    return this->CoOrd[1];
+    return this->GetNthCoOrdinate(1);
 }
 
 template class Geometry::Vector2d<int>;

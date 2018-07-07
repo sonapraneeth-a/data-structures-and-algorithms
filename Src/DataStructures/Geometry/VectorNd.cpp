@@ -83,7 +83,7 @@ Geometry::VectorNd<N, T>::Distance(const VectorNd<N, T> &OtherVector)
  * @tparam T
  * @return
  */
-/*template <ULLI N, typename T>
+template <ULLI N, typename T>
 Geometry::VectorNd<N, double>
 Geometry::VectorNd<N, T>::Normalize()
 {
@@ -98,7 +98,7 @@ Geometry::VectorNd<N, T>::Normalize()
         UnitVector.CoOrd[index] = this->CoOrd[index] / length;
     }
     return UnitVector;
-}*/
+}
 
 /**
  *

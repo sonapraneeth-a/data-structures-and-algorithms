@@ -40,8 +40,8 @@ namespace Geometry
         double
         Distance(const VectorNd<N, T> &OtherVector);
 
-        /*VectorNd<N, double>
-        Normalize();*/
+        VectorNd<N, double>
+        Normalize();
 
         T
         GetNthCoOrdinate(ULLI index);
