@@ -31,9 +31,9 @@ namespace Geometry
 
         std::string _Vector_Print_Start = "(";
         std::string _Vector_Print_End = ")";
-    public:
-
         T CoOrd[N];
+
+    public:
 
         explicit VectorNd(const T &InitValue = 0);
 
@@ -51,15 +51,36 @@ namespace Geometry
         T
         GetNthCoOrdinate(ULLI index);
 
+        void
+        SetNthCoOrdinate(ULLI index, T Value);
+
         std::string
         ToString() const;
 
         friend std::ostream &
-        operator<<(std::ostream & os, VectorNd<N, T> const &Vec)
+        operator<<(std::ostream & os, VectorNd<N, T> const &Vector)
         {
-            return os << Vec.ToString();
+            return os << Vector.ToString();
         }
 
+        VectorNd<N, T> operator + (VectorNd<N, T> const &SecondVector);
+        void operator += (VectorNd<N, T> const &SecondVector);
+
+        VectorNd<N, T> operator - (VectorNd<N, T> const &SecondVector);
+        void operator -= (VectorNd<N, T> const &SecondVector);
+
+        // Dot product
+        VectorNd<N, T> operator * (VectorNd<N, T> const &SecondVector);
+        void operator *= (VectorNd<N, T> const &SecondVector);
+
+        // Reference: https://stackoverflow.com/questions/11066564/overload-bracket-operators-to-get-and-set
+        T operator [](ULLI index) const;
+        T& operator [](ULLI index);
+
+        // Cross product
+        // virtual VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
+
+        VectorNd<N, T> operator = (VectorNd<N, T> const &SecondVector);
 
     };
 }

@@ -38,7 +38,10 @@ Geometry::VectorNd<N, T>::VectorNd(const T &InitValue)
 template <ULLI N, typename T>
 Geometry::VectorNd<N, T>::VectorNd(const VectorNd<N, T> &Vector)
 {
-
+    for (ULLI index = 0; index < N; ++index)
+    {
+        this->CoOrd[index] = Vector.CoOrd[index];
+    }
 }
 
 /**
@@ -118,6 +121,39 @@ Geometry::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
     throw OutOfBoundsException();
 }
 
+template <ULLI N, typename T>
+void
+Geometry::VectorNd<N, T>::SetNthCoOrdinate(ULLI index, T Value)
+{
+    if (index < N)
+        this->CoOrd[index] = Value;
+    std::string exceptionMessage = "IndexOutOfBounds. Requesting "
+                                   + std::to_string(index) + " of " + std::to_string(N);
+    throw OutOfBoundsException();
+}
+
+template <ULLI N, typename T>
+T
+Geometry::VectorNd<N, T>::operator [](ULLI index) const
+{
+    if (index < N)
+        return this->CoOrd[index];
+    std::string exceptionMessage = "IndexOutOfBounds. Requesting "
+                                   + std::to_string(index) + " of " + std::to_string(N);
+    throw OutOfBoundsException();
+}
+
+template <ULLI N, typename T>
+T&
+Geometry::VectorNd<N, T>::operator [](ULLI index)
+{
+    if (index < N)
+        return this->CoOrd[index];
+    std::string exceptionMessage = "IndexOutOfBounds. Requesting "
+                                   + std::to_string(index) + " of " + std::to_string(N);
+    throw OutOfBoundsException();
+}
+
 /**
  *
  * @tparam N
@@ -139,6 +175,141 @@ Geometry::VectorNd<N, T>::ToString() const
     answer += " " + _Vector_Print_End;
     return answer;
 }
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    Geometry::VectorNd<N, T> Answer;
+    for (ULLI index = 0; index < N; ++index)
+    {
+        Answer.CoOrd[index] = this->CoOrd[index] + SecondVector.CoOrd[index];
+    }
+    return Answer;
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+void
+Geometry::VectorNd<N, T>::operator += (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    for (ULLI index = 0; index < N; ++index)
+    {
+        this->CoOrd[index] = this->CoOrd[index] + SecondVector.CoOrd[index];
+    }
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    Geometry::VectorNd<N, T> Answer;
+    for (ULLI index = 0; index < N; ++index)
+    {
+        Answer.CoOrd[index] = this->CoOrd[index] - SecondVector.CoOrd[index];
+    }
+    return Answer;
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+void
+Geometry::VectorNd<N, T>::operator -= (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    for (ULLI index = 0; index < N; ++index)
+    {
+        this->CoOrd[index] = this->CoOrd[index] - SecondVector.CoOrd[index];
+    }
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    Geometry::VectorNd<N, T> Answer;
+    for (ULLI index = 0; index < N; ++index)
+    {
+        Answer.CoOrd[index] = this->CoOrd[index] * SecondVector.CoOrd[index];
+    }
+    return Answer;
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+void
+Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    for (ULLI index = 0; index < N; ++index)
+    {
+        this->CoOrd[index] = this->CoOrd[index] * SecondVector.CoOrd[index];
+    }
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
+Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    Geometry::VectorNd<N, T> Answer;
+    for (ULLI index = 0; index < N; ++index)
+    {
+        Answer.CoOrd[index] = SecondVector.CoOrd[index];
+    }
+    return Answer;
+}
+
+/*template <ULLI N, typename T>
+friend std::ostream&
+Geometry::VectorNd<N, T>::operator<<(std::ostream & os,
+                                     Geometry::VectorNd<N, T>::VectorNd<N, T> const &Vec)
+{
+    return os << Vec.ToString();
+}*/
 
 template class Geometry::VectorNd<(ULLI)2, int>;
 template class Geometry::VectorNd<(ULLI)2, double>;

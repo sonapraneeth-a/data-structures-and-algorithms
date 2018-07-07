@@ -6,7 +6,7 @@ set(CMAKE_CXX_FLAGS -fpermissive)
 
 message("--     Generating CMake for Geometry")
 
-set(SOURCE_FILES VectorNd.cpp VectorNd.h Vector2d.cpp Vector2d.h)
+set(SOURCE_FILES VectorNd.cpp VectorNd.h Vector2d.cpp Vector2d.h Vector3d.cpp Vector3d.h)
 include_directories(Geometry)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")

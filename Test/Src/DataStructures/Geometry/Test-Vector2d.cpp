@@ -16,8 +16,6 @@
 #include "Vector2d.h"
 #include "gtest/gtest.h"
 
-using namespace std;
-
 class Vector2dTest : public ::testing::Test
 {
 protected:
