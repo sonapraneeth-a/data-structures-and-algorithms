@@ -13,6 +13,9 @@
  *                                               - Added function signatures for the functions
  *                                                 Distance, Fill, Normalize, GetNthCoOrdinate,
  *                                                 ToString
+ * 07-07-2018             Sona Praneeth Akula    - Added function signatures for functions
+ *                                                 SetNthCoOrdinate, Copy constructor and operators
+ *                                                 +, -, *, +=, -=, *=, []
  */
 
 #ifndef POINT_H

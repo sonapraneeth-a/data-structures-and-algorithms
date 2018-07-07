@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 06 July 2018
+ *   Last modified: 07 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation code for N dimensional vector
  */
@@ -13,6 +13,9 @@
  *                                               - Added implementations for the functions
  *                                                 Distance, Fill, Normalize, GetNthCoOrdinate,
  *                                                 ToString
+ * 07-07-2018             Sona Praneeth Akula    - Added implementations for functions
+ *                                                 SetNthCoOrdinate, Copy constructor and operators
+ *                                                 +, -, *, +=, -=, *=, []
  */
 
 #include "VectorNd.h"
@@ -40,7 +43,7 @@ Geometry::VectorNd<N, T>::VectorNd(const VectorNd<N, T> &Vector)
 {
     for (ULLI index = 0; index < N; ++index)
     {
-        this->CoOrd[index] = Vector.CoOrd[index];
+        this->CoOrd[index] = Vector[index];
     }
 }
 
@@ -75,7 +78,7 @@ Geometry::VectorNd<N, T>::Distance(const VectorNd<N, T> &OtherVector)
     for (ULLI index = 0; index < N; ++index)
     {
         answer += sqrt((this->CoOrd[index] * this->CoOrd[index])
-                    + (OtherVector.CoOrd[index] * OtherVector.CoOrd[index]));
+                    + (OtherVector[index] * OtherVector[index]));
     }
     return answer;
 }
@@ -98,7 +101,7 @@ Geometry::VectorNd<N, T>::Normalize()
     Geometry::VectorNd<N, double> UnitVector;
     for (ULLI index = 0; index < N; ++index)
     {
-        UnitVector.CoOrd[index] = this->CoOrd[index] / length;
+        UnitVector[index] = this->CoOrd[index] / length;
     }
     return UnitVector;
 }
@@ -190,7 +193,7 @@ Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> Answer;
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer.CoOrd[index] = this->CoOrd[index] + SecondVector.CoOrd[index];
+        Answer[index] = this->CoOrd[index] + SecondVector[index];
     }
     return Answer;
 }
@@ -208,7 +211,7 @@ Geometry::VectorNd<N, T>::operator += (Geometry::VectorNd<N, T> const &SecondVec
 {
     for (ULLI index = 0; index < N; ++index)
     {
-        this->CoOrd[index] = this->CoOrd[index] + SecondVector.CoOrd[index];
+        this->CoOrd[index] = this->CoOrd[index] + SecondVector[index];
     }
 }
 
@@ -226,7 +229,7 @@ Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> Answer;
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer.CoOrd[index] = this->CoOrd[index] - SecondVector.CoOrd[index];
+        Answer[index] = this->CoOrd[index] - SecondVector[index];
     }
     return Answer;
 }
@@ -244,7 +247,7 @@ Geometry::VectorNd<N, T>::operator -= (Geometry::VectorNd<N, T> const &SecondVec
 {
     for (ULLI index = 0; index < N; ++index)
     {
-        this->CoOrd[index] = this->CoOrd[index] - SecondVector.CoOrd[index];
+        this->CoOrd[index] = this->CoOrd[index] - SecondVector[index];
     }
 }
 
@@ -262,7 +265,7 @@ Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> Answer;
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer.CoOrd[index] = this->CoOrd[index] * SecondVector.CoOrd[index];
+        Answer.CoOrd[index] = this->CoOrd[index] * SecondVector[index];
     }
     return Answer;
 }
@@ -280,7 +283,7 @@ Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVec
 {
     for (ULLI index = 0; index < N; ++index)
     {
-        this->CoOrd[index] = this->CoOrd[index] * SecondVector.CoOrd[index];
+        this->CoOrd[index] = this->CoOrd[index] * SecondVector[index];
     }
 }
 
@@ -298,7 +301,7 @@ Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> Answer;
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer.CoOrd[index] = SecondVector.CoOrd[index];
+        Answer[index] = SecondVector[index];
     }
     return Answer;
 }
