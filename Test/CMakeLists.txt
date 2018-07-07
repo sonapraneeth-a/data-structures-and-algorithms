@@ -6,6 +6,7 @@ include_directories("./Lib/googletest/googletest/include")
 include_directories("./Lib/googletest/googlemock/include")
 include_directories(../Src/Headers)
 include_directories("../Src/DataStructures/Stack")
+include_directories("../Src/DataStructures/Geometry")
 include_directories("../Src/Algorithms/Numbers")
 
 set(CMAKE_CXX_STANDARD 11)
@@ -17,10 +18,13 @@ set(ALGO_DIR ./Src/Algorithms)
 set(NUMBERS_DIR ${ALGO_DIR}/Numbers)
 set(DS_DIR ./Src/DataStructures)
 set(STACK_DIR ${DS_DIR}/Stack)
+set(GEOMETRY_DIR ${DS_DIR}/Geometry)
 
 set(STACK_TEST_FILES ${STACK_DIR}/${TEST_PREFIX}Stack.cpp)
+set(VECTOR_TEST_FILES ${GEOMETRY_DIR}/${TEST_PREFIX}VectorNd.cpp
+                        ${GEOMETRY_DIR}/${TEST_PREFIX}Vector2d.cpp)
 add_executable(DataStructuresTest ${DS_DIR}/Test-DataStructures.cpp
-                        ${STACK_TEST_FILES} ${HEADERS_DIR}/Utilities.cpp)
+                        ${STACK_TEST_FILES} ${VECTOR_TEST_FILES})
 target_link_libraries(DataStructuresTest DSA_Static gtest gmock)
 
 set(FIBONACCI_TEST_FILES ${NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
