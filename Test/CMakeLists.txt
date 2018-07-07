@@ -19,14 +19,14 @@ set(DS_DIR ./Src/DataStructures)
 set(STACK_DIR ${DS_DIR}/Stack)
 
 set(STACK_TEST_FILES ${STACK_DIR}/${TEST_PREFIX}Stack.cpp)
-add_executable(DSTest ${DS_DIR}/Test-DataStructures.cpp
+add_executable(DataStructuresTest ${DS_DIR}/Test-DataStructures.cpp
                         ${STACK_TEST_FILES} ${HEADERS_DIR}/Utilities.cpp)
-target_link_libraries(DSTest DSA_Static gtest gmock)
+target_link_libraries(DataStructuresTest DSA_Static gtest gmock)
 
 set(FIBONACCI_TEST_FILES ${NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
 set(FACTORIZATION_TEST_FILES ${NUMBERS_DIR}/${TEST_PREFIX}Factorization.cpp)
-add_executable(AlgoTest ${ALGO_DIR}/Test-Algorithms.cpp
+add_executable(AlgorithmsTest ${ALGO_DIR}/Test-Algorithms.cpp
                         ${FIBONACCI_TEST_FILES}
                         ${FACTORIZATION_TEST_FILES})
-target_link_libraries(AlgoTest DSA_Static gtest gmock)
+target_link_libraries(AlgorithmsTest DSA_Static gtest gmock)
 

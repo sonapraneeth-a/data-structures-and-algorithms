@@ -50,12 +50,14 @@ set(ALGO_DIR ${SOURCE_DIR}/Algorithms)
 set(NUMBERS_DIR ${ALGO_DIR}/Numbers)
 set(DS_DIR ${SOURCE_DIR}/DataStructures)
 set(STACK_DIR ${DS_DIR}/Stack)
+set(GEOMETRY_DIR ${DS_DIR}/Geometry)
 
 set(COMMON_HEADER ${HEADERS_DIR}/DefaultHeaders.h)
 
 include_directories(${HEADERS_DIR})
 include_directories(${NUMBERS_DIR})
 include_directories(${STACK_DIR})
+include_directories(${GEOMETRY_DIR})
 
 set(NUMBERS_HEADER_FILES ${NUMBERS_DIR}/Factorization.h ${NUMBERS_DIR}/Fibonacci.h)
 set(NUMBERS_SRC_FILES ${NUMBERS_DIR}/Factorization.cpp ${NUMBERS_DIR}/Fibonacci.cpp)
@@ -66,7 +68,10 @@ set(ALGO_SRC_FILES ${NUMBERS_SRC_FILES})
 set(STACK_HEADER_FILES ${STACK_DIR}/Stack.h ${STACK_DIR}/StackNode.h)
 set(STACK_SRC_FILES ${STACK_DIR}/Stack.cpp ${STACK_DIR}/StackNode.cpp)
 
-set(DS_HEADER_FILES ${STACK_HEADER_FILES} ${STACK_SRC_FILES})
+set(GEOMETRY_HEADER_FILES ${GEOMETRY_DIR}/VectorNd.h ${GEOMETRY_DIR}/Vector2d.h)
+set(GEOMETRY_SRC_FILES ${GEOMETRY_DIR}/VectorNd.cpp ${GEOMETRY_DIR}/Vector2d.cpp)
+
+set(DS_HEADER_FILES ${STACK_HEADER_FILES} ${STACK_SRC_FILES} ${GEOMETRY_HEADER_FILES})
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
 set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
