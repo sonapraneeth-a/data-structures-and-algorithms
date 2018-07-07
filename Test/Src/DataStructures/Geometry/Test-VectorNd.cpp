@@ -23,7 +23,6 @@ class VectorNdTest : public ::testing::Test
 protected:
     virtual void SetUp()
     {
-        _VectorNd_int_1;
     }
 
     virtual void TearDown()
@@ -31,15 +30,30 @@ protected:
 
     }
 
-    Geometry::VectorNd<2, int> _VectorNd_int_2;
-    Geometry::VectorNd<2, int> _VectorNd_int_1;
-    Geometry::VectorNd<2, int> *_VectorNd_int_10 = new Geometry::VectorNd<2, int>(10);
+    Geometry::VectorNd<4, int> *_VectorNd_int_4 = new Geometry::VectorNd<4, int>(10);
 
 };
 
-class VectorNdDistanceTest: public VectorNdTest
+class VectorNdNthCoOrdinateTest: public VectorNdTest
 {};
 
 class VectorNdConstructorTest: public VectorNdTest
 {};
 
+TEST_F(VectorNdNthCoOrdinateTest, OutOfRangeTest)
+{
+    // Reference: https://stackoverflow.com/questions/23270078/test-a-specific-exception-type-is-thrown-and-the-exception-has-the-right-propert
+    try
+    {
+        int coOrd = _VectorNd_int_4->GetNthCoOrdinate(6);
+        FAIL() << "Expected OutOfBoundsException()\n";
+    }
+    catch(OutOfBoundsException const & err)
+    {
+        EXPECT_EQ(err.what(), std::string("OutOfBoundsException::Index out of bounds for the data structure."));
+    }
+    catch(...)
+    {
+        FAIL() << "Expected OutOfBoundsException()\n";
+    }
+}

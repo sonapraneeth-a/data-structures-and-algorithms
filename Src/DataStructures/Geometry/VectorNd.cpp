@@ -111,7 +111,11 @@ template <ULLI N, typename T>
 T
 Geometry::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
 {
-    return this->CoOrd[index];
+    if (index < N)
+        return this->CoOrd[index];
+    std::string exceptionMessage = "IndexOutOfBounds. Requesting "
+                                   + std::to_string(index) + " of " + std::to_string(N);
+    throw OutOfBoundsException();
 }
 
 /**
@@ -122,9 +126,9 @@ Geometry::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
  */
 template <ULLI N, typename T>
 std::string
-Geometry::VectorNd<N, T>::ToString()
+Geometry::VectorNd<N, T>::ToString() const
 {
-    std::string answer = "{ ";
+    std::string answer = _Vector_Print_Start + " ";
     for (ULLI index = 0; index < N; ++index)
     {
         if (index < N-1)
@@ -132,7 +136,7 @@ Geometry::VectorNd<N, T>::ToString()
         else
             answer += std::to_string(this->CoOrd[index]);
     }
-    answer += " }";
+    answer += " " + _Vector_Print_End;
     return answer;
 }
 

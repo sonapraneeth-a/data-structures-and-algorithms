@@ -23,6 +23,7 @@ namespace Geometry
         T
         GetY();
     };
+
 }
 
 #endif //VECTOR2D_H

@@ -20,12 +20,17 @@
 
 #include "DefaultHeaders.h"
 
+
 namespace Geometry
 {
 
     template<ULLI N, typename T>
     class VectorNd
     {
+    private:
+
+        std::string _Vector_Print_Start = "(";
+        std::string _Vector_Print_End = ")";
     public:
 
         T CoOrd[N];
@@ -47,7 +52,13 @@ namespace Geometry
         GetNthCoOrdinate(ULLI index);
 
         std::string
-        ToString();
+        ToString() const;
+
+        friend std::ostream &
+        operator<<(std::ostream & os, VectorNd<N, T> const &Vec)
+        {
+            return os << Vec.ToString();
+        }
 
 
     };

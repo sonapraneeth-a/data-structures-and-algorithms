@@ -8,9 +8,11 @@ void
 RunVector2d()
 {
     Geometry::Vector2d<int> v(10);
+    std::cout << v << "\n";
     std::cout << v.GetX() << "\n";
     Geometry::Vector2d<int> v1;
     std::cout << v1.GetX() << "\n";
+    std::cout << v1 << "\n";
     return ;
 }
 
