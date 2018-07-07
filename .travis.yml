@@ -1,6 +1,19 @@
 language: cpp
 sudo: required
 
+# blocklist
+branches:
+  except:
+  - doxygen
+  - gh-pages
+  - mkdocs
+
+# safelist
+branches:
+  only:
+  - master
+  - export
+
 compiler:
     - g++
 
