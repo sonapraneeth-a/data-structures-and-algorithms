@@ -68,8 +68,10 @@ set(ALGO_SRC_FILES ${NUMBERS_SRC_FILES})
 set(STACK_HEADER_FILES ${STACK_DIR}/Stack.h ${STACK_DIR}/StackNode.h)
 set(STACK_SRC_FILES ${STACK_DIR}/Stack.cpp ${STACK_DIR}/StackNode.cpp)
 
-set(GEOMETRY_HEADER_FILES ${GEOMETRY_DIR}/VectorNd.h ${GEOMETRY_DIR}/Vector2d.h)
-set(GEOMETRY_SRC_FILES ${GEOMETRY_DIR}/VectorNd.cpp ${GEOMETRY_DIR}/Vector2d.cpp)
+set(GEOMETRY_HEADER_FILES ${GEOMETRY_DIR}/VectorNd.h ${GEOMETRY_DIR}/Vector2d.h
+                            ${GEOMETRY_DIR}/Vector3d.h)
+set(GEOMETRY_SRC_FILES ${GEOMETRY_DIR}/VectorNd.cpp ${GEOMETRY_DIR}/Vector2d.cpp
+                        ${GEOMETRY_DIR}/Vector3d.cpp)
 
 set(DS_HEADER_FILES ${STACK_HEADER_FILES} ${STACK_SRC_FILES} ${GEOMETRY_HEADER_FILES} ${GEOMETRY_SRC_FILES})
 
