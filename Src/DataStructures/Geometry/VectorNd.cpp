@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 07 July 2018
+ *   Last modified: 08 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation code for N dimensional vector
  */
@@ -16,6 +16,7 @@
  * 07-07-2018             Sona Praneeth Akula    - Added implementations for functions
  *                                                 SetNthCoOrdinate, Copy constructor and operators
  *                                                 +, -, *, +=, -=, *=, []
+ * 08-07-2018             Sona Praneeth Akula    - Added implementation for operator ==
  */
 
 #include "VectorNd.h"
@@ -167,7 +168,7 @@ template <ULLI N, typename T>
 std::string
 Geometry::VectorNd<N, T>::ToString() const
 {
-    std::string answer = _Vector_Print_Start + " ";
+    std::string answer = _Vector_Print_Start;
     for (ULLI index = 0; index < N; ++index)
     {
         if (index < N-1)
@@ -175,7 +176,7 @@ Geometry::VectorNd<N, T>::ToString() const
         else
             answer += std::to_string(this->CoOrd[index]);
     }
-    answer += " " + _Vector_Print_End;
+    answer += _Vector_Print_End;
     return answer;
 }
 
@@ -295,7 +296,7 @@ Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVec
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>&
 Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVector)
 {
     Geometry::VectorNd<N, T> Answer;
@@ -306,6 +307,22 @@ Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVect
     return Answer;
 }
 
+template <ULLI N, typename T>
+bool
+Geometry::VectorNd<N, T>::operator == (Geometry::VectorNd<N, T> const &SecondVector) const
+{
+    bool IsEqual = true;
+    for (ULLI index = 0; index < N; ++index)
+    {
+        if (this->CoOrd[index] != SecondVector[index])
+        {
+            IsEqual = false;
+            break;
+        }
+    }
+    return IsEqual;
+}
+
 /*template <ULLI N, typename T>
 friend std::ostream&
 Geometry::VectorNd<N, T>::operator<<(std::ostream & os,
@@ -313,6 +330,12 @@ Geometry::VectorNd<N, T>::operator<<(std::ostream & os,
 {
     return os << Vec.ToString();
 }*/
+
+template class Geometry::VectorNd<(ULLI)1, int>;
+template class Geometry::VectorNd<(ULLI)1, double>;
+template class Geometry::VectorNd<(ULLI)1, float>;
+template class Geometry::VectorNd<(ULLI)1, ULLI>;
+template class Geometry::VectorNd<(ULLI)1, LLI>;
 
 template class Geometry::VectorNd<(ULLI)2, int>;
 template class Geometry::VectorNd<(ULLI)2, double>;
@@ -331,6 +354,12 @@ template class Geometry::VectorNd<(ULLI)4, double>;
 template class Geometry::VectorNd<(ULLI)4, float>;
 template class Geometry::VectorNd<(ULLI)4, ULLI>;
 template class Geometry::VectorNd<(ULLI)4, LLI>;
+
+template class Geometry::VectorNd<(ULLI)5, int>;
+template class Geometry::VectorNd<(ULLI)5, double>;
+template class Geometry::VectorNd<(ULLI)5, float>;
+template class Geometry::VectorNd<(ULLI)5, ULLI>;
+template class Geometry::VectorNd<(ULLI)5, LLI>;
 
 // https://stackoverflow.com/questions/38907087/c-template-partial-explicit-instantiation
 // template<ULLI N> class Geometry::VectorNd<N, int>;

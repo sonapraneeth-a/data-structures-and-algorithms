@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 06 July 2018
+ *   Last modified: 08 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Header for N dimensional vector
  */
@@ -16,10 +16,11 @@
  * 07-07-2018             Sona Praneeth Akula    - Added function signatures for functions
  *                                                 SetNthCoOrdinate, Copy constructor and operators
  *                                                 +, -, *, +=, -=, *=, []
+ * 08-07-2018             Sona Praneeth Akula    - Added function signatures for operator ==
  */
 
-#ifndef POINT_H
-#define POINT_H
+#ifndef VECTORND_H
+#define VECTORND_H
 
 #include "DefaultHeaders.h"
 
@@ -63,7 +64,7 @@ namespace Geometry
         friend std::ostream &
         operator<<(std::ostream & os, VectorNd<N, T> const &Vector)
         {
-            return os << Vector.ToString();
+            return os << Vector.ToString() << "\n";
         }
 
         VectorNd<N, T> operator + (VectorNd<N, T> const &SecondVector);
@@ -83,9 +84,11 @@ namespace Geometry
         // Cross product
         // virtual VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
 
-        VectorNd<N, T> operator = (VectorNd<N, T> const &SecondVector);
+        VectorNd<N, T>& operator = (VectorNd<N, T> const &SecondVector);
+
+        bool operator == (VectorNd<N, T> const &SecondVector) const;
 
     };
 }
 
-#endif //POINT_H
+#endif //VECTORND_H
