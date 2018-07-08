@@ -35,7 +35,7 @@ namespace Geometry
 
         std::string _Vector_Print_Start = "(";
         std::string _Vector_Print_End = ")";
-        T CoOrd[N];
+        T *CoOrd = new T[N];
 
     public:
 
@@ -82,11 +82,13 @@ namespace Geometry
         T& operator [](ULLI index);
 
         // Cross product
-        // virtual VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
+        VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
 
         VectorNd<N, T>& operator = (VectorNd<N, T> const &SecondVector);
 
         bool operator == (VectorNd<N, T> const &SecondVector) const;
+
+        ~VectorNd();
 
     };
 }

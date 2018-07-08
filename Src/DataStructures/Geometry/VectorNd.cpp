@@ -99,12 +99,12 @@ Geometry::VectorNd<N, T>::Normalize()
     {
         length += sqrt((this->CoOrd[index] * this->CoOrd[index]));
     }
-    Geometry::VectorNd<N, double> UnitVector;
+    Geometry::VectorNd<N, double> *UnitVector = new Geometry::VectorNd<N, double>(0.0);
     for (ULLI index = 0; index < N; ++index)
     {
         UnitVector[index] = this->CoOrd[index] / length;
     }
-    return UnitVector;
+    return *UnitVector;
 }
 
 /**
@@ -191,12 +191,12 @@ template <ULLI N, typename T>
 Geometry::VectorNd<N, T>
 Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> Answer;
+    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         Answer[index] = this->CoOrd[index] + SecondVector[index];
     }
-    return Answer;
+    return *Answer;
 }
 
 /**
@@ -227,12 +227,12 @@ template <ULLI N, typename T>
 Geometry::VectorNd<N, T>
 Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> Answer;
+    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         Answer[index] = this->CoOrd[index] - SecondVector[index];
     }
-    return Answer;
+    return *Answer;
 }
 
 /**
@@ -263,12 +263,12 @@ template <ULLI N, typename T>
 Geometry::VectorNd<N, T>
 Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> Answer;
+    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer.CoOrd[index] = this->CoOrd[index] * SecondVector[index];
+        Answer[index] = this->CoOrd[index] * SecondVector[index];
     }
-    return Answer;
+    return *Answer;
 }
 
 /**
@@ -296,15 +296,34 @@ Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVec
  * @return
  */
 template <ULLI N, typename T>
+Geometry::VectorNd<N, T>
+Geometry::VectorNd<N, T>::operator ^ (Geometry::VectorNd<N, T> const &SecondVector)
+{
+    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    for (ULLI index = 0; index < N; ++index)
+    {
+        Answer[index] = this->CoOrd[index] * SecondVector[index];
+    }
+    return *Answer;
+}
+
+/**
+ *
+ * @tparam N
+ * @tparam T
+ * @param SecondVector
+ * @return
+ */
+template <ULLI N, typename T>
 Geometry::VectorNd<N, T>&
 Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> Answer;
+    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         Answer[index] = SecondVector[index];
     }
-    return Answer;
+    return *Answer;
 }
 
 template <ULLI N, typename T>
@@ -322,6 +341,17 @@ Geometry::VectorNd<N, T>::operator == (Geometry::VectorNd<N, T> const &SecondVec
     }
     return IsEqual;
 }
+
+/**
+ * 
+ * @tparam N
+ * @tparam T
+ */
+template <ULLI N, typename T>
+Geometry::VectorNd<N, T>::~VectorNd()
+{
+    delete[] CoOrd;
+};
 
 /*template <ULLI N, typename T>
 friend std::ostream&
