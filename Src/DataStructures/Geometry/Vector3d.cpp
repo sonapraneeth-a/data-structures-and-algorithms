@@ -1,6 +1,18 @@
-//
-// Created by pranas on 7/7/2018.
-//
+/**
+ *      Created on: 07 July 2018
+ *   Last modified: 07 July 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Implementation code for 3 dimensional vector
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 06-07-2018             Sona Praneeth Akula    - Creation of file
+ *                                               - Added implementations for the functions
+ *                                                 GetX, GetY, GetZ
+ */
 
 #include "Vector3d.h"
 
