@@ -102,7 +102,7 @@ Geometry::VectorNd<N, T>::Normalize()
     Geometry::VectorNd<N, double> *UnitVector = new Geometry::VectorNd<N, double>(0.0);
     for (ULLI index = 0; index < N; ++index)
     {
-        UnitVector[index] = this->CoOrd[index] / length;
+        (*UnitVector)[index] = this->CoOrd[index] / length;
     }
     return *UnitVector;
 }
@@ -194,7 +194,7 @@ Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer[index] = this->CoOrd[index] + SecondVector[index];
+        (*Answer)[index] = this->CoOrd[index] + SecondVector[index];
     }
     return *Answer;
 }
@@ -230,7 +230,7 @@ Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer[index] = this->CoOrd[index] - SecondVector[index];
+        (*Answer)[index] = this->CoOrd[index] - SecondVector[index];
     }
     return *Answer;
 }
@@ -266,7 +266,7 @@ Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer[index] = this->CoOrd[index] * SecondVector[index];
+        (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
     }
     return *Answer;
 }
@@ -302,7 +302,7 @@ Geometry::VectorNd<N, T>::operator ^ (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer[index] = this->CoOrd[index] * SecondVector[index];
+        (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
     }
     return *Answer;
 }
@@ -321,7 +321,7 @@ Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVect
     Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
-        Answer[index] = SecondVector[index];
+        (*Answer)[index] = SecondVector[index];
     }
     return *Answer;
 }
@@ -343,7 +343,7 @@ Geometry::VectorNd<N, T>::operator == (Geometry::VectorNd<N, T> const &SecondVec
 }
 
 /**
- * 
+ *
  * @tparam N
  * @tparam T
  */
