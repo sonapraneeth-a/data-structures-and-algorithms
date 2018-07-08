@@ -295,7 +295,7 @@ Geometry::VectorNd<N, T, typename EnableNumbers>::operator *= (Geometry::VectorN
  * @param SecondVector
  * @return
  */
-template <ULLI N, typename T>
+/*template <ULLI N, typename T>
 Geometry::VectorNd<N, T>
 Geometry::VectorNd<N, T, typename EnableNumbers>::operator ^ (Geometry::VectorNd<N, T> const &SecondVector)
 {
@@ -305,7 +305,7 @@ Geometry::VectorNd<N, T, typename EnableNumbers>::operator ^ (Geometry::VectorNd
         (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
     }
     return *Answer;
-}
+}*/
 
 /**
  *
