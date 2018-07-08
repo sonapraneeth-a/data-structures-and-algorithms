@@ -82,7 +82,7 @@ namespace Geometry
         T& operator [](ULLI index);
 
         // Cross product
-        VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
+        // VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
 
         VectorNd<N, T>& operator = (VectorNd<N, T> const &SecondVector);
 
