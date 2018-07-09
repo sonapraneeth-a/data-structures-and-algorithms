@@ -11,6 +11,7 @@ SET(SRC_ALGO_DIR ../Src/Algorithms)
 
 SET(TEST_ALGO_DIR ./Src/Algorithms)
 SET(TEST_NUMBERS_DIR ${TEST_ALGO_DIR}/Numbers)
+SET(TEST_SEARCHSORT_DIR ${TEST_ALGO_DIR}/SearchSort)
 
 SET(TEST_DS_DIR ./Src/DataStructures)
 SET(TEST_LIST_DIR ${TEST_DS_DIR}/List)
@@ -35,6 +36,7 @@ include_directories("${SRC_DS_DIR}/String")
 include_directories("${SRC_DS_DIR}/Geometry")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
+include_directories("${SRC_ALGO_DIR}/SearchSort")
 
 include_directories("${SRC_HEADERS_DIR}")
 include_directories("${TEST_HEADERS_DIR}")
@@ -57,7 +59,10 @@ target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
 set(FIBONACCI_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
 set(FACTORIZATION_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Factorization.cpp)
-add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES} ${FIBONACCI_TEST_FILES}
-                            ${FACTORIZATION_TEST_FILES})
+set(SEARCH_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Search.cpp)
+set(SORT_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Sort.cpp)
+add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES}
+                                ${FIBONACCI_TEST_FILES} ${FACTORIZATION_TEST_FILES} ${SEARCH_TEST_FILES}
+                                ${SORT_TEST_FILES})
 target_link_libraries(AlgorithmsTest AlgoStatic gtest)
 
