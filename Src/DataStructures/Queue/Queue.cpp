@@ -103,7 +103,7 @@ bool Queue<T>::IsEmpty()
  * @return
  */
 template <typename T>
-T Queue<T>::GetHead()
+T Queue<T>::GetHeadValue()
 {
    return this->Head->GetData();
 }
@@ -114,7 +114,7 @@ T Queue<T>::GetHead()
  * @return
  */
 template <typename T>
-T Queue<T>::GetTail()
+T Queue<T>::GetTailValue()
 {
     return this->Tail->GetData();
 }

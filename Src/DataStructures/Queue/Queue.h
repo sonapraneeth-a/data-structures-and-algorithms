@@ -21,10 +21,13 @@
 template <typename T>
 class Queue
 {
-public:
+private:
 
     QueueNode<T> *Head;
     QueueNode<T> *Tail;
+
+public:
+
     ULLI Size = 0;
     ULLI MaxSize = 0;
 
@@ -34,8 +37,8 @@ public:
     void Enqueue(T Value);
     T Dequeue();
     bool IsEmpty();
-    T GetHead();
-    T GetTail();
+    T GetHeadValue();
+    T GetTailValue();
     ULLI GetSize();
 
     ~Queue();

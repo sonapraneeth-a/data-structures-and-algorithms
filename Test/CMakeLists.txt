@@ -47,13 +47,15 @@ set(LIST_TEST_FILES ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedListNode.cpp
                     ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedList.cpp)
 set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
 set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
+set(QUEUE_TEST_FILES ${TEST_QUEUE_DIR}/${TEST_PREFIX}Queue.cpp)
 set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
 set(GEOMETRY_TEST_FILES ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}VectorNd.cpp
                         ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}Vector2d.cpp
                         ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}Vector3d.cpp)
 add_executable(DataStructuresTest
                     ${TEST_DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
-                    ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${GEOMETRY_TEST_FILES})
+                    ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${GEOMETRY_TEST_FILES}
+                    ${QUEUE_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
 set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
