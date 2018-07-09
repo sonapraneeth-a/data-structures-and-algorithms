@@ -1,6 +1,18 @@
-//
-// Created by pranas on 7/9/2018.
-//
+/**
+ *      Created on: 09 July 2018
+ *   Last modified: 09 July 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Tests for sorting algorithms
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 09-07-2018             Sona Praneeth Akula   - Creation of file
+ *                                              - Adding tests for small arrays - Bubble Sort,
+ *                                                Insertion Sort
+ */
 
 #include "Sort.h"
 #include "gtest/gtest.h"

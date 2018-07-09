@@ -1,3 +1,20 @@
+/**
+ *      Created on: 14 March 2018
+ *   Last modified: 02 April 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Tests for fibonacci number algorithms
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 14-03-2018             Sona Praneeth Akula   - Creation of file
+ *                                              - Adding tests: SeriesTest, SimpleIndexIterativeTest
+ * 02-04-2018             Sona Praneeth Akula   - Fixed a wrong test case in GetNthFibonacci number
+ *                                                as the first element of fib series is 0
+ */
+
 #include "Factorization.h"
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"

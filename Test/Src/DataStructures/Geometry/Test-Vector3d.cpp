@@ -1,6 +1,17 @@
-//
-// Created by pranas on 7/7/2018.
-//
+/**
+ *      Created on: 06 July 2018
+ *   Last modified: 06 July 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Tests for Vector3d
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 06-07-2018             Sona Praneeth Akula   - Creation of file
+ *                                              - Adding tests for Vector2d GetX, GetY
+ */
 
 #include "Vector3d.h"
 #include "gtest/gtest.h"
