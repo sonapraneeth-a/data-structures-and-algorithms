@@ -1,6 +1,6 @@
 /**
  *      Created on: 22 March 2018
- *   Last modified: 31 March 2018
+ *   Last modified: 08 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Exceptions
  */
@@ -16,6 +16,7 @@
  * 01-04-2018             Sona Praneeth Akula   - Added new MemoryAllocationException
  *                                              - Minor refactorings for the code
  *                                              - Moved from throw() to noexpect(true)
+ * 08-07-2018             Sona Praneeth Akula   - Updated OutOfBoundsException PrefixMessage
  */
 
 #ifndef EXCEPTIONS_H

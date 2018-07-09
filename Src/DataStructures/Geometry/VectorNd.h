@@ -24,6 +24,7 @@
 
 #include "DefaultHeaders.h"
 
+// Reference: http://blog.ethanlim.net/2014/07/separate-c-template-headers-h-and.html
 
 namespace Geometry
 {
