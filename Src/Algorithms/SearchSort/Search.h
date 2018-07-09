@@ -32,23 +32,27 @@
  * @return [LLI - long long int] index of the element in the array (0 indexing),
  *                                -1 if the element is not found in the array
  */
-template <typename T, size_t N>
+template <typename T, LLI N>
 LLI LinearSearch(T (&Array)[N], T element, LLI startIndex = 0, LLI endIndex = -1)
 {
     ULLI lengthOfArray = SizeOfArray(Array);
-    /*if (lengthOfArray == 0)
+    if (lengthOfArray == 0)
     {
         throw OutOfBoundsException();
-    }*/
+    }
     if (endIndex == -1)
     {
         endIndex = (LLI)lengthOfArray;
     }
-    if (!(startIndex >= 0 && startIndex < lengthOfArray))
+    if (!(startIndex >= 0 && startIndex <= lengthOfArray))
     {
         throw OutOfBoundsException();
     }
-    if (!(endIndex >= 0 && endIndex < lengthOfArray))
+    if (!(endIndex >= 0 && endIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (startIndex > endIndex)
     {
         throw OutOfBoundsException();
     }
@@ -76,7 +80,7 @@ LLI LinearSearch(T (&Array)[N], T element, LLI startIndex = 0, LLI endIndex = -1
  * @return [LLI - long long int] index of the element in the array (0 indexing),
  *                                -1 if the element is not found in the array
  */
-template <typename T, size_t N>
+template <typename T, ULLI N>
 LLI BinarySearchIterative(T (&Array)[N], T element, LLI startIndex = 0, LLI endIndex = -1)
 {
     ULLI lengthOfArray = SizeOfArray(Array);
@@ -84,6 +88,18 @@ LLI BinarySearchIterative(T (&Array)[N], T element, LLI startIndex = 0, LLI endI
     if (endIndex == -1)
     {
         endIndex = (LLI)lengthOfArray;
+    }
+    if (!(startIndex >= 0 && startIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (!(endIndex >= 0 && endIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (startIndex > endIndex)
+    {
+        throw OutOfBoundsException();
     }
     // Loop until we either find the element we are looking for (or) we are sure that the
     // element we are looking for is not there in the array
@@ -131,7 +147,7 @@ LLI BinarySearchIterative(T (&Array)[N], T element, LLI startIndex = 0, LLI endI
  * @return [LLI - long long int] index of the element in the array (0 indexing),
  *                                -1 if the element is not found in the array
  */
-template <typename T, size_t N>
+template <typename T, ULLI N>
 LLI BinarySearchRecursive(T (&Array)[N], T element, LLI startIndex = 0, LLI endIndex = -1)
 {
     ULLI lengthOfArray = SizeOfArray(Array);
@@ -139,6 +155,18 @@ LLI BinarySearchRecursive(T (&Array)[N], T element, LLI startIndex = 0, LLI endI
     if (endIndex == -1)
     {
         endIndex = (LLI)lengthOfArray;
+    }
+    if (!(startIndex >= 0 && startIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (!(endIndex >= 0 && endIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (startIndex > endIndex)
+    {
+        throw OutOfBoundsException();
     }
     // Get the index of the element in the middle of the array
     LLI middleIndex = startIndex + (endIndex - startIndex)/2;

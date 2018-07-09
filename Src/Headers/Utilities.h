@@ -184,6 +184,8 @@ void PrintOneDArray(T (&Array)[N], LLI startIndex = 0, LLI endIndex = -1)
     {
         endIndex = (LLI)lengthOfArray;
     }
+    // std::cout << "Length of array: " << lengthOfArray << "\n";
+    // std::cout << "StartIndex: " << startIndex << ", EndIndex: " << endIndex << "\n";
     for (LLI index = startIndex; index < endIndex; ++index)
     {
         std::cout << Array[index] << " ";

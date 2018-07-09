@@ -28,17 +28,32 @@ void BubbleSort(T (&Array)[N], LLI startIndex = 0, LLI endIndex = -1,
     // std::cout << "Length of array: " << lengthOfArray << "\n";
     if (endIndex == -1)
     {
-        endIndex = lengthOfArray;
+        endIndex = (LLI)lengthOfArray;
     }
-    //std::cout << "StartIndex: " << startIndex << "\n";
-    //std::cout << "EndIndex: " << endIndex << "\n";
+    if (!(startIndex >= 0 && startIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (!(endIndex >= 0 && endIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (startIndex > endIndex)
+    {
+        throw OutOfBoundsException();
+    }
+    // std::cout << "StartIndex: " << startIndex << "\n";
+    // std::cout << "EndIndex: " << endIndex << "\n";
     for (LLI loop = startIndex; loop < endIndex; ++loop)
     {
+        // std::cout << "Loop index: " << loop << "\n";
+        // std::cout << "Array before: "; PrintOneDArray(Array);
         bool sorted = true;
-        for (LLI index = startIndex; index <= endIndex-loop; ++index)
+        for (LLI index = startIndex; index < endIndex-loop-1; ++index)
         {
-            //std::cout << "Elements: " << Array[index] << ", " << Array[index+1] << "\n";
-            //std::cout << "Comparison: " << CompFunction(Array[index] , Array[index+1]) << "\n";
+            // std::cout << "Index: " << index << "\n";
+            // std::cout << "Elements: " << Array[index] << ", " << Array[index+1] << "\n";
+            // std::cout << "Comparison: " << CompFunction(Array[index] , Array[index+1]) << "\n";
             if(!CompFunction(Array[index] , Array[index+1]))
             {
                 /*T temp = Array[index+1];
@@ -47,8 +62,9 @@ void BubbleSort(T (&Array)[N], LLI startIndex = 0, LLI endIndex = -1,
                 Swap(Array[index], Array[index+1]);
                 sorted = false;
             }
-            //std::cout << "Array: "; PrintOneDArray(Array);
+            // std::cout << "Array: "; PrintOneDArray(Array);
         }
+        // std::cout << "Array after: "; PrintOneDArray(Array);
         if(sorted) {break;}
     }
 }
@@ -62,6 +78,18 @@ void InsertionSort(T (&Array)[N], bool (*CompFunction)(T&, T&) = &LesserComparat
     if (endIndex == -1)
     {
         endIndex = lengthOfArray;
+    }
+    if (!(startIndex >= 0 && startIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (!(endIndex >= 0 && endIndex <= lengthOfArray))
+    {
+        throw OutOfBoundsException();
+    }
+    if (startIndex > endIndex)
+    {
+        throw OutOfBoundsException();
     }
     for (LLI to_swap = startIndex; to_swap < endIndex; ++to_swap)
     {
