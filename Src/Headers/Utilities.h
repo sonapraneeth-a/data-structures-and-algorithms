@@ -43,6 +43,13 @@
             std::cout << "Duration: " << duration << " " << unit << "\n";\
     }
 
+/**
+ *
+ * @param start
+ * @param end
+ * @param mode
+ * @return
+ */
 inline int
 GetRandomInt(int start=100, int end=100000, std::string mode="Fixed")
 {
@@ -62,6 +69,13 @@ GetRandomInt(int start=100, int end=100000, std::string mode="Fixed")
     return number;
 }
 
+/**
+ *
+ * @param start
+ * @param end
+ * @param mode
+ * @return
+ */
 inline double
 GetRandomDouble(int start=100, int end=100000, std::string mode="Fixed")
 {
@@ -71,31 +85,64 @@ GetRandomDouble(int start=100, int end=100000, std::string mode="Fixed")
     return dist(mt);
 }
 
-
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
+ * @return
+ */
 template <typename T>
-bool LessComparator(T first, T second)
+bool LesserComparator(T &first, T &second)
 {
     return first <= second;
 }
 
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
+ * @return
+ */
 template <typename T>
 bool GreaterComparator(T first, T second)
 {
     return first >= second;
 }
 
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
+ * @return
+ */
 template <typename T>
-bool StrictLessComparator(T first, T second)
+bool StrictLesserComparator(T first, T second)
 {
     return first < second;
 }
 
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
+ * @return
+ */
 template <typename T>
 bool StrictGreaterComparator(T first, T second)
 {
     return first > second;
 }
 
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
+ */
 template <typename T>
 void Swap(T& first, T& second)
 {
@@ -104,16 +151,49 @@ void Swap(T& first, T& second)
     first = temp;
 }
 
-template <typename T>
-void PrintOneDArray(T Array[], LLI start, LLI end)
+/**
+ *
+ * @tparam T
+ * @tparam N
+ * @param Array
+ * @return
+ */
+template <typename T, size_t N>
+ULLI SizeOfArray(T (&Array)[N])
 {
-    for (LLI index = start; index < end; ++index)
+    // Reference: https://stackoverflow.com/questions/5724171/passing-an-array-by-reference
+    // Reference: https://www.geeksforgeeks.org/how-to-find-size-of-array-in-cc-without-using-sizeof-operator/
+    // Reference: https://stackoverflow.com/questions/26269777/passing-unknown-array-to-function-by-reference-c
+    ULLI lengthOfArray = *(&Array + 1) - Array;
+    return lengthOfArray;
+}
+
+/**
+ *
+ * @tparam T
+ * @tparam N
+ * @param Array
+ * @param startIndex
+ * @param endIndex
+ */
+template <typename T, size_t N>
+void PrintOneDArray(T (&Array)[N], LLI startIndex = 0, LLI endIndex = -1)
+{
+    ULLI lengthOfArray = SizeOfArray(Array);
+    if (endIndex == -1)
+    {
+        endIndex = (LLI)lengthOfArray;
+    }
+    for (LLI index = startIndex; index < endIndex; ++index)
     {
         std::cout << Array[index] << " ";
     }
     std::cout << "\n";
 }
 
+/**
+ *
+ */
 inline void
 PrintVersion()
 {
