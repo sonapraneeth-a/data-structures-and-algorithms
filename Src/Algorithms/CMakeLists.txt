@@ -1,4 +1,4 @@
-# Version of CMAke project is compatible with
+# Version of CMake project is compatible with
 cmake_minimum_required(VERSION 3.5.1)
 # Name of the project
 project(Algorithms)
@@ -12,6 +12,9 @@ set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
 add_subdirectory(Numbers)
 include_directories(Numbers)
+
+add_subdirectory(SearchSort)
+include_directories(SearchSort)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
