@@ -23,9 +23,12 @@
 template <typename T>
 class Stack
 {
+private:
+    
+    StackNode<T> *Top;
+
 public:
 
-    StackNode<T> *Top;
     ULLI Size = 0;
     ULLI MaxSize = 0;
 
