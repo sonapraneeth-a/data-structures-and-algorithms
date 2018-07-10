@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Tree")
 
-set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h)
+set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h BinarySearchTree.cpp BinarySearchTree.h)
 include_directories(List)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
