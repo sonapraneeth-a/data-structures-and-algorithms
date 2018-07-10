@@ -3,7 +3,6 @@
 
 #include <random>
 #include <ctime>
-#include "DefaultHeaders.h"
 
 #define MAJOR_VERSION 0
 #define MINOR_VERSION 3
