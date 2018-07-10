@@ -28,8 +28,8 @@ include_directories(Queue)
 add_subdirectory(Geometry)
 include_directories(Geometry)
 
-#add_subdirectory(Tree)
-#include_directories(Tree)
+add_subdirectory(Tree)
+include_directories(Tree)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
@@ -37,7 +37,7 @@ set(CMAKE_DEBUG_POSTFIX "_debug")
 add_library(DsShared SHARED Ds.cpp)
 add_library(DsStatic STATIC Ds.cpp)
 
-target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared QueueShared GeometryShared)#TreeShared)
-target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic QueueStatic GeometryStatic)#TreeStatic)
+target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared QueueShared GeometryShared TreeShared)
+target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic QueueStatic GeometryStatic TreeStatic)
 
 message("--   Completing generation of CMake files for Data Structures")
