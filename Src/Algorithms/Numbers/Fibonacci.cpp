@@ -24,8 +24,8 @@
  * @param  [in] [unsigned int ] index - Index of fibonacci number
  * @return [out] [unsigned long long int] - Index<sup>th</sup> fibonacci number
  */
-unsigned long long int
-GetNthFibonacciRecursive(unsigned int index)
+ULLI
+Math::GetNthFibonacciRecursive(unsigned int index)
 {
     // Series: 0 1 1 2 3 5 ...
     if (index == 0)
@@ -52,8 +52,8 @@ GetNthFibonacciRecursive(unsigned int index)
  * @param  [in] [unsigned int ] index - Index of fibonacci number
  * @return [out] [unsigned long long int] - Index<sup>th</sup> fibonacci number
  */
-unsigned long long int
-GetNthFibonacciIterative(unsigned int index)
+ULLI
+Math::GetNthFibonacciIterative(unsigned int index)
 {
     // Series: 0 1 1 2 3 5 ...
     if (index == 0)
@@ -88,7 +88,7 @@ GetNthFibonacciIterative(unsigned int index)
  * @return [out] [vector<unsigned long long int>] - Fibonacci series of the required length
  */
 std::vector<ULLI>
-FibonacciSeries(unsigned int length)
+Math::FibonacciSeries(unsigned int length)
 {
     // Series: 0 1 1 2 3 5 ...
     std::vector<ULLI> series;

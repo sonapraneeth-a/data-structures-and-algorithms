@@ -18,14 +18,18 @@
 
 #include "DefaultHeaders.h"
 
-ULLI
-GetNthFibonacciRecursive(unsigned int index);
+namespace Math
+{
 
-ULLI
-GetNthFibonacciIterative(unsigned int index);
+    ULLI
+    GetNthFibonacciRecursive(unsigned int index);
 
-std::vector<ULLI>
-FibonacciSeries(unsigned int length);
+    ULLI
+    GetNthFibonacciIterative(unsigned int index);
 
+    std::vector<ULLI>
+    FibonacciSeries(unsigned int length);
+
+}
 
 #endif //FIBONACCI_H
