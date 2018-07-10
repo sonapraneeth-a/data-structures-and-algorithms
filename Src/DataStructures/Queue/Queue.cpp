@@ -14,7 +14,6 @@
  * 01-04-2018             Sona Praneeth Akula   - Fixed the Exceptions header path
  */
 
-#include "Queue.h"
 #include "Exceptions.h"
 
 /**
