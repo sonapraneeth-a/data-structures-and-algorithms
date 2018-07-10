@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Queue")
 
-set(SOURCE_FILES Queue.cpp Queue.h QueueNode.cpp QueueNode.h)
+# set(SOURCE_FILES Queue.cpp Queue.h QueueNode.cpp QueueNode.h)
 include_directories(../../Headers)
 include_directories(Queue)
 
@@ -14,14 +14,14 @@ set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
-add_library(QueueShared SHARED ${SOURCE_FILES})
-add_library(QueueStatic STATIC ${SOURCE_FILES})
+#add_library(QueueShared SHARED ${SOURCE_FILES})
+#add_library(QueueStatic STATIC ${SOURCE_FILES})
 
 add_executable(MainQueue MainQueue.cpp)
-target_link_libraries(MainQueue QueueStatic)
+#target_link_libraries(MainQueue QueueStatic)
 
-install(TARGETS QueueShared DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
-install(TARGETS QueueStatic DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
+#install(TARGETS QueueShared DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
+#install(TARGETS QueueStatic DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
 install(FILES Queue.h DESTINATION "${CMAKE_SOURCE_DIR}/Include/")
 
 message("--     Completing generation of CMake files for Queue")
