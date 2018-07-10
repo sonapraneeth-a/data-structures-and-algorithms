@@ -13,13 +13,13 @@
  *                                              - Added function signatures for binary search tree
  */
 
-#ifndef BINARYSEARCHTREE_H
-#define BINARYSEARCHTREE_H
+#ifndef BINARY_SEARCHTREE_H
+#define BINARY_SEARCHTREE_H
 
-#include "BinaryTreeNode.h"
+#include "BinaryTree.h"
 
 template <typename T>
-class BinarySearchTree
+class BinarySearchTree: public BinaryTree<T>
 {
 private:
 
@@ -27,16 +27,14 @@ private:
 
 public:
 
-    BinarySearchTree();
+    explicit BinarySearchTree<T>(): BinarySearchTree<T>() {}
 
-    void Insert(T Value);
-    void Insert(BinaryTreeNode<T>* Node);
+    void Insert(T Value, BinaryTreeNode<T>* Node);
     void Delete(T Value);
-    void Delete(BinaryTreeNode<T>* Node);
-    void Find(T Value);
+    bool IsPresent(T Value);
 
     ~BinarySearchTree();
 };
 
 
-#endif // BINARYSEARCHTREE_H
+#endif // BINARY_SEARCHTREE_H
