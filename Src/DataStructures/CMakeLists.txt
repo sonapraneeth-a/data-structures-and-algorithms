@@ -37,7 +37,7 @@ set(CMAKE_DEBUG_POSTFIX "_debug")
 add_library(DsShared SHARED Ds.cpp)
 add_library(DsStatic STATIC Ds.cpp)
 
-target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared QueueShared GeometryShared TreeShared)
-target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic QueueStatic GeometryStatic TreeStatic)
+target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared GeometryShared TreeShared)
+target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic GeometryStatic TreeStatic)
 
 message("--   Completing generation of CMake files for Data Structures")
