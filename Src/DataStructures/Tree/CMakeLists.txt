@@ -7,7 +7,8 @@ message("--     Generating CMake for Tree")
 
 set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h
                     BinarySearchTree.cpp BinarySearchTree.h)
-include_directories(List)
+include_directories(Tree)
+include_directories(../../Headers)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_STATIC_LIBRARY_PREFIX "")

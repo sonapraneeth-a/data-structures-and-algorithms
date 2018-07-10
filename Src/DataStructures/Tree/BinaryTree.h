@@ -17,6 +17,7 @@
 #define BINARY_TREE_H
 
 #include "BinaryTreeNode.h"
+#include "Queue.h"
 
 template <typename T>
 class BinaryTree
@@ -24,16 +25,34 @@ class BinaryTree
 private:
 
     BinaryTreeNode<T> *_Root;
+    int _NumberOfNodes = 0;
+
+    Queue<BinaryTreeNode<T>*> LevelOrderTraversalNodes(BinaryTreeNode<T> *Node);
 
 public:
 
-    BinaryTree();
+    explicit BinaryTree();
+    explicit BinaryTree(std::vector<T> &Array);
 
-    void Insert(T Value);
-    void Insert(BinaryTreeNode<T>* Node);
+    void Insert(T Value, BinaryTreeNode<T>* Node);
     void Delete(T Value);
-    void Delete(BinaryTreeNode<T>* Node);
-    void Find(T Value);
+    bool IsPresent(T Value);
+
+    void PrintInOrderTraversal(BinaryTreeNode<T>* Node);
+    void PrintPreOrderTraversal(BinaryTreeNode<T>* Node);
+    void PrintPostOrderTraversal(BinaryTreeNode<T>* Node);
+    void PrintLevelOrderTraversal(BinaryTreeNode<T> *Node);
+
+    std::vector<T> InOrderTraversal(BinaryTreeNode<T> *Node);
+    std::vector<T> PreOrderTraversal(BinaryTreeNode<T> *Node);
+    std::vector<T> PostOrderTraversal(BinaryTreeNode<T> *Node);
+    std::vector<T> LevelOrderTraversal(BinaryTreeNode<T> *Node);
+
+
+    T GetRootValue();
+    BinaryTreeNode<T>* GetRoot();
+
+    void DrawTree(std::string Filename="BinaryTree.dot");
 
     ~BinaryTree();
 

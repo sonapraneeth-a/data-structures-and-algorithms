@@ -25,7 +25,15 @@ BinaryTreeNode<T>::BinaryTreeNode(T Value)
 }
 
 template <typename T>
-BinaryTreeNode*
+BinaryTreeNode<T>::BinaryTreeNode(T Value, BinaryTreeNode<T>* LeftChild, BinaryTreeNode<T>* RightChild)
+{
+    this->_Data = Value;
+    this->_Left = LeftChild;
+    this->_Right = RightChild;
+}
+
+template <typename T>
+BinaryTreeNode<T>*
 BinaryTreeNode<T>::GetLeftChild()
 {
     return this->_Left;
@@ -39,7 +47,7 @@ BinaryTreeNode<T>::SetLeftChild(BinaryTreeNode* Node)
 }
 
 template <typename T>
-BinaryTreeNode*
+BinaryTreeNode<T>*
 BinaryTreeNode<T>::GetRightChild()
 {
     return this->_Right;
@@ -71,3 +79,5 @@ BinaryTreeNode<T>::~BinaryTreeNode()
 {
 
 }
+
+template class BinaryTreeNode<int>;

@@ -28,6 +28,7 @@ private:
 public:
 
     BinaryTreeNode(T Value);
+    BinaryTreeNode(T Value, BinaryTreeNode<T>* LeftChild, BinaryTreeNode<T>* RightChild);
 
     BinaryTreeNode* GetLeftChild();
     void SetLeftChild(BinaryTreeNode* Node);

@@ -15,18 +15,18 @@
 #include "BinarySearchTree.h"
 
 template <typename T>
-BinarySearchTree::BinarySearchTree()
+BinarySearchTree<T>::BinarySearchTree()
 {
     this->_Root = nullptr;
 }
 
 template <typename T>
 void
-BinarySearchTree::Insert(T Value)
+BinarySearchTree<T>::Insert(T Value)
 {
     if(this->_Root == nullptr)
     {
-        this->_Root = new BinaryTreeNode(Value);
+        this->_Root = new BinaryTreeNode<T>(Value);
     }
     else
     {
