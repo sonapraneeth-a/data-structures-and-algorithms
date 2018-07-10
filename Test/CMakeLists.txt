@@ -46,6 +46,7 @@ add_subdirectory("./Lib/googletest")
 set(LIST_TEST_FILES ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedListNode.cpp
                     ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedList.cpp)
 set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(STRING_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}String.cpp)
 set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
 set(QUEUE_TEST_FILES ${TEST_QUEUE_DIR}/${TEST_PREFIX}Queue.cpp)
 set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
