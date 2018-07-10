@@ -22,13 +22,14 @@ install:
 
 before_script:
     - echo "Before script"
-    - chmod +x ./Scripts/Travis/Build.bat
-    - chmod +x ./Scripts/Travis/Run.bat
+    - chmod +x ./Scripts/Travis/SoftwareCheck.sh
+    - chmod +x ./Scripts/Travis/Build.sh
+    - chmod +x ./Scripts/Travis/Run.sh
 
 script:
     - pwd
-    - ./Scripts/Travis/Build.bat
+    - ./Scripts/Travis/Build.sh
     - pwd
     - make -f ./Build/Test/Makefile
     - ls -lah ./Build/*
-    - ./Scripts/Travis/Run.bat
+    - ./Scripts/Travis/Run.sh
