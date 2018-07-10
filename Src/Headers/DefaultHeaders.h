@@ -20,6 +20,6 @@
 #include "LibHeaders.h"
 #include "Utilities.h"
 #include "Exceptions.h"
-
+#include "Bits.h"
 
 #endif

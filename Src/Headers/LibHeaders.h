@@ -18,5 +18,8 @@
 #include <ctime>
 #include <chrono>
 #include <iostream>
+#include <cmath>
+#include <map>
+#include <fstream>
 
 #endif //LIB_HEADERS_H
