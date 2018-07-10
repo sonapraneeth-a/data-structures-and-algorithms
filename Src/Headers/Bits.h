@@ -5,6 +5,8 @@
 #ifndef BITS_H
 #define BITS_H
 
+#include "Utilities.h"
+
 /**
  *
  * @param Number
