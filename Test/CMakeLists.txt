@@ -61,10 +61,11 @@ target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
 set(FIBONACCI_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
 set(FACTORIZATION_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Factorization.cpp)
+set(MATH_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Math.cpp)
 set(SEARCH_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Search.cpp)
 set(SORT_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Sort.cpp)
 add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES}
                                 ${FIBONACCI_TEST_FILES} ${FACTORIZATION_TEST_FILES} ${SEARCH_TEST_FILES}
-                                ${SORT_TEST_FILES})
+                                ${SORT_TEST_FILES} ${MATH_TEST_FILES})
 target_link_libraries(AlgorithmsTest AlgoStatic gtest)
 

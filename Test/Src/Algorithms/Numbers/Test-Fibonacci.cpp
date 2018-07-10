@@ -51,26 +51,26 @@ protected:
 
 TEST_F(FibonacciTest, SimpleIndexTestRecursive)
 {
-    EXPECT_EQ(0, GetNthFibonacciRecursive(0));
-    EXPECT_EQ(1, GetNthFibonacciRecursive(1));
-    EXPECT_EQ(1, GetNthFibonacciRecursive(2));
-    EXPECT_EQ(21, GetNthFibonacciRecursive(8));
+    EXPECT_EQ(0, Math::GetNthFibonacciRecursive(0));
+    EXPECT_EQ(1, Math::GetNthFibonacciRecursive(1));
+    EXPECT_EQ(1, Math::GetNthFibonacciRecursive(2));
+    EXPECT_EQ(21, Math::GetNthFibonacciRecursive(8));
 }
 
 TEST_F(FibonacciTest, SimpleIndexTestIterative)
 {
-    EXPECT_EQ(0, GetNthFibonacciIterative(0));
-    EXPECT_EQ(1, GetNthFibonacciIterative(1));
-    EXPECT_EQ(1, GetNthFibonacciIterative(2));
-    EXPECT_EQ(21, GetNthFibonacciIterative(8));
+    EXPECT_EQ(0, Math::GetNthFibonacciIterative(0));
+    EXPECT_EQ(1, Math::GetNthFibonacciIterative(1));
+    EXPECT_EQ(1, Math::GetNthFibonacciIterative(2));
+    EXPECT_EQ(21, Math::GetNthFibonacciIterative(8));
 }
 
 TEST_F(FibonacciTest, SeriesTest)
 {
     EXPECT_THAT(fibonacciLength_01,
-                ::testing::ContainerEq(FibonacciSeries(1)));
+                ::testing::ContainerEq(Math::FibonacciSeries(1)));
     EXPECT_THAT(fibonacciLength_02,
-                ::testing::ContainerEq(FibonacciSeries(2)));
+                ::testing::ContainerEq(Math::FibonacciSeries(2)));
     EXPECT_THAT(fibonacciLength_05,
-                ::testing::ContainerEq(FibonacciSeries(5)));
+                ::testing::ContainerEq(Math::FibonacciSeries(5)));
 }
