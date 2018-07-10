@@ -15,14 +15,8 @@
 #include "BinarySearchTree.h"
 
 template <typename T>
-BinarySearchTree<T>::BinarySearchTree()
-{
-    this->_Root = nullptr;
-}
-
-template <typename T>
 void
-BinarySearchTree<T>::Insert(T Value)
+BinarySearchTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
 {
     if(this->_Root == nullptr)
     {
