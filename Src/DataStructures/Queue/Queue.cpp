@@ -147,4 +147,5 @@ Queue<T>::~Queue()
 }
 
 
-template class Queue<int>;
+//template class Queue<int>;
+//template class Queue<BinaryTreeNode<int>*>;

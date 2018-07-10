@@ -44,5 +44,6 @@ public:
     ~Queue();
 };
 
+#include "Queue.cpp"
 
 #endif //QUEUE_H

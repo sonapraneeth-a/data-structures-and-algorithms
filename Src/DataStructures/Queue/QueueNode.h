@@ -19,6 +19,7 @@
 #include "DefaultHeaders.h"
 #include <iostream>
 #include <sstream>
+#include "../../DataStructures/Tree/BinaryTreeNode.h"
 
 template <typename T>
 class QueueNode
@@ -41,5 +42,6 @@ public:
 
 };
 
+#include "QueueNode.cpp"
 
 #endif //QUEUE_NODE_H

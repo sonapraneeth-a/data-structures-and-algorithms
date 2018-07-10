@@ -83,4 +83,5 @@ QueueNode<T>::~QueueNode()
     Next = nullptr;
 }
 
-template class QueueNode<int>;
+//template class QueueNode<int>;
+//template class QueueNode<BinaryTreeNode<int>*>;
