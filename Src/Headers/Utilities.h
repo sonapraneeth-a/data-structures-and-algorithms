@@ -12,6 +12,12 @@
 #define ULLI unsigned long long int
 #define LLI long long int
 
+// Reference: https://stackoverflow.com/questions/8061456/c-function-template-partial-specialization
+#define INTEGER_NUMBERS(return_type) std::enable_if<(std::is_same<T, int>::value) \
+                                       or (std::is_same<T, unsigned long long int>::value) \
+                                       or (std::is_same<T, unsigned short int>::value) \
+                                       or (std::is_same<T, long long int>::value), return_type>::type
+
 #define EXECUTE_FUNC(func) \
     {\
         std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();\
