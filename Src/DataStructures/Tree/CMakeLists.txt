@@ -5,7 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Tree")
 
-set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h BinarySearchTree.cpp BinarySearchTree.h)
+set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h
+                    BinarySearchTree.cpp BinarySearchTree.h)
 include_directories(List)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
@@ -19,8 +20,8 @@ add_library(TreeStatic STATIC ${SOURCE_FILES})
 add_executable(MainTree MainTree.cpp)
 target_link_libraries(MainTree TreeStatic)
 
-install(TARGETS TreeShared DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
-install(TARGETS TreeStatic DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
-install(FILES BinaryTreeNode.h BinaryTree.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
+install(TARGETS TreeShared DESTINATION "${CMAKE_SOURCE_DIR}/Llib/")
+install(TARGETS TreeStatic DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
+install(FILES BinaryTreeNode.h BinaryTree.h DESTINATION "${CMAKE_SOURCE_DIR}/Include/")
 
 message("--     Completing generation of CMake files for Tree")

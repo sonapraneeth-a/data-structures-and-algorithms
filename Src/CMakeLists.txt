@@ -16,6 +16,7 @@ include_directories(DataStructures/Array)
 include_directories(DataStructures/Stack)
 include_directories(DataStructures/Queue)
 include_directories(DataStructures/Geometry)
+include_directories(DataStructures/Tree)
 
 add_subdirectory(Algorithms)
 include_directories(Algorithms)
