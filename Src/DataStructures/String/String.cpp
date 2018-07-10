@@ -10,10 +10,14 @@
  *
  * Date (DD-MM-YYYY)            Author               Update
  * 01-04-2018             Sona Praneeth Akula   - Creation of file
+ * 04-07-2018             Sona Praneeth Akula   - Added copy constructor and assignment operator
  */
 
 #include "String.h"
 
+/**
+ *
+ */
 String::String()
 {
     this->_Size = 0;
@@ -27,6 +31,10 @@ String::String()
     }
 }
 
+/**
+ *
+ * @param input
+ */
 String::String(const char* input)
 {
     ULLI length = 0, index = 0;
@@ -53,18 +61,63 @@ String::String(const char* input)
     this->_String[index] = '\0';
 }
 
+/**
+ *
+ * @param input
+ */
+String::String(const String &input)
+{
+
+}
+
+/**
+ *
+ * @param input
+ * @return
+ */
+String&
+String::operator = (const String &input)
+{
+    return *this;
+}
+
+/**
+ *
+ * @param input
+ * @return
+ */
+String&
+String::operator = (const char *input)
+{
+    return *this;
+}
+
+/**
+ *
+ * @return
+ */
 bool
 String::IsEmpty()
 {
     return this->_Size == 0;
 }
 
+/**
+ *
+ * @return
+ */
 ULLI
 String::GetSize() const
 {
     return this->_Size;
 }
 
+/**
+ *
+ * @param out
+ * @param string
+ * @return
+ */
 std::ostream &
 operator << (std::ostream &out, const String& string)
 {
@@ -72,6 +125,10 @@ operator << (std::ostream &out, const String& string)
     return out;
 }
 
+/**
+ *
+ * @param c
+ */
 void
 String::PushBack(char c)
 {
@@ -86,6 +143,9 @@ String::PushBack(char c)
     this->_Size++;
 }
 
+/**
+ *
+ */
 void
 String::PopBack()
 {
@@ -97,6 +157,9 @@ String::PopBack()
     this->_Size--;
 }
 
+/**
+ *
+ */
 void
 String::Resize()
 {
@@ -121,6 +184,10 @@ String::Resize()
     this->_Capacity = this->_Capacity * 2;
 }
 
+/**
+ *
+ * @return
+ */
 char
 String::GetFront()
 {
@@ -131,6 +198,10 @@ String::GetFront()
     throw;
 }
 
+/**
+ *
+ * @return
+ */
 char
 String::GetBack()
 {
@@ -141,6 +212,9 @@ String::GetBack()
     throw ;
 }
 
+/**
+ *
+ */
 void
 String::Clear()
 {
@@ -151,6 +225,12 @@ String::Clear()
     this->_Size = 0;
 }
 
+/**
+ *
+ * @param start
+ * @param end
+ * @return
+ */
 String
 String::GetSubstring(ULLI start, ULLI end)
 {
@@ -204,7 +284,11 @@ String::operator[](ULLI index) const
     throw OutOfBoundsException(index + " is greater than " + this->_Capacity);
 }
 
+/**
+ *
+ */
 String::~String()
 {
     this->_Size = 0;
+    _String = nullptr;
 }

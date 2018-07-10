@@ -32,6 +32,9 @@ public:
 
     explicit String();
     explicit String(const char* input);
+    String(const String &input);
+    String& operator = (const String &input);
+    String& operator = (const char *input);
 
     ULLI GetSize() const;
     char operator[] (ULLI index) const;
@@ -43,7 +46,7 @@ public:
     void PopBack();
     char GetFront();
     char GetBack();
-    String GetSubstring(ULLI start = 0, ULLI end = -1);
+    String GetSubstring(ULLI start = 0, ULLI end = String::Npos);
 
     friend std::ostream & operator << (std::ostream &out, const String &c);
 
