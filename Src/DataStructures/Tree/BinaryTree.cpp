@@ -70,7 +70,7 @@ BinaryTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
         this->_NumberOfNodes++;
         ULLI height = (ULLI)floor(log2(this->_NumberOfNodes)), minRange = (ULLI)pow(2,height);
         ULLI diff = this->_NumberOfNodes - minRange;
-        std::string Route = ToBinary(diff, height);
+        std::string Route = Math::ToBinary(diff, height);
         ULLI LengthOfRoute = (ULLI)Route.size(), RouteIndex = 0;
         BinaryTreeNode<T> *NewNode = new BinaryTreeNode<T>(Value);
         BinaryTreeNode<T> *Temp = Node;

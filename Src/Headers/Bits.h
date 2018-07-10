@@ -7,34 +7,37 @@
 
 #include "Utilities.h"
 
-/**
- *
- * @param Number
- * @param Size
- * @return
- */
-inline std::string
-ToBinary(LLI Number, LLI Size)
+namespace Math
 {
-    std::string temp = "", answer = "";
-    LLI BinaryIndex = 0;
-    while(Number)
+    /**
+     *
+     * @param Number
+     * @param Size
+     * @return
+     */
+    inline std::string
+    ToBinary(LLI Number, LLI Size)
     {
-        temp += ((Number%2)+'0');
-        Number /= 2; BinaryIndex++;
+        std::string temp = "", answer = "";
+        LLI BinaryIndex = 0;
+        while(Number)
+        {
+            temp += ((Number%2)+'0');
+            Number /= 2; BinaryIndex++;
+        }
+        while( BinaryIndex != Size )
+        {
+            temp += '0';
+            BinaryIndex++;
+        }
+        LLI len = temp.size(), StringIndex = len-1;
+        while( StringIndex > -1 )
+        {
+            answer += temp[StringIndex];
+            StringIndex--;
+        }
+        return answer;
     }
-    while( BinaryIndex != Size )
-    {
-        temp += '0';
-        BinaryIndex++;
-    }
-    LLI len = temp.size(), StringIndex = len-1;
-    while( StringIndex > -1 )
-    {
-        answer += temp[StringIndex];
-        StringIndex--;
-    }
-    return answer;
 }
 
 #endif //BITS_H
