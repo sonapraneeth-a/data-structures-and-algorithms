@@ -225,8 +225,10 @@ BinaryTree<T>::GetRootValue()
 
 template <typename T>
 void
-BinaryTree<T>::DrawTree(std::string Filename)
+BinaryTree<T>::DrawTree(std::string Filename, bool IsNullRequired)
 {
+    // Reference: https://eli.thegreenplace.net/2009/11/23/visualizing-binary-trees-with-graphviz
+    // Reference: http://xlong88.github.io/draw-binary-tree-latex/
     std::map<BinaryTreeNode<T>*, ULLI> NodeAddressToNumber;
     Queue<BinaryTreeNode<T>*> BinaryTreeNodesQueue = LevelOrderTraversalNodes(this->_Root);
     ULLI TreeNodeIndex = 1;
@@ -309,6 +311,20 @@ BinaryTree<T>::DrawTree(std::string Filename)
                 std::cout << "NULL" << NullNodes  << " }\n";
                 TreeNodes.Enqueue(TreeNode->GetLeftChild()); NullNodes++;
             }
+            else
+            {
+                if (IsNullRequired)
+                {
+                    std::cout << "\tNULL" << NullNodes
+                              << " [ label = \"NULL" << NullNodes << "\", shape = point ]\n";
+                    std::cout << "\tNULL" << NullNodes + 1
+                              << " [ label = \"NULL" << NullNodes + 1 << "\", shape = point ]\n";
+                    std::cout << "\t" << NodeAddressToNumber[TreeNode] << " -> { ";
+                    std::cout << "NULL" << NullNodes << ", ";
+                    std::cout << "NULL" << NullNodes + 1 << " }\n";
+                    NullNodes += 2;
+                }
+            }
         }
     }
 
@@ -345,6 +361,37 @@ BinaryTree<T>::IsPresent(T Value)
     }
     // std::cout << "Total size: " << TreeNodes.GetSize() << "\n";
     return false;
+}
+
+template <typename T>
+LLI
+BinaryTree<T>::GetHeightOfTree(BinaryTreeNode<T>* Node)
+{
+    if(Node == nullptr)
+    {
+        return 0;
+    }
+    else if (Node->GetLeftChild() == nullptr &&
+             Node->GetRightChild() == nullptr)
+    {
+        return 1;
+    }
+    else if (Node->GetLeftChild() != nullptr &&
+             Node->GetRightChild() != nullptr)
+    {
+        return 1 + std::max(GetHeightOfTree(Node->GetLeftChild()),
+                            GetHeightOfTree(Node->GetRightChild()));
+    }
+    else if (Node->GetLeftChild() != nullptr &&
+             Node->GetRightChild() == nullptr)
+    {
+        return 1 + GetHeightOfTree(Node->GetLeftChild());
+    }
+    else
+    {
+        return 1 + GetHeightOfTree(Node->GetRightChild());
+    }
+
 }
 
 template class BinaryTree<int>;

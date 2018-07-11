@@ -38,8 +38,10 @@ public:
     explicit BinaryTree(std::vector<T> &Array);
 
     virtual void Insert(T Value, BinaryTreeNode<T>* Node);
-    virtual void Delete(T Value);
+    void Delete(T Value);
     virtual bool IsPresent(T Value);
+
+    LLI GetHeightOfTree(BinaryTreeNode<T>* Node);
 
     void PrintInOrderTraversal(BinaryTreeNode<T>* Node);
     void PrintPreOrderTraversal(BinaryTreeNode<T>* Node);
@@ -55,7 +57,7 @@ public:
     T GetRootValue();
     BinaryTreeNode<T>* GetRoot();
 
-    void DrawTree(std::string Filename="BinaryTree.dot");
+    void DrawTree(std::string Filename="BinaryTree.dot", bool IsNullRequired=true);
 
     ~BinaryTree();
 
