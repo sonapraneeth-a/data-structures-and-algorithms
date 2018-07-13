@@ -169,7 +169,7 @@ Geometry::Matrix<T>::operator + (Geometry::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.GetNumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.GetNumberOfColumns());
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows);
+    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -209,7 +209,7 @@ Geometry::Matrix<T>::operator - (Geometry::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.GetNumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.GetNumberOfColumns());
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows);
+    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -247,7 +247,7 @@ template <typename T>
 Geometry::Matrix<T>&
 Geometry::Matrix<T>::operator = (Geometry::Matrix<T> const &SecondMatrix)
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows);
+    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -286,7 +286,7 @@ template <typename T>
 Geometry::Matrix<T>
 Geometry::Matrix<T>::Transpose()
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows);
+    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
