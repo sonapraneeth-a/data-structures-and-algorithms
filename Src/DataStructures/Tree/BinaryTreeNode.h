@@ -36,6 +36,8 @@ public:
     void SetRightChild(BinaryTreeNode* Node);
     T GetData();
     void SetData(T Value);
+    bool IsLeaf();
+    bool IsNullNode();
 
     ~BinaryTreeNode();
 };

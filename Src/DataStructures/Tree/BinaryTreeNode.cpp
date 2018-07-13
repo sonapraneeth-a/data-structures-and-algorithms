@@ -75,6 +75,13 @@ BinaryTreeNode<T>::SetData(T Value)
 }
 
 template <typename T>
+bool
+BinaryTreeNode<T>::IsLeaf()
+{
+    return this->_Left == nullptr && this->_Right == nullptr;
+}
+
+template <typename T>
 BinaryTreeNode<T>::~BinaryTreeNode()
 {
 
