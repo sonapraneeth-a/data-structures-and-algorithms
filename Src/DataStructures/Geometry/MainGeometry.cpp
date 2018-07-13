@@ -3,6 +3,7 @@
 //
 
 #include "Vector2d.h"
+#include "Matrix.h"
 
 void
 RunVector2d()
@@ -19,8 +20,17 @@ RunVector2d()
     return ;
 }
 
+void
+RunMatrix()
+{
+    Geometry::Matrix<int> mat(3, 2);
+    mat(3, 2) = 1;
+    std::cout << "Matrix:\n" << mat << "\n";
+}
+
 int main()
 {
-    RunVector2d();
+    // RunVector2d();
+    RunMatrix();
     return 0;
 }
