@@ -147,6 +147,19 @@ bool StrictGreaterComparator(T first, T second)
  * @tparam T
  * @param first
  * @param second
+ * @return
+ */
+template <typename T>
+bool EqualsComparator(T &first, T &second)
+{
+    return first == second;
+}
+
+/**
+ *
+ * @tparam T
+ * @param first
+ * @param second
  */
 template <typename T>
 void Swap(T& first, T& second)
