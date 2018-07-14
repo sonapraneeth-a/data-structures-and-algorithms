@@ -53,10 +53,10 @@ namespace Geometry
         SetCellData(ULLI RowIndex, ULLI ColIndex, T Value);
 
         ULLI
-        GetNumberOfRows() const;
+        NumberOfRows() const;
 
         ULLI
-        GetNumberOfColumns() const;
+        NumberOfColumns() const;
 
         std::string
         ToString() const;
@@ -64,7 +64,7 @@ namespace Geometry
         friend std::ostream &
         operator<<(std::ostream & os, Matrix<T> const &Matrix)
         {
-            return os << Matrix.ToString() << "\n";
+            return os << Matrix.ToString();
         }
 
         Matrix<T> operator + (Matrix<T> const &SecondMatrix);
@@ -76,6 +76,15 @@ namespace Geometry
         Matrix<T> operator * (Matrix<T> const &SecondMatrix);
         void operator *= (Matrix<T> const &SecondMatrix);
 
+        Matrix<T> operator * (const double &Value);
+        void operator *= (const double &Value);
+
+        Matrix<T> operator ^ (Matrix<T> const &SecondMatrix);
+        void operator ^= (Matrix<T> const &SecondMatrix);
+
+        Matrix<T> operator / (const double &Value);
+        void operator /= (const double &Value);
+
         T operator ()(ULLI RowIndex, ULLI ColIndex) const;
         T& operator ()(ULLI RowIndex, ULLI ColIndex);
 
@@ -83,11 +92,27 @@ namespace Geometry
 
         bool operator == (Matrix<T> const &SecondMatrix) const;
 
+        // Reference: https://www.mathsisfun.com/algebra/matrix-inverse-minors-cofactors-adjugate.html
         double
         Determinant();
 
-        Matrix<T>
+        Matrix<double>
         Inverse();
+
+        Matrix<T>
+        FirstOrderMinorSubMatrix(ULLI RowIndex, ULLI ColIndex);
+
+        Matrix<T>
+        AdjointMatrix();
+
+        Matrix<T>
+        MinorMatrix();
+
+        Matrix<T>
+        CofactorMatrix();
+
+        short int
+        Cofactor(ULLI RowIndex, ULLI ColIndex);
 
         Matrix<T>
         Transpose();
