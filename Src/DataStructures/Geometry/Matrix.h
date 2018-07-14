@@ -1,6 +1,6 @@
 /**
  *      Created on: 01 April 2018
- *   Last modified: 13 July 2018
+ *   Last modified: 14 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Header for Matrix
  */
@@ -15,6 +15,10 @@
  *                                                 SetCellData, Fill, GetNumberOfRows, GetNumberOfColumns,
  *                                                 ToString, Copy constructor and operators +, -,
  *                                                 *, +=, -=, *=, (), ==, =, <<
+ * 14-07-2018             Sona Praneeth Akula    - Added function signatures for functions
+ *                                                 AdjacentMatrix, MinorMatrix, CofactorMatrix,
+ *                                                 Inverse, Determinant, Cofactor, FirstOrderMinorSubMatrix
+ *                                                 operators *, *=, ^, ^=, /, /=
  */
 
 #ifndef MATRIX_H

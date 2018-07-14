@@ -1,8 +1,8 @@
 /**
  *      Created on: 01 April 2018
- *   Last modified: 13 July 2018
+ *   Last modified: 14 July 2018
  *          Author: Sona Praneeth Akula
- *         Details: Header for Matrix
+ *         Details: Implementation for Matrix functions
  */
 
 /**
@@ -10,11 +10,18 @@
  *
  * Date (DD-MM-YYYY)            Author               Update
  * 01-04-2018             Sona Praneeth Akula    - Creation of file
- * 13-07-2018             Sona Praneeth Akula    - Added function signatures for functions
+ * 13-07-2018             Sona Praneeth Akula    - Added function implementations for functions
  *                                                 Transpose, GetCellData, SetCellData,
  *                                                 Fill, GetNumberOfRows, GetNumberOfColumns,
  *                                                 ToString, Copy constructor and operators +, -,
  *                                                 +=, -=, (), ==, =, <<
+ * 14-07-2018             Sona Praneeth Akula    - Added function implementations for functions
+ *                                                 AdjacentMatrix, MinorMatrix, CofactorMatrix,
+ *                                                 Inverse, Determinant, Cofactor, FirstOrderMinorSubMatrix
+ *                                                 operators *, *=, ^, ^=, /, /=
+ *                                               - Fixed an issue in copy constructor as memory
+ *                                                 was not getting allocated
+ *                                               - Renamed functions GetNumberOfRows, GetNumberOfColumns
  */
 
 #include "Matrix.h"
