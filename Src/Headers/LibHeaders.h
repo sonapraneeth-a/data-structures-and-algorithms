@@ -26,6 +26,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <array>
 
 // C++ STL Headers
 #include <map>
