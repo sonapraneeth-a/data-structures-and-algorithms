@@ -15,12 +15,16 @@ include_directories(DataStructures/List)
 include_directories(DataStructures/Array)
 include_directories(DataStructures/Stack)
 include_directories(DataStructures/Queue)
-include_directories(DataStructures/Geometry)
+include_directories(DataStructures/LinearAlgebra)
+#include_directories(DataStructures/Geometry)
 include_directories(DataStructures/Tree)
 
 add_subdirectory(Algorithms)
 include_directories(Algorithms)
 include_directories(Algorithms/Numbers)
+
+add_subdirectory(Logging)
+include_directories(Logging)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")

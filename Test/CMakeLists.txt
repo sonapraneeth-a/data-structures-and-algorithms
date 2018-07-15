@@ -8,6 +8,7 @@ SET(TEST_PREFIX Test-)
 SET(SRC_HEADERS_DIR ../Src/Headers)
 SET(SRC_DS_DIR ../Src/DataStructures)
 SET(SRC_ALGO_DIR ../Src/Algorithms)
+# SET(SRC_LOG_DIR ../Src/Logging)
 
 SET(TEST_ALGO_DIR ./Src/Algorithms)
 SET(TEST_NUMBERS_DIR ${TEST_ALGO_DIR}/Numbers)
@@ -37,6 +38,8 @@ include_directories("${SRC_DS_DIR}/LinearAlgebra")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
 include_directories("${SRC_ALGO_DIR}/SearchSort")
+
+# include_directories("${SRC_LOG_DIR}")
 
 include_directories("${SRC_HEADERS_DIR}")
 include_directories("${TEST_HEADERS_DIR}")
