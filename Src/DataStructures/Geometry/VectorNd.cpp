@@ -17,6 +17,7 @@
  *                                                 SetNthCoOrdinate, Copy constructor and operators
  *                                                 +, -, *, +=, -=, *=, []
  * 08-07-2018             Sona Praneeth Akula    - Added implementation for operator ==
+ * 14-07-2018             Sona Praneeth Akula    - Fixed an error in Normalize function
  */
 
 #include "VectorNd.h"
@@ -97,12 +98,13 @@ Geometry::VectorNd<N, T>::Normalize()
     double length = 0.0;
     for (ULLI index = 0; index < N; ++index)
     {
-        length += sqrt((this->CoOrd[index] * this->CoOrd[index]));
+        length += ((double)this->CoOrd[index] * this->CoOrd[index]);
     }
+    length = sqrt(length);
     Geometry::VectorNd<N, double> *UnitVector = new Geometry::VectorNd<N, double>(0.0);
     for (ULLI index = 0; index < N; ++index)
     {
-        (*UnitVector)[index] = this->CoOrd[index] / length;
+        (*UnitVector)[index] = (double)this->CoOrd[index] / length;
     }
     return *UnitVector;
 }
