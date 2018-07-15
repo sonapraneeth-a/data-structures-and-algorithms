@@ -45,18 +45,18 @@ class StackElementAccessTest: public StackTest
 
 TEST_F(StackSizeTest, ZeroSizeTest)
 {
-    EXPECT_EQ(0, _Stack_int_0.GetSize());
+    EXPECT_EQ(0, _Stack_int_0.Size());
     EXPECT_EQ(true, _Stack_int_0.IsEmpty());
     _Stack_int_1.Pop();
-    EXPECT_EQ(0, _Stack_int_1.GetSize());
+    EXPECT_EQ(0, _Stack_int_1.Size());
     EXPECT_EQ(true, _Stack_int_1.IsEmpty());
 }
 
 TEST_F(StackSizeTest, GreaterThanZeroSizeTest)
 {
     _Stack_int_0.Push(10);
-    EXPECT_EQ(1, _Stack_int_0.GetSize());
-    EXPECT_EQ(1, _Stack_int_1.GetSize());
+    EXPECT_EQ(1, _Stack_int_0.Size());
+    EXPECT_EQ(1, _Stack_int_1.Size());
 }
 
 TEST_F(StackElementAccessTest, PeekTest)
