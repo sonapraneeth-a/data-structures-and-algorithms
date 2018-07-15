@@ -16,11 +16,11 @@ protected:
     virtual void TearDown()
     {}
 
-    // List with Size 0 initially
+    // List with _Size 0 initially
     SingleLinkedList<int> _List_int_0;
-    // List with Size 1 initially
+    // List with _Size 1 initially
     SingleLinkedList<int> _List_int_1;
-    // List with Size 2 initially
+    // List with _Size 2 initially
     SingleLinkedList<int> _List_int_2;
 
 };
@@ -41,7 +41,7 @@ TEST_F(SingleLinkedListTest, InitHeadDefault)
 {
     int number = GetRandomInt();
     SingleLinkedList<int> List(number);
-    EXPECT_EQ(number, List.GetHead()->GetData());
+    EXPECT_EQ(number, List.Head()->Data());
 }
 
 TEST_F(SingleLinkedListTest, InitHeadInsert)
@@ -49,13 +49,13 @@ TEST_F(SingleLinkedListTest, InitHeadInsert)
     int number = GetRandomInt();
     SingleLinkedList<int> List;
     List.Insert(number);
-    EXPECT_EQ(number, List.GetHead()->GetData());
+    EXPECT_EQ(number, List.Head()->Data());
 }
 
 TEST_F(SingleLinkedListTest, ClearList)
 {
     _List_int_2.Clear();
-    EXPECT_EQ(nullptr, _List_int_2.GetHead());
+    EXPECT_EQ(nullptr, _List_int_2.Head());
     EXPECT_EQ(0, _List_int_2.GetSize());
 }
 
@@ -84,7 +84,7 @@ TEST_F(SingleLinkedListInsertTest, InsertHead)
 {
     int number = GetRandomInt();
     _List_int_0.Insert(number);
-    EXPECT_EQ(number, _List_int_0.GetHead()->GetData());
+    EXPECT_EQ(number, _List_int_0.Head()->Data());
 }
 
 TEST_F(SingleLinkedListSizeTest, ZeroListSize)
@@ -93,7 +93,7 @@ TEST_F(SingleLinkedListSizeTest, ZeroListSize)
     //
     expected_answer = 0;
     obtained_answer = _List_int_0.GetSize();
-    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with Size 0";
+    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with _Size 0";
 }
 
 TEST_F(SingleLinkedListSizeTest, OneListSize)
@@ -102,15 +102,15 @@ TEST_F(SingleLinkedListSizeTest, OneListSize)
     _List_int_0.Insert(10);
     expected_answer = 1;
     obtained_answer = _List_int_0.GetSize();
-    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with Size 1 after inserting into empty List";
+    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with _Size 1 after inserting into empty List";
     expected_answer = 1;
     obtained_answer = _List_int_1.GetSize();
-    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with Size 1";
+    EXPECT_EQ(expected_answer, obtained_answer) << "Test name: List with _Size 1";
 }
 
 TEST_F(SingleLinkedListDeleteTest, DeleteHead)
 {
     _List_int_1.DeleteHead();
-    EXPECT_EQ(nullptr, _List_int_1.GetHead());
+    EXPECT_EQ(nullptr, _List_int_1.Head());
 }
 

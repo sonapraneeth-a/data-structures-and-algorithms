@@ -6,16 +6,19 @@
 template <typename T>
 class SingleLinkedList
 {
-public:
+private:
 
-    SingleLinkedListNode<T> *Head;
-    unsigned int Size;
+    SingleLinkedListNode<T> *_Head;
+    unsigned int _Size;
+
+
+public:
 
     SingleLinkedList();
     SingleLinkedList(T Value);
 
-    SingleLinkedListNode<T>* GetHead();
-    void PrintList();
+    SingleLinkedListNode<T>* Head();
+    void Print();
     std::string ToString();
     unsigned int GetSize();
     void DeleteHead();
@@ -25,4 +28,4 @@ public:
 };
 
 
-#endif //DATA_STRUCTURES_AND_ALGORITHMS_SINGLE_LINKED_LIST_H
+#endif //DS_LIST_SLL_H

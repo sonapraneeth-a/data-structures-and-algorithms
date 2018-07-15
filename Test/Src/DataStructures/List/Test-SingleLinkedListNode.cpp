@@ -11,14 +11,14 @@ class SingleLinkedListNodeTest : public ::testing::Test
 TEST_F(SingleLinkedListNodeTest, InitData)
 {
     SingleLinkedListNode<int> node(15);
-    EXPECT_EQ(15, node.GetData());
+    EXPECT_EQ(15, node.Data());
 }
 
 TEST_F(SingleLinkedListNodeTest, SetGetData)
 {
     SingleLinkedListNode<int> node(15);
-    node.SetData(23);
-    EXPECT_EQ(23, node.GetData());
+    node.Data(23);
+    EXPECT_EQ(23, node.Data());
 }
 
 TEST_F(SingleLinkedListNodeTest, ToString)

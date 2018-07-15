@@ -3,46 +3,46 @@
 template <typename T>
 SingleLinkedListNode<T>::SingleLinkedListNode(T Value)
 {
-    Data = Value;
-    Next = nullptr;
+    _Data = Value;
+    _Next = nullptr;
 }
 
 template <typename T>
-T SingleLinkedListNode<T>::GetData()
+T SingleLinkedListNode<T>::Data() const
 {
-    return this->Data;
+    return this->_Data;
 }
 
 template <typename T>
-SingleLinkedListNode<T>* SingleLinkedListNode<T>::GetNext()
+SingleLinkedListNode<T>* SingleLinkedListNode<T>::Next() const
 {
-    return this->Next;
+    return this->_Next;
 }
 
 template <typename T>
-void SingleLinkedListNode<T>::SetData(T Value)
+void SingleLinkedListNode<T>::Data(T Value)
 {
-    Data = Value;
+    _Data = Value;
 }
 
 template <typename T>
-void SingleLinkedListNode<T>::SetNext(SingleLinkedListNode<T> *NextLink)
+void SingleLinkedListNode<T>::Next(SingleLinkedListNode<T> *NextLink)
 {
-    Next = NextLink;
+    _Next = NextLink;
 }
 
 template <typename T>
 std::string SingleLinkedListNode<T>::ToString()
 {
     std::stringstream out;
-    out << this->Data << " -> " << this->Next;
+    out << this->_Data << " -> " << this->_Next;
     return out.str();
 }
 
 template <typename T>
 SingleLinkedListNode<T>::~SingleLinkedListNode()
 {
-    Next = nullptr;
+    _Next = nullptr;
 }
 
 template class SingleLinkedListNode<int>;

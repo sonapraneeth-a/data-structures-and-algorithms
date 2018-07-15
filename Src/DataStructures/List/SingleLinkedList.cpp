@@ -10,8 +10,8 @@
 template <typename T>
 SingleLinkedList<T>::SingleLinkedList()
 {
-    Head = nullptr;
-    this->Size = 0;
+    _Head = nullptr;
+    this->_Size = 0;
 }
 
 /*!
@@ -26,8 +26,8 @@ SingleLinkedList<T>::SingleLinkedList()
 template <typename T>
 SingleLinkedList<T>::SingleLinkedList(T Value)
 {
-    Head = new SingleLinkedListNode<T>(Value);
-    this->Size = 1;
+    _Head = new SingleLinkedListNode<T>(Value);
+    this->_Size = 1;
 }
 
 /*!
@@ -39,9 +39,9 @@ SingleLinkedList<T>::SingleLinkedList(T Value)
  * @return [out] SingleLinkedListNode * - Pointer to the head of the single linked list node
  */
 template <typename T>
-SingleLinkedListNode<T>* SingleLinkedList<T>::GetHead()
+SingleLinkedListNode<T>* SingleLinkedList<T>::Head()
 {
-    return Head;
+    return _Head;
 }
 
 /*!
@@ -53,13 +53,13 @@ SingleLinkedListNode<T>* SingleLinkedList<T>::GetHead()
  * @return
  */
 template <typename T>
-void SingleLinkedList<T>::PrintList()
+void SingleLinkedList<T>::Print()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    SingleLinkedListNode<T> *temp = this->_Head;
     while (temp)
     {
-        std::cout << temp->GetData() << " ";
-        temp = temp->GetNext();
+        std::cout << temp->Data() << " ";
+        temp = temp->Next();
     }
     std::cout << "\n";
     return;
@@ -76,12 +76,12 @@ void SingleLinkedList<T>::PrintList()
 template <typename T>
 std::string SingleLinkedList<T>::ToString()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    SingleLinkedListNode<T> *temp = this->_Head;
     std::stringstream out;
     while (temp)
     {
-        out << temp->GetData() << " -> ";
-        temp = temp->GetNext();
+        out << temp->Data() << " -> ";
+        temp = temp->Next();
     }
     out << temp;
     return out.str();
@@ -98,19 +98,19 @@ std::string SingleLinkedList<T>::ToString()
 template <typename T>
 void SingleLinkedList<T>::Insert(T Value)
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    SingleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
-        this->Head = new SingleLinkedListNode<T>(Value);
-        this->Size = 1;
+        this->_Head = new SingleLinkedListNode<T>(Value);
+        this->_Size = 1;
         return;
     }
-    while (temp->GetNext() != nullptr)
+    while (temp->Next() != nullptr)
     {
-        temp = temp->GetNext();
+        temp = temp->Next();
     }
-    temp->SetNext(new SingleLinkedListNode<T>(Value));
-    this->Size++;
+    temp->Next(new SingleLinkedListNode<T>(Value));
+    this->_Size++;
     return;
 }
 
@@ -125,7 +125,7 @@ void SingleLinkedList<T>::Insert(T Value)
 template <typename T>
 unsigned int SingleLinkedList<T>::GetSize()
 {
-    return this->Size;
+    return this->_Size;
 }
 
 /*!
@@ -139,13 +139,13 @@ unsigned int SingleLinkedList<T>::GetSize()
 template <typename T>
 void SingleLinkedList<T>::DeleteHead()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    SingleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
         exit(-1);
     }
-    this->Head = temp->GetNext();
-    this->Size--;
+    this->_Head = temp->Next();
+    this->_Size--;
     delete temp;
 }
 
@@ -160,12 +160,12 @@ void SingleLinkedList<T>::DeleteHead()
 template <typename T>
 void SingleLinkedList<T>::Clear()
 {
-    SingleLinkedListNode<T> *temp = this->Head;
+    SingleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
         return ;
     }
-    while(this->Head)
+    while(this->_Head)
     {
         this->DeleteHead();
     }
