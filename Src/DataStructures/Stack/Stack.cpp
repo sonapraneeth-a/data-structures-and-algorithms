@@ -31,9 +31,9 @@
 template <typename T>
 Stack<T>::Stack()
 {
-    this->Top = nullptr; // Top of the stack is null initially
-    this->Size = 0;      // Size of the stack is also 0
-    this->MaxSize = 0;   // If MaxSize is 0, then Stack has infinte capacity
+    this->_Top = nullptr; // _Top of the stack is null initially
+    this->_Size = 0;      // _Size of the stack is also 0
+    this->_MaxSize = 0;   // If _MaxSize is 0, then Stack has infinite capacity
 }
 
 /**
@@ -46,9 +46,9 @@ Stack<T>::Stack()
 template <typename T>
 Stack<T>::Stack(T Value)
 {
-    this->Top = nullptr;   // Top of the stack is null initially
-    this->Size = 0;        // Size of the stack is also 0
-    this->MaxSize = Value; // Sets the maximum size of the stack
+    this->_Top = nullptr;   // _Top of the stack is null initially
+    this->_Size = 0;        // _Size of the stack is also 0
+    this->_MaxSize = Value; // Sets the maximum size of the stack
 }
 
 /**
@@ -61,9 +61,9 @@ Stack<T>::Stack(T Value)
 template <typename T>
 T Stack<T>::Peek()
 {
-    if(this->Top != nullptr)
+    if(this->_Top != nullptr)
     {
-        return this->Top->GetData();
+        return this->_Top->Data();
     }
     throw EmptyException("Stack is empty. Cannot peek elements from empty stack");
 }
@@ -78,17 +78,17 @@ T Stack<T>::Peek()
 template <typename T>
 T Stack<T>::Pop()
 {
-    if (this->Top != nullptr)
+    if (this->_Top != nullptr)
     {
         // Get the pointer to the top of the stack
-        StackNode<T> *TempNode = this->Top;
+        StackNode<T> *TempNode = this->_Top;
         // Get the value present in the top pointer
-        T Value = TempNode->GetData();
-        this->Top = this->Top->GetNext();
+        T Value = TempNode->Data();
+        this->_Top = this->_Top->Next();
         // Free the memory for the top of the stack in order to remove the element
         delete TempNode;
         // Reduce the size of the stack by 1
-        this->Size--;
+        this->_Size--;
         // Return the value which was present at the top of the stack to the
         // caller function
         return Value;
@@ -107,21 +107,21 @@ T Stack<T>::Pop()
 template <typename T>
 void Stack<T>::Push(T Value)
 {
-    if(this->Top == nullptr)
+    if(this->_Top == nullptr)
     {
         // Set the top of the stack if the top of the stack is empty
-        this->Top = new StackNode<T>(Value);
+        this->_Top = new StackNode<T>(Value);
         // Increase the size of the stack by 1
-        this->Size++;
+        this->_Size++;
     }
-    else if(this->MaxSize == 0 || this->Size < this->MaxSize)
+    else if(this->_MaxSize == 0 || this->_Size < this->_MaxSize)
     {
         // Push the element to the top of the stack if space still exists
         StackNode<T> *TempNode = new StackNode<T>(Value);
-        TempNode->SetNext(this->Top);
-        this->Top = TempNode;
+        TempNode->Next(this->_Top);
+        this->_Top = TempNode;
         // Increase the size of the stack by 1
-        this->Size++;
+        this->_Size++;
     }
     else
     {
@@ -140,7 +140,7 @@ void Stack<T>::Push(T Value)
 template <typename T>
 bool Stack<T>::IsEmpty()
 {
-    return this->Top == nullptr;
+    return this->_Top == nullptr;
 }
 
 /**
@@ -151,9 +151,9 @@ bool Stack<T>::IsEmpty()
  * @return [unsigned long long int] - Number of elements in the stack
  */
 template <typename T>
-ULLI Stack<T>::GetSize()
+ULLI Stack<T>::Size() const
 {
-    return this->Size;
+    return this->_Size;
 }
 
 /**
@@ -165,13 +165,13 @@ ULLI Stack<T>::GetSize()
 template <typename T>
 Stack<T>::~Stack()
 {
-    StackNode<T> *TempNode = this->Top;
+    StackNode<T> *TempNode = this->_Top;
     while(TempNode != nullptr)
     {
         this->Pop();
-        TempNode = this->Top;
+        TempNode = this->_Top;
     }
-    this->MaxSize = 0;
+    this->_MaxSize = 0;
 }
 
 

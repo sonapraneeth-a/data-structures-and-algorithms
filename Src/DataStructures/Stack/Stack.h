@@ -25,20 +25,19 @@ class Stack
 {
 private:
     
-    StackNode<T> *Top;
+    StackNode<T> *_Top;
+    ULLI _Size = 0;
+    ULLI _MaxSize = 0;
 
 public:
 
-    ULLI Size = 0;
-    ULLI MaxSize = 0;
-
-    Stack();
-    Stack(T Value);
+    explicit Stack();
+    explicit Stack(T Value);
 
     T Peek();
     T Pop();
     void Push(T Value);
-    ULLI GetSize();
+    ULLI Size() const;
     bool IsEmpty();
 
     ~Stack();

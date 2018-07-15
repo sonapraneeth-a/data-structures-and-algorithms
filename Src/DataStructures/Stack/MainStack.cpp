@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     {
         std::cout << "Pushing " << array[index] << "\n";
         stack.Push(array[index]);
-        std::cout << "Pushed " << stack.Peek() << ".Stack size: " << stack.GetSize() << "\n";
+        std::cout << "Pushed " << stack.Peek() << ".Stack size: " << stack.Size() << "\n";
     }
     try
     {

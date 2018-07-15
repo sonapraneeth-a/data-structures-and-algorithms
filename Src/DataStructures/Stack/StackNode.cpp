@@ -23,8 +23,8 @@
 template <typename T>
 StackNode<T>::StackNode(T Value)
 {
-    Data = Value;
-    Next = nullptr;
+    _Data = Value;
+    _Next = nullptr;
 }
 
 /**
@@ -33,9 +33,9 @@ StackNode<T>::StackNode(T Value)
  * @return
  */
 template <typename T>
-T StackNode<T>::GetData()
+T StackNode<T>::Data() const
 {
-    return this->Data;
+    return this->_Data;
 }
 
 /**
@@ -44,9 +44,9 @@ T StackNode<T>::GetData()
  * @return
  */
 template <typename T>
-StackNode<T>* StackNode<T>::GetNext()
+StackNode<T>* StackNode<T>::Next() const
 {
-    return this->Next;
+    return this->_Next;
 }
 
 /**
@@ -55,9 +55,9 @@ StackNode<T>* StackNode<T>::GetNext()
  * @param Value
  */
 template <typename T>
-void StackNode<T>::SetData(T Value)
+void StackNode<T>::Data(T Value)
 {
-    Data = Value;
+    _Data = Value;
 }
 
 /**
@@ -66,9 +66,9 @@ void StackNode<T>::SetData(T Value)
  * @param NextLink
  */
 template <typename T>
-void StackNode<T>::SetNext(StackNode<T> *NextLink)
+void StackNode<T>::Next(StackNode<T> *NextLink)
 {
-    Next = NextLink;
+    _Next = NextLink;
 }
 
 /**
@@ -80,7 +80,7 @@ template <typename T>
 std::string StackNode<T>::ToString()
 {
     std::stringstream out;
-    out << this->Data << " -> " << this->Next;
+    out << this->_Data << " -> " << this->_Next;
     return out.str();
 }
 
@@ -91,7 +91,7 @@ std::string StackNode<T>::ToString()
 template <typename T>
 StackNode<T>::~StackNode()
 {
-    Next = nullptr;
+    _Next = nullptr;
 }
 
 template class StackNode<int>;

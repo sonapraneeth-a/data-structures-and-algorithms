@@ -23,18 +23,20 @@
 template<typename T>
 class StackNode
 {
+private:
+
+    T _Data;
+    StackNode<T> *_Next;
+
 public:
 
-    T Data;
-    StackNode<T> *Next;
+    explicit StackNode();
+    explicit StackNode(T Value);
 
-    StackNode();
-    StackNode(T Value);
-
-    T GetData();
-    StackNode<T>* GetNext();
-    void SetData(T Value);
-    void SetNext(StackNode<T> *NextLink);
+    T Data() const;
+    StackNode<T>* Next() const;
+    void Data(T Value);
+    void Next(StackNode<T> *NextLink);
 
     std::string ToString();
 
