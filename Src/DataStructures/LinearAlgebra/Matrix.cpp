@@ -27,7 +27,7 @@
 #include "Matrix.h"
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
+LinAlg::Matrix<T>::Matrix(const size_t &NumberOfRows,
                             const size_t &NumberOfCols,
                             const T &InitValue)
 {
@@ -38,11 +38,11 @@ Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
     {
         this->_CoOrd[row_index] = new T[NumberOfCols];
     }
-    Geometry::Matrix<T>::Fill(InitValue);
+    LinAlg::Matrix<T>::Fill(InitValue);
 }
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
+LinAlg::Matrix<T>::Matrix(const size_t &NumberOfRows,
                             const T &InitValue)
 {
     this->_NumberOfRows = NumberOfRows;
@@ -52,11 +52,11 @@ Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
     {
         this->_CoOrd[row_index] = new T[NumberOfRows];
     }
-    Geometry::Matrix<T>::Fill(InitValue);
+    LinAlg::Matrix<T>::Fill(InitValue);
 }
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
+LinAlg::Matrix<T>::Matrix(const size_t NumberOfRows,
                             const size_t NumberOfCols,
                             std::vector<T> Array, bool IsRowMajor)
 {
@@ -90,7 +90,7 @@ Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
 }
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
+LinAlg::Matrix<T>::Matrix(const size_t NumberOfRows,
                             std::vector<T> Array, bool IsRowMajor)
 {
     assert(NumberOfRows*NumberOfRows == Array.size());
@@ -123,7 +123,7 @@ Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
 }
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const Matrix<T> &Matrix)
+LinAlg::Matrix<T>::Matrix(const Matrix<T> &Matrix)
 {
     this->_NumberOfRows = Matrix.NumberOfRows();
     this->_NumberOfCols = Matrix.NumberOfColumns();
@@ -143,7 +143,7 @@ Geometry::Matrix<T>::Matrix(const Matrix<T> &Matrix)
 
 template <typename T>
 std::string
-Geometry::Matrix<T>::ToString() const
+LinAlg::Matrix<T>::ToString() const
 {
     std::string answer = "";
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
@@ -163,7 +163,7 @@ Geometry::Matrix<T>::ToString() const
 
 template <typename T>
 void
-Geometry::Matrix<T>::Fill(const T &Value)
+LinAlg::Matrix<T>::Fill(const T &Value)
 {
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
@@ -176,7 +176,7 @@ Geometry::Matrix<T>::Fill(const T &Value)
 
 template <typename T>
 T
-Geometry::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex) const
+LinAlg::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex) const
 {
     if (RowIndex >= 1 && RowIndex <= this->_NumberOfRows &&
         ColIndex >= 1 && ColIndex <= this->_NumberOfCols )
@@ -190,7 +190,7 @@ Geometry::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex) const
 
 template <typename T>
 T&
-Geometry::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex)
+LinAlg::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex)
 {
     if (RowIndex >= 1 && RowIndex <= this->_NumberOfRows &&
         ColIndex >= 1 && ColIndex <= this->_NumberOfCols )
@@ -204,21 +204,21 @@ Geometry::Matrix<T>::operator ()(ULLI RowIndex, ULLI ColIndex)
 
 template <typename T>
 ULLI
-Geometry::Matrix<T>::NumberOfRows() const
+LinAlg::Matrix<T>::NumberOfRows() const
 {
     return this->_NumberOfRows;
 }
 
 template <typename T>
 ULLI
-Geometry::Matrix<T>::NumberOfColumns() const
+LinAlg::Matrix<T>::NumberOfColumns() const
 {
     return this->_NumberOfCols;
 }
 
 template <typename T>
 T
-Geometry::Matrix<T>::GetCellData(ULLI RowIndex, ULLI ColIndex)
+LinAlg::Matrix<T>::GetCellData(ULLI RowIndex, ULLI ColIndex)
 {
     if (RowIndex >= 1 && RowIndex <= this->_NumberOfRows &&
         ColIndex >= 1 && ColIndex <= this->_NumberOfCols )
@@ -232,7 +232,7 @@ Geometry::Matrix<T>::GetCellData(ULLI RowIndex, ULLI ColIndex)
 
 template <typename T>
 void
-Geometry::Matrix<T>::SetCellData(ULLI RowIndex, ULLI ColIndex, T Value)
+LinAlg::Matrix<T>::SetCellData(ULLI RowIndex, ULLI ColIndex, T Value)
 {
     if (RowIndex >= 1 && RowIndex <= this->_NumberOfRows &&
         ColIndex >= 1 && ColIndex <= this->_NumberOfCols )
@@ -245,12 +245,12 @@ Geometry::Matrix<T>::SetCellData(ULLI RowIndex, ULLI ColIndex, T Value)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator + (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator + (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -270,7 +270,7 @@ Geometry::Matrix<T>::operator + (Geometry::Matrix<T> const &SecondMatrix)
  */
 template <typename T>
 void
-Geometry::Matrix<T>::operator += (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>::operator += (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
@@ -285,12 +285,12 @@ Geometry::Matrix<T>::operator += (Geometry::Matrix<T> const &SecondMatrix)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator - (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator - (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -304,7 +304,7 @@ Geometry::Matrix<T>::operator - (Geometry::Matrix<T> const &SecondMatrix)
 
 template <typename T>
 void
-Geometry::Matrix<T>::operator -= (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>::operator -= (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
@@ -319,12 +319,12 @@ Geometry::Matrix<T>::operator -= (Geometry::Matrix<T> const &SecondMatrix)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator * (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator * (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfCols == SecondMatrix.NumberOfRows());
-    Geometry::Matrix<T> *Answer =
-            new Geometry::Matrix<T>(this->_NumberOfRows,
+    LinAlg::Matrix<T> *Answer =
+            new LinAlg::Matrix<T>(this->_NumberOfRows,
                                     SecondMatrix.NumberOfColumns(), 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
@@ -344,7 +344,7 @@ Geometry::Matrix<T>::operator * (Geometry::Matrix<T> const &SecondMatrix)
 
 template <typename T>
 void
-Geometry::Matrix<T>::operator *= (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>::operator *= (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfCols == SecondMatrix.NumberOfRows());
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
@@ -363,12 +363,12 @@ Geometry::Matrix<T>::operator *= (Geometry::Matrix<T> const &SecondMatrix)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator ^ (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator ^ (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -382,7 +382,7 @@ Geometry::Matrix<T>::operator ^ (Geometry::Matrix<T> const &SecondMatrix)
 
 template <typename T>
 void
-Geometry::Matrix<T>::operator ^= (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>::operator ^= (LinAlg::Matrix<T> const &SecondMatrix)
 {
     assert(this->_NumberOfRows == SecondMatrix.NumberOfRows());
     assert(this->_NumberOfCols == SecondMatrix.NumberOfColumns());
@@ -397,10 +397,10 @@ Geometry::Matrix<T>::operator ^= (Geometry::Matrix<T> const &SecondMatrix)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator * (const double &Value)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator * (const double &Value)
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -414,7 +414,7 @@ Geometry::Matrix<T>::operator * (const double &Value)
 
 template <typename T>
 void
-Geometry::Matrix<T>::operator *= (const double &Value)
+LinAlg::Matrix<T>::operator *= (const double &Value)
 {
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
@@ -427,11 +427,11 @@ Geometry::Matrix<T>::operator *= (const double &Value)
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::operator / (const double &Value)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::operator / (const double &Value)
 {
     assert(Value != 0);
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -445,7 +445,7 @@ Geometry::Matrix<T>::operator / (const double &Value)
 
 template <typename T>
 void
-Geometry::Matrix<T>::operator /= (const double &Value)
+LinAlg::Matrix<T>::operator /= (const double &Value)
 {
     assert(Value != 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
@@ -459,10 +459,10 @@ Geometry::Matrix<T>::operator /= (const double &Value)
 }
 
 template <typename T>
-Geometry::Matrix<T>&
-Geometry::Matrix<T>::operator = (Geometry::Matrix<T> const &SecondMatrix)
+LinAlg::Matrix<T>&
+LinAlg::Matrix<T>::operator = (LinAlg::Matrix<T> const &SecondMatrix)
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -475,7 +475,7 @@ Geometry::Matrix<T>::operator = (Geometry::Matrix<T> const &SecondMatrix)
 
 template <typename T>
 bool
-Geometry::Matrix<T>::operator == (Geometry::Matrix<T> const &SecondMatrix) const
+LinAlg::Matrix<T>::operator == (LinAlg::Matrix<T> const &SecondMatrix) const
 {
     if (this->_NumberOfRows != SecondMatrix.NumberOfRows())
         return false;
@@ -498,10 +498,10 @@ Geometry::Matrix<T>::operator == (Geometry::Matrix<T> const &SecondMatrix) const
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::Transpose()
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::Transpose()
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfCols, this->_NumberOfRows, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -513,10 +513,10 @@ Geometry::Matrix<T>::Transpose()
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::FirstOrderMinorSubMatrix(ULLI RowIndex, ULLI ColIndex)
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::FirstOrderMinorSubMatrix(ULLI RowIndex, ULLI ColIndex)
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows-1, this->_NumberOfCols-1, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows-1, this->_NumberOfCols-1, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         if (row_index != RowIndex-1)
@@ -537,7 +537,7 @@ Geometry::Matrix<T>::FirstOrderMinorSubMatrix(ULLI RowIndex, ULLI ColIndex)
 
 template <typename T>
 short int
-Geometry::Matrix<T>::Cofactor(ULLI RowIndex, ULLI ColIndex)
+LinAlg::Matrix<T>::Cofactor(ULLI RowIndex, ULLI ColIndex)
 {
     if ((RowIndex+ColIndex) % 2)
     {
@@ -551,7 +551,7 @@ Geometry::Matrix<T>::Cofactor(ULLI RowIndex, ULLI ColIndex)
 
 template <typename T>
 double
-Geometry::Matrix<T>::Determinant()
+LinAlg::Matrix<T>::Determinant()
 {
     assert(this->_NumberOfRows == this->_NumberOfCols);
     double answer = 0.0;
@@ -574,17 +574,17 @@ Geometry::Matrix<T>::Determinant()
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::AdjointMatrix()
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::AdjointMatrix()
 {
     return this->CofactorMatrix().Transpose();
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::MinorMatrix()
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::MinorMatrix()
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -597,11 +597,11 @@ Geometry::Matrix<T>::MinorMatrix()
 }
 
 template <typename T>
-Geometry::Matrix<T>
-Geometry::Matrix<T>::CofactorMatrix()
+LinAlg::Matrix<T>
+LinAlg::Matrix<T>::CofactorMatrix()
 {
-    Geometry::Matrix<T> *Answer = new Geometry::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
-    Geometry::Matrix<T> MinorMatrix = this->MinorMatrix();
+    LinAlg::Matrix<T> *Answer = new LinAlg::Matrix<T>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> MinorMatrix = this->MinorMatrix();
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -614,16 +614,16 @@ Geometry::Matrix<T>::CofactorMatrix()
 }
 
 template <typename T>
-Geometry::Matrix<double>
-Geometry::Matrix<T>::Inverse()
+LinAlg::Matrix<double>
+LinAlg::Matrix<T>::Inverse()
 {
     double determinant = this->Determinant();
     if (determinant == 0.0)
     {
         throw EmptyException();
     }
-    Geometry::Matrix<double> *Answer = new Geometry::Matrix<double>(this->_NumberOfRows, this->_NumberOfCols, 0);
-    Geometry::Matrix<T> AdjointMatrix = this->AdjointMatrix();
+    LinAlg::Matrix<double> *Answer = new LinAlg::Matrix<double>(this->_NumberOfRows, this->_NumberOfCols, 0);
+    LinAlg::Matrix<T> AdjointMatrix = this->AdjointMatrix();
     for (ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
         for (ULLI col_index = 0; col_index < this->_NumberOfCols; ++col_index)
@@ -635,7 +635,7 @@ Geometry::Matrix<T>::Inverse()
 }
 
 template <typename T>
-Geometry::Matrix<T>::~Matrix()
+LinAlg::Matrix<T>::~Matrix()
 {
     for(ULLI row_index = 0; row_index < this->_NumberOfRows; ++row_index)
     {
@@ -645,8 +645,8 @@ Geometry::Matrix<T>::~Matrix()
     this->_NumberOfCols = 0;
 };
 
-template class Geometry::Matrix<int>;
-template class Geometry::Matrix<double>;
-template class Geometry::Matrix<float>;
-template class Geometry::Matrix<LLI>;
-template class Geometry::Matrix<ULLI>;
+template class LinAlg::Matrix<int>;
+template class LinAlg::Matrix<double>;
+template class LinAlg::Matrix<float>;
+template class LinAlg::Matrix<LLI>;
+template class LinAlg::Matrix<ULLI>;

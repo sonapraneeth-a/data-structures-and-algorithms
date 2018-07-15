@@ -29,8 +29,8 @@ protected:
 
     }
 
-    Geometry::Vector2d<int> *InitiatedVector = new Geometry::Vector2d<int>(10);
-    Geometry::Vector2d<int> UninitiatedVector;
+    LinAlg::Vector2d<int> *InitiatedVector = new LinAlg::Vector2d<int>(10);
+    LinAlg::Vector2d<int> UninitiatedVector;
 
 };
 

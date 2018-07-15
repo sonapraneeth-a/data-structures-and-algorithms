@@ -26,7 +26,7 @@
 
 // Reference: http://blog.ethanlim.net/2014/07/separate-c-template-headers-h-and.html
 
-namespace Geometry
+namespace LinAlg
 {
 
     template<ULLI N, typename T>

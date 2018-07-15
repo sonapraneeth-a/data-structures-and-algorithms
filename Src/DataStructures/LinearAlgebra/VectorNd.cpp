@@ -29,9 +29,9 @@
  * @param InitValue
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>::VectorNd(const T &InitValue)
+LinAlg::VectorNd<N, T>::VectorNd(const T &InitValue)
 {
-    Geometry::VectorNd<N, T>::Fill(InitValue);
+    LinAlg::VectorNd<N, T>::Fill(InitValue);
 }
 
 /**
@@ -41,7 +41,7 @@ Geometry::VectorNd<N, T>::VectorNd(const T &InitValue)
  * @param Vector
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>::VectorNd(const VectorNd<N, T> &Vector)
+LinAlg::VectorNd<N, T>::VectorNd(const VectorNd<N, T> &Vector)
 {
     for (ULLI index = 0; index < N; ++index)
     {
@@ -57,7 +57,7 @@ Geometry::VectorNd<N, T>::VectorNd(const VectorNd<N, T> &Vector)
  */
 template <ULLI N, typename T>
 void
-Geometry::VectorNd<N, T>::Fill(const T &Value)
+LinAlg::VectorNd<N, T>::Fill(const T &Value)
 {
     for (ULLI index = 0; index < N; ++index)
     {
@@ -74,7 +74,7 @@ Geometry::VectorNd<N, T>::Fill(const T &Value)
  */
 template <ULLI N, typename T>
 double
-Geometry::VectorNd<N, T>::Distance(const VectorNd<N, T> &OtherVector)
+LinAlg::VectorNd<N, T>::Distance(const VectorNd<N, T> &OtherVector)
 {
     double answer = 0.0;
     for (ULLI index = 0; index < N; ++index)
@@ -92,8 +92,8 @@ Geometry::VectorNd<N, T>::Distance(const VectorNd<N, T> &OtherVector)
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, double>
-Geometry::VectorNd<N, T>::Normalize()
+LinAlg::VectorNd<N, double>
+LinAlg::VectorNd<N, T>::Normalize()
 {
     double length = 0.0;
     for (ULLI index = 0; index < N; ++index)
@@ -101,7 +101,7 @@ Geometry::VectorNd<N, T>::Normalize()
         length += ((double)this->CoOrd[index] * this->CoOrd[index]);
     }
     length = sqrt(length);
-    Geometry::VectorNd<N, double> *UnitVector = new Geometry::VectorNd<N, double>(0.0);
+    LinAlg::VectorNd<N, double> *UnitVector = new LinAlg::VectorNd<N, double>(0.0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*UnitVector)[index] = (double)this->CoOrd[index] / length;
@@ -118,7 +118,7 @@ Geometry::VectorNd<N, T>::Normalize()
  */
 template <ULLI N, typename T>
 T
-Geometry::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
+LinAlg::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
 {
     if (index < N)
         return this->CoOrd[index];
@@ -129,7 +129,7 @@ Geometry::VectorNd<N, T>::GetNthCoOrdinate(ULLI index)
 
 template <ULLI N, typename T>
 void
-Geometry::VectorNd<N, T>::SetNthCoOrdinate(ULLI index, T Value)
+LinAlg::VectorNd<N, T>::SetNthCoOrdinate(ULLI index, T Value)
 {
     if (index < N)
         this->CoOrd[index] = Value;
@@ -140,7 +140,7 @@ Geometry::VectorNd<N, T>::SetNthCoOrdinate(ULLI index, T Value)
 
 template <ULLI N, typename T>
 T
-Geometry::VectorNd<N, T>::operator [](ULLI index) const
+LinAlg::VectorNd<N, T>::operator [](ULLI index) const
 {
     if (index < N)
         return this->CoOrd[index];
@@ -151,7 +151,7 @@ Geometry::VectorNd<N, T>::operator [](ULLI index) const
 
 template <ULLI N, typename T>
 T&
-Geometry::VectorNd<N, T>::operator [](ULLI index)
+LinAlg::VectorNd<N, T>::operator [](ULLI index)
 {
     if (index < N)
         return this->CoOrd[index];
@@ -168,7 +168,7 @@ Geometry::VectorNd<N, T>::operator [](ULLI index)
  */
 template <ULLI N, typename T>
 std::string
-Geometry::VectorNd<N, T>::ToString() const
+LinAlg::VectorNd<N, T>::ToString() const
 {
     std::string answer = _Vector_Print_Start;
     for (ULLI index = 0; index < N; ++index)
@@ -190,10 +190,10 @@ Geometry::VectorNd<N, T>::ToString() const
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>
-Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>
+LinAlg::VectorNd<N, T>::operator + (LinAlg::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    LinAlg::VectorNd<N, T> *Answer = new LinAlg::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] + SecondVector[index];
@@ -210,7 +210,7 @@ Geometry::VectorNd<N, T>::operator + (Geometry::VectorNd<N, T> const &SecondVect
  */
 template <ULLI N, typename T>
 void
-Geometry::VectorNd<N, T>::operator += (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>::operator += (LinAlg::VectorNd<N, T> const &SecondVector)
 {
     for (ULLI index = 0; index < N; ++index)
     {
@@ -226,10 +226,10 @@ Geometry::VectorNd<N, T>::operator += (Geometry::VectorNd<N, T> const &SecondVec
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>
-Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>
+LinAlg::VectorNd<N, T>::operator - (LinAlg::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    LinAlg::VectorNd<N, T> *Answer = new LinAlg::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] - SecondVector[index];
@@ -246,7 +246,7 @@ Geometry::VectorNd<N, T>::operator - (Geometry::VectorNd<N, T> const &SecondVect
  */
 template <ULLI N, typename T>
 void
-Geometry::VectorNd<N, T>::operator -= (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>::operator -= (LinAlg::VectorNd<N, T> const &SecondVector)
 {
     for (ULLI index = 0; index < N; ++index)
     {
@@ -262,10 +262,10 @@ Geometry::VectorNd<N, T>::operator -= (Geometry::VectorNd<N, T> const &SecondVec
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>
-Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>
+LinAlg::VectorNd<N, T>::operator * (LinAlg::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    LinAlg::VectorNd<N, T> *Answer = new LinAlg::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
@@ -282,7 +282,7 @@ Geometry::VectorNd<N, T>::operator * (Geometry::VectorNd<N, T> const &SecondVect
  */
 template <ULLI N, typename T>
 void
-Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>::operator *= (LinAlg::VectorNd<N, T> const &SecondVector)
 {
     for (ULLI index = 0; index < N; ++index)
     {
@@ -298,10 +298,10 @@ Geometry::VectorNd<N, T>::operator *= (Geometry::VectorNd<N, T> const &SecondVec
  * @return
  */
 /*template <ULLI N, typename T>
-Geometry::VectorNd<N, T>
-Geometry::VectorNd<N, T>::operator ^ (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>
+LinAlg::VectorNd<N, T>::operator ^ (LinAlg::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    LinAlg::VectorNd<N, T> *Answer = new LinAlg::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
@@ -317,10 +317,10 @@ Geometry::VectorNd<N, T>::operator ^ (Geometry::VectorNd<N, T> const &SecondVect
  * @return
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>&
-Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVector)
+LinAlg::VectorNd<N, T>&
+LinAlg::VectorNd<N, T>::operator = (LinAlg::VectorNd<N, T> const &SecondVector)
 {
-    Geometry::VectorNd<N, T> *Answer = new Geometry::VectorNd<N, T>(0);
+    LinAlg::VectorNd<N, T> *Answer = new LinAlg::VectorNd<N, T>(0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = SecondVector[index];
@@ -330,7 +330,7 @@ Geometry::VectorNd<N, T>::operator = (Geometry::VectorNd<N, T> const &SecondVect
 
 template <ULLI N, typename T>
 bool
-Geometry::VectorNd<N, T>::operator == (Geometry::VectorNd<N, T> const &SecondVector) const
+LinAlg::VectorNd<N, T>::operator == (LinAlg::VectorNd<N, T> const &SecondVector) const
 {
     bool IsEqual = true;
     for (ULLI index = 0; index < N; ++index)
@@ -350,49 +350,49 @@ Geometry::VectorNd<N, T>::operator == (Geometry::VectorNd<N, T> const &SecondVec
  * @tparam T
  */
 template <ULLI N, typename T>
-Geometry::VectorNd<N, T>::~VectorNd()
+LinAlg::VectorNd<N, T>::~VectorNd()
 {
     delete[] CoOrd;
 };
 
 /*template <ULLI N, typename T>
 friend std::ostream&
-Geometry::VectorNd<N, T>::operator<<(std::ostream & os,
-                                     Geometry::VectorNd<N, T>::VectorNd<N, T> const &Vec)
+LinAlg::VectorNd<N, T>::operator<<(std::ostream & os,
+                                     LinAlg::VectorNd<N, T>::VectorNd<N, T> const &Vec)
 {
     return os << Vec.ToString();
 }*/
 
-template class Geometry::VectorNd<(ULLI)1, int>;
-template class Geometry::VectorNd<(ULLI)1, double>;
-template class Geometry::VectorNd<(ULLI)1, float>;
-template class Geometry::VectorNd<(ULLI)1, ULLI>;
-template class Geometry::VectorNd<(ULLI)1, LLI>;
+template class LinAlg::VectorNd<(ULLI)1, int>;
+template class LinAlg::VectorNd<(ULLI)1, double>;
+template class LinAlg::VectorNd<(ULLI)1, float>;
+template class LinAlg::VectorNd<(ULLI)1, ULLI>;
+template class LinAlg::VectorNd<(ULLI)1, LLI>;
 
-template class Geometry::VectorNd<(ULLI)2, int>;
-template class Geometry::VectorNd<(ULLI)2, double>;
-template class Geometry::VectorNd<(ULLI)2, float>;
-template class Geometry::VectorNd<(ULLI)2, ULLI>;
-template class Geometry::VectorNd<(ULLI)2, LLI>;
+template class LinAlg::VectorNd<(ULLI)2, int>;
+template class LinAlg::VectorNd<(ULLI)2, double>;
+template class LinAlg::VectorNd<(ULLI)2, float>;
+template class LinAlg::VectorNd<(ULLI)2, ULLI>;
+template class LinAlg::VectorNd<(ULLI)2, LLI>;
 
-template class Geometry::VectorNd<(ULLI)3, int>;
-template class Geometry::VectorNd<(ULLI)3, double>;
-template class Geometry::VectorNd<(ULLI)3, float>;
-template class Geometry::VectorNd<(ULLI)3, ULLI>;
-template class Geometry::VectorNd<(ULLI)3, LLI>;
+template class LinAlg::VectorNd<(ULLI)3, int>;
+template class LinAlg::VectorNd<(ULLI)3, double>;
+template class LinAlg::VectorNd<(ULLI)3, float>;
+template class LinAlg::VectorNd<(ULLI)3, ULLI>;
+template class LinAlg::VectorNd<(ULLI)3, LLI>;
 
-template class Geometry::VectorNd<(ULLI)4, int>;
-template class Geometry::VectorNd<(ULLI)4, double>;
-template class Geometry::VectorNd<(ULLI)4, float>;
-template class Geometry::VectorNd<(ULLI)4, ULLI>;
-template class Geometry::VectorNd<(ULLI)4, LLI>;
+template class LinAlg::VectorNd<(ULLI)4, int>;
+template class LinAlg::VectorNd<(ULLI)4, double>;
+template class LinAlg::VectorNd<(ULLI)4, float>;
+template class LinAlg::VectorNd<(ULLI)4, ULLI>;
+template class LinAlg::VectorNd<(ULLI)4, LLI>;
 
-template class Geometry::VectorNd<(ULLI)5, int>;
-template class Geometry::VectorNd<(ULLI)5, double>;
-template class Geometry::VectorNd<(ULLI)5, float>;
-template class Geometry::VectorNd<(ULLI)5, ULLI>;
-template class Geometry::VectorNd<(ULLI)5, LLI>;
+template class LinAlg::VectorNd<(ULLI)5, int>;
+template class LinAlg::VectorNd<(ULLI)5, double>;
+template class LinAlg::VectorNd<(ULLI)5, float>;
+template class LinAlg::VectorNd<(ULLI)5, ULLI>;
+template class LinAlg::VectorNd<(ULLI)5, LLI>;
 
 // https://stackoverflow.com/questions/38907087/c-template-partial-explicit-instantiation
-// template<ULLI N> class Geometry::VectorNd<N, int>;
-// template<ULLI N> class Geometry::VectorNd<N, int>;
+// template<ULLI N> class LinAlg::VectorNd<N, int>;
+// template<ULLI N> class LinAlg::VectorNd<N, int>;

@@ -26,7 +26,7 @@
 
 #include "DefaultHeaders.h"
 
-namespace Geometry
+namespace LinAlg
 {
     template<typename T>
     class Matrix

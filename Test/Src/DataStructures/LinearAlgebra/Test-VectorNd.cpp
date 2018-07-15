@@ -33,13 +33,13 @@ protected:
     {
     }
 
-    Geometry::VectorNd<1, int> _VectorNd_int_1;
-    Geometry::VectorNd<2, int> _VectorNd_int_2;
-    Geometry::VectorNd<3, int> _VectorNd_int_3;
-    Geometry::VectorNd<4, int> *_VectorNd_int_4 = new Geometry::VectorNd<4, int>(10);
-    Geometry::VectorNd<5, int> _VectorNd_int_5;
-    Geometry::VectorNd<4, int> *_VectorNd_origin = new Geometry::VectorNd<4, int>(0);;
-    Geometry::VectorNd<4, int> *_VectorNd_answer;
+    LinAlg::VectorNd<1, int> _VectorNd_int_1;
+    LinAlg::VectorNd<2, int> _VectorNd_int_2;
+    LinAlg::VectorNd<3, int> _VectorNd_int_3;
+    LinAlg::VectorNd<4, int> *_VectorNd_int_4 = new LinAlg::VectorNd<4, int>(10);
+    LinAlg::VectorNd<5, int> _VectorNd_int_5;
+    LinAlg::VectorNd<4, int> *_VectorNd_origin = new LinAlg::VectorNd<4, int>(0);;
+    LinAlg::VectorNd<4, int> *_VectorNd_answer;
 
 
 };
@@ -112,45 +112,45 @@ TEST_F(VectorNdToStringTest, StringTest)
 
 TEST_F(VectorNdOperatorTest, AdditionTest)
 {
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(10);
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_int_4 + *_VectorNd_origin);
 }
 
 TEST_F(VectorNdOperatorTest, AdditionEqualTest)
 {
-    Geometry::VectorNd<4, int> *_VectorNd_addend = new Geometry::VectorNd<4, int>(10);
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(10);
+    LinAlg::VectorNd<4, int> *_VectorNd_addend = new LinAlg::VectorNd<4, int>(10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(10);
     *_VectorNd_origin += *_VectorNd_addend;
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_origin);
 }
 
 TEST_F(VectorNdOperatorTest, SubtractionTest)
 {
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(-10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(-10);
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_origin - *_VectorNd_int_4);
 }
 
 TEST_F(VectorNdOperatorTest, SubtractionEqualTest)
 {
-    Geometry::VectorNd<4, int> *_VectorNd_subtrahend = new Geometry::VectorNd<4, int>(10);
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(-10);
+    LinAlg::VectorNd<4, int> *_VectorNd_subtrahend = new LinAlg::VectorNd<4, int>(10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(-10);
     *_VectorNd_origin -= *_VectorNd_subtrahend;
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_origin);
 }
 
 TEST_F(VectorNdOperatorTest, DotProductTest)
 {
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(-20);
-    _VectorNd_origin = new Geometry::VectorNd<4, int>(2);
-    Geometry::VectorNd<4, int> *_VectorNd_multiplicand = new Geometry::VectorNd<4, int>(-10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(-20);
+    _VectorNd_origin = new LinAlg::VectorNd<4, int>(2);
+    LinAlg::VectorNd<4, int> *_VectorNd_multiplicand = new LinAlg::VectorNd<4, int>(-10);
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_origin * *_VectorNd_multiplicand);
 }
 
 TEST_F(VectorNdOperatorTest, DotProductEqualTest)
 {
-    Geometry::VectorNd<4, int> *_VectorNd_multiplicand = new Geometry::VectorNd<4, int>(10);
-    Geometry::VectorNd<4, int> *_VectorNd_multiplier = new Geometry::VectorNd<4, int>(-10);
-    _VectorNd_answer = new Geometry::VectorNd<4, int>(-100);
+    LinAlg::VectorNd<4, int> *_VectorNd_multiplicand = new LinAlg::VectorNd<4, int>(10);
+    LinAlg::VectorNd<4, int> *_VectorNd_multiplier = new LinAlg::VectorNd<4, int>(-10);
+    _VectorNd_answer = new LinAlg::VectorNd<4, int>(-100);
     *_VectorNd_multiplier *= *_VectorNd_multiplicand;
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_multiplier);
 }

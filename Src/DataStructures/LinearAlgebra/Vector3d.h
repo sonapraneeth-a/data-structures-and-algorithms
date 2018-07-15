@@ -19,7 +19,7 @@
 
 #include "VectorNd.h"
 
-namespace Geometry
+namespace LinAlg
 {
     template<typename T>
     class Vector3d: public VectorNd<(ULLI)3, T>

@@ -29,8 +29,8 @@ protected:
 
     }
 
-    Geometry::Vector3d<int> *InitiatedVector = new Geometry::Vector3d<int>(10);
-    Geometry::Vector3d<int> UninitiatedVector;
+    LinAlg::Vector3d<int> *InitiatedVector = new LinAlg::Vector3d<int>(10);
+    LinAlg::Vector3d<int> UninitiatedVector;
 
 };
 

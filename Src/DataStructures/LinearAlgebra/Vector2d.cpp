@@ -18,20 +18,20 @@
 
 template <typename T>
 T
-Geometry::Vector2d<T>::GetX()
+LinAlg::Vector2d<T>::GetX()
 {
     return this->GetNthCoOrdinate(0);
 }
 
 template <typename T>
 T
-Geometry::Vector2d<T>::GetY()
+LinAlg::Vector2d<T>::GetY()
 {
     return this->GetNthCoOrdinate(1);
 }
 
-template class Geometry::Vector2d<int>;
-template class Geometry::Vector2d<double>;
-template class Geometry::Vector2d<float>;
-template class Geometry::Vector2d<ULLI>;
-template class Geometry::Vector2d<LLI>;
+template class LinAlg::Vector2d<int>;
+template class LinAlg::Vector2d<double>;
+template class LinAlg::Vector2d<float>;
+template class LinAlg::Vector2d<ULLI>;
+template class LinAlg::Vector2d<LLI>;

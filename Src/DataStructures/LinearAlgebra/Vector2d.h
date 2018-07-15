@@ -7,7 +7,7 @@
 
 #include "VectorNd.h"
 
-namespace Geometry
+namespace LinAlg
 {
     template<typename T>
     class Vector2d: public VectorNd<(ULLI)2, T>
