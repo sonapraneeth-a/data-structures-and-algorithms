@@ -3,6 +3,7 @@
 
 #include <random>
 #include <ctime>
+#include <array>
 
 #define MAJOR_VERSION 0
 #define MINOR_VERSION 3
