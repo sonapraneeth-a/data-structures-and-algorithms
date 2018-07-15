@@ -7,20 +7,24 @@
 template<typename T>
 class DoubleLinkedListNode
 {
+private:
+
+    T _Data;
+    DoubleLinkedListNode<T> *_Next;
+    DoubleLinkedListNode<T> *_Prev;
+
+
 public:
-    T Data;
-    DoubleLinkedListNode<T> *Next;
-    DoubleLinkedListNode<T> *Prev;
 
-    DoubleLinkedListNode();
-    DoubleLinkedListNode(T Value);
+    explicit DoubleLinkedListNode(T Value);
 
-    T GetData();
-    DoubleLinkedListNode<T>* GetNext();
-    DoubleLinkedListNode<T>* GetPrev();
-    void SetData(T Value);
-    void SetNext(DoubleLinkedListNode<T> *NextLink);
-    void SetPrev(DoubleLinkedListNode<T> *PrevLink);
+    T Data() const;
+    DoubleLinkedListNode<T>* Next() const;
+    DoubleLinkedListNode<T>* Prev() const;
+
+    void Data(T Value);
+    void Next(DoubleLinkedListNode<T> *NextLink);
+    void Prev(DoubleLinkedListNode<T> *PrevLink);
 
     std::string ToString();
 
@@ -30,7 +34,7 @@ public:
 template<typename T>
 std::ostream& operator <<(std::ostream& os, const DoubleLinkedListNode<T>& Node)
 {
-    os << Node.Data << " <-> " << Node.Next << "\n";
+    os << Node.Data() << " <-> " << Node.Next() << "\n";
     return os;
 }
 

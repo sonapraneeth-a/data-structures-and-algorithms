@@ -10,8 +10,8 @@
 template <typename T>
 DoubleLinkedList<T>::DoubleLinkedList()
 {
-    Head = nullptr;
-    this->Size = 0;
+    _Head = nullptr;
+    this->_Size = 0;
 }
 
 /*!
@@ -26,8 +26,8 @@ DoubleLinkedList<T>::DoubleLinkedList()
 template <typename T>
 DoubleLinkedList<T>::DoubleLinkedList(T Value)
 {
-    Head = new DoubleLinkedListNode<T>(Value);
-    this->Size = 1;
+    _Head = new DoubleLinkedListNode<T>(Value);
+    this->_Size = 1;
 }
 
 /*!
@@ -39,9 +39,23 @@ DoubleLinkedList<T>::DoubleLinkedList(T Value)
  * @return [out] DoubleLinkedListNode * - Pointer to the head of the Double linked list node
  */
 template <typename T>
-DoubleLinkedListNode<T>* DoubleLinkedList<T>::GetHead()
+DoubleLinkedListNode<T>* DoubleLinkedList<T>::Head()
 {
-    return Head;
+    return this->_Head;
+}
+
+/*!
+ * @brief   Get pointer to tail of Double linked list
+ * @details
+ *
+ * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
+ * @param
+ * @return [out] DoubleLinkedListNode * - Pointer to the tail of the Double linked list node
+ */
+template <typename T>
+DoubleLinkedListNode<T>* DoubleLinkedList<T>::Tail()
+{
+    return this->_Tail;
 }
 
 /*!
@@ -55,11 +69,11 @@ DoubleLinkedListNode<T>* DoubleLinkedList<T>::GetHead()
 template <typename T>
 void DoubleLinkedList<T>::PrintList()
 {
-    DoubleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->_Head;
     while (temp)
     {
-        std::cout << temp->GetData() << " ";
-        temp = temp->GetNext();
+        std::cout << temp->Data() << " <-> ";
+        temp = temp->Next();
     }
     std::cout << "\n";
     return;
@@ -76,12 +90,12 @@ void DoubleLinkedList<T>::PrintList()
 template <typename T>
 std::string DoubleLinkedList<T>::ToString()
 {
-    DoubleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->_Head;
     std::stringstream out;
     while (temp)
     {
-        out << temp->GetData() << " -> ";
-        temp = temp->GetNext();
+        out << temp->Data() << " <-> ";
+        temp = temp->Next();
     }
     out << temp;
     return out.str();
@@ -98,19 +112,19 @@ std::string DoubleLinkedList<T>::ToString()
 template <typename T>
 void DoubleLinkedList<T>::Insert(T Value)
 {
-    DoubleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
-        this->Head = new DoubleLinkedListNode<T>(Value);
-        this->Size = 1;
+        this->_Head = new DoubleLinkedListNode<T>(Value);
+        this->_Size = 1;
         return;
     }
-    while (temp->GetNext() != nullptr)
+    while (temp->Next() != nullptr)
     {
-        temp = temp->GetNext();
+        temp = temp->Next();
     }
-    temp->SetNext(new DoubleLinkedListNode<T>(Value));
-    this->Size++;
+    temp->Next(new DoubleLinkedListNode<T>(Value));
+    this->_Size++;
     return;
 }
 
@@ -123,9 +137,9 @@ void DoubleLinkedList<T>::Insert(T Value)
  * @return [out] unsigned int - Size of the Double linked list
  */
 template <typename T>
-unsigned int DoubleLinkedList<T>::GetSize()
+unsigned int DoubleLinkedList<T>::Size()
 {
-    return this->Size;
+    return this->_Size;
 }
 
 /*!
@@ -139,13 +153,13 @@ unsigned int DoubleLinkedList<T>::GetSize()
 template <typename T>
 void DoubleLinkedList<T>::DeleteHead()
 {
-    DoubleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
         exit(-1);
     }
-    this->Head = temp->GetNext();
-    this->Size--;
+    this->_Head = temp->Next();
+    this->_Size--;
     delete temp;
 }
 
@@ -160,12 +174,12 @@ void DoubleLinkedList<T>::DeleteHead()
 template <typename T>
 void DoubleLinkedList<T>::Clear()
 {
-    DoubleLinkedListNode<T> *temp = this->Head;
+    DoubleLinkedListNode<T> *temp = this->_Head;
     if(temp == nullptr)
     {
         return ;
     }
-    while(this->Head)
+    while(this->_Head)
     {
         this->DeleteHead();
     }

@@ -6,21 +6,25 @@
 template <typename T>
 class DoubleLinkedList
 {
-public:
+private:
 
-    DoubleLinkedListNode<T> *Head;
-    DoubleLinkedListNode<T> *Tail;
-    unsigned int Size;
-    unsigned int MaxSize;
+    DoubleLinkedListNode<T> *_Head;
+    DoubleLinkedListNode<T> *_Tail;
+    unsigned int _Size;
+    unsigned int _MaxSize;
+
+public:
 
     DoubleLinkedList();
     DoubleLinkedList(T Value);
 
-    DoubleLinkedListNode<T>* GetHead();
-    DoubleLinkedListNode<T>* GetTail();
+    DoubleLinkedListNode<T>* Head();
+    void Head(DoubleLinkedListNode<T>* Node);
+    DoubleLinkedListNode<T>* Tail();
+    void Tail(DoubleLinkedListNode<T>* Node);
     void PrintList();
     std::string ToString();
-    unsigned int GetSize();
+    unsigned int Size();
     void DeleteHead();
     void DeleteTail();
     void Clear();
@@ -29,4 +33,4 @@ public:
 };
 
 
-#endif //DATA_STRUCTURES_AND_ALGORITHMS_Double_LINKED_LIST_H
+#endif //DS_LIST_DLL__H

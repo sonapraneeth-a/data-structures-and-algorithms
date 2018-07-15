@@ -3,59 +3,59 @@
 template <typename T>
 DoubleLinkedListNode<T>::DoubleLinkedListNode(T Value)
 {
-    this->Data = Value;
-    this->Next = nullptr;
-    this->Prev = nullptr;
+    this->_Data = Value;
+    this->_Next = nullptr;
+    this->_Prev = nullptr;
 }
 
 template <typename T>
-T DoubleLinkedListNode<T>::GetData()
+T DoubleLinkedListNode<T>::Data() const
 {
-    return this->Data;
+    return this->_Data;
 }
 
 template <typename T>
-DoubleLinkedListNode<T>* DoubleLinkedListNode<T>::GetNext()
+DoubleLinkedListNode<T>* DoubleLinkedListNode<T>::Next() const
 {
-    return this->Next;
+    return this->_Next;
 }
 
 template <typename T>
-DoubleLinkedListNode<T>* DoubleLinkedListNode<T>::GetPrev()
+DoubleLinkedListNode<T>* DoubleLinkedListNode<T>::Prev() const
 {
-    return this->Prev;
+    return this->_Prev;
 }
 
 template <typename T>
-void DoubleLinkedListNode<T>::SetData(T Value)
+void DoubleLinkedListNode<T>::Data(T Value)
 {
-    this->Data = Value;
+    this->_Data = Value;
 }
 
 template <typename T>
-void DoubleLinkedListNode<T>::SetNext(DoubleLinkedListNode<T> *NextLink)
+void DoubleLinkedListNode<T>::Next(DoubleLinkedListNode<T> *NextLink)
 {
-    this->Next = NextLink;
+    this->_Next = NextLink;
 }
 
 template <typename T>
-void DoubleLinkedListNode<T>::SetPrev(DoubleLinkedListNode<T> *PrevLink)
+void DoubleLinkedListNode<T>::Prev(DoubleLinkedListNode<T> *PrevLink)
 {
-    this->Prev = PrevLink;
+    this->_Prev = PrevLink;
 }
 
 template <typename T>
 std::string DoubleLinkedListNode<T>::ToString()
 {
     std::stringstream out;
-    out << this->Data << " <-> " << this->Next;
+    out << this->_Data << " <-> " << this->_Next;
     return out.str();
 }
 
 template <typename T>
 DoubleLinkedListNode<T>::~DoubleLinkedListNode()
 {
-    Next = nullptr;
+    _Next = nullptr;
 }
 
 template class DoubleLinkedListNode<int>;
