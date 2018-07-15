@@ -34,7 +34,7 @@ enum STATUS { INFO, DEBUG, WARNING, ERROR, CRITICAL };
                                     << " [" << __func__ << "]" \
                                     << " Line " << __LINE__ << ": " << message; \
                                     PRINT_LOG_MESSAGE(Level);
-                                    
+
 #define SET_LOG RegisterLog()
 #define SET_LOG_LEVEL(Level) RegisterLog(Level)
 #define SET_LOG_TO_FILE(Level, filename) RegisterLog(Level); RegisterLog(filename)
@@ -58,7 +58,7 @@ void ClearLog(std::stringstream &LogMessageToPrint);
  * @param [string] filename - Name of the file to which Log statements have to be printed
  */
 void RegisterLog(unsigned int Level = 0,
-                 unsigned int Status = STATUS::CRTICAL,
+                 unsigned int Status = STATUS::CRITICAL,
                  std::string filename = "");
 
 /**
