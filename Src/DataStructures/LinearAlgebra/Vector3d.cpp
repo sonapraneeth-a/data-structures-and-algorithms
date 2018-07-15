@@ -1,6 +1,6 @@
 /**
  *      Created on: 07 July 2018
- *   Last modified: 07 July 2018
+ *   Last modified: 15 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation code for 3 dimensional vector
  */
@@ -12,6 +12,7 @@
  * 06-07-2018             Sona Praneeth Akula    - Creation of file
  *                                               - Added implementations for the functions
  *                                                 GetX, GetY, GetZ
+ * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
  */
 
 #include "Vector3d.h"

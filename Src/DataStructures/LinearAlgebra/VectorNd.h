@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 08 July 2018
+ *   Last modified: 15 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Header for N dimensional vector
  */
@@ -17,6 +17,7 @@
  *                                                 SetNthCoOrdinate, Copy constructor and operators
  *                                                 +, -, *, +=, -=, *=, []
  * 08-07-2018             Sona Praneeth Akula    - Added function signatures for operator ==
+ * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
  */
 
 #ifndef VECTORND_H

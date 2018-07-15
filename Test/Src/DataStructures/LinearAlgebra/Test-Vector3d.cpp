@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 06 July 2018
+ *   Last modified: 15 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Tests for Vector3d
  */
@@ -11,6 +11,7 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 06-07-2018             Sona Praneeth Akula   - Creation of file
  *                                              - Adding tests for Vector2d GetX, GetY
+ * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
  */
 
 #include "Vector3d.h"

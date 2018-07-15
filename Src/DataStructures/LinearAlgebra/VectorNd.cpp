@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 08 July 2018
+ *   Last modified: 15 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation code for N dimensional vector
  */
@@ -18,6 +18,7 @@
  *                                                 +, -, *, +=, -=, *=, []
  * 08-07-2018             Sona Praneeth Akula    - Added implementation for operator ==
  * 14-07-2018             Sona Praneeth Akula    - Fixed an error in Normalize function
+ * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
  */
 
 #include "VectorNd.h"
