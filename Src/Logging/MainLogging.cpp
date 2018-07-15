@@ -15,8 +15,12 @@
  */
 
 #include "BaseLogging.h"
+// #include "Logging.h"
 
-void LogRegisterFail()
+using namespace BaseLogging;
+
+void
+BaseLogRegisterFail()
 {
     SET_LOG_LEVEL(11);
     LOG(1, "Message\n");
@@ -26,9 +30,10 @@ void LogRegisterFail()
     }
 }
 
-void LogRegister()
+void
+BaseLogRegister()
 {
-    SET_LOG_LEVEL(10);
+    SET_LOG_LEVEL(2);
     LOG(1, "Message\n");
     for (int index = 0; index < 100; ++index)
     {
@@ -39,7 +44,7 @@ void LogRegister()
 
 int main()
 {
-    // LogRegisterFail();
-    LogRegister();
+    // BaseLogRegisterFail();
+    BaseLogRegister();
     return 0;
 }
