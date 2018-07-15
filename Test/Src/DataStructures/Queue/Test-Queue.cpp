@@ -45,21 +45,21 @@ class QueueElementAccessTest: public QueueTest
 
 TEST_F(QueueSizeTest, ZeroSizeTest)
 {
-    EXPECT_EQ(0, _Queue_int_0.GetSize());
+    EXPECT_EQ(0, _Queue_int_0.Size());
     EXPECT_EQ(true, _Queue_int_0.IsEmpty());
     _Queue_int_1.Dequeue();
-    EXPECT_EQ(0, _Queue_int_1.GetSize());
+    EXPECT_EQ(0, _Queue_int_1.Size());
     EXPECT_EQ(true, _Queue_int_1.IsEmpty());
 }
 
 TEST_F(QueueSizeTest, GreaterThanZeroSizeTest)
 {
     _Queue_int_0.Enqueue(10);
-    EXPECT_EQ(1, _Queue_int_0.GetSize());
-    EXPECT_EQ(1, _Queue_int_1.GetSize());
+    EXPECT_EQ(1, _Queue_int_0.Size());
+    EXPECT_EQ(1, _Queue_int_1.Size());
 }
 
 TEST_F(QueueElementAccessTest, HeadTest)
 {
-    EXPECT_EQ(10, _Queue_int_1.GetHeadValue());
+    EXPECT_EQ(10, _Queue_int_1.HeadValue());
 }

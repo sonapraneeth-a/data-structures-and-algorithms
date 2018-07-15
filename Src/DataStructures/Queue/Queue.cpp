@@ -23,10 +23,10 @@
 template <typename T>
 Queue<T>::Queue()
 {
-    this->Head = nullptr;
-    this->Tail = nullptr;
-    this->Size = 0;
-    this->MaxSize = 0;
+    this->_Head = nullptr;
+    this->_Tail = nullptr;
+    this->_Size = 0;
+    this->_MaxSize = 0;
 }
 
 /**
@@ -37,8 +37,8 @@ Queue<T>::Queue()
 template <typename T>
 Queue<T>::Queue(T Value)
 {
-    this->Head = this->Tail = new QueueNode<T>(Value);
-    this->Size++;
+    this->_Head = this->_Tail = new QueueNode<T>(Value);
+    this->_Size++;
 }
 
 /**
@@ -49,12 +49,12 @@ Queue<T>::Queue(T Value)
 template <typename T>
 T Queue<T>::Dequeue()
 {
-    if (this->Head != nullptr)
+    if (this->_Head != nullptr)
     {
-        QueueNode<T> *TempNode = this->Head;
-        this->Head = this->Head->GetNext();
-        T Value = TempNode->GetData();
-        this->Size--;
+        QueueNode<T> *TempNode = this->_Head;
+        this->_Head = this->_Head->Next();
+        T Value = TempNode->Data();
+        this->_Size--;
         delete TempNode;
         return Value;
     }
@@ -72,17 +72,17 @@ T Queue<T>::Dequeue()
 template <typename T>
 void Queue<T>::Enqueue(T Value)
 {
-    if(this->Head == nullptr)
+    if(this->_Head == nullptr)
     {
-        this->Head = this->Tail = new QueueNode<T>(Value);
+        this->_Head = this->_Tail = new QueueNode<T>(Value);
     }
     else
     {
         QueueNode<T> *TempNode = new QueueNode<T>(Value);
-        this->Tail->SetNext(TempNode);
-        this->Tail = TempNode;
+        this->_Tail->Next(TempNode);
+        this->_Tail = TempNode;
     }
-    this->Size++;
+    this->_Size++;
 }
 
 /**
@@ -93,7 +93,7 @@ void Queue<T>::Enqueue(T Value)
 template <typename T>
 bool Queue<T>::IsEmpty()
 {
-    return this->Head == nullptr;
+    return this->_Head == nullptr;
 }
 
 /**
@@ -102,9 +102,9 @@ bool Queue<T>::IsEmpty()
  * @return
  */
 template <typename T>
-T Queue<T>::GetHeadValue()
+T Queue<T>::HeadValue() const
 {
-   return this->Head->GetData();
+   return this->_Head->Data();
 }
 
 /**
@@ -113,9 +113,9 @@ T Queue<T>::GetHeadValue()
  * @return
  */
 template <typename T>
-T Queue<T>::GetTailValue()
+T Queue<T>::TailValue() const
 {
-    return this->Tail->GetData();
+    return this->_Tail->Data();
 }
 
 /**
@@ -124,9 +124,9 @@ T Queue<T>::GetTailValue()
  * @return
  */
 template <typename T>
-ULLI Queue<T>::GetSize()
+ULLI Queue<T>::Size()
 {
-    return this->Size;
+    return this->_Size;
 }
 
 /**
@@ -136,13 +136,13 @@ ULLI Queue<T>::GetSize()
 template <typename T>
 Queue<T>::~Queue()
 {
-    QueueNode<T> *TempNode = this->Head;
+    QueueNode<T> *TempNode = this->_Head;
     while(TempNode != nullptr)
     {
         this->Dequeue();
-        TempNode = this->Head;
+        TempNode = this->_Head;
     }
-    this->MaxSize = 0;
+    this->_MaxSize = 0;
 }
 
 

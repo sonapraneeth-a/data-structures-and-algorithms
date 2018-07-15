@@ -23,13 +23,12 @@ class Queue
 {
 private:
 
-    QueueNode<T> *Head;
-    QueueNode<T> *Tail;
+    QueueNode<T> *_Head;
+    QueueNode<T> *_Tail;
+    ULLI _Size = 0;
+    ULLI _MaxSize = 0;
 
 public:
-
-    ULLI Size = 0;
-    ULLI MaxSize = 0;
 
     Queue();
     Queue(T Value);
@@ -37,9 +36,9 @@ public:
     void Enqueue(T Value);
     T Dequeue();
     bool IsEmpty();
-    T GetHeadValue();
-    T GetTailValue();
-    ULLI GetSize();
+    T HeadValue() const;
+    T TailValue() const;
+    ULLI Size() const;
 
     ~Queue();
 };

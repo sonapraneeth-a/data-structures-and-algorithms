@@ -24,17 +24,20 @@
 template <typename T>
 class QueueNode
 {
+private:
+
+    T _Data;
+    QueueNode<T> *_Next;
+
 public:
-    T Data;
-    QueueNode<T> *Next;
 
-    QueueNode();
-    QueueNode(T Value);
+    explicit QueueNode();
+    explicit QueueNode(T Value);
 
-    T GetData();
-    QueueNode<T>* GetNext();
-    void SetData(T Value);
-    void SetNext(QueueNode<T> *NextLink);
+    T Data() const;
+    QueueNode<T>* Next() const;
+    void Data(T Value);
+    void Next(QueueNode<T> *NextLink);
 
     std::string ToString();
 

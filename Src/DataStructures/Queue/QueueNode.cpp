@@ -11,8 +11,8 @@
 template <typename T>
 QueueNode<T>::QueueNode(T Value)
 {
-    Data = Value;
-    Next = nullptr;
+    _Data = Value;
+    _Next = nullptr;
 }
 
 /**
@@ -21,9 +21,9 @@ QueueNode<T>::QueueNode(T Value)
  * @return
  */
 template <typename T>
-T QueueNode<T>::GetData()
+T QueueNode<T>::Data() const
 {
-    return this->Data;
+    return this->_Data;
 }
 
 /**
@@ -32,9 +32,9 @@ T QueueNode<T>::GetData()
  * @return
  */
 template <typename T>
-QueueNode<T>* QueueNode<T>::GetNext()
+QueueNode<T>* QueueNode<T>::Next() const
 {
-    return this->Next;
+    return this->_Next;
 }
 
 /**
@@ -43,9 +43,9 @@ QueueNode<T>* QueueNode<T>::GetNext()
  * @param Value
  */
 template <typename T>
-void QueueNode<T>::SetData(T Value)
+void QueueNode<T>::Data(T Value)
 {
-    Data = Value;
+    this->_Data = Value;
 }
 
 /**
@@ -56,7 +56,7 @@ void QueueNode<T>::SetData(T Value)
 template <typename T>
 void QueueNode<T>::SetNext(QueueNode<T> *NextLink)
 {
-    Next = NextLink;
+    this->_Next = NextLink;
 }
 
 /**
@@ -68,7 +68,7 @@ template <typename T>
 std::string QueueNode<T>::ToString()
 {
     std::stringstream out;
-    out << this->Data << " -> " << this->Next;
+    out << this->_Data << " -> " << this->_Next;
     return out.str();
 }
 
@@ -79,7 +79,7 @@ std::string QueueNode<T>::ToString()
 template <typename T>
 QueueNode<T>::~QueueNode()
 {
-    Next = nullptr;
+    this->_Next = nullptr;
 }
 
 //template class QueueNode<int>;
