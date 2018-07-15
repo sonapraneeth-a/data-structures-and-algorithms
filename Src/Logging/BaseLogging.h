@@ -1,96 +1,88 @@
 /**
  *      Created on: 24 January 2018
- *   Last modified: 04 July 2018
+ *   Last modified: 15 July 2018
  *          Author: Sona Praneeth Akula
- *         Details: Header for logging library
+ *         Details: Header for Logging library
  */
 
 /**
- * Changelog
+ * ChangeLog
  *
  * Date (DD-MM-YYYY)            Author               Update
  * 24-01-2018             Sona Praneeth Akula   - Creation of the file
- * 04-07-2018             Sona Praneeth Akula   -
+ * 15-07-2018             Sona Praneeth Akula   - Lifted the code I created long ago from
+ *                                                https://github.com/vvanirudh/tum_ardrone_iitb/blob/phase02-fix/src/controlUI/LogUtility/LogUtility.hpp
  */
 
 #ifndef LOGGING_H
 #define LOGGING_H
 
+#include "DefaultHeaders.h"
 
 extern bool LOG_ACTIVATE;
-extern int LOG_LEVEL;
-extern string logFile;
-extern bool logFileOpen;
-extern ofstream logOutFile;
-extern stringstream logMessage;
-extern stringstream logExceptionMessage;
+extern unsigned int LOG_LEVEL;
+extern std::string LogFile;
+extern bool LogFileOpen;
+extern std::ofstream LogOutFile;
+extern std::stringstream LogMessage;
+extern std::stringstream LogExceptionMessage;
 
-#define LOG_MSG(level) if(LOG_ACTIVATE && level <= LOG_LEVEL) logMessage
-#define PRINT_LOG(level, message) LOG_MSG(level) << "[" << get_current_time() << "]" \
+enum STATUS { INFO, DEBUG, WARNING, ERROR, CRITICAL };
+
+#define LOG_MSG(Level) if(LOG_ACTIVATE && Level <= LOG_LEVEL) LogMessage
+#define LOG(Level, message) LOG_MSG(Level) << "[" << GetCurrentTime() << "]" \
                                     << " [" << __func__ << "]" \
                                     << " Line " << __LINE__ << ": " << message; \
-                                    PRINT_LOG_MESSAGE(level);
-
-#define SET_LOG setLog()
-#define SET_LOG_LEVEL(level) setLog(level)
-#define SET_LOG_TO_FILE(level, filename) setLog(level); setLog(filename)
-#define SET_LOG_FILE(filename) setLog(filename)
-#define LOG_PRINT(level, logMessage) printLogMessage(level, logMessage)
-#define PRINT_LOG_MESSAGE(level) printLogMessage(level, logMessage)
+                                    PRINT_LOG_MESSAGE(Level);
+                                    
+#define SET_LOG RegisterLog()
+#define SET_LOG_LEVEL(Level) RegisterLog(Level)
+#define SET_LOG_TO_FILE(Level, filename) RegisterLog(Level); RegisterLog(filename)
+#define SET_LOG_FILE(filename) RegisterLog(filename)
+#define LOG_PRINT(Level, LogMessage) PrintLogMessage(Level, LogMessage)
+#define PRINT_LOG_MESSAGE(Level) PrintLogMessage(Level, LogMessage)
 
 /**
- * @brief Clear the log stringstream
+ * @brief Clear the Log stringstream
  *
- * @param logMessageToPrint
+ * @param LogMessageToPrint
  *
  */
-void clearLog(stringstream &logMessageToPrint);
+void ClearLog(std::stringstream &LogMessageToPrint);
 
 /**
- * @brief Activate logging for the program
+ * @brief Register the Log Level for Logging purpose
  *
- */
-void setLog();
-
-/**
- * @brief Set the log level for logging purpose
- *
- * @param [int] level - 1,2,3.
+ * @param [int] Level - 1,2,3.
  *              1 - highest preference message. 3 - least preference message
- *
+ * @param [string] filename - Name of the file to which Log statements have to be printed
  */
-void setLog(int level);
+void RegisterLog(unsigned int Level = 0,
+                 unsigned int Status = STATUS::CRTICAL,
+                 std::string filename = "");
 
 /**
- * @brief Set the log level for logging purpose
+ * @brief Prints Log message (stringstream) to file/console
  *
- * @param [string] filename - Name of the file to which log statements have to be printed
+ * @param [int] Level
+ * @param [stringstream] LogMessageToPrint
  *
  */
-void setLog(string filename);
+void PrintLogMessage(unsigned int Level, std::stringstream &LogMessageToPrint);
 
 /**
- * @brief Prints log message (stringstream) to file/console
+ * @brief Prints Log message (string) to file/console
  *
- * @param [int] level
- * @param [stringstream] logMessageToPrint
- *
+ * @param [int] Level
+ * @param [string] LogMessageToPrint
  */
-void printLogMessage(int level, stringstream &logMessageToPrint);
+void PrintLogMessage(unsigned int Level, std::string LogMessageToPrint);
 
 /**
- * @brief Prints log message (string) to file/console
- *
- * @param [int] level
- * @param [string] logMessageToPrint
- */
-void printLogMessage(int level, string logMessageToPrint);
-
-/**
- * @brief Deactivate logging for the program
+ * @brief Deactivate Logging for the program
  *
  */
-void unsetLog();
+void DeregisterLog();
 
 
 
