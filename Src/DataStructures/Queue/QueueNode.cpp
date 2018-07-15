@@ -54,7 +54,7 @@ void QueueNode<T>::Data(T Value)
  * @param NextLink
  */
 template <typename T>
-void QueueNode<T>::SetNext(QueueNode<T> *NextLink)
+void QueueNode<T>::Next(QueueNode<T> *NextLink)
 {
     this->_Next = NextLink;
 }

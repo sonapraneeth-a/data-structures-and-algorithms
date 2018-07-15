@@ -124,7 +124,7 @@ T Queue<T>::TailValue() const
  * @return
  */
 template <typename T>
-ULLI Queue<T>::Size()
+ULLI Queue<T>::Size() const
 {
     return this->_Size;
 }
