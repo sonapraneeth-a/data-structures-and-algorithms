@@ -12,6 +12,7 @@
  * 22-03-2018             Sona Praneeth Akula   - Creation of file
  *                                              - Added definitions for timing functions
  * 04-07-2018             Sona Praneeth Akula   - Moved Exceptions header outside the Exceptions folder
+ * 15-07-2018             Sona Praneeth Akula   - Added Comparator header
  */
 
 #ifndef DEFAULT_HEADERS
@@ -21,5 +22,6 @@
 #include "Utilities.h"
 #include "Exceptions.h"
 #include "Bits.h"
+#include "Comparator.h"
 
 #endif
