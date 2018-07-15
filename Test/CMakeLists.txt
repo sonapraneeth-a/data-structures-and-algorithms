@@ -18,7 +18,7 @@ SET(TEST_LIST_DIR ${TEST_DS_DIR}/List)
 SET(TEST_ARRAY_DIR ${TEST_DS_DIR}/Array)
 SET(TEST_STACK_DIR ${TEST_DS_DIR}/Stack)
 SET(TEST_QUEUE_DIR ${TEST_DS_DIR}/Queue)
-SET(TEST_GEOMETRY_DIR ${TEST_DS_DIR}/Geometry)
+SET(TEST_LIN_ALG_DIR ${TEST_DS_DIR}/LinearAlgebra)
 SET(TEST_STRING_DIR ${TEST_DS_DIR}/String)
 
 SET(TEST_HEADERS_DIR ./Src/Headers)
@@ -33,7 +33,7 @@ include_directories("${SRC_DS_DIR}/Array")
 include_directories("${SRC_DS_DIR}/Stack")
 include_directories("${SRC_DS_DIR}/Queue")
 include_directories("${SRC_DS_DIR}/String")
-include_directories("${SRC_DS_DIR}/Geometry")
+include_directories("${SRC_DS_DIR}/LinearAlgebra")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
 include_directories("${SRC_ALGO_DIR}/SearchSort")
@@ -50,12 +50,12 @@ set(STRING_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}String.cpp)
 set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
 set(QUEUE_TEST_FILES ${TEST_QUEUE_DIR}/${TEST_PREFIX}Queue.cpp)
 set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
-set(GEOMETRY_TEST_FILES ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}VectorNd.cpp
-                        ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}Vector2d.cpp
-                        ${TEST_GEOMETRY_DIR}/${TEST_PREFIX}Vector3d.cpp)
+set(LIN_ALG_TEST_FILES ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}VectorNd.cpp
+                        ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}Vector2d.cpp
+                        ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}Vector3d.cpp)
 add_executable(DataStructuresTest
                     ${TEST_DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
-                    ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${GEOMETRY_TEST_FILES}
+                    ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${LIN_ALG_TEST_FILES}
                     ${QUEUE_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
