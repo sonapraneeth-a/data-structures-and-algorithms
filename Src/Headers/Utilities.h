@@ -155,4 +155,18 @@ PrintVersion()
     std::cout << MAJOR_VERSION << "." << MINOR_VERSION << "." << PATCH_VERSION << "\n";
 }
 
+inline const std::string
+GetCurrentTime()
+{
+    std::array<char, 64> buffer;
+    buffer.fill(0);
+    time_t rawtime;
+    time(&rawtime);
+    const auto timeinfo = localtime(&rawtime);
+    strftime(buffer.data(), sizeof(buffer), "%H:%M:%S", timeinfo);
+    std::string TimeStr(buffer.data());
+    return TimeStr;
+}
+
+
 #endif
