@@ -41,9 +41,14 @@ namespace Geometry
 
     public:
 
-        explicit Matrix(const ULLI &NumberOfRows, const ULLI &NumberOfCols, const T &InitValue = 0);
+        explicit Matrix(const size_t &NumberOfRows, const size_t &NumberOfCols, const T &InitValue = 0);
 
-        explicit Matrix(const ULLI &NumberOfRows, const T &InitValue = 0);
+        explicit Matrix(const size_t &NumberOfRows, const T &InitValue = 0);
+
+        explicit Matrix(const size_t NumberOfRows, const size_t NumberOfCols,
+                        std::vector<T> Array, bool IsRowMajor = true);
+
+        explicit Matrix(const size_t NumberOfRows, std::vector<T> Array, bool IsRowMajor = true);
 
         Matrix(const Matrix<T> &Matrix);
 

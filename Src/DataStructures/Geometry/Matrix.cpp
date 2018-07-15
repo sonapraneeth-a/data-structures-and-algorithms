@@ -27,9 +27,9 @@
 #include "Matrix.h"
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const ULLI &NumberOfRows,
-                          const ULLI &NumberOfCols,
-                          const T &InitValue)
+Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
+                            const size_t &NumberOfCols,
+                            const T &InitValue)
 {
     this->_NumberOfRows = NumberOfRows;
     this->_NumberOfCols = NumberOfCols;
@@ -42,8 +42,8 @@ Geometry::Matrix<T>::Matrix(const ULLI &NumberOfRows,
 }
 
 template <typename T>
-Geometry::Matrix<T>::Matrix(const ULLI &NumberOfRows,
-                          const T &InitValue)
+Geometry::Matrix<T>::Matrix(const size_t &NumberOfRows,
+                            const T &InitValue)
 {
     this->_NumberOfRows = NumberOfRows;
     this->_NumberOfCols = NumberOfRows;
@@ -53,6 +53,73 @@ Geometry::Matrix<T>::Matrix(const ULLI &NumberOfRows,
         this->_CoOrd[row_index] = new T[NumberOfRows];
     }
     Geometry::Matrix<T>::Fill(InitValue);
+}
+
+template <typename T>
+Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
+                            const size_t NumberOfCols,
+                            std::vector<T> Array, bool IsRowMajor)
+{
+    assert(NumberOfRows*NumberOfCols == Array.size());
+    this->_NumberOfRows = NumberOfRows;
+    this->_NumberOfCols = NumberOfCols;
+    this->_CoOrd = new T*[NumberOfRows];
+    for(ULLI row_index = 0; row_index < NumberOfRows; ++row_index)
+    {
+        this->_CoOrd[row_index] = new T[NumberOfCols];
+    }
+    size_t array_index = 0;
+    size_t NumRows = this->_NumberOfRows;
+    size_t NumCols = this->_NumberOfCols;
+    if (!IsRowMajor)
+    {
+        NumRows = this->_NumberOfCols;
+        NumCols = this->_NumberOfRows;
+    }
+    for (ULLI row_index = 0; row_index < NumRows; ++row_index)
+    {
+        for (ULLI col_index = 0; col_index < NumCols; ++col_index)
+        {
+            if (IsRowMajor)
+                this->_CoOrd[row_index][col_index] = Array[array_index];
+            else
+                this->_CoOrd[col_index][row_index] = Array[array_index];
+            array_index++;
+        }
+    }
+}
+
+template <typename T>
+Geometry::Matrix<T>::Matrix(const size_t NumberOfRows,
+                            std::vector<T> Array, bool IsRowMajor)
+{
+    assert(NumberOfRows*NumberOfRows == Array.size());
+    this->_NumberOfRows = NumberOfRows;
+    this->_NumberOfCols = NumberOfRows;
+    this->_CoOrd = new T*[NumberOfRows];
+    for(ULLI row_index = 0; row_index < NumberOfRows; ++row_index)
+    {
+        this->_CoOrd[row_index] = new T[NumberOfRows];
+    }
+    size_t array_index = 0;
+    size_t NumRows = this->_NumberOfRows;
+    size_t NumCols = this->_NumberOfCols;
+    if (!IsRowMajor)
+    {
+        NumRows = this->_NumberOfCols;
+        NumCols = this->_NumberOfRows;
+    }
+    for (ULLI row_index = 0; row_index < NumRows; ++row_index)
+    {
+        for (ULLI col_index = 0; col_index < NumCols; ++col_index)
+        {
+            if (IsRowMajor)
+                this->_CoOrd[row_index][col_index] = Array[array_index];
+            else
+                this->_CoOrd[col_index][row_index] = Array[array_index];
+            array_index++;
+        }
+    }
 }
 
 template <typename T>
@@ -582,3 +649,4 @@ template class Geometry::Matrix<int>;
 template class Geometry::Matrix<double>;
 template class Geometry::Matrix<float>;
 template class Geometry::Matrix<LLI>;
+template class Geometry::Matrix<ULLI>;

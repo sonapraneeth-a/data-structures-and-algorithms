@@ -48,13 +48,15 @@ RunMatrix()
     std::cout << mat2.AdjointMatrix() << "\n";
     std::cout << mat2.Inverse() << "\n";*/
     // Reference: https://www.mathsisfun.com/algebra/matrix-multiplying.html
-    Geometry::Matrix<int> mat3(2, 3, 0), mat4(3, 2, 0);
+    /*Geometry::Matrix<int> mat3(2, 3, 0), mat4(3, 2, 0);
     mat3(1, 1) = 1; mat3(1, 2) = 2; mat3(1, 3) = 3;
     mat3(2, 1) = 4; mat3(2, 2) = 5; mat3(2, 3) = 6;
     mat4(1, 1) = 7; mat4(1, 2) = 8;
     mat4(2, 1) = 9; mat4(2, 2) = 10;
     mat4(3, 1) = 11; mat4(3, 2) = 12;
-    std::cout << mat3 * mat4 << "\n";
+    std::cout << mat3 * mat4 << "\n";*/
+    Geometry::Matrix<int> mat(3, 3, {1, 2, 3, 4, 5, 6});
+    std::cout << mat << "\n";
 }
 
 int main()
