@@ -15,14 +15,14 @@ private:
 
 public:
 
-    DoubleLinkedList();
-    DoubleLinkedList(T Value);
+    explicit DoubleLinkedList();
+    explicit DoubleLinkedList(T Value);
 
     DoubleLinkedListNode<T>* Head();
     void Head(DoubleLinkedListNode<T>* Node);
     DoubleLinkedListNode<T>* Tail();
     void Tail(DoubleLinkedListNode<T>* Node);
-    void PrintList();
+    void Print();
     std::string ToString();
     unsigned int Size();
     void DeleteHead();
@@ -33,4 +33,4 @@ public:
 };
 
 
-#endif //DS_LIST_DLL__H
+#endif //DS_LIST_DLL_H

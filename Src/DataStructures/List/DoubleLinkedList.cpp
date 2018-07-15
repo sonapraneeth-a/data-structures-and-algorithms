@@ -67,7 +67,7 @@ DoubleLinkedListNode<T>* DoubleLinkedList<T>::Tail()
  * @return
  */
 template <typename T>
-void DoubleLinkedList<T>::PrintList()
+void DoubleLinkedList<T>::Print()
 {
     DoubleLinkedListNode<T> *temp = this->_Head;
     while (temp)
