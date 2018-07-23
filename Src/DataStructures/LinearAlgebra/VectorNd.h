@@ -18,6 +18,9 @@
  *                                                 +, -, *, +=, -=, *=, []
  * 08-07-2018             Sona Praneeth Akula    - Added function signatures for operator ==
  * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
+ * 23-07-2018             Sona Praneeth Akula    - Moved from VectorNd<N, T> to VectorNd<T>
+ *                                               - Updated constructor to accept dimension of the
+ *                                                 vector
  */
 
 #ifndef VECTORND_H

@@ -1,6 +1,6 @@
 /**
  *      Created on: 06 July 2018
- *   Last modified: 15 July 2018
+ *   Last modified: 23 July 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation code for N dimensional vector
  */
@@ -19,6 +19,9 @@
  * 08-07-2018             Sona Praneeth Akula    - Added implementation for operator ==
  * 14-07-2018             Sona Praneeth Akula    - Fixed an error in Normalize function
  * 15-07-2018             Sona Praneeth Akula    - Moved from namespace Geometry to LinAlg
+ * 23-07-2018             Sona Praneeth Akula    - Moved from VectorNd<N, T> to VectorNd<T>
+ *                                               - Updated constructor to accept dimension of the
+ *                                                 vector
  */
 
 #include "VectorNd.h"
@@ -102,7 +105,7 @@ LinAlg::VectorNd<T>::Distance(const VectorNd<T> &OtherVector)
  * @return
  */
 template <typename T>
-LinAlg::VectorNd<N, double>
+LinAlg::VectorNd<double>
 LinAlg::VectorNd<T>::Normalize()
 {
     double length = 0.0;
@@ -111,7 +114,7 @@ LinAlg::VectorNd<T>::Normalize()
         length += ((double)this->CoOrd[index] * this->CoOrd[index]);
     }
     length = sqrt(length);
-    LinAlg::VectorNd<N, double> *UnitVector = new LinAlg::VectorNd<N, double>(0.0);
+    LinAlg::VectorNd<double> *UnitVector = new LinAlg::VectorNd<double>(0.0);
     for (ULLI index = 0; index < N; ++index)
     {
         (*UnitVector)[index] = (double)this->CoOrd[index] / length;
