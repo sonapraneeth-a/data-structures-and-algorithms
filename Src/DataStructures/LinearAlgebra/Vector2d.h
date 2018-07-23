@@ -28,7 +28,7 @@ namespace LinAlg
     public:
         explicit Vector2d<T>(const T &InitValue = 0): VectorNd<T>(2, InitValue) {}
 
-        Vector2d<T>(const VectorNd<T> &Vector): VectorNd<T>(2, Vector) {}
+        Vector2d<T>(const VectorNd<T> &Vector): VectorNd<T>(Vector) {}
 
         T
         GetX();
