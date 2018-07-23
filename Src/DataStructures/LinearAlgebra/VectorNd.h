@@ -30,28 +30,31 @@
 namespace LinAlg
 {
 
-    template<ULLI N, typename T>
+    template<typename T>
     class VectorNd
     {
     private:
 
         std::string _Vector_Print_Start = "(";
         std::string _Vector_Print_End = ")";
-        T *CoOrd = new T[N];
+        T *CoOrd;
+        size_t N;
 
     public:
 
-        explicit VectorNd(const T &InitValue = 0);
+        explicit VectorNd(size_t Dimension, const T &InitValue = 0);
 
-        VectorNd(const VectorNd<N, T> &Vector);
+        VectorNd(const VectorNd<T> &Vector);
+
+        size_t GetDimension() const;
 
         void
         Fill(const T &Value);
 
         double
-        Distance(const VectorNd<N, T> &OtherVector);
+        Distance(const VectorNd<T> &OtherVector);
 
-        VectorNd<N, double>
+        VectorNd<double>
         Normalize();
 
         T
@@ -64,20 +67,20 @@ namespace LinAlg
         ToString() const;
 
         friend std::ostream &
-        operator<<(std::ostream & os, VectorNd<N, T> const &Vector)
+        operator<<(std::ostream & os, VectorNd<T> const &Vector)
         {
             return os << Vector.ToString() << "\n";
         }
 
-        VectorNd<N, T> operator + (VectorNd<N, T> const &SecondVector);
-        void operator += (VectorNd<N, T> const &SecondVector);
+        VectorNd<T> operator + (VectorNd<T> const &SecondVector);
+        void operator += (VectorNd<T> const &SecondVector);
 
-        VectorNd<N, T> operator - (VectorNd<N, T> const &SecondVector);
-        void operator -= (VectorNd<N, T> const &SecondVector);
+        VectorNd<T> operator - (VectorNd<T> const &SecondVector);
+        void operator -= (VectorNd<T> const &SecondVector);
 
         // Dot product
-        VectorNd<N, T> operator * (VectorNd<N, T> const &SecondVector);
-        void operator *= (VectorNd<N, T> const &SecondVector);
+        VectorNd<T> operator * (VectorNd<T> const &SecondVector);
+        void operator *= (VectorNd<T> const &SecondVector);
 
         // Reference: https://stackoverflow.com/questions/11066564/overload-bracket-operators-to-get-and-set
         T operator [](ULLI index) const;
@@ -86,9 +89,9 @@ namespace LinAlg
         // Cross product
         // VectorNd<N, T> operator ^ (VectorNd<N, T> const &SecondVector);
 
-        VectorNd<N, T>& operator = (VectorNd<N, T> const &SecondVector);
+        VectorNd<T>& operator = (VectorNd<T> const &SecondVector);
 
-        bool operator == (VectorNd<N, T> const &SecondVector) const;
+        bool operator == (VectorNd<T> const &SecondVector) const;
 
         ~VectorNd();
 

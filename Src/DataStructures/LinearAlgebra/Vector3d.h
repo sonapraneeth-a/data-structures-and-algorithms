@@ -23,12 +23,12 @@
 namespace LinAlg
 {
     template<typename T>
-    class Vector3d: public VectorNd<(ULLI)3, T>
+    class Vector3d: public VectorNd<T>
     {
     public:
-        explicit Vector3d<T>(const T &InitValue = 0): VectorNd<3, T>(InitValue) {}
+        explicit Vector3d<T>(const T &InitValue = 0): VectorNd<T>(3, InitValue) {}
 
-        Vector3d<T>(const VectorNd<3, T> &Vector): VectorNd<3, T>(Vector) {}
+        Vector3d<T>(const VectorNd<T> &Vector): VectorNd<T>(Vector) {}
 
         T
         GetX();
