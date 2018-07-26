@@ -18,6 +18,7 @@ include_directories(DataStructures/Queue)
 include_directories(DataStructures/LinearAlgebra)
 #include_directories(DataStructures/Geometry)
 include_directories(DataStructures/Tree)
+include_directories(DataStructures/Graph)
 
 add_subdirectory(Algorithms)
 include_directories(Algorithms)

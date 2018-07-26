@@ -21,6 +21,7 @@ SET(TEST_STACK_DIR ${TEST_DS_DIR}/Stack)
 SET(TEST_QUEUE_DIR ${TEST_DS_DIR}/Queue)
 SET(TEST_LIN_ALG_DIR ${TEST_DS_DIR}/LinearAlgebra)
 SET(TEST_STRING_DIR ${TEST_DS_DIR}/String)
+SET(TEST_GRAPH_DIR ${TEST_DS_DIR}/Graph)
 
 SET(TEST_HEADERS_DIR ./Src/Headers)
 
@@ -35,6 +36,7 @@ include_directories("${SRC_DS_DIR}/Stack")
 include_directories("${SRC_DS_DIR}/Queue")
 include_directories("${SRC_DS_DIR}/String")
 include_directories("${SRC_DS_DIR}/LinearAlgebra")
+include_directories("${SRC_DS_DIR}/Graph")
 
 include_directories("${SRC_ALGO_DIR}/Numbers")
 include_directories("${SRC_ALGO_DIR}/SearchSort")
@@ -56,10 +58,11 @@ set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
 set(LIN_ALG_TEST_FILES ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}VectorNd.cpp
                         ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}Vector2d.cpp
                         ${TEST_LIN_ALG_DIR}/${TEST_PREFIX}Vector3d.cpp)
+set(GRAPH_TEST_FILES ${TEST_GRAPH_DIR}/${TEST_PREFIX}WeightedGraph.cpp)
 add_executable(DataStructuresTest
                     ${TEST_DS_DIR}/Test-DataStructures.cpp ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
                     ${STACK_TEST_FILES} ${STRING_TEST_FILES} ${LIN_ALG_TEST_FILES}
-                    ${QUEUE_TEST_FILES})
+                    ${QUEUE_TEST_FILES} ${GRAPH_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
 set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
