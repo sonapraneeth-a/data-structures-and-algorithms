@@ -2,7 +2,7 @@
  *      Created on: 01 April 2018
  *   Last modified: 14 July 2018
  *          Author: Sona Praneeth Akula
- *         Details: Header for Matrix
+ *         Details: Header for Matrix2d
  */
 
 /**
@@ -16,8 +16,8 @@
  *                                                 ToString, Copy constructor and operators +, -,
  *                                                 *, +=, -=, *=, (), ==, =, <<
  * 14-07-2018             Sona Praneeth Akula    - Added function signatures for functions
- *                                                 AdjacentMatrix, MinorMatrix, CofactorMatrix,
- *                                                 Inverse, Determinant, Cofactor, FirstOrderMinorSubMatrix
+ *                                                 AdjacentMatrix2d, MinorMatrix2d, CofactorMatrix2d,
+ *                                                 Inverse, Determinant, Cofactor, FirstOrderMinorSubMatrix2d
  *                                                 operators *, *=, ^, ^=, /, /=
  */
 
@@ -29,28 +29,28 @@
 namespace LinAlg
 {
     template<typename T>
-    class Matrix
+    class Matrix2d
     {
     private:
 
-        std::string _Matrix_Print_Start = "|";
-        std::string _Matrix_Print_End = "|";
+        std::string _Matrix2d_Print_Start = "|";
+        std::string _Matrix2d_Print_End = "|";
         T **_CoOrd;
         ULLI _NumberOfRows = 0;
         ULLI _NumberOfCols = 0;
 
     public:
 
-        explicit Matrix(const size_t &NumberOfRows, const size_t &NumberOfCols, const T &InitValue = 0);
+        explicit Matrix2d(const size_t &NumberOfRows, const size_t &NumberOfCols, const T &InitValue = 0);
 
-        explicit Matrix(const size_t &NumberOfRows, const T &InitValue = 0);
+        explicit Matrix2d(const size_t &NumberOfRows, const T &InitValue = 0);
 
-        explicit Matrix(const size_t NumberOfRows, const size_t NumberOfCols,
+        explicit Matrix2d(const size_t NumberOfRows, const size_t NumberOfCols,
                         std::vector<T> Array, bool IsRowMajor = true);
 
-        explicit Matrix(const size_t NumberOfRows, std::vector<T> Array, bool IsRowMajor = true);
+        explicit Matrix2d(const size_t NumberOfRows, std::vector<T> Array, bool IsRowMajor = true);
 
-        Matrix(const Matrix<T> &Matrix);
+        Matrix2d(const Matrix2d<T> &Matrix2d);
 
         void
         Fill(const T &Value);
@@ -71,62 +71,62 @@ namespace LinAlg
         ToString() const;
 
         friend std::ostream &
-        operator<<(std::ostream & os, Matrix<T> const &Matrix)
+        operator<<(std::ostream & os, Matrix2d<T> const &Matrix2d)
         {
-            return os << Matrix.ToString();
+            return os << Matrix2d.ToString();
         }
 
-        Matrix<T> operator + (Matrix<T> const &SecondMatrix);
-        void operator += (Matrix<T> const &SecondMatrix);
+        Matrix2d<T> operator + (Matrix2d<T> const &SecondMatrix2d);
+        void operator += (Matrix2d<T> const &SecondMatrix2d);
 
-        Matrix<T> operator - (Matrix<T> const &SecondMatrix);
-        void operator -= (Matrix<T> const &SecondVector);
+        Matrix2d<T> operator - (Matrix2d<T> const &SecondMatrix2d);
+        void operator -= (Matrix2d<T> const &SecondVector);
 
-        Matrix<T> operator * (Matrix<T> const &SecondMatrix);
-        void operator *= (Matrix<T> const &SecondMatrix);
+        Matrix2d<T> operator * (Matrix2d<T> const &SecondMatrix2d);
+        void operator *= (Matrix2d<T> const &SecondMatrix2d);
 
-        Matrix<T> operator * (const double &Value);
+        Matrix2d<T> operator * (const double &Value);
         void operator *= (const double &Value);
 
-        Matrix<T> operator ^ (Matrix<T> const &SecondMatrix);
-        void operator ^= (Matrix<T> const &SecondMatrix);
+        Matrix2d<T> operator ^ (Matrix2d<T> const &SecondMatrix2d);
+        void operator ^= (Matrix2d<T> const &SecondMatrix2d);
 
-        Matrix<T> operator / (const double &Value);
+        Matrix2d<T> operator / (const double &Value);
         void operator /= (const double &Value);
 
         T operator ()(ULLI RowIndex, ULLI ColIndex) const;
         T& operator ()(ULLI RowIndex, ULLI ColIndex);
 
-        Matrix<T>& operator = (Matrix<T> const &SecondMatrix);
+        Matrix2d<T>& operator = (Matrix2d<T> const &SecondMatrix2d);
 
-        bool operator == (Matrix<T> const &SecondMatrix) const;
+        bool operator == (Matrix2d<T> const &SecondMatrix2d) const;
 
         // Reference: https://www.mathsisfun.com/algebra/matrix-inverse-minors-cofactors-adjugate.html
         double
         Determinant();
 
-        Matrix<double>
+        Matrix2d<double>
         Inverse();
 
-        Matrix<T>
-        FirstOrderMinorSubMatrix(ULLI RowIndex, ULLI ColIndex);
+        Matrix2d<T>
+        FirstOrderMinorSubMatrix2d(ULLI RowIndex, ULLI ColIndex);
 
-        Matrix<T>
-        AdjointMatrix();
+        Matrix2d<T>
+        AdjointMatrix2d();
 
-        Matrix<T>
-        MinorMatrix();
+        Matrix2d<T>
+        MinorMatrix2d();
 
-        Matrix<T>
-        CofactorMatrix();
+        Matrix2d<T>
+        CofactorMatrix2d();
 
         short int
         Cofactor(ULLI RowIndex, ULLI ColIndex);
 
-        Matrix<T>
+        Matrix2d<T>
         Transpose();
 
-        ~Matrix();
+        ~Matrix2d();
 
     };
 }
