@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 SET(TEST_PREFIX Test-)
 
 SET(SRC_HEADERS_DIR ../Src/Headers)
+SET(SRC_LOG_HEADERS_DIR ../Src/Logging/Plog/include)
 SET(SRC_DS_DIR ../Src/DataStructures)
 SET(SRC_ALGO_DIR ../Src/Algorithms)
 # SET(SRC_LOG_DIR ../Src/Logging)
@@ -44,6 +45,7 @@ include_directories("${SRC_ALGO_DIR}/SearchSort")
 # include_directories("${SRC_LOG_DIR}")
 
 include_directories("${SRC_HEADERS_DIR}")
+include_directories("${SRC_LOG_HEADERS_DIR}")
 include_directories("${TEST_HEADERS_DIR}")
 
 add_subdirectory("./Lib/googletest")
