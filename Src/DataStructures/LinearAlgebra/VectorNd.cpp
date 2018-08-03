@@ -33,8 +33,9 @@
  * @param InitValue
  */
 template <typename T>
-LinAlg::VectorNd<T>::VectorNd(int Dimension, const T &InitValue)
+LinAlg::VectorNd<T>::VectorNd(unsigned int Dimension, const T &InitValue)
 {
+    this->N = (size_t)Dimension;
     CoOrd = new T[Dimension];
     LinAlg::VectorNd<T>::Fill(InitValue);
 }
@@ -72,7 +73,7 @@ template <typename T>
 void
 LinAlg::VectorNd<T>::Fill(const T &Value)
 {
-    for (ULLI index = 0; index < N; ++index)
+    for (size_t index = 0; index < N; ++index)
     {
         this->CoOrd[index] = Value;
     }
