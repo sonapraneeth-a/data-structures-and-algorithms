@@ -33,7 +33,7 @@
  * @param InitValue
  */
 template <typename T>
-LinAlg::VectorNd<T>::VectorNd(unsigned int Dimension, const T &InitValue)
+LinAlg::VectorNd<T>::VectorNd(unsigned long int Dimension, const T &InitValue)
 {
     this->N = (size_t)Dimension;
     CoOrd = new T[Dimension];
@@ -49,6 +49,7 @@ LinAlg::VectorNd<T>::VectorNd(unsigned int Dimension, const T &InitValue)
 template <typename T>
 LinAlg::VectorNd<T>::VectorNd(const VectorNd<T> &Vector)
 {
+    this->N = Vector.GetDimension();
     CoOrd = new T[Vector.GetDimension()];
     for (ULLI index = 0; index < N; ++index)
     {
@@ -207,7 +208,7 @@ template <typename T>
 LinAlg::VectorNd<T>
 LinAlg::VectorNd<T>::operator + (LinAlg::VectorNd<T> const &SecondVector)
 {
-    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(0);
+    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(SecondVector.GetDimension());
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] + SecondVector[index];
@@ -243,7 +244,7 @@ template <typename T>
 LinAlg::VectorNd<T>
 LinAlg::VectorNd<T>::operator - (LinAlg::VectorNd<T> const &SecondVector)
 {
-    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(0);
+    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(SecondVector.GetDimension());
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] - SecondVector[index];
@@ -279,7 +280,7 @@ template <typename T>
 LinAlg::VectorNd<T>
 LinAlg::VectorNd<T>::operator * (LinAlg::VectorNd<T> const &SecondVector)
 {
-    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(0);
+    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(SecondVector.GetDimension());
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = this->CoOrd[index] * SecondVector[index];
@@ -334,7 +335,7 @@ template <typename T>
 LinAlg::VectorNd<T>&
 LinAlg::VectorNd<T>::operator = (LinAlg::VectorNd<T> const &SecondVector)
 {
-    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(0);
+    LinAlg::VectorNd<T> *Answer = new LinAlg::VectorNd<T>(SecondVector.GetDimension());
     for (ULLI index = 0; index < N; ++index)
     {
         (*Answer)[index] = SecondVector[index];

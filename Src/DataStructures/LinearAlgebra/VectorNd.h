@@ -45,7 +45,7 @@ namespace LinAlg
 
     public:
 
-        explicit VectorNd(unsigned int Dimension, const T &InitValue = 0);
+        explicit VectorNd(unsigned long int Dimension, const T &InitValue = 0);
 
         VectorNd(const VectorNd<T> &Vector);
 
