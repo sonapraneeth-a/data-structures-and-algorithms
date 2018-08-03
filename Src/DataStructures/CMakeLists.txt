@@ -13,6 +13,9 @@ set(CMAKE_STATIC_LIBRARY_PREFIX "")
 add_subdirectory(Array)
 include_directories(Array)
 
+add_subdirectory(BigNumber)
+include_directories(BigNumber)
+
 add_subdirectory(String)
 include_directories(String)
 
@@ -43,7 +46,7 @@ set(CMAKE_DEBUG_POSTFIX "_debug")
 add_library(DsShared SHARED Ds.cpp)
 add_library(DsStatic STATIC Ds.cpp)
 
-target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared LinearAlgebraShared TreeShared GraphShared)
-target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic LinearAlgebraStatic TreeStatic GraphStatic)
+target_link_libraries(DsShared ArrayShared ListShared StackShared StringShared LinearAlgebraShared TreeShared GraphShared BigNumberShared)
+target_link_libraries(DsStatic ArrayStatic ListStatic StackStatic StringStatic LinearAlgebraStatic TreeStatic GraphStatic BigNumberStatic)
 
 message("--   Completing generation of CMake files for Data Structures")

@@ -1,11 +1,11 @@
-#include "BigInteger.h"
+#include "BigNumber.h"
 
-BigInteger::BigInteger()
+BigNumber::BigNumber()
 {
     integer = "0";
 }
 
-BigInteger::BigInteger(std::string inputNumber)
+BigNumber::BigNumber(std::string inputNumber)
 {
     std::string input = inputNumber;
     if(validate_string(input)) {
@@ -23,18 +23,18 @@ BigInteger::BigInteger(std::string inputNumber)
     else
     {
         std::cout << "Input string: " << input << " is invalid. Hence setting the value to 0";
-        BigInteger();
+        BigNumber();
     }
 }
 
-BigInteger BigInteger::operator + (BigInteger const &obj)
+BigNumber BigNumber::operator + (BigNumber const &obj)
 {
     integer = "0";
     number = (unsigned int*)malloc(1 * sizeof(unsigned int));
     number[0] = 0;
 }
 
-std::string BigInteger::to_string()
+std::string BigNumber::to_string()
 {
     std::string answer = "";
     for(unsigned int index = 0; index < this->integer_size; index++)
@@ -44,7 +44,7 @@ std::string BigInteger::to_string()
     return answer;
 }
 
-bool BigInteger::validate_string(std::string &input)
+bool BigNumber::validate_string(std::string &input)
 {
     bool result = true;
     bool number_start = false;
@@ -90,7 +90,7 @@ bool BigInteger::validate_string(std::string &input)
     return result;
 }
 
-BigInteger::~BigInteger()
+BigNumber::~BigNumber()
 {
     //free(number);
 }

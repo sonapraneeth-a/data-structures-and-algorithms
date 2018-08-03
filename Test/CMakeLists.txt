@@ -18,6 +18,7 @@ SET(TEST_SEARCHSORT_DIR ${TEST_ALGO_DIR}/SearchSort)
 SET(TEST_DS_DIR ./Src/DataStructures)
 SET(TEST_LIST_DIR ${TEST_DS_DIR}/List)
 SET(TEST_ARRAY_DIR ${TEST_DS_DIR}/Array)
+SET(TEST_BIGNUMBER_DIR ${TEST_DS_DIR}/BigNumber)
 SET(TEST_STACK_DIR ${TEST_DS_DIR}/Stack)
 SET(TEST_QUEUE_DIR ${TEST_DS_DIR}/Queue)
 SET(TEST_LIN_ALG_DIR ${TEST_DS_DIR}/LinearAlgebra)
@@ -33,6 +34,7 @@ include_directories("${TEST_HEADERS_DIR}")
 
 include_directories("${SRC_DS_DIR}/List")
 include_directories("${SRC_DS_DIR}/Array")
+include_directories("${SRC_DS_DIR}/BigNumber")
 include_directories("${SRC_DS_DIR}/Stack")
 include_directories("${SRC_DS_DIR}/Queue")
 include_directories("${SRC_DS_DIR}/String")
@@ -53,6 +55,7 @@ add_subdirectory("./Lib/googletest")
 set(LIST_TEST_FILES ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedListNode.cpp
                     ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedList.cpp)
 set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(ARRAY_TEST_FILES ${TEST_BIGNUMBER_DIR}/${TEST_PREFIX}BigNumber.cpp)
 set(STRING_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}String.cpp)
 set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
 set(QUEUE_TEST_FILES ${TEST_QUEUE_DIR}/${TEST_PREFIX}Queue.cpp)
@@ -67,14 +70,13 @@ add_executable(DataStructuresTest
                     ${QUEUE_TEST_FILES} ${GRAPH_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gmock)
 
-set(BIG_INTEGER_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}BigInteger.cpp)
 set(FIBONACCI_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Fibonacci.cpp)
 set(FACTORIZATION_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Factorization.cpp)
 set(MATH_TEST_FILES ${TEST_NUMBERS_DIR}/${TEST_PREFIX}Math.cpp)
 set(SEARCH_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Search.cpp)
 set(SORT_TEST_FILES ${TEST_SEARCHSORT_DIR}/${TEST_PREFIX}Sort.cpp)
-add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${BIG_INTEGER_TEST_FILES}
-                                ${FIBONACCI_TEST_FILES} ${FACTORIZATION_TEST_FILES} ${SEARCH_TEST_FILES}
+add_executable(AlgorithmsTest ${TEST_ALGO_DIR}/Test-Algorithms.cpp ${FIBONACCI_TEST_FILES}
+                                ${FACTORIZATION_TEST_FILES} ${SEARCH_TEST_FILES}
                                 ${SORT_TEST_FILES} ${MATH_TEST_FILES})
 target_link_libraries(AlgorithmsTest AlgoStatic gtest)
 

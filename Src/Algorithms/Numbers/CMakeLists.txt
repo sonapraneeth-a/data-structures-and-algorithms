@@ -7,12 +7,11 @@ message("--     Generating CMake for Numbers")
 
 include_directories(../../Headers)
 
-set(BIG_INTEGER_SOURCE_FILES BigInteger.h BigInteger.cpp)
 set(FIBONACCI_SOURCE_FILES Fibonacci.h Fibonacci.cpp)
 set(MATH_SOURCE_FILES Math.h)
 set(RANDOM_NUMBER_SOURCE_FILES RandomNumber.h RandomNumber.cpp)
 set(FACTORIZATION_SOURCE_FILES Factorization.h Factorization.cpp)
-set(SOURCE_FILES ${BIG_INTEGER_SOURCE_FILES} ${RANDOM_NUMBER_SOURCE_FILES} ${FIBONACCI_SOURCE_FILES}
+set(SOURCE_FILES ${RANDOM_NUMBER_SOURCE_FILES} ${FIBONACCI_SOURCE_FILES}
                 ${FACTORIZATION_SOURCE_FILES} ${MATH_SOURCE_FILES})
 include_directories(Numbers)
 
@@ -29,7 +28,7 @@ target_link_libraries(MainNumbers NumbersStatic)
 
 install(TARGETS NumbersShared DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
 install(TARGETS NumbersStatic DESTINATION "${CMAKE_SOURCE_DIR}/Lib/")
-install(FILES BigInteger.h RandomNumber.h Factorization.h Fibonacci.h Math.h
+install(FILES ../../DataStructures/BigNumber/BigNumber.h RandomNumber.h Factorization.h Fibonacci.h Math.h
         DESTINATION "${CMAKE_SOURCE_DIR}/Include/")
 
 message("--     Completing generation of CMake files for Numbers")

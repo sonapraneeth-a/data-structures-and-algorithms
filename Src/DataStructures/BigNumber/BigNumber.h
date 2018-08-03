@@ -1,11 +1,11 @@
-#ifndef UTIL_BIG_INTEGER_H
-#define UTIL_BIG_INTEGER_H
+#ifndef BIG_NUMBER_H
+#define BIG_NUMBER_H
 
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
-class BigInteger
+class BigNumber
 {
 private:
 
@@ -16,14 +16,14 @@ private:
 
 public:
 
-    BigInteger();
-    BigInteger(std::string input);
+    BigNumber();
+    BigNumber(std::string input);
 
-    BigInteger operator + (BigInteger const &obj);
+    BigNumber operator + (BigNumber const &obj);
     std::string to_string();
     bool validate_string(std::string &input);
 
-    ~BigInteger();
+    ~BigNumber();
 
 };
 
