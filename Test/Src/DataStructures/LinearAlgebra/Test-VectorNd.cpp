@@ -143,8 +143,8 @@ TEST_F(VectorNdOperatorTest, SubtractionEqualTest)
 
 TEST_F(VectorNdOperatorTest, DotProductTest)
 {
-    _VectorNd_answer = new LinAlg::VectorNd<int>(-20);
-    _VectorNd_origin = new LinAlg::VectorNd<int>(2);
+    _VectorNd_answer = new LinAlg::VectorNd<int>(4, -20);
+    _VectorNd_origin = new LinAlg::VectorNd<int>(4, 2);
     LinAlg::VectorNd<int> *_VectorNd_multiplicand = new LinAlg::VectorNd<int>(4, -10);
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_origin * *_VectorNd_multiplicand);
 }
@@ -153,7 +153,7 @@ TEST_F(VectorNdOperatorTest, DotProductEqualTest)
 {
     LinAlg::VectorNd<int> *_VectorNd_multiplicand = new LinAlg::VectorNd<int>(4, 10);
     LinAlg::VectorNd<int> *_VectorNd_multiplier = new LinAlg::VectorNd<int>(4, -10);
-    _VectorNd_answer = new LinAlg::VectorNd<int>(-100);
+    _VectorNd_answer = new LinAlg::VectorNd<int>(4, -100);
     *_VectorNd_multiplier *= *_VectorNd_multiplicand;
     EXPECT_EQ(*_VectorNd_answer, *_VectorNd_multiplier);
 }
