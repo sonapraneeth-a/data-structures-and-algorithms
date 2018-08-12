@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for String")
 
-set(SOURCE_FILES String.cpp String.h)
+set(SOURCE_FILES MyString.cpp MyString.h)
 include_directories(String)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
@@ -21,6 +21,6 @@ target_link_libraries(MainString StringStatic)
 
 install(TARGETS StringShared DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
 install(TARGETS StringStatic DESTINATION "${CMAKE_SOURCE_DIR}/../lib/")
-install(FILES String.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
+install(FILES MyString.h DESTINATION "${CMAKE_SOURCE_DIR}/../include/")
 
 message("--     Completing generation of CMake files for String")

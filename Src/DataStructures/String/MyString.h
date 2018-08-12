@@ -18,7 +18,7 @@
 #include "DefaultHeaders.h"
 #include "Exceptions.h"
 
-class String
+class MyString
 {
 private:
 
@@ -30,11 +30,11 @@ public:
 
     static const int Npos = -1;
 
-    explicit String();
-    explicit String(const char* input);
-    String(const String &input);
-    String& operator = (const String &input);
-    String& operator = (const char *input);
+    explicit MyString();
+    explicit MyString(const char* input);
+    MyString(const MyString &input);
+    MyString& operator = (const MyString &input);
+    MyString& operator = (const char *input);
 
     ULLI GetSize() const;
     char operator[] (ULLI index) const;
@@ -46,11 +46,11 @@ public:
     void PopBack();
     char GetFront();
     char GetBack();
-    String GetSubstring(ULLI start = 0, ULLI end = String::Npos);
+    MyString GetSubstring(ULLI start = 0, ULLI end = MyString::Npos);
 
-    friend std::ostream & operator << (std::ostream &out, const String &c);
+    friend std::ostream & operator << (std::ostream &out, const MyString &c);
 
-    ~String();
+    ~MyString();
 };
 
 

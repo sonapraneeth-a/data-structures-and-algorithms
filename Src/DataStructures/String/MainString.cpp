@@ -14,13 +14,13 @@
  */
 
 #include "DefaultHeaders.h"
-#include "String.h"
+#include "MyString.h"
 #include <cstring>
 
 int main()
 {
-    String empty;
-    String full("First String");
+    MyString empty;
+    MyString full("First MyString");
     std::cout << full.GetSize() << "\n";
     std::cout << full << "\n";
     full.PopBack();

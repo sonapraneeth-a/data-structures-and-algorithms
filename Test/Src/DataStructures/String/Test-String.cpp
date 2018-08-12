@@ -12,7 +12,7 @@
  * 17-04-2018             Sona Praneeth Akula   - Creation of file
  */
 
-#include "String.h"
+#include "MyString.h"
 #include "gtest/gtest.h"
 
 using namespace std;
@@ -22,7 +22,7 @@ class StringTest : public ::testing::Test
 protected:
     virtual void SetUp()
     {
-        _String_1 = new String("T");
+        _String_1 = new MyString("T");
     }
 
     virtual void TearDown()
@@ -30,8 +30,8 @@ protected:
 
     }
 
-    String _String_0;
-    String *_String_1;
+    MyString _String_0;
+    MyString *_String_1;
 
 };
 
