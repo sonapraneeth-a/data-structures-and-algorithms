@@ -9,6 +9,7 @@ Old/
 
 Bin/
 Build*/
+*build*/
 Install/
 Lib/
 
