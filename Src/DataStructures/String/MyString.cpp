@@ -13,12 +13,12 @@
  * 04-07-2018             Sona Praneeth Akula   - Added copy constructor and assignment operator
  */
 
-#include "String.h"
+#include "MyString.h"
 
 /**
  *
  */
-String::String()
+MyString::MyString()
 {
     this->_Size = 0;
     this->_Capacity = 10;
@@ -35,7 +35,7 @@ String::String()
  *
  * @param input
  */
-String::String(const char* input)
+MyString::MyString(const char* input)
 {
     ULLI length = 0, index = 0;
     const char *temp_one = input;
@@ -65,7 +65,7 @@ String::String(const char* input)
  *
  * @param input
  */
-String::String(const String &input)
+MyString::MyString(const MyString &input)
 {
 
 }
@@ -75,8 +75,8 @@ String::String(const String &input)
  * @param input
  * @return
  */
-String&
-String::operator = (const String &input)
+MyString&
+MyString::operator = (const MyString &input)
 {
     return *this;
 }
@@ -86,8 +86,8 @@ String::operator = (const String &input)
  * @param input
  * @return
  */
-String&
-String::operator = (const char *input)
+MyString&
+MyString::operator = (const char *input)
 {
     return *this;
 }
@@ -97,7 +97,7 @@ String::operator = (const char *input)
  * @return
  */
 bool
-String::IsEmpty()
+MyString::IsEmpty()
 {
     return this->_Size == 0;
 }
@@ -107,7 +107,7 @@ String::IsEmpty()
  * @return
  */
 ULLI
-String::GetSize() const
+MyString::GetSize() const
 {
     return this->_Size;
 }
@@ -119,7 +119,7 @@ String::GetSize() const
  * @return
  */
 std::ostream &
-operator << (std::ostream &out, const String& string)
+operator << (std::ostream &out, const MyString& string)
 {
     out << string._String;
     return out;
@@ -130,10 +130,10 @@ operator << (std::ostream &out, const String& string)
  * @param c
  */
 void
-String::PushBack(char c)
+MyString::PushBack(char c)
 {
     // If current size is greater than what the array can take in,
-    // then we have to expand the memory of the String to take in
+    // then we have to expand the memory of the MyString to take in
     // more elements
     if(this->_Size >= this->_Capacity)
     {
@@ -147,7 +147,7 @@ String::PushBack(char c)
  *
  */
 void
-String::PopBack()
+MyString::PopBack()
 {
     if(this->_Size <= 0)
     {
@@ -161,9 +161,9 @@ String::PopBack()
  *
  */
 void
-String::Resize()
+MyString::Resize()
 {
-    // Reference: See String.cpp
+    // Reference: See MyString.cpp
     char *_TempString = new char[this->_Capacity * 2];
     // @todo - Linter hints that condition is always false. Find out what could be the problem?
     if(_TempString == nullptr)
@@ -189,7 +189,7 @@ String::Resize()
  * @return
  */
 char
-String::GetFront()
+MyString::GetFront()
 {
     if(this->_Size > 0)
     {
@@ -203,7 +203,7 @@ String::GetFront()
  * @return
  */
 char
-String::GetBack()
+MyString::GetBack()
 {
     if(this->_Size > 0)
     {
@@ -216,7 +216,7 @@ String::GetBack()
  *
  */
 void
-String::Clear()
+MyString::Clear()
 {
     for (ULLI index = 0; index < this->_Size; ++index)
     {
@@ -231,10 +231,10 @@ String::Clear()
  * @param end
  * @return
  */
-String
-String::GetSubstring(ULLI start, ULLI end)
+MyString
+MyString::GetSubstring(ULLI start, ULLI end)
 {
-    String output;
+    MyString output;
     if(start < 0 || start >= this->_Size) { throw; }
     if(end != -1 && end > this->_Size) { throw; }
     if(end != -1 && end > start) { throw; }
@@ -255,7 +255,7 @@ String::GetSubstring(ULLI start, ULLI end)
  * @return
  */
 char&
-String::operator[](ULLI index)
+MyString::operator[](ULLI index)
 {
     if(index < this->_Size)
     {
@@ -275,7 +275,7 @@ String::operator[](ULLI index)
  * @return
  */
 char
-String::operator[](ULLI index) const
+MyString::operator[](ULLI index) const
 {
     if(index < this->_Size)
     {
@@ -287,7 +287,7 @@ String::operator[](ULLI index) const
 /**
  *
  */
-String::~String()
+MyString::~MyString()
 {
     this->_Size = 0;
     _String = nullptr;
