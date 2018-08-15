@@ -1,0 +1,14 @@
+//
+// Created by pranas on 7/13/2018.
+//
+
+#ifndef DATASTRUCTURESANDALGORITHMS_BTREE_H
+#define DATASTRUCTURESANDALGORITHMS_BTREE_H
+
+
+class BTree {
+
+};
+
+
+#endif //DATASTRUCTURESANDALGORITHMS_BTREE_H

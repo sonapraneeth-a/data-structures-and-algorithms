@@ -5,8 +5,12 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for Tree")
 
-set(SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h
-                    BinarySearchTree.cpp BinarySearchTree.h)
+set(BINARY_TREE_SOURCE_FILES BinaryTreeNode.h BinaryTreeNode.cpp BinaryTree.cpp BinaryTree.h)
+set(BST_SOURCE_FILES BinarySearchTree.cpp BinarySearchTree.h)
+set(BTREE_SOURCE_FILES BTree.cpp BTree.h)
+set(NARY_TREE_SOURCE_FILES NaryTree.cpp NaryTree.h)
+set(SOURCE_FILES ${BINARY_TREE_SOURCE_FILES} ${BST_SOURCE_FILES}
+                    ${BTREE_SOURCE_FILES} ${NARY_TREE_SOURCE_FILES})
 include_directories(Tree)
 include_directories(../../Headers)
 
