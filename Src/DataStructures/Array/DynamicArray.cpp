@@ -55,6 +55,9 @@ DynamicArray<T>::DynamicArray()
 template <typename T>
 DynamicArray<T>::DynamicArray(ULLI Capacity)
 {
+#if DEBUG_PRINT
+    LOGD << "DynamicArray::Constructor (2)";
+#endif
     this->Capacity = Capacity;
     this->Size = Capacity;
     // Allocating memory for the array
