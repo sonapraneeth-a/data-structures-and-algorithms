@@ -1,6 +1,6 @@
 /**
  *      Created on: 22 March 2018
- *   Last modified: 08 July 2018
+ *   Last modified: 15 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: Exceptions
  */
@@ -17,6 +17,7 @@
  *                                              - Minor refactorings for the code
  *                                              - Moved from throw() to noexpect(true)
  * 08-07-2018             Sona Praneeth Akula   - Updated OutOfBoundsException PrefixMessage
+ * 15-07-2018             Sona Praneeth Akula   - Updated NotImplementedException
  */
 
 #ifndef EXCEPTIONS_H
