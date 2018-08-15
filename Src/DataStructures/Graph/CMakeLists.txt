@@ -6,7 +6,12 @@ set(CMAKE_CXX_FLAGS -fpermissive)
 
 message("--     Generating CMake for Graph")
 
-set(SOURCE_FILES WeightedGraph.cpp WeightedGraph.h WeightedGraphNode.cpp WeightedGraphNode.h)
+set(WEIGHTED_GRAPH_SOURCE_FILES WeightedGraph.cpp WeightedGraph.h
+                                WeightedGraphNode.cpp WeightedGraphNode.h)
+set(VERTEX_SOURCE_FILES Vertex.cpp Vertex.h)
+set(EDGE_SOURCE_FILES Edge.cpp Edge.h)
+set(SOURCE_FILES ${WEIGHTED_GRAPH_SOURCE_FILES} ${VERTEX_SOURCE_FILES}
+                    ${EDGE_SOURCE_FILES})
 include_directories(../../Headers)
 include_directories(Graph)
 include_directories(../Queue)
