@@ -1,6 +1,6 @@
 /**
  *      Created on: 23 July 2018
- *   Last modified: 25 July 2018
+ *   Last modified: 07 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation for Weighted graph
  */
@@ -16,6 +16,7 @@
  *                                              - Added function implementation for helper functions
  *                                                DeleteNode, DepthFirstTraversalHelper
  * 25-07-2018             Sona Praneeth Akula   - Added function implementation for GetAdjacentVertices
+ * 07-08-2018             Sona Praneeth Akula   - Added function implementation for DrawGraph
  */
 
 #include "WeightedGraph.h"
@@ -454,6 +455,51 @@ WeightedGraph<T>::DepthFirstTraversalHelper(const T& NodeValue,
         Node = Node->Next();
     }
 }
+
+template <typename T>
+void
+WeightedGraph<T>::DrawGraph(std::string Filename)
+{
+    std::unordered_map<T, int> hashmap;
+    std::ofstream OutputDotFile;
+    OutputDotFile.open(Filename, std::ofstream::out);
+    std::streambuf *coutbuf = std::cout.rdbuf();
+    std::cout.rdbuf(OutputDotFile.rdbuf());
+    std::cout << "// Author: Sona Praneeth Akula\n";
+    std::cout << "// Running Instruction: dot -Tpng " << Filename << " -o graph.png\n";
+    std::cout << "strict digraph G \n{\n";
+    std::cout << "\tnodesep = 1.0 // increases the separation between Nodes\n";
+    std::cout << "\tnode [color=Red, fontname=\"Ubuntu Mono\", shape=circle]";
+    std::cout << " //All Nodes will have this shape and colour\n";
+    if (!this->_IsDirected)
+        std::cout << "\tedge [dir=none, color=blue]\n";
+    else
+        std::cout << "\tedge [color=blue]\n";
+    unsigned int count = 0;
+    for (GraphIterator<T> iter = _List.begin(); iter != _List.end(); ++iter)
+    {
+        T Source = iter->first;
+        hashmap[Source] = count;
+        std::cout << "\t" << count << " [label=\"" << Source << "\"]\n";
+        count++;
+    }
+    count = 0;
+    for (GraphIterator<T> iter = _List.begin(); iter != _List.end(); ++iter)
+    {
+        T Source = iter->first;
+        WeightedGraphNode<T>* TempNode = iter->second;
+        while (TempNode != nullptr)
+        {
+            std::cout << "\t" << count << " -> " << hashmap[TempNode->Data()]
+                        << " [label=\"" << TempNode->Weight() << "\"]\n";
+            TempNode = TempNode->Next();
+        }
+        count++;
+    }
+    std::cout << "}\n";
+    std::cout.rdbuf(coutbuf);
+}
+
 
 template <typename T>
 WeightedGraph<T>::~WeightedGraph()
