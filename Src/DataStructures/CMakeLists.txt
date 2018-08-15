@@ -31,8 +31,8 @@ include_directories(Queue)
 add_subdirectory(LinearAlgebra)
 include_directories(LinearAlgebra)
 
-#add_subdirectory(Geometry)
-#include_directories(Geometry)
+add_subdirectory(Geometry)
+include_directories(Geometry)
 
 add_subdirectory(Tree)
 include_directories(Tree)
