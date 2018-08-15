@@ -5,7 +5,10 @@ set(CMAKE_CXX_STANDARD 11)
 
 message("--     Generating CMake for String")
 
-set(SOURCE_FILES MyString.cpp MyString.h)
+set(TREE_SOURCE_FILES MyString.cpp MyString.h)
+set(TRIE_SOURCE_FILES Trie.cpp Trie.h)
+set(SUFFIX_TREE_SOURCE_FILES SuffixTree.cpp SuffixTree.h)
+set(SOURCE_FILES ${TREE_SOURCE_FILES} ${TRIE_SOURCE_FILES} ${SUFFIX_TREE_SOURCE_FILES})
 include_directories(String)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
