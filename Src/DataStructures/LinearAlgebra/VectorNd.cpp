@@ -51,7 +51,7 @@ LinAlg::VectorNd<T>::VectorNd(const VectorNd<T> &Vector)
 {
     this->N = Vector.GetDimension();
     CoOrd = new T[Vector.GetDimension()];
-    for (ULLI index = 0; index < N; ++index)
+    for (ULLI index = 0; index < this->N; ++index)
     {
         this->CoOrd[index] = Vector[index];
     }

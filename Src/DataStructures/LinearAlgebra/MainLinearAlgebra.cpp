@@ -6,6 +6,24 @@
 #include "Matrix2d.h"
 
 void
+RunVectorNd()
+{
+    std::cout << "====== Running code for VectorNd ======\n";
+    LinAlg::VectorNd<int> v(10);
+    LinAlg::VectorNd<int> v1(10, 1);
+    /*LinAlg::VectorNd<int> v2 = v + v1;
+    std::cout << "Vector v(0): " << v[0] << "\n";
+    std::cout << "Vector v1(0): " << v1[0] << "\n";
+    std::cout << " Vector v: " << v;
+    std::cout << " Vector v1: " << v1;
+    std::cout << " Vector v2: " << v2;
+    std::cout << " Vector v2 (norm): " << v2.Normalize();
+    std::cout << " Vector v2: " << v2[0] << ", " << v2[1] << "\n";
+    std::cout << "Vector add: " << v + v2 << "\n";*/
+    return ;
+}
+
+void
 RunVector2d()
 {
     std::cout << "====== Running code for Vector2d ======\n";
@@ -61,7 +79,8 @@ RunMatrix()
 
 int main()
 {
+    RunVectorNd();
     // RunVector2d();
-    RunMatrix();
+    // RunMatrix();
     return 0;
 }
