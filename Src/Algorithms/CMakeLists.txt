@@ -16,13 +16,22 @@ include_directories(Numbers)
 add_subdirectory(SearchSort)
 include_directories(SearchSort)
 
+add_subdirectory(DP)
+include_directories(DP)
+
+add_subdirectory(Greedy)
+include_directories(Greedy)
+
+add_subdirectory(Recursion)
+include_directories(Recursion)
+
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
 add_library(AlgoShared SHARED Algo.cpp)
 add_library(AlgoStatic STATIC Algo.cpp)
 
-target_link_libraries(AlgoShared NumbersShared)
-target_link_libraries(AlgoStatic NumbersStatic)
+target_link_libraries(AlgoShared NumbersShared DPShared GreedyShared RecursionShared)
+target_link_libraries(AlgoStatic NumbersStatic DPStatic GreedyStatic RecursionStatic)
 
 message("--   Completing generation of CMake files for Algorithms")
