@@ -33,6 +33,12 @@ namespace Math
     ULLI
     EuclideanGCDIterative(LLI numOne, LLI numTwo);
 
+    std::pair<ULLI, ULLI>
+    ExtendedEuclideanGCDRecursive(LLI numOne, LLI numTwo);
+
+    std::pair<ULLI, ULLI>
+    ExtendedEuclideanGCDIterative(LLI numOne, LLI numTwo);
+
     ULLI
     GCD(LLI numOne, LLI numTwo);
 
