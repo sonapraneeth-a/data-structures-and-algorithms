@@ -38,7 +38,6 @@ template <typename T>
 void
 BinaryTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
 {
-    // std::cout << "Inserting " << Value << " in Binary Tree\n";
     if ( Node == nullptr )
     {
         this->_Root = new BinaryTreeNode<T>(Value);
@@ -51,7 +50,6 @@ BinaryTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
     {
         BinaryTreeNode<T> *NewNode = new BinaryTreeNode<T>(Value);
         Node->SetLeftChild(NewNode);
-        // std::cout << Value << " inserted as left child to " << Node->GetData() << "\n";
         this->_NumberOfNodes++;
         return ;
     }
@@ -61,7 +59,6 @@ BinaryTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
     {
         BinaryTreeNode<T> *NewNode = new BinaryTreeNode<T>(Value);
         Node->SetRightChild(NewNode);
-        // std::cout << Value << " inserted as right child to " << Node->GetData() << "\n";
         this->_NumberOfNodes++;
         return ;
     }
@@ -74,29 +71,24 @@ BinaryTree<T>::Insert(T Value, BinaryTreeNode<T>* Node)
         ULLI LengthOfRoute = (ULLI)Route.size(), RouteIndex = 0;
         BinaryTreeNode<T> *NewNode = new BinaryTreeNode<T>(Value);
         BinaryTreeNode<T> *Temp = Node;
-        // std::cout << "Size: " << this->_NumberOfNodes << " Route: " << Route << "\n";
         while( RouteIndex != LengthOfRoute-1 )
         {
             if( Route[RouteIndex] == '0' )
             {
-                // std::cout << "Looking at left child of " << Temp->GetData() << "\n";
                 Temp = Temp->GetLeftChild();
             }
             else
             {
-                // std::cout << "Looking at right child of " << Temp->GetData() << "\n";
                 Temp = Temp->GetRightChild();
             }
             RouteIndex++;
         }
         if( Route[RouteIndex] == '0' )
         {
-            // std::cout << Value << " inserted as left child to " << Temp->GetData() << "\n";
             Temp->SetLeftChild(NewNode);
         }
         else
         {
-            // std::cout << Value << " inserted as right child to " << Temp->GetData() << "\n";
             Temp->SetRightChild(NewNode);
         }
     }
@@ -143,10 +135,7 @@ template <class T>
 Queue<BinaryTreeNode<T>*>
 BinaryTree<T>::LevelOrderTraversalNodes(BinaryTreeNode<T> *Node)
 {
-    // std::cout << "Level order traversal for nodes\n";
     Queue<BinaryTreeNode<T>*> TreeNodes, TempTreeNodes;
-    // std::cout << "Root: " << this->_Root << "\n";
-    // std::cout << "Root Null: " << (this->_Root != nullptr) << "\n";
     if(this->_Root != nullptr)
     {
         TreeNodes.Enqueue(this->_Root);
@@ -166,7 +155,6 @@ BinaryTree<T>::LevelOrderTraversalNodes(BinaryTreeNode<T> *Node)
             }
         }
     }
-    // std::cout << "Total size: " << TreeNodes.GetSize() << "\n";
     return TreeNodes;
 }
 
@@ -174,11 +162,8 @@ template <class T>
 std::vector<T>
 BinaryTree<T>::LevelOrderTraversal(BinaryTreeNode<T> *Node)
 {
-    // std::cout << "Level order traversal for nodes\n";
     Queue<BinaryTreeNode<T>*> TempTreeNodes;
     std::vector<T> Nodes;
-    // std::cout << "Root: " << this->_Root << "\n";
-    // std::cout << "Root Null: " << (this->_Root != nullptr) << "\n";
     if(this->_Root != nullptr)
     {
         Nodes.push_back(this->_Root->GetData());
@@ -198,7 +183,6 @@ BinaryTree<T>::LevelOrderTraversal(BinaryTreeNode<T> *Node)
             }
         }
     }
-    // std::cout << "Total size: " << TreeNodes.GetSize() << "\n";
     return Nodes;
 }
 
@@ -232,12 +216,10 @@ BinaryTree<T>::DrawTree(std::string Filename, bool IsNullRequired)
     std::map<BinaryTreeNode<T>*, ULLI> NodeAddressToNumber;
     Queue<BinaryTreeNode<T>*> BinaryTreeNodesQueue = LevelOrderTraversalNodes(this->_Root);
     ULLI TreeNodeIndex = 1;
-    // std::cout << "Queue size: " << BinaryTreeNodesQueue.GetSize() << "\n";
     while( !BinaryTreeNodesQueue.IsEmpty() )
     {
         BinaryTreeNode<T> *TempTreeNode = BinaryTreeNodesQueue.Dequeue();
         NodeAddressToNumber[TempTreeNode] = TreeNodeIndex;
-        // std::cout << TempTreeNode << "::" << TreeNodeIndex << "\n";
         TreeNodeIndex++;
     }
     std::ofstream OutputDotFile;
@@ -246,14 +228,12 @@ BinaryTree<T>::DrawTree(std::string Filename, bool IsNullRequired)
     std::cout.rdbuf(OutputDotFile.rdbuf());
     typename std::map<int, BinaryTreeNode<T>*>::iterator it;
     std::cout << "// Author: Sona Praneeth Akula\n";
-    std::cout << "// Running Instruction: dot -Tpng tree.dot -o tree.png\n";
+    std::cout << "// Running Instruction: dot -Tpng " << Filename << " -o tree.png\n";
     std::cout << "strict digraph G \n{\n";
     std::cout << "\tnodesep = 1.0 // increases the separation between Nodes\n";
     std::cout << "\tnode [color=Red, fontname=\"Ubuntu Mono\", shape=circle]";
     std::cout << " //All Nodes will have this shape and colour\n";
     std::cout << "\tedge [dir=none, color=blue]\n";
-    /*for (it=nodeNumberToAddress.begin(); it!=nodeNumberToAddress.end(); ++it)
-        std::cout << "\t" << it->first << " [ label = \"" << (it->second)->GetData() << "\" ]\n";*/
     Queue<T> Nodes;
     Queue<BinaryTreeNode<T>*> TreeNodes;
     ULLI NullNodes = 0;
@@ -359,7 +339,6 @@ BinaryTree<T>::IsPresent(T Value)
             }
         }
     }
-    // std::cout << "Total size: " << TreeNodes.GetSize() << "\n";
     return false;
 }
 
