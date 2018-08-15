@@ -11,6 +11,12 @@ git submodule init
 git submodule update
 ```
 
+## Removing submodule
+
+```bash
+https://gist.github.com/myusuf3/7f645819ded92bda6677
+```
+
 ## Documentation: Data Structures and Algorithms
 
 The project is mainly divided into two main directories: ```DataStructures``` and ```Algorithms``` which 
