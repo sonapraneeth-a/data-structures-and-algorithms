@@ -15,15 +15,26 @@
 
 #include "DefaultHeaders.h"
 #include "DynamicArray.h"
+#include "plog/Appenders/ConsoleAppender.h"
 
 int main()
 {
+    static plog::ConsoleAppender<plog::TxtFormatter> consoleAppender;
+    plog::init(plog::debug, &consoleAppender);
+    LOGD << "Log for dynamic array";
     DynamicArray<int> array(5);
     array[0] = 10;
-    array.PushBack(3);
+    array[1] = 20;
+    array[2] = 30;
+    array[3] = 40;
+    array[4] = 50;
+    array.PushBack(60);
     for(ULLI index = 0; index < array.GetSize(); index++)
     {
-        std::cout << array[index] << "\n";
+        std::cout << array[index] << " ";
     }
+    std::cout << "\n";
+    std::cout << "Press Enter to continue: ";
+    char ch; std::cin >> ch;
     return 0;
 }
