@@ -1,6 +1,6 @@
 /**
  *      Created on: 22 March 2018
- *   Last modified: 04 July 2018
+ *   Last modified: 02 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: General Header file
  */
@@ -13,6 +13,7 @@
  *                                              - Added definitions for timing functions
  * 04-07-2018             Sona Praneeth Akula   - Moved Exceptions header outside the Exceptions folder
  * 15-07-2018             Sona Praneeth Akula   - Added Comparator header
+ * 02-08-2018             Sona Praneeth Akula   - Added logging library header
  */
 
 #ifndef DEFAULT_HEADERS
@@ -23,5 +24,9 @@
 #include "Exceptions.h"
 #include "Bits.h"
 #include "Comparator.h"
+
+#if DEBUG_PRINT
+#include "plog/Log.h"
+#endif
 
 #endif

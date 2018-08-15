@@ -30,6 +30,7 @@
 
 // C++ STL Headers
 #include <map>
+#include <unordered_map>
 
 
 #endif //LIB_HEADERS_H

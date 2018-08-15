@@ -188,5 +188,44 @@ public:
     }
 };
 
+/**
+ *
+ */
+class NotImplementedException
+{
+private:
+    std::string PrefixMessage;
+    std::string ExtraMessage;
+    std::string StandardMessage;
+public:
+    /**
+     *
+     */
+    explicit NotImplementedException()
+    {
+        PrefixMessage = "Exception::";
+        ExtraMessage = "";
+        StandardMessage = "The method/class you are requesting for is not implemented. ";
+    }
+    /**
+     *
+     * @param Message
+     */
+    explicit NotImplementedException(const std::string &Message)
+    {
+        PrefixMessage = "Exception::";
+        StandardMessage = "";
+        ExtraMessage = Message;
+    }
+    /**
+     *
+     * @return
+     */
+    std::string what() const noexcept(true)
+    {
+        std::string Message = PrefixMessage + StandardMessage + ExtraMessage;
+        return Message;
+    }
+};
 
 #endif //EXCEPTIONS_H
