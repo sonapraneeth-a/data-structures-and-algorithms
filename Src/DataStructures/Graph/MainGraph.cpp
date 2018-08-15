@@ -22,9 +22,9 @@ void RunDirectedWeightedGraph()
     WeightedGraph<int> *Graph = new WeightedGraph<int>(array);
     std::cout << "Graph after creation\n";
     Graph->Print();
-    Graph->DeleteEdge(2, 3);
-    std::cout << "Graph after deleting edge (3, 2)\n";
-    Graph->Print();
+    //Graph->DeleteEdge(2, 3);
+    //std::cout << "Graph after deleting edge (3, 2)\n";
+    //Graph->Print();
     std::cout << "Breadth first traversal of graph: ";
     std::vector<int> BFS;
     Graph->BreadthFirstTraversal(BFS);
@@ -41,6 +41,7 @@ void RunDirectedWeightedGraph()
         std::cout << DFS[index] << " ";
     }
     std::cout << "\n";
+    Graph->DrawGraph();
 }
 
 int main()
