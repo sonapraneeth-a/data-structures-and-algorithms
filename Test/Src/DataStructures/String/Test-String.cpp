@@ -1,8 +1,8 @@
 /**
  *      Created on: 17 April 2018
- *   Last modified: 17 August 2018
+ *   Last modified: 24 August 2018
  *          Author: Sona Praneeth Akula
- *         Details: Tests for String
+ *         Details: Tests for MyString
  */
 
 /**
@@ -11,6 +11,9 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 17-04-2018             Sona Praneeth Akula   - Creation of file
  * 17-08-2018             Sona Praneeth Akula   - Added test for IsPalindrome()
+ * 24-08-2018             Sona Praneeth Akula   - Added test for IsIsomorphic()
+ *                                              - Added updated tests for StringSizeTest
+ *                                              - Fixed an issue with isomorphic test
  */
 
 #include "gtest/gtest.h"
@@ -30,6 +33,8 @@ protected:
         _String_04 = new MyString("addm");
         _String_05 = new MyString("not a palindrome");
         _String_06 = new MyString("rac e car");
+        _String_07 = new MyString("aab");
+        _String_08 = new MyString("ccd");
     }
 
     virtual void TearDown()
@@ -37,9 +42,13 @@ protected:
 
     }
 
+    // Default size strings
     MyString *_String_00, *_String_01;
+    // For palindrome strings
     MyString *_String_02, *_String_03, *_String_04;
     MyString *_String_05, *_String_06;
+    // For Isomorphic strings
+    MyString *_String_07, *_String_08;
 
 };
 
@@ -56,15 +65,19 @@ TEST_F(StringSizeTest, ZeroSizeTest)
 {
     EXPECT_EQ(0, _String_00->Size());
     EXPECT_EQ(true, _String_00->IsEmpty());
-    EXPECT_EQ(1, _String_01->Size());
-    EXPECT_EQ(false, _String_01->IsEmpty());
+
 }
 
 TEST_F(StringSizeTest, GreaterThanZeroSizeTest)
 {
+    EXPECT_EQ(1, _String_01->Size());
+    EXPECT_EQ(false, _String_01->IsEmpty());
+}
+
+TEST_F(StringSizeTest, PushBackTest)
+{
     _String_00->PushBack('T');
     EXPECT_EQ(1, _String_00->Size());
-    EXPECT_EQ(1, _String_01->Size());
 }
 
 TEST_F(StringIsPalindromeTest, ZeroSizeTest)
@@ -90,10 +103,15 @@ TEST_F(StringIsPalindromeTest, NotPalindromeTest)
 // aab -> dcc is not isomorphic
 TEST_F(StringIsIsomorphicTest, ZeroSizeTest)
 {
-    EXPECT_EQ(true, _String_00);
+    EXPECT_EQ(true, _String_00->IsIsomorphic(*_String_00));
 }
 
-TEST_F(StringIsIsomorphicTest, NonZeroSizeTestTrueIsomorphic)
+TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_TrueIsomorphic)
+{
+//    EXPECT_EQ(true, new MyString("")->IsIsomorphic(new MyString("")));
+}
+
+TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_FalseIsomorphic)
 {
 //    EXPECT_EQ(true, new MyString("")->IsIsomorphic(new MyString("")));
 }
