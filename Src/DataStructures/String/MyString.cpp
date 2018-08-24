@@ -257,7 +257,7 @@ MyString::GetSubstring(ULLI start, ULLI end)
  * @return
  */
 char&
-MyString::operator[](ULLI index)
+MyString::operator[](size_t index)
 {
     if(index < this->_Size)
     {
@@ -277,13 +277,36 @@ MyString::operator[](ULLI index)
  * @return
  */
 char
-MyString::operator[](ULLI index) const
+MyString::operator[](size_t index) const
 {
     if(index < this->_Size)
     {
         return this->_String[index];
     }
-    throw OutOfBoundsException(index + " is greater than " + this->_Capacity);
+    std::string ExceptionMessage = std::to_string(index) +
+                                   " is greater than " +
+                                   std::to_string(this->_Capacity);
+    throw OutOfBoundsException(ExceptionMessage);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param index
+ * @return
+ */
+char
+MyString::Get(size_t index) const
+{
+    if(index < this->_Size)
+    {
+        return this->_String[index];
+    }
+    std::string ExceptionMessage = std::to_string(index) +
+                                   " is greater than " +
+                                   std::to_string(this->_Capacity);
+    throw OutOfBoundsException(ExceptionMessage);
 }
 
 bool
@@ -308,6 +331,35 @@ bool
 MyString::IsIsomorphic(const MyString &String)
 {
     bool __Result = true;
+    if(this->_Size != String._Size)
+    {
+        __Result = false;
+    }
+    else
+    {
+        std::unordered_map<char, char> __Mapping;
+        for (size_t index = 0; index < this->_Size; ++index)
+        {
+            // std::cout << "Index: " << index << "\n";
+            // std::cout << this->Get(index) << ", " << String.Get(index) << "\n";
+            // std::cout << __Mapping[this->Get(index)] << "\n";
+            if(__Mapping.find(this->Get(index)) == __Mapping.end())
+            {
+                // std::cout << "Not found\n";
+                __Mapping[this->Get(index)] = String.Get(index);
+            }
+            else
+            {
+                if(__Mapping[this->Get(index)] != String.Get(index))
+                {
+                    // std::cout << "Result is false\n";
+                    __Result = false;
+                    break;
+                }
+            }
+        }
+        __Mapping.clear();
+    }
     return __Result;
 }
 

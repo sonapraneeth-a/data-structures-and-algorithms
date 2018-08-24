@@ -16,8 +16,9 @@
 #include "DefaultHeaders.h"
 #include "MyString.h"
 #include <cstring>
+#include <iomanip>
 
-int main()
+void Run()
 {
 //    MyString empty;
 //    MyString full("First MyString");
@@ -30,7 +31,31 @@ int main()
 //    std::cout << full.GetSubstring(5) << "\n";
 //    full[5] = '=';
 //    std::cout << full << "\n";
+}
+
+void RunIsPalindrome()
+{
     MyString empty;
     std::cout << empty.IsPalindrome() << "\n";
+}
+
+void RunIsIsomorphic()
+{
+    MyString empty;
+    unsigned int RunNo = 1;
+    // Reference: https://stackoverflow.com/questions/1714515/how-can-i-pad-an-int-with-leading-zeros-when-using-cout-operator
+    std::cout << "Case " << std::setfill('0') << std::setw(2) << RunNo++
+                << ": " << "'" << empty << "' - '" << empty << "'\n";
+    std::cout << "Result: " << empty.IsIsomorphic(empty) << "\n";
+    MyString String_01("aab"), String_02("ccd");
+    std::cout << "Case " << std::setfill('0') << std::setw(2) << RunNo++
+                << ": " << "'" << String_01 << "' - '" << String_02 << "'\n";
+    std::cout << "Result: " << String_01.IsIsomorphic(String_02);
+    return;
+}
+
+int main()
+{
+    RunIsIsomorphic();
     return 0;
 }

@@ -36,6 +36,8 @@ protected:
         _String_07 = new MyString("aab");
         _String_08 = new MyString("ccd");
         _String_09 = new MyString("dcc");
+        _String_10 = new MyString("abc");
+        _String_11 = new MyString("dde");
     }
 
     virtual void TearDown()
@@ -50,6 +52,7 @@ protected:
     MyString *_String_05, *_String_06;
     // For Isomorphic strings
     MyString *_String_07, *_String_08, *_String_09;
+    MyString *_String_10, *_String_11;
 
 };
 
@@ -113,4 +116,5 @@ TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_TrueIsomorphic)
 TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_FalseIsomorphic)
 {
     EXPECT_EQ(false, _String_07->IsIsomorphic(*_String_09));
+    EXPECT_EQ(false, _String_10->IsIsomorphic(*_String_11));
 }

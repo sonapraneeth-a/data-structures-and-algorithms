@@ -39,8 +39,8 @@ public:
     MyString& operator = (const char *input);
 
     size_t Size() const;
-    char operator[] (ULLI index) const;
-    char& operator[] (ULLI index);
+    char operator[] (size_t index) const;
+    char& operator[] (size_t index);
     void Resize();
     void Clear();
     bool IsEmpty();
@@ -48,6 +48,7 @@ public:
     void PopBack();
     char GetFront();
     char GetBack();
+    char Get(size_t index) const;
     MyString GetSubstring(ULLI start = 0, ULLI end = MyString::Npos);
     bool IsPalindrome();
     bool IsIsomorphic(const MyString &String);
