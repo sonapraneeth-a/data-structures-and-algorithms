@@ -1,6 +1,6 @@
 /**
  *      Created on: 01 April 2018
- *   Last modified: 01 April 2018
+ *   Last modified: 17 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation for strings
  */
@@ -11,6 +11,8 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 01-04-2018             Sona Praneeth Akula   - Creation of file
  * 04-07-2018             Sona Praneeth Akula   - Added copy constructor and assignment operator
+ * 17-08-2018             Sona Praneeth Akula   - Renamed GetSize() to Size()
+ *                                              - Added IsPalindrome() implementation
  */
 
 #include "MyString.h"
@@ -106,8 +108,8 @@ MyString::IsEmpty()
  *
  * @return
  */
-ULLI
-MyString::GetSize() const
+size_t
+MyString::Size() const
 {
     return this->_Size;
 }
@@ -282,6 +284,31 @@ MyString::operator[](ULLI index) const
         return this->_String[index];
     }
     throw OutOfBoundsException(index + " is greater than " + this->_Capacity);
+}
+
+bool
+MyString::IsPalindrome()
+{
+    bool __Result = true;
+    if(_Size == 0) { return __Result; }
+    size_t __MidIndex;
+    __MidIndex = _Size % 2 ? _Size / 2 : (_Size / 2) - 1;
+    for(size_t __Index = 0; __Index <= __MidIndex; __Index++)
+    {
+        if((*this)[__Index] != (*this)[this->_Size-__Index-1])
+        {
+            __Result = false;
+            break;
+        }
+    }
+    return __Result;
+}
+
+bool
+MyString::IsIsomorphic(const MyString &String)
+{
+    bool __Result = true;
+    return __Result;
 }
 
 /**

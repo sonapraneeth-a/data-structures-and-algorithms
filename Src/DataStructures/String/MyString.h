@@ -1,6 +1,6 @@
 /**
  *      Created on: 01 March 2018
- *   Last modified: 01 April 2018
+ *   Last modified: 17 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: Header for strings
  */
@@ -10,10 +10,12 @@
  *
  * Date (DD-MM-YYYY)            Author               Update
  * 01-04-2018             Sona Praneeth Akula   - Creation of the file
+ * 17-08-2018             Sona Praneeth Akula   - Renamed GetSize() to Size()
+ *                                              - Added IsPalindrome() implementation
  */
 
-#ifndef STRING_H
-#define STRING_H
+#ifndef MY_STRING_H
+#define MY_STRING_H
 
 #include "DefaultHeaders.h"
 #include "Exceptions.h"
@@ -23,8 +25,8 @@ class MyString
 private:
 
     char *_String = nullptr;
-    ULLI _Size = 0;
-    ULLI _Capacity = 0;
+    size_t _Size = 0;
+    size_t _Capacity = 0;
 
 public:
 
@@ -36,7 +38,7 @@ public:
     MyString& operator = (const MyString &input);
     MyString& operator = (const char *input);
 
-    ULLI GetSize() const;
+    size_t Size() const;
     char operator[] (ULLI index) const;
     char& operator[] (ULLI index);
     void Resize();
@@ -47,6 +49,8 @@ public:
     char GetFront();
     char GetBack();
     MyString GetSubstring(ULLI start = 0, ULLI end = MyString::Npos);
+    bool IsPalindrome();
+    bool IsIsomorphic(const MyString &String);
 
     friend std::ostream & operator << (std::ostream &out, const MyString &c);
 
@@ -54,4 +58,4 @@ public:
 };
 
 
-#endif // STRING_H
+#endif // MY_STRING_H

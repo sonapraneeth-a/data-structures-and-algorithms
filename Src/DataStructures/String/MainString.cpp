@@ -19,16 +19,18 @@
 
 int main()
 {
+//    MyString empty;
+//    MyString full("First MyString");
+//    std::cout << full.Size() << "\n";
+//    std::cout << full << "\n";
+//    full.PopBack();
+//    std::cout << full << "\n";
+//    full.PushBack('z');
+//    std::cout << full << "\n";
+//    std::cout << full.GetSubstring(5) << "\n";
+//    full[5] = '=';
+//    std::cout << full << "\n";
     MyString empty;
-    MyString full("First MyString");
-    std::cout << full.GetSize() << "\n";
-    std::cout << full << "\n";
-    full.PopBack();
-    std::cout << full << "\n";
-    full.PushBack('z');
-    std::cout << full << "\n";
-    std::cout << full.GetSubstring(5) << "\n";
-    full[5] = '=';
-    std::cout << full << "\n";
+    std::cout << empty.IsPalindrome() << "\n";
     return 0;
 }
