@@ -35,6 +35,7 @@ protected:
         _String_06 = new MyString("rac e car");
         _String_07 = new MyString("aab");
         _String_08 = new MyString("ccd");
+        _String_09 = new MyString("dcc");
     }
 
     virtual void TearDown()
@@ -48,7 +49,7 @@ protected:
     MyString *_String_02, *_String_03, *_String_04;
     MyString *_String_05, *_String_06;
     // For Isomorphic strings
-    MyString *_String_07, *_String_08;
+    MyString *_String_07, *_String_08, *_String_09;
 
 };
 
@@ -74,7 +75,7 @@ TEST_F(StringSizeTest, GreaterThanZeroSizeTest)
     EXPECT_EQ(false, _String_01->IsEmpty());
 }
 
-TEST_F(StringSizeTest, PushBackTest)
+TEST_F(StringSizeTest, GreaterThanZeroSizeTest_PushBack)
 {
     _String_00->PushBack('T');
     EXPECT_EQ(1, _String_00->Size());
@@ -85,22 +86,20 @@ TEST_F(StringIsPalindromeTest, ZeroSizeTest)
     EXPECT_EQ(true, _String_00->IsPalindrome());
 }
 
-TEST_F(StringIsPalindromeTest, NonZeroSizeTest)
+TEST_F(StringIsPalindromeTest, NonZeroSizeTest_TruePalindrome)
 {
     EXPECT_EQ(true, _String_01->IsPalindrome());
     EXPECT_EQ(true, _String_02->IsPalindrome());
     EXPECT_EQ(true, _String_06->IsPalindrome());
 }
 
-TEST_F(StringIsPalindromeTest, NotPalindromeTest)
+TEST_F(StringIsPalindromeTest, NonZeroSizeTest_FalsePalindrome)
 {
     EXPECT_EQ(false, _String_03->IsPalindrome());
     EXPECT_EQ(false, _String_04->IsPalindrome());
     EXPECT_EQ(false, _String_05->IsPalindrome());
 }
 
-// aab -> ccd is isomorphic
-// aab -> dcc is not isomorphic
 TEST_F(StringIsIsomorphicTest, ZeroSizeTest)
 {
     EXPECT_EQ(true, _String_00->IsIsomorphic(*_String_00));
@@ -108,10 +107,10 @@ TEST_F(StringIsIsomorphicTest, ZeroSizeTest)
 
 TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_TrueIsomorphic)
 {
-//    EXPECT_EQ(true, new MyString("")->IsIsomorphic(new MyString("")));
+    EXPECT_EQ(true, _String_07->IsIsomorphic(*_String_08));
 }
 
 TEST_F(StringIsIsomorphicTest, NonZeroSizeTest_FalseIsomorphic)
 {
-//    EXPECT_EQ(true, new MyString("")->IsIsomorphic(new MyString("")));
+    EXPECT_EQ(false, _String_07->IsIsomorphic(*_String_09));
 }
