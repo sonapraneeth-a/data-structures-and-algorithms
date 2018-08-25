@@ -42,20 +42,38 @@ void RunIsPalindrome()
 void RunIsIsomorphic()
 {
     MyString empty;
+    MyString String_01("aab"), String_02("ccd");
     unsigned int RunNo = 1;
     // Reference: https://stackoverflow.com/questions/1714515/how-can-i-pad-an-int-with-leading-zeros-when-using-cout-operator
     std::cout << "Case " << std::setfill('0') << std::setw(2) << RunNo++
                 << ": " << "'" << empty << "' - '" << empty << "'\n";
     std::cout << "Result: " << empty.IsIsomorphic(empty) << "\n";
-    MyString String_01("aab"), String_02("ccd");
     std::cout << "Case " << std::setfill('0') << std::setw(2) << RunNo++
                 << ": " << "'" << String_01 << "' - '" << String_02 << "'\n";
     std::cout << "Result: " << String_01.IsIsomorphic(String_02);
     return;
 }
 
+void RunSubstring()
+{
+    MyString String_01("abcefghi");
+    std::cout << "Result: '" << String_01.Substring(2, 6) << "'\n";
+    std::cout << "Result: '" << String_01.Substring(2) << "'\n";
+    std::cout << "Result: '" << String_01.Substring() << "'\n";
+    String_01.PushBack('j');
+    std::cout << "Result: '" << String_01.Substring() << "'\n";
+    String_01.Insert('d', 3);
+    std::cout << "Result: '" << String_01.Substring() << "'\n";
+    String_01.Delete(3);
+    std::cout << "Result: '" << String_01.Substring() << "'\n";
+    MyString empty;
+    std::cout << "Result: '" << empty.Substring() << "'\n";
+    return;
+}
+
 int main()
 {
-    RunIsIsomorphic();
+    // RunIsIsomorphic();
+    RunSubstring();
     return 0;
 }

@@ -1,6 +1,6 @@
 /**
  *      Created on: 01 April 2018
- *   Last modified: 17 August 2018
+ *   Last modified: 25 August 2018
  *          Author: Sona Praneeth Akula
  *         Details: Implementation for strings
  */
@@ -13,100 +13,251 @@
  * 04-07-2018             Sona Praneeth Akula   - Added copy constructor and assignment operator
  * 17-08-2018             Sona Praneeth Akula   - Renamed GetSize() to Size()
  *                                              - Added IsPalindrome() implementation
+ * 24-08-2018             Sona Praneeth Akula   - Added IsIsomorphic() implementation
+ *                                              - Added Get(index) implementation
+ * 25-08-2018             Sona Praneeth Akula   - Added function implementations for Insert, Delete
+ *                                                and a new constructor for MyString
+ *                                              - Added const at the end of functions which are not
+ *                                                supposed to change the main MyString object
+ *                                              - Added detailed comments for all functions and their
+ *                                                implementation details
  */
 
 #include "MyString.h"
 
 /**
- *
+ * @brief   Default constructor. A constructor with no arguments
+ * @details Initializes an empty string and allocates memory on heap
  */
 MyString::MyString()
 {
+    // Empty string. So, size of the string is 0
     this->_Size = 0;
+    // Allocating memory to store 10 characters
     this->_Capacity = 10;
-    // Allocating memory for the array
+    // Allocating memory for the array on the heap
     this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
     if(!this->_String)
     {
         // Throw exception when memory allocation fails
         throw MemoryAllocationException();
     }
+    // Null termination for the string
+    (this->_String)[0] = '\0';
 }
 
 /**
+ * @brief   Constructor for string object using C style strings
+ * @details
  *
- * @param input
+ * @param [const char*] input - Input string given as pointer to char
  */
 MyString::MyString(const char* input)
 {
-    ULLI length = 0, index = 0;
-    const char *temp_one = input;
-    while(*temp_one)
+    // length variable captures the size of the string pointed by character pointer
+    size_t length = 0, index = 0;
+    const char *__TempOne = input;
+    // Determine the length of the string by moving the character pointer
+    while(*__TempOne)
     {
-        length++; *temp_one++;
+        length++; *__TempOne++;
     }
+    // Set the size and capacity of the string object
     this->_Size = length;
-    this->_Capacity = length;
-    // Allocating memory for the array
-    this->_String = new (std::nothrow) char[this->_Capacity+1];
+    this->_Capacity = length+10;
+    // Allocating memory for the array on the heap
+    this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
     if(!this->_String)
     {
         // Throw exception when memory allocation fails
         throw MemoryAllocationException();
     }
-    const char *temp_two = input;
-    while(*temp_two)
+    // Copy the contents from the character pointer
+    // to the character array in the string object
+    const char *__TempTwo = input;
+    // Looping over the input
+    while(*__TempTwo)
     {
-        this->_String[index] = *temp_two;
-        index++; *temp_two++;
+        this->_String[index] = *__TempTwo;
+        index++; *__TempTwo++;
     }
+    // Null terminate the string
     this->_String[index] = '\0';
 }
 
 /**
+ * @brief   Created a string which contains a single character of certain length
+ * @details
  *
- * @param input
+ * @param [char] character - Character which should populate the string object
+ * @param [size_t] length - Length of the string object which should be created
  */
-MyString::MyString(const MyString &input)
+MyString::MyString(char character, size_t length)
 {
-
+    // Setting the size and capacity of the string object
+    this->_Size = length;
+    this->_Capacity = length+10;
+    // Allocating memory for the array
+    this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
+    if(!this->_String)
+    {
+        // Throw exception when memory allocation fails
+        throw MemoryAllocationException();
+    }
+    // Copy the character to character array
+    for (size_t index = 0; index < length; ++index)
+    {
+        this->_String[index] = character;
+    }
+    // Null terminate the string
+    this->_String[length] = '\0';
 }
 
 /**
+ * @brief   Copy constructor which copies a part/full string as specified by the
+ *          indices
+ * @details
  *
- * @param input
- * @return
+ * @param [MyString] input - Input MyString object whose copy has to be made
+ * @param [size_t] startIndex - Index in the <pre>input</pre> from where the copying
+ *                              of the string has to start
+ * @param [size_t] length - Length of the string from <pre>startIndex</pre> where the
+ *                          copy has to start
+ */
+MyString::MyString(const MyString &input, size_t startIndex, size_t length)
+{
+    // If startIndex+length crosses the size of the input string object
+    // then we would be accessing memory which is not created
+    // Hence, throw OutOfBoundsException
+    if(input.Size() > startIndex+length)
+    {
+        throw OutOfBoundsException();
+    }
+    // Set the length and capacity of the string object to be created
+    this->_Size = length;
+    this->_Capacity = length+10;
+    // Free up the memory which the current object and reallocate it
+    delete[](this->_String);
+    // Allocating memory for the array
+    this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
+    if(!this->_String)
+    {
+        // Throw exception when memory allocation fails
+        throw MemoryAllocationException();
+    }
+    // Copy the contents from the input string object to the
+    // current object's character array
+    for (size_t index = startIndex; index < startIndex+length; ++index)
+    {
+        this->_String[index] = input[index];
+    }
+    // Null terminate the string
+    this->_String[length] = '\0';
+}
+
+/**
+ * @brief   Equals operator, kind of assignment operator from one MyString object
+ *          to current object
+ * @details
+ *
+ * @param  [MyString] input - Input object to the assignment operator
+ * @return [MyString] Copies the contents from <pre>input</pre> object to the current object
  */
 MyString&
 MyString::operator = (const MyString &input)
 {
+    // Copy the size and capacity of the input object to current object
+    this->_Size = input._Size;
+    this->_Capacity = input._Capacity;
+    // Free up the memory which the current object and reallocate it
+    delete[](this->_String);
+    // Allocating memory for the array
+    this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
+    if(!this->_String)
+    {
+        // Throw exception when memory allocation fails
+        throw MemoryAllocationException();
+    }
+    // Copy the contents from the input string object to the
+    // current object's character array
+    for (size_t index = 0; index < input._Size; ++index)
+    {
+        this->_String[index] = input[index];
+    }
+    // Null terminate the string
+    this->_String[input._Size] = '\0';
+    // Return a pointer to the current object for copying
     return *this;
 }
 
 /**
+ * @brief   Equals operator, kind of assignment operator from one string represented
+ *          as character pointer to current object
+ * @details
  *
- * @param input
- * @return
+ * @param  [MyString] input - Pointer to character array to the assignment operator
+ * @return [MyString] Copies the contents from <pre>input</pre> object to the current object
  */
 MyString&
 MyString::operator = (const char *input)
 {
+    // length variable captures the size of the string pointed by character pointer
+    size_t length = 0, index = 0;
+    const char *__TempOne = input;
+    // Determine the length of the string by moving the character pointer
+    while(*__TempOne)
+    {
+        length++; *__TempOne++;
+    }
+    // Set the size and capacity of the string object
+    this->_Size = length;
+    this->_Capacity = length+10;
+    // Allocating memory for the array on the heap
+    this->_String = new (std::nothrow) char[this->_Capacity];
+    // Checking if memory has been allocated
+    if(!this->_String)
+    {
+        // Throw exception when memory allocation fails
+        throw MemoryAllocationException();
+    }
+    // Copy the contents from the character pointer
+    // to the character array in the string object
+    const char *__TempTwo = input;
+    // Looping over the input
+    while(*__TempTwo)
+    {
+        this->_String[index] = *__TempTwo;
+        index++; *__TempTwo++;
+    }
+    // Null terminate the string
+    this->_String[index] = '\0';
+    // Return a pointer to the current object for copying
     return *this;
 }
 
 /**
+ * @brief   Checks whether the string object is empty or does it contain any characters
+ * @details
  *
- * @return
+ * @return [bool] true if there are no characters in the string object else false
  */
 bool
-MyString::IsEmpty()
+MyString::IsEmpty() const
 {
+    // Check if the size of the string object is 0 or not
     return this->_Size == 0;
 }
 
 /**
+ * @brief   Returns the size of the string
+ * @details
  *
- * @return
+ * @return [size_t] Size of the string
  */
 size_t
 MyString::Size() const
@@ -115,21 +266,26 @@ MyString::Size() const
 }
 
 /**
+ * @brief   Output the string object to << operator
+ * @details
  *
- * @param out
- * @param string
- * @return
+ * @param  [ostream] out - Ostream operator
+ * @param  [MyString] string - String object which should be printed
+ * @return [ostream] Ostream populated withe String object which is to be printed
  */
 std::ostream &
 operator << (std::ostream &out, const MyString& string)
 {
+    // Print the character array to the ostream operator
     out << string._String;
     return out;
 }
 
 /**
+ * @brief   Inserts a character to the string at the end
+ * @details
  *
- * @param c
+ * @param [char] c - Character which has to be pushed to the end of the string
  */
 void
 MyString::PushBack(char c)
@@ -137,44 +293,56 @@ MyString::PushBack(char c)
     // If current size is greater than what the array can take in,
     // then we have to expand the memory of the MyString to take in
     // more elements
-    if(this->_Size >= this->_Capacity)
+    if(this->_Size >= this->_Capacity-1)
     {
+        // Call to the resize function
         this->Resize();
     }
+    // Assign the last character of the object to the input character
     this->_String[this->_Size] = c;
+    // Null terminate the string
+    this->_String[this->_Size+1] = '\0';
+    // Increase the size of the string by 1
     this->_Size++;
 }
 
 /**
- *
+ * @brief   Deletes a character from the end of the string
+ * @details
  */
 void
 MyString::PopBack()
 {
     if(this->_Size <= 0)
     {
-        throw;
+        throw OutOfBoundsException();
     }
+    // Null terminate the string
     this->_String[this->_Size - 1] = '\0';
+    // Decrease the size of the string object
     this->_Size--;
+    return;
 }
 
 /**
- *
+ * @brief   Resizes the size of the character array and copies the content
+ *          from the old character array to the new character array
+ * @details Deletes unecessary memory. Throws MemoryAllocationException if the
+ *          increasing the size of the character array fails
  */
 void
 MyString::Resize()
 {
-    // Reference: See MyString.cpp
+    // Reference: See MyString.cpp. Default constructor
     char *_TempString = new char[this->_Capacity * 2];
     // @todo - Linter hints that condition is always false. Find out what could be the problem?
-    if(_TempString == nullptr)
+    if(!_TempString)
     {
         // Throw exception when memory allocation fails
         throw MemoryAllocationException();
     }
     // Copy values from _Array to _TempArray as this will be used from now on
-    for(ULLI index = 0; index < this->_Size; index++)
+    for(size_t index = 0; index < this->_Size; index++)
     {
         _TempString[index] = this->_String[index];
     }
@@ -187,74 +355,124 @@ MyString::Resize()
 }
 
 /**
+ * @brief   Retrieves the element at the front of the string
+ * @details Throws OutOfBoundsExceptions if the size of the string is 0 or negative
  *
- * @return
+ * @return [char] Character at the front of the string
  */
 char
-MyString::GetFront()
+MyString::Front() const
 {
     if(this->_Size > 0)
     {
         return this->_String[0];
     }
-    throw;
+    throw OutOfBoundsException();
 }
 
 /**
+ * @brief   Retrieves the element at the end of the string
+ * @details Throws OutOfBoundsExceptions if the size of the string is 0 or negative
  *
- * @return
+ * @return [char] Character at the end of the string
  */
 char
-MyString::GetBack()
+MyString::Back() const
 {
     if(this->_Size > 0)
     {
         return this->_String[this->_Size - 1];
     }
-    throw ;
+    throw OutOfBoundsException();
 }
 
 /**
- *
+ * @brief   Sets all the characters of the string to empty/null character
+ * @details
  */
 void
 MyString::Clear()
 {
-    for (ULLI index = 0; index < this->_Size; ++index)
+    // Loop through all elements of the character array and set them to empty
+    for (size_t index = 0; index < this->_Size; ++index)
     {
+        // Clear the characters in the character array using null character
+        // operator
         this->_String[index] = '\0';
     }
+    // Now the size of the string is 0
     this->_Size = 0;
 }
 
 /**
+ * @brief   Returns a substring as specified the indices
+ * @details
  *
- * @param start
- * @param end
- * @return
+ * @param  [size_t] start - Start index from where the substring has to be extracted
+ * @param  [size_t] end - End index upto where the substring has to be extracted
+ * @return [MyString] MyString object which contains the substring
  */
 MyString
-MyString::GetSubstring(ULLI start, ULLI end)
+MyString::Substring(size_t start, size_t end) const
 {
+    // MyString object which contains the substring
     MyString output;
-    if(start < 0 || start >= this->_Size) { throw; }
-    if(end != -1 && end > this->_Size) { throw; }
-    if(end != -1 && end > start) { throw; }
-    if(start == end && (start < 0 || start > this->_Size)) { throw; }
-    if(end == -1) { end = (ULLI)this->_Size; }
-    for (ULLI index = (ULLI)start; index < end; ++index)
+    // Checking if the current string is empty and its correponding indices
+    // to decide if an exception is to be thrown
+    if(this->_Size == 0 && (start != 0 && (end != (size_t)-1 || end != 0)))
+    { throw OutOfBoundsException(); }
+    // If the current string is empty and the indices are correct, then an empty
+    // string should be returned. So, do nothing
+    else if(this->_Size == 0 && (start == 0 && (end == (size_t)-1 || end == 0)))
     {
-        output.PushBack(this->_String[index]);
+        // Do nothing
     }
+    // Check for other conditions
+    else
+    {
+        // If start is out of the bounds of the size of the character array
+        if (start < 0 || start >= this->_Size)
+        {
+            throw OutOfBoundsException();
+        }
+        // If end does not point to end of string but it is out of scope of the
+        // character array, then throw OutOfboundsException
+        if (end != (size_t)-1 && end >= this->_Size)
+        {
+            throw OutOfBoundsException();
+        }
+        // If end is lesser than start, then substring cannot be formed
+        if (end != (size_t)-1 && end < start)
+        {
+            throw OutOfBoundsException();
+        }
+        // If either start or end are out of bounds of character array
+        if (start == end && (start < 0 || start >= this->_Size))
+        {
+            throw OutOfBoundsException();
+        }
+        // If end is -1, it means the substring is still the end of the string
+        if (end == (size_t) -1) { end = this->_Size - 1; }
+        // Loop over the string from start position upto end position as
+        // specified by the indices in the function
+        for (size_t index = start; index <= end; ++index)
+        {
+            // Push the character to the end of the string
+            output.PushBack(this->_String[index]);
+        }
+    }
+    // Null terminate the string
+    output.PushBack('\0');
     return output;
 }
 
 /**
- * @brief
- * @details
+ * @brief   Access the character at the index position in the character array
+ * @details Throws OutOfBoundsException if index is crossing the limits of the
+ *          character array
  *
- * @param index
- * @return
+ * @param  [size_t] index - Index in the character array which is to be retrieved
+ * @return [char] Character present at the index^th position in the character array
  */
 char&
 MyString::operator[](size_t index)
@@ -263,18 +481,21 @@ MyString::operator[](size_t index)
     {
         return this->_String[index];
     }
-    std::string ExceptionMessage = "Condition not satisfied: " + std::to_string(index)
-                                   + " < " + std::to_string(this->_Size) + " and "
-                                   + std::to_string(index) + " >= 0" ;
-    throw OutOfBoundsException(ExceptionMessage);
+    // Exception message
+    std::string __ExceptionMessage = "Condition not satisfied: "
+                                     + std::to_string(index)
+                                     + " < " + std::to_string(this->_Size) + " and "
+                                     + std::to_string(index) + " >= 0" ;
+    throw OutOfBoundsException(__ExceptionMessage);
 }
 
 /**
- * @brief
- * @details
+ * @brief   Access the character at the index position in the character array
+ * @details Throws OutOfBoundsException if index is crossing the limits of the
+ *          character array
  *
- * @param index
- * @return
+ * @param  [size_t] index - Index in the character array which is to be retrieved
+ * @return [char] Character present at the index^th position in the character array
  */
 char
 MyString::operator[](size_t index) const
@@ -283,18 +504,20 @@ MyString::operator[](size_t index) const
     {
         return this->_String[index];
     }
-    std::string ExceptionMessage = std::to_string(index) +
-                                   " is greater than " +
-                                   std::to_string(this->_Capacity);
-    throw OutOfBoundsException(ExceptionMessage);
+    // Exception message
+    std::string __ExceptionMessage = std::to_string(index) +
+                                     " is greater than " +
+                                     std::to_string(this->_Capacity);
+    throw OutOfBoundsException(__ExceptionMessage);
 }
 
 /**
- * @brief
- * @details
+ * @brief   Access the character at the index position in the character array
+ * @details Throws OutOfBoundsException if index is crossing the limits of the
+ *          character array
  *
- * @param index
- * @return
+ * @param  [size_t] index - Index in the character array which is to be retrieved
+ * @return [char] Character present at the index^th position in the character array
  */
 char
 MyString::Get(size_t index) const
@@ -303,71 +526,227 @@ MyString::Get(size_t index) const
     {
         return this->_String[index];
     }
-    std::string ExceptionMessage = std::to_string(index) +
-                                   " is greater than " +
-                                   std::to_string(this->_Capacity);
-    throw OutOfBoundsException(ExceptionMessage);
+    // Exception Message
+    std::string __ExceptionMessage = std::to_string(index) +
+                                     " is greater than " +
+                                     std::to_string(this->_Capacity);
+    throw OutOfBoundsException(__ExceptionMessage);
 }
 
+/**
+ * @brief   Checks if the given string is a palindrome or not
+ * @details Palindrome strings are the strings which reads the same way
+ *          both in forward direction and backward direction
+ *
+ * @return [bool] true if the input string is palindrome else false
+ */
 bool
-MyString::IsPalindrome()
+MyString::IsPalindrome() const
 {
     bool __Result = true;
+    // If string is empty, then the string is a palindrome
     if(_Size == 0) { return __Result; }
+    // Get the pointer to middle of the string
     size_t __MidIndex;
     __MidIndex = _Size % 2 ? _Size / 2 : (_Size / 2) - 1;
+    // Compare the character from both ends to see if they are same
+    // Do this until we reach the middle of the string (or) until
+    // we have realised that string is not a palindrome
     for(size_t __Index = 0; __Index <= __MidIndex; __Index++)
     {
+        // Compare the character from both ends to see if they are same
+        // If not the string is not a palindrome
         if((*this)[__Index] != (*this)[this->_Size-__Index-1])
         {
             __Result = false;
             break;
         }
     }
+    // Return the result of the algorithm
     return __Result;
 }
 
+/**
+ * @brief   Checks if the given input string is isomorphic or not wrt current string
+ * @details Isomorphic strings are the strings which have the same structure ie.,
+ *          there exists a one-to-one mapping for each character among the strings
+ *
+ * @param  [MyString] string- Input string which needs to be verified if the string is
+ *                            isomorphic or not with the current string
+ * @return [bool] true if the input string is isomorphic to the current string else false
+ */
 bool
-MyString::IsIsomorphic(const MyString &String)
+MyString::IsIsomorphic(const MyString &string) const
 {
     bool __Result = true;
-    if(this->_Size != String._Size)
+    // If the sizes of the strings are not same, then we are sure that the strings
+    // cannot be isomorphic
+    if(this->_Size != string._Size)
     {
         __Result = false;
     }
     else
     {
-        std::unordered_map<char, char> __Mapping;
+        // Hashmap to map characters from current string to input string
+        std::unordered_map<char, char> __Mapping = {};
+        // Hashmap to check if the characters in the input string are visited
+        // any time. This is necessary for this case
+        // To prevent cases like abc -> ccd
+        std::unordered_map<char, bool> __Visit = {};
+        // Loop through all characters in the current string
         for (size_t index = 0; index < this->_Size; ++index)
         {
-            // std::cout << "Index: " << index << "\n";
-            // std::cout << this->Get(index) << ", " << String.Get(index) << "\n";
-            // std::cout << __Mapping[this->Get(index)] << "\n";
+            // If a new character is found in the current string, then
+            // add it to the hashmap
             if(__Mapping.find(this->Get(index)) == __Mapping.end())
             {
-                // std::cout << "Not found\n";
-                __Mapping[this->Get(index)] = String.Get(index);
+                __Mapping[this->Get(index)] = string.Get(index);
+                // To prevent cases like abc -> ccd
+                // If the character in the input string is not yet visited,
+                // then mark it as visited
+                if(__Visit.find(string.Get(index)) == __Visit.end())
+                {
+                    __Visit[string.Get(index)] = true;
+                }
+                else
+                {
+                    // If the character in the input string is visited, then it would
+                    // mean that two different characters in the current string are
+                    // mapping to same character in the input string, which violates
+                    // the definition of isomorphic strings
+                    // Example: abc -> ccd
+                    // a -> c in the first iteration, then in the next iteration b -> c
+                    // which means {a, b} -> c
+                    if(__Visit[string.Get(index)] == true)
+                    {
+                        __Result = false;
+                        break;
+                    }
+                }
             }
             else
             {
-                if(__Mapping[this->Get(index)] != String.Get(index))
+                // If the character present in the current string is visited,
+                // then there should be a mapping of it to a character in the
+                // input string. If they do not match, then the strings are not
+                // isomorphic
+                if(__Mapping[this->Get(index)] != string.Get(index))
                 {
-                    // std::cout << "Result is false\n";
                     __Result = false;
                     break;
                 }
             }
         }
+        // Clear the hashmaps
         __Mapping.clear();
+        __Visit.clear();
     }
+    // Return the result
     return __Result;
 }
 
 /**
+ * @brief   Delete a character from the specified position from the string object
+ * @details
  *
+ * @param [char] character - Character which has to be inserted into the string object
+ * @param [size_t] position - Character position (0-indexed) from the string which
+ *                            should be deleted
+ */
+void
+MyString::Insert(char character, size_t position)
+{
+    // If current size is greater than what the array can take in,
+    // then we have to expand the memory of the MyString to take in
+    // more elements
+    if(this->_Size >= this->_Capacity-1)
+    {
+        // Create more space in the character array by resizing
+        this->Resize();
+    }
+    // Push the elements from position by one to the right to create space for the
+    // character to be inserted
+    for (size_t index = this->_Size-1; index >= position; --index)
+    {
+        this->_String[index+1] = this->_String[index];
+    }
+    // Replace the character at the position with the input character
+    this->_String[position] = character;
+    // Increase the size of the string by 1
+    this->_Size++;
+    // Null terminate the string
+    this->_String[this->_Size] = '\0';
+}
+
+/**
+ * @brief   Delete a character from the specified position from the string object
+ * @details Throws OtuOfBoundsException if the size of string is non-negative (or)
+ *          <pre>position</pre> is not within the limits of the size of the string
+ *
+ * @param [size_t] position - Character position (0-indexed) from the string which
+ *                            should be deleted
+ */
+void
+MyString::Delete(size_t position)
+{
+    // If the size of the string is 0 or less, then we cannot delete anything
+    // from it. So, we need to throw OutOfBoundsException
+    if(this->_Size <= 0)
+    {
+        throw OutOfBoundsException();
+    }
+    // If the character to be deleted from the string is outside the scope of
+    // the character array, then we cannot delete it. So, we need to throw
+    // OutOfBoundsException
+    if(position < 0 || position >= this->_Size)
+    {
+        throw OutOfBoundsException();
+    }
+    // Shift the characters from position index by one before, which would mean we have
+    // deleted the character from the position
+    for (size_t index = position; index < this->_Size-1; ++index)
+    {
+        this->_String[index] = this->_String[index+1];
+    }
+    // Reduce the size of the string
+    this->_Size--;
+    // Null terminate the string
+    this->_String[this->_Size] = '\0';
+}
+
+/**
+ *
+ * @param input
+ * @param pattern
+ * @return
+ */
+std::vector<unsigned int>
+MyString::AllPatternMatch(MyString input, MyString pattern)
+{
+    throw NotImplementedException();
+}
+
+/**
+ *
+ * @param pattern
+ * @return
+ */
+unsigned int
+MyString::FirstPatternMatch(MyString pattern)
+{
+    throw NotImplementedException();
+}
+
+/**
+ * @brief   Destructor for the MyString object
+ * @details
  */
 MyString::~MyString()
 {
-    this->_Size = 0;
+    // Free the memory assigned to the character array by new using delete
+    delete[] _String;
     _String = nullptr;
+    // Set the size and capacity of the string to 0
+    this->_Size = 0;
+    this->_Capacity = 0;
 }
