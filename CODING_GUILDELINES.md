@@ -1,6 +1,11 @@
 # Rules
 
-Last updated: 15 October, 2018
+**Last updated:** 15 October, 2018
+
+This document is a draft of coding guidelines to be followed for contributing
+to this repository. Currently, the code is being modified to adhere to the
+guidelines in the document. If you find any guideline missing from the document,
+please raise a PR updating it.
 
 ## General
 
