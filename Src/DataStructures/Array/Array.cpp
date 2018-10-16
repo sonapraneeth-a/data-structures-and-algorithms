@@ -1,28 +1,41 @@
 /**
  *      Created on: 02 August 2018
- *   Last modified: 02 August 2018
- *          Author: Sona Praneeth Akula
+ *   Last modified: 16 October 2018
+ *          Author: sonapraneeth-a <Sona Praneeth Akula>
  *         Details: Implementation for Normal array
  */
 
 /**
  * Changelog
  *
- * Date (DD-MM-YYYY)            Author               Update
- * 02-08-2018             Sona Praneeth Akula   - Creation of file
- *                                              - Added function implementations for arrays -
- *                                                constructors, destructors, get, set, size,
+ * Date (DD-MM-YYYY)    Author              Update
+ * 02-08-2018           sonapraneeth-a      - Creation of file
+ *                                          - Added function implementations for
+ *                                            arrays - constructors, destructors,
+ *                                            get, set, size
+ * 16-08-2018           sonapraneeth-a      - Fixed an issue in Array constructor
+ *                                            where size was not set to capacity
+ * 15-10-2018           sonapraneeth-a      - Updating code according to the
+ *                                            guidelines
+ *                                          - Fixed issues where an integer is
+ *                                            appended to string
+ * 16-10-2018           sonapraneeth-a      - Fixed the Changelog comment format
+ *                                          - Updated comments to follow 80 width
+ *                                            rule
  */
 
 #include "Array.h"
 
 /**
- * @todo Find a way to initialize the values in the dynamic array with default values for their type
- * @brief   Constructor for Array which determines the initial capacity of the dynamic array
- * @details Allocates memory for an array of size given the user. All values are garbage in nature
+ * @todo    Find a way to initialize the values in the dynamic array with default
+ *          values for their type
+ * @brief   Constructor for Array which determines the initial capacity of the
+ *          dynamic array
+ * @details Allocates memory for an array of size given the user. All values are
+ *          garbage in nature
  *
- * @tparam T Generic parameter
- * @param Capacity - Capacity of the Array
+ * @tparam  T Generic parameter
+ * @param   Capacity - Capacity of the Array
  */
 template <typename T>
 Array<T>::Array(ULLI Capacity)
@@ -31,7 +44,7 @@ Array<T>::Array(ULLI Capacity)
     LOGD << "Array::Constructor (2)";
 #endif
     this->_Capacity = Capacity;
-    this->_Size = 0;
+    this->_Size = Capacity;
     // Allocating memory for the array
     this->_Array = new (std::nothrow) T[this->_Capacity];
     if(!this->_Array)
@@ -42,14 +55,16 @@ Array<T>::Array(ULLI Capacity)
 }
 
 /**
- * @todo Find a way to initialize the values in the dynamic array wth default values for their type
- * @brief   Constructor for Array which determines the initial capacity of the dynamic array
- *          and assigns each element of the Array with DefaultValue
- * @details Allocates memory for an array of size given the user. All values are garbage in nature
+ * @todo    Find a way to initialize the values in the dynamic array wth default
+ *          values for their type
+ * @brief   Constructor for Array which determines the initial capacity of the
+ *          dynamic array and assigns each element of the Array with DefaultValue
+ * @details Allocates memory for an array of size given the user. All values are
+ *          garbage in nature
  *
- * @tparam T Generic parameter
- * @param [unsigned long long int] _Capacity - _Capacity of the Array
- * @param [T] DefaultValue - Value which should be used to fill the Array
+ * @tparam  T Generic parameter
+ * @param   [unsigned long long int] _Capacity - _Capacity of the Array
+ * @param   [T] DefaultValue - Value which should be used to fill the Array
  */
 template <typename T>
 Array<T>::Array(ULLI Capacity, T DefaultValue)
@@ -63,21 +78,22 @@ Array<T>::Array(ULLI Capacity, T DefaultValue)
         // Throw exception when memory allocation fails
         throw MemoryAllocationException();
     }
-    for (ULLI index = 0; index < this->_Size; ++index)
+    for (ULLI __Index = 0; __Index < this->_Size; ++__Index)
     {
-        this->_Array[index] = DefaultValue;
+        this->_Array[__Index] = DefaultValue;
     }
 }
 
 /**
  * @brief   Returns value present in the index^{th} block of the array
- * @details If the index given is invalid, then an "OutOfBoundsException" exception is thrown
+ * @details If the index given is invalid, then an "OutOfBoundsException"
+ *          exception is thrown
  *
- * @tparam T Generic parameter
- * @param index - Index of the array for which user wants the contents
- * @return [T] - Value in the Array at that location. If value is not set (or) index
- *               trying to access invalid location then an exception "OutOfBoundsException" is
- *               thrown
+ * @tparam  T Generic parameter
+ * @param   index - Index of the array for which user wants the contents
+ * @return  [T] - Value in the Array at that location. If value is not set (or)
+ *                index trying to access invalid location then an exception
+ *                "OutOfBoundsException" is thrown
  */
 template <typename T>
 T Array<T>::Get(ULLI index) const
@@ -86,7 +102,8 @@ T Array<T>::Get(ULLI index) const
     {
         return this->_Array[index];
     }
-    throw OutOfBoundsException(index + " is greater than " + this->_Capacity);
+    throw OutOfBoundsException(std::to_string(index) + " is greater than " +
+                               std::to_string(this->_Capacity));
 }
 
 
@@ -105,7 +122,8 @@ T& Array<T>::operator[](ULLI index)
     {
         return this->_Array[index];
     }
-    std::string ExceptionMessage = "Condition not satisfied: " + std::to_string(index)
+    std::string ExceptionMessage = "Condition not satisfied: "
+                                   + std::to_string(index)
                                    + " < " + std::to_string(this->_Size) + " and "
                                    + std::to_string(index) + " >= 0" ;
     throw OutOfBoundsException(ExceptionMessage);
@@ -126,24 +144,29 @@ T Array<T>::operator[](ULLI index) const
     {
         return this->_Array[index];
     }
-    throw OutOfBoundsException(index + " is greater than " + this->_Capacity);
+    throw OutOfBoundsException(std::to_string(index) + " is greater than "
+                               + std::to_string(this->_Capacity));
 }
 
 /**
- * @brief   Sets value present in the index^{th} block of the array to the one provided
- *          by the user
- * @details If index is greater than the size of the array an exception "OutOfBoundsException" is thrown
+ * @brief   Sets value present in the index^{th} block of the array to the one
+ *          provided by the user
+ * @details If index is greater than the size of the array an exception
+ *          "OutOfBoundsException" is thrown
  *
- * @tparam T Generic parameter
- * @param [unsigned long long int] index - Location in array whose value has to be modified
- * @param [T] Value - Value which should be put in the index^{th} location of the array
+ * @tparam  T Generic parameter
+ * @param   [unsigned long long int] index - Location in array whose value has
+ *                                   to be modified
+ * @param   [T] Value - Value which should be put in the index^{th} location of
+ *                      the array
  */
 template <typename T>
 void Array<T>::Set(ULLI index, T Value)
 {
     if(index >= this->_Capacity)
     {
-        throw OutOfBoundsException(index + " does not exist in the array.");
+        throw OutOfBoundsException(std::to_string(index)
+                                   + " does not exist in the array.");
     }
     this->_Array[index] = Value;
 }
@@ -173,16 +196,18 @@ void Array<T>::Insert(ULLI index, T Value)
         return;
     }
     // Throw exception if index is not within proper limits
-    throw OverflowException(std::to_string(index) + " does not exist in the array.");
+    throw OverflowException(std::to_string(index)
+                            + " does not exist in the array.");
 }
 
 /**
  * @brief   Removes the elements present at index^{th} location in the Array
- * @details If index^{th} element does not exist, then "OutOfBoundsException" is thrown
+ * @details If index^{th} element does not exist, then "OutOfBoundsException" is
+ *          thrown
  *
- * @tparam T Generic parameter
- * @param [unsigned long long int] index - The element index which has to be removed from the
- *                                         Array
+ * @tparam  T Generic parameter
+ * @param   [unsigned long long int] index - The element index which has to be
+ *                                           removed from the Array
  */
 template <typename T>
 void Array<T>::Remove(ULLI index)
@@ -212,6 +237,7 @@ void Array<T>::Remove(ULLI index)
 template <typename T>
 ULLI Array<T>::Size() const
 {
+    // Reference:
     // https://stackoverflow.com/questions/3141087/what-is-meant-with-const-at-end-of-function-declaration
     return this->_Size;
 }

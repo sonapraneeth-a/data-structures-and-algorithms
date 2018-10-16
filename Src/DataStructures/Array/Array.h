@@ -1,16 +1,19 @@
 /**
  *      Created on: 02 August 2018
- *   Last modified: 02 August 2018
- *          Author: Sona Praneeth Akula
+ *   Last modified: 16 October 2018
+ *          Author: sonapraneeth-a <Sona Praneeth Akula>
  *         Details: Header for Normal array
  */
 
 /**
  * Changelog
  *
- * Date (DD-MM-YYYY)            Author               Update
- * 02-08-2018             Sona Praneeth Akula   - Creation of file
- *                                              - Added function signatures for arrays
+ * Date (DD-MM-YYYY)    Author              Update
+ * 02-08-2018           sonapraneeth-a      - Creation of file
+ *                                          - Added function signatures for
+ *                                            arrays
+ * 15-10-2018           sonapraneeth-a      - Updated comments in the header
+ * 16-10-2018           sonapraneeth-a      - Fixed the Changelog comment format
  */
 
 
@@ -23,13 +26,13 @@ template <typename T>
 class Array
 {
 private:
-    T *_Array = nullptr;  /*!< Variable containing the array elements */
+    T *_Array = nullptr;   /*!< Variable containing the array elements */
     ULLI _Capacity = 0;    /*!< Maximum capacity of the dynamic array */
     ULLI _Size = 0;        /*!< Current size of the array */
 
 public:
 
-    Array(ULLI Capacity);
+    explicit Array(ULLI Capacity);
     Array(ULLI Capacity, T DefaultValue);
 
     T Get(ULLI index) const;
