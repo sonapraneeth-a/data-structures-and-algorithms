@@ -1,6 +1,6 @@
 /**
  *      Created on: 02 August 2018
- *   Last modified: 16 October 2018
+ *   Last modified: 20 October 2018
  *          Author: sonapraneeth-a <Sona Praneeth Akula>
  *         Details: Implementation for Normal array
  */
@@ -22,6 +22,8 @@
  * 16-10-2018           sonapraneeth-a      - Fixed the Changelog comment format
  *                                          - Updated comments to follow 80 width
  *                                            rule
+ * 20-10-2018           sonapraneeth-a      - Updated the code according to the
+ *                                            updated guidelines for functions
  */
 
 #include "Array.h"
@@ -38,7 +40,9 @@
  * @param   Capacity - Capacity of the Array
  */
 template <typename T>
-Array<T>::Array(ULLI Capacity)
+Array<T>::Array (
+    ULLI Capacity
+)
 {
 #if DEBUG_PRINT
     LOGD << "Array::Constructor (2)";
@@ -67,7 +71,10 @@ Array<T>::Array(ULLI Capacity)
  * @param   [T] DefaultValue - Value which should be used to fill the Array
  */
 template <typename T>
-Array<T>::Array(ULLI Capacity, T DefaultValue)
+Array<T>::Array (
+    ULLI Capacity,
+    T DefaultValue
+)
 {
     this->_Capacity = Capacity;
     this->_Size = Capacity;
@@ -96,7 +103,9 @@ Array<T>::Array(ULLI Capacity, T DefaultValue)
  *                "OutOfBoundsException" is thrown
  */
 template <typename T>
-T Array<T>::Get(ULLI index) const
+T Array<T>::Get(
+    ULLI index
+) const
 {
     if(index < this->_Size)
     {
@@ -116,7 +125,9 @@ T Array<T>::Get(ULLI index) const
  * @return
  */
 template <typename T>
-T& Array<T>::operator[](ULLI index)
+T& Array<T>::operator[] (
+    ULLI index
+)
 {
     if(index < this->_Size)
     {
@@ -138,7 +149,9 @@ T& Array<T>::operator[](ULLI index)
  * @return
  */
 template <typename T>
-T Array<T>::operator[](ULLI index) const
+T Array<T>::operator[] (
+    ULLI index
+) const
 {
     if(index < this->_Size)
     {
@@ -161,7 +174,10 @@ T Array<T>::operator[](ULLI index) const
  *                      the array
  */
 template <typename T>
-void Array<T>::Set(ULLI index, T Value)
+void Array<T>::Set(
+    ULLI index,
+    T Value
+)
 {
     if(index >= this->_Capacity)
     {
@@ -179,7 +195,10 @@ void Array<T>::Set(ULLI index, T Value)
  * @param [T] Value - Value to appended to the end of the array
  */
 template <typename T>
-void Array<T>::Insert(ULLI index, T Value)
+void Array<T>::Insert (
+    ULLI index,
+    T Value
+)
 {
     // If current size is greater than what the array can take in,
     // then we have to expand the memory of the Array to take in
@@ -210,7 +229,9 @@ void Array<T>::Insert(ULLI index, T Value)
  *                                           removed from the Array
  */
 template <typename T>
-void Array<T>::Remove(ULLI index)
+void Array<T>::Remove (
+    ULLI index
+)
 {
     if(index < this->_Size)
     {
@@ -224,7 +245,8 @@ void Array<T>::Remove(ULLI index)
         return;
     }
     // Throw exception if index is not within proper limits
-    throw OutOfBoundsException(std::to_string(index) + " does not exist in the array.");
+    throw OutOfBoundsException(std::to_string(index)
+                               + " does not exist in the array.");
 }
 
 /**

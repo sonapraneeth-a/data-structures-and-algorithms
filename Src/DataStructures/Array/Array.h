@@ -35,14 +35,17 @@ public:
     explicit Array(ULLI Capacity);
     Array(ULLI Capacity, T DefaultValue);
 
+    bool IsEmpty() const;
+
     T Get(ULLI index) const;
-    T operator[] (ULLI index) const;
-    T& operator[] (ULLI index);
     void Set(ULLI index, T Value);
     ULLI Size() const;
-    bool IsEmpty() const;
     void Insert(ULLI index, T value);
     void Remove(ULLI index);
+
+    T operator[] (ULLI index) const;
+    T& operator[] (ULLI index);
+
 
     ~Array();
 };

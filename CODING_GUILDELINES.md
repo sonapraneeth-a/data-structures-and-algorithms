@@ -41,6 +41,33 @@ please raise a PR updating it.
     - This @todo can be introduced before @brief in the comment section of the
       function. See comment rules for more details
 
+## Functions
+
+- Format
+```cpp
+template if any
+return type of the function
+function name (
+  param1
+  param2
+  ...
+)
+{
+  // Some code
+}
+```
+- *Example:*
+```cpp
+template<typename T>
+void
+Array<T>::Get (
+    ULLI index
+)
+{
+  // Some code
+}
+```
+
 ## Comment rules
 
 - Write detailed comments for every line of code if it is not obvious to
