@@ -22,8 +22,8 @@ include_directories(DP)
 add_subdirectory(Greedy)
 include_directories(Greedy)
 
-add_subdirectory(Recursion)
-include_directories(Recursion)
+#add_subdirectory(Recursion)
+#include_directories(Recursion)
 
 # Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
@@ -31,7 +31,7 @@ set(CMAKE_DEBUG_POSTFIX "_debug")
 add_library(AlgoShared SHARED Algo.cpp)
 add_library(AlgoStatic STATIC Algo.cpp)
 
-target_link_libraries(AlgoShared NumbersShared DPShared GreedyShared RecursionShared)
-target_link_libraries(AlgoStatic NumbersStatic DPStatic GreedyStatic RecursionStatic)
+target_link_libraries(AlgoShared NumbersShared DPShared GreedyShared)# RecursionShared)
+target_link_libraries(AlgoStatic NumbersStatic DPStatic GreedyStatic)# RecursionStatic)
 
 message("--   Completing generation of CMake files for Algorithms")
