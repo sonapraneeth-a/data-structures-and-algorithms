@@ -64,7 +64,8 @@ include_directories("${SRC_DS_DIR}/String")
 
 set(LIST_TEST_FILES ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedListNode.cpp
                     ${TEST_LIST_DIR}/${TEST_PREFIX}SingleLinkedList.cpp)
-set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(DYNAMIC_ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}Array.cpp)
 set(BIGNUMBER_TEST_FILES ${TEST_BIGNUMBER_DIR}/${TEST_PREFIX}BigNumber.cpp)
 set(STACK_TEST_FILES ${TEST_STACK_DIR}/${TEST_PREFIX}Stack.cpp)
 set(QUEUE_TEST_FILES ${TEST_QUEUE_DIR}/${TEST_PREFIX}Queue.cpp)
@@ -75,9 +76,10 @@ set(GRAPH_TEST_FILES ${TEST_GRAPH_DIR}/${TEST_PREFIX}WeightedGraph.cpp)
 set(STRING_TEST_FILES ${TEST_STRING_DIR}/${TEST_PREFIX}String.cpp)
 
 
-set(DS_TEST_FILES ${LIST_TEST_FILES} ${ARRAY_TEST_FILES} ${BIGNUMBER_TEST_FILES}
-                  ${STACK_TEST_FILES} ${QUEUE_TEST_FILES} ${STRING_TEST_FILES}
-                  ${LIN_ALG_TEST_FILES} ${GRAPH_TEST_FILES})
+set(DS_TEST_FILES ${LIST_TEST_FILES} ${ARRAY_TEST_FILES}
+                  ${STACK_TEST_FILES} ${QUEUE_TEST_FILES}
+                  ${LIN_ALG_TEST_FILES} ${GRAPH_TEST_FILES}
+                  ${DYNAMIC_ARRAY_TEST_FILES})
 add_executable(DataStructuresTest ${TEST_DS_DIR}/Test-DataStructures.cpp ${DS_TEST_FILES})
 target_link_libraries(DataStructuresTest DsStatic gtest gtest_main)
 target_link_libraries(DataStructuresTest DsStatic gmock gmock_main)
