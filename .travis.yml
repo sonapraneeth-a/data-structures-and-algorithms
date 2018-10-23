@@ -24,7 +24,7 @@ before_script:
     - echo "Before script"
     - chmod +x ./Scripts/Travis/SoftwareCheck.sh
     - chmod +x ./Scripts/Travis/Build.sh
-    - chmod +x ./Scripts/Travis/Run.sh
+    - chmod +x ./Scripts/Travis/AllRun.sh
 
 script:
     - pwd
@@ -32,4 +32,4 @@ script:
     - pwd
     - make -f ./Build/Test/Makefile
     - ls -lah ./Build/*
-    - ./Scripts/Travis/Run.sh
+    - ./Scripts/Travis/AllRun.sh
