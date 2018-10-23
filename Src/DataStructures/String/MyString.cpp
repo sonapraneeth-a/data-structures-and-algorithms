@@ -1,26 +1,41 @@
 /**
  *      Created on: 01 April 2018
- *   Last modified: 25 August 2018
- *          Author: Sona Praneeth Akula
+ *   Last modified: 29 August 2018
+ *          Author: sonapraneeth-a
  *         Details: Implementation for strings
+ */
+
+/**
+ * Author Details
+ *
+ * sonapraneeth-a --- Sona Praneeth Akula <sonapraneeth.akula@gmail.com>
  */
 
 /**
  * Changelog
  *
  * Date (DD-MM-YYYY)            Author               Update
- * 01-04-2018             Sona Praneeth Akula   - Creation of file
- * 04-07-2018             Sona Praneeth Akula   - Added copy constructor and assignment operator
- * 17-08-2018             Sona Praneeth Akula   - Renamed GetSize() to Size()
+ * 01-04-2018               sonapraneeth-a      - Creation of file
+ * 04-07-2018               sonapraneeth-a      - Added copy constructor and assignment operator
+ * 17-08-2018               sonapraneeth-a      - Renamed GetSize() to Size()
+ * 12-08-2018               sonapraneeth-a      - Renamed String to MyString as it was causing issues
+ *                                                with clang on Mac OS X
  *                                              - Added IsPalindrome() implementation
- * 24-08-2018             Sona Praneeth Akula   - Added IsIsomorphic() implementation
+ * 24-08-2018               sonapraneeth-a      - Added IsIsomorphic() implementation
  *                                              - Added Get(index) implementation
- * 25-08-2018             Sona Praneeth Akula   - Added function implementations for Insert, Delete
+ * 25-08-2018               sonapraneeth-a      - Added function implementations for Insert, Delete
  *                                                and a new constructor for MyString
  *                                              - Added const at the end of functions which are not
  *                                                supposed to change the main MyString object
  *                                              - Added detailed comments for all functions and their
  *                                                implementation details
+ * 26-08-2018               sonapraneeth-a      - Added function implementations for PopFront,
+ *                                                PushFront
+ *                                              - Added function implementations for operator ==
+ * 28-08-2018               sonapraneeth-a      - Added function implementations for Append (all
+ *                                                versions)
+ *                                              - Added function implementations for operators +, +=
+ * 29-08-2018               sonapraneeth-a      - Fixed errors in Insert() function implementation
  */
 
 #include "MyString.h"
@@ -196,6 +211,39 @@ MyString::operator = (const MyString &input)
 }
 
 /**
+ * @brief   Equals operator, Returns if the current string (character pointer) content is
+ *          the same as input string (character pointer) content
+ * @details
+ *
+ * @param  [MyString] input - Input MyString object which is to be compared
+ * @return [bool] true if the MyString content and the current Mytring content are same
+ *                else false
+ */
+bool
+MyString::operator == (const MyString &input)
+{
+    bool __Result = true;
+    if(this->_Size != input._Size)
+    {
+        __Result = false;
+    }
+    else
+    {
+        // Copy the contents from the input string object to the
+        // current object's character array
+        for (size_t index = 0; index < input._Size; ++index)
+        {
+            if (this->_String[index] != input[index])
+            {
+                __Result = false;
+            }
+        }
+    }
+    // Return a pointer to the current object for copying
+    return __Result;
+}
+
+/**
  * @brief   Equals operator, kind of assignment operator from one string represented
  *          as character pointer to current object
  * @details
@@ -241,6 +289,55 @@ MyString::operator = (const char *input)
 }
 
 /**
+ * @brief   Equals operator, Returns if the current string (character pointer) content is
+ *          the same as input string (character pointer) content
+ * @details
+ *
+ * @param  [char*] input - Pointer to character array to the equals operator
+ * @return [bool] true if the character pointer content and the current string content are same
+ *                else false
+ */
+bool
+MyString::operator == (const char *input)
+{
+    bool __Result = false;
+    // length variable captures the size of the string pointed by character pointer
+    size_t length = 0, index = 0;
+    const char *__TempOne = input;
+    // Determine the length of the string by moving the character pointer
+    while(*__TempOne)
+    {
+        length++; *__TempOne++;
+    }
+    if(length != this->_Size)
+    {
+        __Result = false;
+    }
+    else
+    {
+        // Copy the contents from the character pointer
+        // to the character array in the string object
+        const char *__TempTwo = input;
+        // Looping over the input
+        while (*__TempTwo)
+        {
+            if(this->_String[index] == *__TempTwo)
+            {
+                index++;
+                *__TempTwo++;
+            }
+            else
+            {
+                __Result = false;
+                break;
+            }
+        }
+    }
+    // Return a pointer to the current object for copying
+    return __Result;
+}
+
+/**
  * @brief   Checks whether the string object is empty or does it contain any characters
  * @details
  *
@@ -251,6 +348,143 @@ MyString::IsEmpty() const
 {
     // Check if the size of the string object is 0 or not
     return this->_Size == 0;
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::operator + (const MyString &input)
+{
+    MyString Answer(*this);
+    return Answer.Append(input);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::operator + (const char *input)
+{
+    MyString Answer(*this);
+    return Answer.Append(input);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param character
+ * @return
+ */
+MyString&
+MyString::operator + (char character)
+{
+    MyString Answer(*this);
+    Answer.PushBack(character);
+    return Answer;
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::operator += (const MyString &input)
+{
+    return this->Append(input);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::operator += (const char *input)
+{
+    return this->Append(input);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param character
+ * @return
+ */
+MyString&
+MyString::operator += (char character)
+{
+    return this->Append(character);
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::Append(const MyString &input)
+{
+    for (size_t index = 0; index < input._Size; ++index)
+    {
+        this->PushBack(input[index]);
+    }
+    return *this;
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param input
+ * @return
+ */
+MyString&
+MyString::Append(const char *input)
+{
+    size_t index = 0;
+    // Copy the contents from the character pointer
+    // to the character array in the string object
+    const char *__TempOne = input;
+    // Looping over the input
+    while(*__TempOne)
+    {
+        this->PushBack(*__TempOne);
+        index++; *__TempOne++;
+    }
+    // Return a pointer to the current object for copying
+    return *this;
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param character
+ * @return
+ */
+MyString&
+MyString::Append(char character)
+{
+    this->PushBack(character);
+    return *this;
 }
 
 /**
@@ -282,13 +516,13 @@ operator << (std::ostream &out, const MyString& string)
 }
 
 /**
- * @brief   Inserts a character to the string at the end
+ * @brief   Inserts a character to the string at the front
  * @details
  *
- * @param [char] c - Character which has to be pushed to the end of the string
+ * @param [char] c - Character which has to be pushed to the start of the string
  */
 void
-MyString::PushBack(char c)
+MyString::PushFront(char character)
 {
     // If current size is greater than what the array can take in,
     // then we have to expand the memory of the MyString to take in
@@ -298,12 +532,46 @@ MyString::PushBack(char c)
         // Call to the resize function
         this->Resize();
     }
-    // Assign the last character of the object to the input character
-    this->_String[this->_Size] = c;
-    // Null terminate the string
-    this->_String[this->_Size+1] = '\0';
-    // Increase the size of the string by 1
-    this->_Size++;
+    // Insert the character at the beginning of the string
+    this->Insert(character, 0);
+}
+
+/**
+ * @brief   Inserts a character to the string at the end
+ * @details
+ *
+ * @param [char] c - Character which has to be pushed to the end of the string
+ */
+void
+MyString::PushBack(char character)
+{
+    // If current size is greater than what the array can take in,
+    // then we have to expand the memory of the MyString to take in
+    // more elements
+    if(this->_Size >= this->_Capacity-1)
+    {
+        // Call to the resize function
+        this->Resize();
+    }
+    // Insert the character at the beginning of the string
+    this->Insert(character, this->_Size);
+}
+
+/**
+ * @brief   Deletes a character from the start of the string
+ * @details
+ */
+void
+MyString::PopFront()
+{
+    // If the size of the string is 0, then we cannot pop from the string
+    if(this->_Size <= 0)
+    {
+        throw EmptyException();
+    }
+    // Delete the character from the first position
+    this->Delete(0);
+    return;
 }
 
 /**
@@ -313,14 +581,12 @@ MyString::PushBack(char c)
 void
 MyString::PopBack()
 {
+    // If the size of the string is 0, then we cannot pop from the string
     if(this->_Size <= 0)
     {
-        throw OutOfBoundsException();
+        throw EmptyException();
     }
-    // Null terminate the string
-    this->_String[this->_Size - 1] = '\0';
-    // Decrease the size of the string object
-    this->_Size--;
+    this->Delete(this->_Size-1);
     return;
 }
 
@@ -656,6 +922,12 @@ MyString::IsIsomorphic(const MyString &string) const
 void
 MyString::Insert(char character, size_t position)
 {
+    // If the position of the character to be inserted is not within
+    // the limits of the character array, then throw OutOfBoundsException
+    if(!(position >= 0 && position <= this->_Size))
+    {
+        throw OutOfBoundsException();
+    }
     // If current size is greater than what the array can take in,
     // then we have to expand the memory of the MyString to take in
     // more elements
@@ -664,11 +936,16 @@ MyString::Insert(char character, size_t position)
         // Create more space in the character array by resizing
         this->Resize();
     }
-    // Push the elements from position by one to the right to create space for the
-    // character to be inserted
-    for (size_t index = this->_Size-1; index >= position; --index)
+    // Movement of characters is necessary only if the size of the string is
+    // greater than 0
+    if(this->_Size > 0)
     {
-        this->_String[index+1] = this->_String[index];
+        // Push the elements from position by one to the right to create space for the
+        // character to be inserted
+        for (size_t index = this->_Size-1; index >= position; --index)
+        {
+            this->_String[index+1] = this->_String[index];
+        }
     }
     // Replace the character at the position with the input character
     this->_String[position] = character;
@@ -716,23 +993,86 @@ MyString::Delete(size_t position)
 
 /**
  *
- * @param input
+ * @param compareString
+ * @return
+ */
+short int
+MyString::Compare(const MyString &compareString)
+{
+    short int __Result = 0;
+    size_t __MinStringLength = (this->_Size >= compareString._Size) ?
+                                compareString._Size : this->_Size;
+    for (size_t index = 0; index < __MinStringLength; ++index)
+    {
+        if(this->Get(index) > compareString.Get(index))
+        {
+            __Result = 1; break;
+        }
+        else if(this->Get(index) < compareString.Get(index))
+        {
+            __Result = -1; break;
+        }
+    }
+    if(__Result == 0)
+    {
+        if(this->_Size > compareString._Size)
+        {
+            __Result = 1;
+        }
+        else if(this->_Size < compareString._Size)
+        {
+            __Result = -1;
+        }
+    }
+    return __Result;
+}
+
+/**
+ *
+ * @param compareString
+ * @return
+ */
+short int
+MyString::Compare(const char* compareString)
+{
+
+}
+
+/**
+ * @brief
+ * @details
+ *
  * @param pattern
  * @return
  */
 std::vector<unsigned int>
-MyString::AllPatternMatch(MyString input, MyString pattern)
+MyString::AllPatternMatch(const MyString &pattern)
 {
     throw NotImplementedException();
 }
 
 /**
+ * @brief
+ * @details
  *
  * @param pattern
  * @return
  */
 unsigned int
-MyString::FirstPatternMatch(MyString pattern)
+MyString::FirstPatternMatch(const MyString &pattern)
+{
+    throw NotImplementedException();
+}
+
+/**
+ * @brief
+ * @details
+ *
+ * @param pattern
+ * @return
+ */
+unsigned int
+MyString::LastPatternMatch(const MyString &pattern)
 {
     throw NotImplementedException();
 }
