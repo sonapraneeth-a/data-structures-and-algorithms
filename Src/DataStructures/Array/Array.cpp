@@ -1,7 +1,7 @@
 /**
  *      Created on: 02 August 2018
- *   Last modified: 20 October 2018
- *          Author: sonapraneeth-a <Sona Praneeth Akula>
+ *   Last modified: 21 October 2018
+ *         Authors: Sona Praneeth Akula <sonapraneeth.akula@gmail.com>
  *         Details: Implementation for Normal array
  */
 
@@ -24,6 +24,8 @@
  *                                            rule
  * 20-10-2018           sonapraneeth-a      - Updated the code according to the
  *                                            updated guidelines for functions
+ * 21-10-2018           sonapraneeth-a      - Fixed some misleading comments
+ *                                          - Removed unnecessary todos
  */
 
 #include "Array.h"
@@ -37,7 +39,7 @@
  *          garbage in nature
  *
  * @tparam  T Generic parameter
- * @param   Capacity - Capacity of the Array
+ * @param   [unsigned long long int] Capacity - Capacity of the Array
  */
 template <typename T>
 Array<T>::Array (
@@ -45,7 +47,7 @@ Array<T>::Array (
 )
 {
 #if DEBUG_PRINT
-    LOGD << "Array::Constructor (2)";
+    LOGD << "Array::Constructor (1)";
 #endif
     this->_Capacity = Capacity;
     this->_Size = Capacity;
@@ -59,15 +61,14 @@ Array<T>::Array (
 }
 
 /**
- * @todo    Find a way to initialize the values in the dynamic array wth default
- *          values for their type
  * @brief   Constructor for Array which determines the initial capacity of the
  *          dynamic array and assigns each element of the Array with DefaultValue
  * @details Allocates memory for an array of size given the user. All values are
- *          garbage in nature
+ *          in the array are determined by the second parameter to the
+ *          constructor
  *
  * @tparam  T Generic parameter
- * @param   [unsigned long long int] _Capacity - _Capacity of the Array
+ * @param   [unsigned long long int] Capacity - Capacity of the Array
  * @param   [T] DefaultValue - Value which should be used to fill the Array
  */
 template <typename T>
@@ -97,7 +98,8 @@ Array<T>::Array (
  *          exception is thrown
  *
  * @tparam  T Generic parameter
- * @param   index - Index of the array for which user wants the contents
+ * @param   [unsigned long long int] index - Index of the array for which user
+ *                                           wants the contents
  * @return  [T] - Value in the Array at that location. If value is not set (or)
  *                index trying to access invalid location then an exception
  *                "OutOfBoundsException" is thrown
@@ -117,12 +119,13 @@ T Array<T>::Get(
 
 
 /**
- * @brief
+ * @brief   Get a reference to the memory address of the array indexed by
+ *          variable 'index'
  * @details
  *
- * @tparam T Generic parameter
- * @param index
- * @return
+ * @tparam  T Generic parameter
+ * @param   [unsigned long long int] index - Location in the array
+ * @return  [T] Reference to the location index in the array
  */
 template <typename T>
 T& Array<T>::operator[] (
@@ -141,12 +144,13 @@ T& Array<T>::operator[] (
 }
 
 /**
- * @brief
+ * @brief   Get the value present in the array at the location indexed by
+ *          variable 'index'
  * @details
  *
- * @tparam T Generic parameter
- * @param index
- * @return
+ * @tparam  T Generic parameter
+ * @param   [unsigned long long int] index - Location in the array
+ * @return  [T] Value present at the location index in the array
  */
 template <typename T>
 T Array<T>::operator[] (
@@ -188,10 +192,12 @@ void Array<T>::Set(
 }
 
 /**
- * @brief   Appends element to the end of the Array
+ * @brief   Inserts an element at the specified location in the Array
  * @details
  *
  * @tparam T Generic parameter
+ * @param   [unsigned long long int] index - Location in array where the value
+ *                                           has to be inserted
  * @param [T] Value - Value to appended to the end of the array
  */
 template <typename T>
@@ -253,8 +259,8 @@ void Array<T>::Remove (
  * @brief   Returns the current size of the array
  * @details
  *
- * @tparam T Generic parameter
- * @return [unsigned long long int] Returns the current size of the array
+ * @tparam  T Generic parameter
+ * @return  [unsigned long long int] Returns the current size of the array
  */
 template <typename T>
 ULLI Array<T>::Size() const
@@ -268,8 +274,8 @@ ULLI Array<T>::Size() const
  * @brief   Returns true if array is empty else false
  * @details
  *
- * @tparam T Generic parameter
- * @return [bool] Returns true if array is empty else false
+ * @tparam  T Generic parameter
+ * @return  [bool] Returns true if array is empty else false
  */
 template <typename T>
 bool Array<T>::IsEmpty() const
@@ -281,7 +287,7 @@ bool Array<T>::IsEmpty() const
  * @brief   Destructor for the class Array
  * @details Deletes the memory assigned for the Array and sets it back to null
  *
- * @tparam T Generic parameter
+ * @tparam  T Generic parameter
  */
 template <typename T>
 Array<T>::~Array()

@@ -1,7 +1,7 @@
 /**
  *      Created on: 02 August 2018
  *   Last modified: 16 October 2018
- *          Author: sonapraneeth-a <Sona Praneeth Akula>
+ *         Authors: Sona Praneeth Akula <sonapraneeth.akula@gmail.com>
  *         Details: Header for Normal array
  */
 
