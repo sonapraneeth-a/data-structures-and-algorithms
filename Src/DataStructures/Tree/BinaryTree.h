@@ -56,6 +56,7 @@ public:
 
     T GetRootValue();
     BinaryTreeNode<T>* GetRoot();
+    BinaryTreeNode<T>* GetLeastCommonAncestor();
 
     void DrawTree(std::string Filename="BinaryTree.dot", bool IsNullRequired=true);
 
