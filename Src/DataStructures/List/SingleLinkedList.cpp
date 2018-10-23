@@ -1,3 +1,22 @@
+/**
+ *      Created on: 05 March 2018
+ *   Last modified: 17 August 2018
+ *          Author: Sona Praneeth Akula
+ *         Details: Implementation for SingleLinkedList
+ */
+
+/**
+ * Changelog
+ *
+ * Date (DD-MM-YYYY)            Author               Update
+ * 05-03-2018           Sona Praneeth Akula   - Creation of file
+ *                                            - Added function implementations for singlelinkedlist -
+ *                                              constructors, destructors, ToString(), GetSize(),
+ *                                              Insert(), Clear(), Print(), Deletehead()
+ * 17-08-2018           Sona Praneeth Akula   - Renamed GetSize() to Size()
+ *                                            - Added function implementations for InsertAtHead()
+ */
+
 #include "SingleLinkedList.h"
 #include <iostream>
 
@@ -115,6 +134,31 @@ void SingleLinkedList<T>::Insert(T Value)
 }
 
 /*!
+ * @brief  Insert a node at the start of list
+ * @details
+ *
+ * @tparam T Generic parameter type. Currently supported types: int, double, char, std::string
+ * @param [in] Value - The value to be inserted into the single linked list
+ * @return
+ */
+template <typename T>
+void SingleLinkedList<T>::InsertAtHead(T Value)
+{
+    SingleLinkedListNode<T> *__Temp = this->_Head;
+    SingleLinkedListNode<T> *__NewNode = new SingleLinkedListNode<T>(Value);
+    if(__Temp == nullptr)
+    {
+        this->_Head = __NewNode;
+        this->_Size = 1;
+        return;
+    }
+    __NewNode->Next(this->_Head);
+    this->_Head = __NewNode;
+    this->_Size++;
+    return;
+}
+
+/*!
  * @brief  Get the length of the single linked list
  * @details
  *
@@ -123,7 +167,7 @@ void SingleLinkedList<T>::Insert(T Value)
  * @return [out] unsigned int - Size of the single linked list
  */
 template <typename T>
-unsigned int SingleLinkedList<T>::GetSize()
+unsigned int SingleLinkedList<T>::Size()
 {
     return this->_Size;
 }
