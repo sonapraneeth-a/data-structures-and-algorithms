@@ -1,8 +1,8 @@
 /**
  *      Created on: 20 March 2018
- *   Last modified: 22 March 2018
+ *   Last modified: 14 October 2018
  *          Author: Sona Praneeth Akula
- *         Details: Header for stack
+ *         Details: File for testing stack implementation
  */
 
 /**
@@ -11,6 +11,7 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 20-03-2018             Sona Praneeth Akula   - Creation of the file
  * 22-03-2018             Sona Praneeth Akula   - Testing stack exceptions
+ * 14-10-2018             Sona Praneeth Akula   - Added catch block for empty exception
  */
 
 #include "Stack.h"
@@ -38,6 +39,10 @@ int main(int argc, char **argv)
         stack.Pop();
     }
     catch (std::exception &e)
+    {
+        std::cout << e.what() << "\n";
+    }
+    catch  (EmptyException &e)
     {
         std::cout << e.what() << "\n";
     }
