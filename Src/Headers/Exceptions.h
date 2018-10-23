@@ -17,7 +17,7 @@
  *                                              - Minor refactorings for the code
  *                                              - Moved from throw() to noexpect(true)
  * 08-07-2018             Sona Praneeth Akula   - Updated OutOfBoundsException PrefixMessage
- * 15-07-2018             Sona Praneeth Akula   - Updated NotImplementedException
+ * 15-08-2018             Sona Praneeth Akula   - Updated NotImplementedException
  */
 
 #ifndef EXCEPTIONS_H
