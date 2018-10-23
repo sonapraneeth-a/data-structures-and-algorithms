@@ -106,7 +106,38 @@ Array<T>::Get (
      */
     ```
 - Update Changelog present at the top of the file for every change you make
-- Similarly, update ```Last modified``` at the first comment block of the file
+  - Please use the below format for updating Changelog (add just the last lines)
+  ```cpp
+  /**
+   * Changelog
+   *
+   * Date (DD-MM-YYYY)    Author              Update
+   * <date>               <github-username>   - <multiple points related to the
+   *                                            change you made>
+   */
+  ```
+- Header comments
+  - Add your name in the ```Authors``` section at the first comment block present
+    at the top of the file if you have modified the file
+  - Update your name in CONTRIBUTING.md file with the following details if your
+    information is not present
+  ```txt
+    - Name: <your-name>
+      Github handle: <github-username>
+      Email: <your-email-id>
+  ```
+  - Similarly, update ```Last modified``` at the first comment block present at
+    the top of the file
+  - Format
+    ```cpp
+    /**
+     *      Created on: <date-created>
+     *   Last modified: <date-last-modified>
+     *         Authors: author 1 your name <email id>
+     *                  author 2 your name <email id>
+     *         Details: detail regarding the file
+     */
+    ```
 
 ## Writing test cases
 
