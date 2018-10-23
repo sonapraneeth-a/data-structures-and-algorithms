@@ -51,7 +51,7 @@ protected:
 
 TEST_F(FibonacciTest, SimpleIndexTestRecursive)
 {
-    EXPECT_EQ(1, Math::GetNthFibonacciRecursive(0));
+    EXPECT_EQ(0, Math::GetNthFibonacciRecursive(0));
     EXPECT_EQ(1, Math::GetNthFibonacciRecursive(1));
     EXPECT_EQ(1, Math::GetNthFibonacciRecursive(2));
     EXPECT_EQ(21, Math::GetNthFibonacciRecursive(8));
