@@ -1,6 +1,0 @@
-[submodule "Src/Logging/Plog"]
-	path = Src/Logging/Plog
-	url = https://github.com/SergiusTheBest/plog.git
-[submodule "Test/Lib/googletest"]
-	path = Test/Lib/googletest
-	url = https://github.com/google/googletest.git
