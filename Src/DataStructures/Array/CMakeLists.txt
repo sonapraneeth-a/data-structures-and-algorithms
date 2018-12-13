@@ -12,8 +12,7 @@
 ## Date (DD-MM-YYYY)            Author               Update
 ## 12-12-2018               sonapraneeth-a      - Creation of the file
 ##                                              - Including Headers directory
-##                                              - Adding Main.cpp to executable
-## 13-12-2018               sonapraneeth-a      - Added Array module to the project
+##                                              - Adding MainArray.cpp to executable
 ##
 
 
@@ -21,20 +20,17 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 ## Name of the project
-project(DataStructures)
+project(Array)
 
 ## C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
 message("--   Generating CMake for Data Structures")
 
-add_subdirectory(Array)
-include_directories(Array)
-
 ## Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
 ## Adding the source code for executable
-add_executable(${PROJECT_NAME} Main.cpp)
+add_executable(Main${PROJECT_NAME} MainArray.cpp)
 
 message("--   Completing generation of CMake files for Data Structures")

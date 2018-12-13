@@ -3,8 +3,9 @@
 ##         Project: Data Structures and Algorithms
 ##         Authors: sonapraneeth-a
 ##      Created on: 10 December 2018
-##   Last modified: 10 December 2018
+##   Last modified: 13 December 2018
 ##         Details: File for main executable for the project
+##
 
 ## Changelog
 ##
@@ -13,6 +14,9 @@
 ##                                              - Including Headers directory
 ##                                              - Adding Main.cpp to
 ##                                                DataStructuresAndAlgorithms executable
+## 13-12-2018               sonapraneeth-a      - Added DataStructures module
+##                                                to the project
+##
 
 
 ## Version of CMake project is compatible with
@@ -27,6 +31,9 @@ set(CMAKE_CXX_STANDARD 11)
 message("-- Generating CMake for Source of Data Structures and Algorithms")
 
 include_directories(Headers)
+
+add_subdirectory(DataStructures)
+include_directories(DataStructures)
 
 ## Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
