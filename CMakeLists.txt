@@ -13,15 +13,18 @@
 ##                                              - Including Src sub-directory
 
 
-## Minimum version of CMake project is compatible with
+# Minimum version of CMake project is compatible with
 cmake_minimum_required(VERSION 3.5.1)
 
-## Name of the project
+# Name of the project
 project(DataStructuresAndAlgorithms)
 
-## C++ Standard used
+# C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
-## Adding source directory
+# Adding source directory
 add_subdirectory(Src)
+
+# Adding source directory
+add_subdirectory(Test)
 
