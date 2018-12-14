@@ -3,7 +3,7 @@
 ##         Project: Data Structures
 ##         Authors: sonapraneeth-a
 ##      Created on: 12 December 2018
-##   Last modified: 12 December 2018
+##   Last modified: 14 December 2018
 ##         Details: File for main executable for data structures project
 ##
 
@@ -13,24 +13,26 @@
 ## 12-12-2018               sonapraneeth-a      - Creation of the file
 ##                                              - Including Headers directory
 ##                                              - Adding MainArray.cpp to executable
+## 14-12-2018               sonapraneeth-a      - Minor updates to commenting style
+##                                              - Removed unecessary code
 ##
 
 
-## Version of CMake project is compatible with
+# Version of CMake project is compatible with
 cmake_minimum_required(VERSION 3.5.1)
 
-## Name of the project
+# Name of the project
 project(Array)
 
-## C++ Standard used
+# C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
-message("--   Generating CMake for Data Structures")
+message("--   Generating CMake for ${PROJECT_NAME}")
 
-## Debug libraries are prefixed with "d"
-set(CMAKE_DEBUG_POSTFIX "_debug")
+# Include Array directory for *.h files
+include_directories(Array)
 
-## Adding the source code for executable
-add_executable(Main${PROJECT_NAME} MainArray.cpp)
+# Create executable for the sample array code
+add_executable(Source-Main${PROJECT_NAME} Main${PROJECT_NAME}.cpp)
 
-message("--   Completing generation of CMake files for Data Structures")
+message("--   Completing generation of CMake files for ${PROJECT_NAME}")
