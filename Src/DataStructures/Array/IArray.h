@@ -24,6 +24,11 @@
 #include <cstdlib>
 #include <ostream>
 
+/*! @interface IArray
+ *  @brief An interface for Array class.
+ *
+ *  @details This is an interface for Array class
+ */
 template <typename T>
 class IArray
 {

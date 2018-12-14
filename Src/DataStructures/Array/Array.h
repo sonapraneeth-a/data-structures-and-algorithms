@@ -26,6 +26,12 @@
 
 #include "IArray.h"
 
+/*! @class Array
+ *  @brief A Static Array class.
+ *
+ *  @details This is a Static Array class. Static Array means that the size of
+ *           the array cannot be changed once declared
+ */
 template <typename T>
 class Array: public IArray<T>
 {
