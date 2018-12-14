@@ -21,7 +21,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 ## Name of the project
-project(DataStructures)
+project(Source-DataStructures)
 
 ## C++ Standard used
 set(CMAKE_CXX_STANDARD 11)

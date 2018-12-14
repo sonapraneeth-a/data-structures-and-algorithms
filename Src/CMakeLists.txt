@@ -23,7 +23,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 ## Name of the project
-project(DataStructuresAndAlgorithms-Source)
+project(Source-DataStructuresAndAlgorithms)
 
 ## C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
