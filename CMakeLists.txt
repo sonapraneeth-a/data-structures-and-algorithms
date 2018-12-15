@@ -22,6 +22,9 @@ project(DataStructuresAndAlgorithms)
 # C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
+# Adding google test directory
+add_subdirectory("Lib/googletest")
+
 # Adding source directory
 add_subdirectory(Src)
 

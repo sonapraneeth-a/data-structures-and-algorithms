@@ -31,9 +31,8 @@ project(Test-DataStructuresAndAlgorithms)
 # C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
-add_subdirectory("./Lib/googletest")
-include_directories("./Lib/googletest/googletest/include")
-include_directories("./Lib/googletest/googlemock/include")
+include_directories("../Lib/googletest/googletest/include")
+include_directories("../Lib/googletest/googlemock/include")
 
 SET(TEST_PREFIX Test-)
 

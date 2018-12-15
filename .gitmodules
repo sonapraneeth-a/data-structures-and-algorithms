@@ -1,6 +1,6 @@
 [submodule "Test/Lib/googletest"]
-	path = Test/Lib/googletest
+	path = Lib/googletest
 	url = https://github.com/abseil/googletest.git
 [submodule "Src/Lib/plog"]
-	path = Src/Lib/plog
+	path = Lib/plog
 	url = https://github.com/SergiusTheBest/plog.git
