@@ -27,7 +27,7 @@
  * @tparam  T Generic parameter
  */
 template<typename T>
-Array<T>::Array()
+DS::Array<T>::Array()
 {
     this->_Capacity = this->MIN_ARRAY_CAPACITY;
     this->_Size = 0;
@@ -51,7 +51,7 @@ Array<T>::Array()
  * @param   [size_t] capacity - Capacity of the Array
  */
 template <typename T>
-Array<T>::Array (
+DS::Array<T>::Array (
         size_t capacity
 )
 {
@@ -83,7 +83,7 @@ Array<T>::Array (
  * @param   [T] defaultValue - Value which should be used to fill the Array
  */
 template <typename T>
-Array<T>::Array (
+DS::Array<T>::Array (
         size_t capacity,
         T defaultValue
 )
@@ -110,7 +110,7 @@ Array<T>::Array (
  * @tparam  T Generic parameter
  */
 template <typename T>
-Array<T>::~Array()
+DS::Array<T>::~Array()
 {
     this->_Capacity = 0;
     this->_Size = 0;

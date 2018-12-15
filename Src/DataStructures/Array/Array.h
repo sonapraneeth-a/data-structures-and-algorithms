@@ -26,56 +26,62 @@
 
 #include "IArray.h"
 
-/*! @class Array
- *  @brief A Static Array class.
- *
- *  @details This is a Static Array class. Static Array means that the size of
- *           the array cannot be changed once declared
- */
-template <typename T>
-class Array: public IArray<T>
+namespace DS
 {
-
-public:
-
-    // Reference: https://www.geeksforgeeks.org/g-fact-93/
-    explicit Array();
-    explicit Array(size_t capacity);
-    explicit Array(size_t capacity, T defaultValue);
-
-    ~Array();
-
-private:
-
-    const size_t MIN_ARRAY_CAPACITY = 10;
-
-};
-
-/**
- * @brief   Prints the contents of the array to the ostream operator
- * @details
- *
- * @tparam  T Generic parameter
- * @param   [std::ostream] os - Ostream operator to which contents of the array have
- *                        to be printed
- * @param   [Array<T>&] array - Array which has to be printed
- * @return  [std::ostream] os - Ostream operator with the array contents
+    /*! @class Array
+     *  @brief A Static Array class.
+     *
+     *  @details This is a Static Array class. Static Array means that the size of
+     *           the array cannot be changed once declared
  */
-template<typename T>
-std::ostream& operator <<(std::ostream& os, const Array<T>& array)
-{
-    for (size_t __index = 0; __index < array.Size(); ++__index)
+    template<typename T>
+    class Array : public DS::IArray<T>
     {
-        if (__index != array.Size() - 1)
+
+    public:
+
+        // Reference: https://www.geeksforgeeks.org/g-fact-93/
+        explicit Array();
+
+        explicit Array(size_t capacity);
+
+        explicit Array(size_t capacity, T defaultValue);
+
+        ~Array();
+
+    private:
+
+        const size_t MIN_ARRAY_CAPACITY = 10;
+
+    };
+
+    /**
+     * @brief   Prints the contents of the array to the ostream operator
+     * @details
+     *
+     * @tparam  T Generic parameter
+     * @param   [std::ostream] os - Ostream operator to which contents of the array have
+     *                        to be printed
+     * @param   [Array<T>&] array - Array which has to be printed
+     * @return  [std::ostream] os - Ostream operator with the array contents
+     */
+    template<typename T>
+    std::ostream &operator<<(std::ostream &os, const Array<T> &array)
+    {
+        for (size_t __index = 0; __index < array.Size(); ++__index)
         {
-            os << array.Get(__index) << ", ";
+            if (__index != array.Size() - 1)
+            {
+                os << array.Get(__index) << ", ";
+            }
+            else
+            {
+                os << array.Get(__index);// << "\n";
+            }
         }
-        else
-        {
-            os << array.Get(__index);// << "\n";
-        }
+        return os;
     }
-    return os;
+
 }
 
 #include "Array.cpp"

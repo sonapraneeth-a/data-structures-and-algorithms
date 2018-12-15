@@ -48,15 +48,15 @@ protected:
     }
 
     // Empty Array constructor of int type
-    Array<int> *_Array_int_000 = new Array<int>();
+    DS::Array<int> *_Array_int_000 = new DS::Array<int>();
     // Array constructor of int type of size 0 pre-filled with default value for
     // int
-    Array<int> *_Array_int_100 = new Array<int>(0);
+    DS::Array<int> *_Array_int_100 = new DS::Array<int>(0);
     // Array constructor of int type of size 1 pre-filled with default value for
     // int
-    Array<int> *_Array_int_101 = new Array<int>(1);
+    DS::Array<int> *_Array_int_101 = new DS::Array<int>(1);
     // Array constructor of int type of size 10 pre-filled with value 0
-    Array<int> *_Array_int_210_0 = new Array<int>(10, 0);
+    DS::Array<int> *_Array_int_210_0 = new DS::Array<int>(10, 0);
 
 };
 
