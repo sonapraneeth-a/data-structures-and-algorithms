@@ -42,17 +42,14 @@ namespace DS
     public:
 
         bool IsEmpty() const;
-
         size_t Size() const;
-
         T Get(size_t index) const;
-
         void Set(size_t index, T value);
-//    virtual void Insert(size_t index, T value) = 0;
-//    virtual void Remove(size_t index) = 0;
-
         T operator[] (size_t index) const;
         T& operator[] (size_t index);
+
+        virtual void Insert(size_t index, T value) = 0;
+        virtual void Remove(size_t index) = 0;
 
     protected:
 

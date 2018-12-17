@@ -42,10 +42,11 @@ namespace DS
 
         // Reference: https://www.geeksforgeeks.org/g-fact-93/
         explicit Array();
-
         explicit Array(size_t capacity);
-
         explicit Array(size_t capacity, T defaultValue);
+
+        void Insert(size_t index, T value);
+        void Remove(size_t index);
 
         ~Array();
 

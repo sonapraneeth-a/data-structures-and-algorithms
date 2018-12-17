@@ -103,6 +103,25 @@ DS::Array<T>::Array (
     }
 }
 
+template<typename T>
+void
+DS::Array<T>::Insert(
+        size_t index,
+        T value
+        )
+{
+
+}
+
+template<typename T>
+void
+DS::Array<T>::Remove(
+        size_t index
+        )
+{
+
+}
+
 /**
  * @brief   Destructor for the class Array
  * @details Deletes the memory assigned for the Array and sets it back to null
