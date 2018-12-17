@@ -18,6 +18,8 @@
  *                                                for Get(), Set(), Size(), IsEmpty()
  * 17-12-2018               sonapraneeth-a      - Added time and space complexity
  *                                                to comments
+ *                                              - Added base implementations for
+ *                                                operators []
  */
 
 #ifndef IARRAY_H
@@ -48,9 +50,9 @@ namespace DS
         void Set(size_t index, T value);
 //    virtual void Insert(size_t index, T value) = 0;
 //    virtual void Remove(size_t index) = 0;
-//
-//    T operator[] (size_t index) const = 0;
-//    T& operator[] (size_t index) = 0;
+
+        T operator[] (size_t index) const;
+        T& operator[] (size_t index);
 
     protected:
 
@@ -77,7 +79,7 @@ namespace DS
     T
     IArray<T>::Get(
             size_t index
-    ) const
+            ) const
     {
         T value;
         if (index < this->_Size)
@@ -105,7 +107,7 @@ namespace DS
     IArray<T>::Set(
             size_t index,
             T value
-    )
+            )
     {
         if (index >= this->_Capacity)
         {
@@ -127,8 +129,7 @@ namespace DS
     size_t
     IArray<T>::Size() const
     {
-        // Reference:
-        // https://stackoverflow.com/questions/3141087/what-is-meant-with-const-at-end-of-function-declaration
+        // Reference: https://stackoverflow.com/questions/3141087/what-is-meant-with-const-at-end-of-function-declaration
         return this->_Size;
     }
 
@@ -144,8 +145,54 @@ namespace DS
     bool
     IArray<T>::IsEmpty() const
     {
-        // returns true if _Size is set to 0, else false
+        // Returns true if _Size is set to 0, else false
         return this->_Size == 0;
+    }
+
+    /**
+     * @brief   Get a reference to the memory address of the array indexed by
+     *          variable 'index'
+     * @details  **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
+     *
+     * @tparam  T Generic parameter
+     * @param   [size_t] index - Location in the array
+     * @return  [T] Reference to the location index in the array
+     */
+    template <typename T>
+    T& IArray<T>::operator[] (
+            size_t index
+            )
+    {
+        // Values inside the _Container can be accessed if the index requested
+        // is less than the size of Array object
+        if(index < this->_Size)
+        {
+            return this->_Container[index];
+        }
+    }
+
+    /**
+     * @brief   Get the value present in the array at the location indexed by
+     *          variable 'index'
+     * @details  **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
+     *
+     * @tparam  T Generic parameter
+     * @param   [size_t] index - Location in the array
+     * @return  [T] Value present at the location index in the array
+     */
+    template <typename T>
+    T IArray<T>::operator[] (
+            size_t index
+            ) const
+    {
+        // Values inside the _Container can be accessed if the index requested
+        // is less than the size of Array object
+        if(index < this->_Size)
+        {
+            return this->_Container[index];
+        }
     }
 
 }
