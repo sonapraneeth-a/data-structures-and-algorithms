@@ -65,6 +65,7 @@ namespace DS
      *          exception is thrown.
      *           **Time complexity:** O(1)
      *          **Space complexity:** O(1)
+     * @todo    Add OutOfBoundsException to the Get() code
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Index of the array for which user wants the contents
@@ -93,6 +94,7 @@ namespace DS
      *          "OutOfBoundsException" is thrown
      *           **Time complexity:** O(1)
      *          **Space complexity:** O(1)
+     * @todo    Add OutOfBoundsException to the Set() code
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Location in array whose value has to be modified
@@ -111,12 +113,13 @@ namespace DS
 
         }
         this->_Container[index] = value;
-        return;
     }
 
     /**
      * @brief   Returns the current size of the array
-     * @details  **Time complexity:** O(1)
+     * @details If index is greater than the size of the array an exception
+     *          "OutOfBoundsException" is thrown
+     *          **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
@@ -132,7 +135,9 @@ namespace DS
 
     /**
      * @brief   Returns true if array is empty else false
-     * @details  **Time complexity:** O(1)
+     * @details If index is greater than the size of the array an exception
+     *          "OutOfBoundsException" is thrown
+     *           **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
