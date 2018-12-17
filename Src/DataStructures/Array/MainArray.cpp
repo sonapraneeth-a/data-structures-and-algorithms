@@ -53,7 +53,6 @@ void RunArray_Constructors()
     std::cout << "   Array_203.Size(): " << Array_203.Size() << "\n";
     std::cout << "Array_203.IsEmpty(): " << Array_203.IsEmpty() << "\n";
 
-    return ;
 }
 
 int main()

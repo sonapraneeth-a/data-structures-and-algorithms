@@ -30,7 +30,6 @@ PrintProjectInfo()
     std::cout << "========================================\n";
     std::cout << "   Name: " << __PROJECT_NAME__ << "\n";
     std::cout << "Version: " << __PROJECT_VERSION__ << "\n";
-    return ;
 }
 
 #endif // DEFAULT_HEADERS_H
