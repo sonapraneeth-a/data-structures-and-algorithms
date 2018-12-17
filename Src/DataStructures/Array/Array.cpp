@@ -103,6 +103,15 @@ DS::Array<T>::Array (
     }
 }
 
+/**
+ * @brief   Inserts an element at the specified location in the Array
+ * @details
+ * @todo    Add tests for this function
+ *
+ * @tparam  T Generic parameter
+ * @param   [size_t] index - Location in array where the value has to be inserted
+ * @param   [T] value - Value to appended to the end of the array
+ */
 template<typename T>
 void
 DS::Array<T>::Insert(
@@ -110,16 +119,47 @@ DS::Array<T>::Insert(
         T value
         )
 {
-
+    // If current size is greater than what the array can take in,
+    // then we have to expand the memory of the Array to take in
+    // more elements
+    if(this->_Size < this->_Capacity)
+    {
+        // Shift all the elements by the index to right
+        for(size_t __index = index; __index < this->_Size; __index++)
+        {
+            this->_Container[__index+1] = this->_Container[__index];
+        }
+        this->_Container[index] = value;
+        this->_Size++;
+    }
 }
 
+
+/**
+ * @brief   Removes the elements present at index^{th} location in the Array
+ * @details If index^{th} element does not exist, then "OutOfBoundsException" is
+ *          thrown
+ * @todo    Add tests for this function
+ *
+ * @tparam  T Generic parameter
+ * @param   [size_t] index - The element index which has to be removed from the Array
+ */
 template<typename T>
 void
 DS::Array<T>::Remove(
         size_t index
         )
 {
-
+    if(index < this->_Size)
+    {
+        // Shift all the elements by the index to left
+        for(size_t __index = index+1; __index < this->_Size; __index++)
+        {
+            this->_Container[__index-1] = this->_Container[__index];
+        }
+        // Reduce the size
+        this->_Size--;
+    }
 }
 
 /**
