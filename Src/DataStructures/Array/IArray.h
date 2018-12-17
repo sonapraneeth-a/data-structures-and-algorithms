@@ -3,7 +3,7 @@
  *
  *        Filename: IArray.h
  *      Created on: 13 December 2018
- *   Last modified: 14 December 2018
+ *   Last modified: 17 December 2018
  *         Authors: sonapraneeth-a
  *         Details: File for interface of array
  */
@@ -16,6 +16,8 @@
  *                                              - Creation of IArray interface
  * 14-12-2018               sonapraneeth-a      - Added base implementations
  *                                                for Get(), Set(), Size(), IsEmpty()
+ * 17-12-2018               sonapraneeth-a      - Added time and space complexity
+ *                                                to comments
  */
 
 #ifndef IARRAY_H
@@ -53,15 +55,17 @@ namespace DS
     protected:
 
         T *_Container = nullptr;   /*!< Variable containing the array elements */
-        size_t _Capacity = 0;         /*!< Maximum capacity of the array */
-        size_t _Size = 0;         /*!< Current size of the array */
+        size_t _Capacity = 0;      /*!< Maximum capacity of the array */
+        size_t _Size = 0;          /*!< Current size of the array */
 
     };
 
     /**
      * @brief   Returns value present in the index^{th} block of the array
      * @details If the index given is invalid, then an "OutOfBoundsException"
-     *          exception is thrown
+     *          exception is thrown.
+     *           **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Index of the array for which user wants the contents
@@ -76,7 +80,8 @@ namespace DS
     ) const
     {
         T value;
-        if (index < this->_Size) {
+        if (index < this->_Size)
+        {
             value = this->_Container[index];
         }
         return value;
@@ -87,6 +92,8 @@ namespace DS
      *          provided by the user
      * @details If index is greater than the size of the array an exception
      *          "OutOfBoundsException" is thrown
+     *           **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Location in array whose value has to be modified
@@ -108,13 +115,14 @@ namespace DS
         return;
     }
 
-/**
- * @brief   Returns the current size of the array
- * @details
- *
- * @tparam  T Generic parameter
- * @return  [size_t] Returns the current size of the array
- */
+    /**
+     * @brief   Returns the current size of the array
+     * @details  **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
+     *
+     * @tparam  T Generic parameter
+     * @return  [size_t] Returns the current size of the array
+     */
     template<typename T>
     size_t
     IArray<T>::Size() const
@@ -126,7 +134,8 @@ namespace DS
 
     /**
      * @brief   Returns true if array is empty else false
-     * @details
+     * @details  **Time complexity:** O(1)
+     *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
      * @return  [bool] Returns true if array is empty else false
