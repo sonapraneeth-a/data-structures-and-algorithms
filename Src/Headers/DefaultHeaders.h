@@ -20,6 +20,9 @@
 #ifndef DEFAULT_HEADERS_H
 #define DEFAULT_HEADERS_H
 
+#include <iterator>
+#include <sstream>
+
 #include "StandardHeaders.h"
 #include "ProjectInfo.h"
 
@@ -30,6 +33,22 @@ PrintProjectInfo()
     std::cout << "========================================\n";
     std::cout << "   Name: " << __PROJECT_NAME__ << "\n";
     std::cout << "Version: " << __PROJECT_VERSION__ << "\n";
+}
+
+void
+PrintHeading(
+        const std::string& content,
+        unsigned short int level = 1
+        )
+{
+    size_t length = content.size();
+    std::string character = ( level == 1 ? "=" : "-" );
+    std::ostringstream os;
+    std::fill_n(std::ostream_iterator<std::string>(os), length, character);
+    std::cout << os.str() << "\n";
+    std::cout << content << "\n";
+    std::cout << os.str() << "\n";
+    std::cout.flush();
 }
 
 #endif // DEFAULT_HEADERS_H
