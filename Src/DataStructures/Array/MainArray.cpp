@@ -23,8 +23,9 @@
 
 void RunArray_Constructors()
 {
-    std::cout << "Running code for Array Constructor\n";
-    std::cout << "----------------------------------\n";
+    // std::cout << "Running code for Array Constructor\n";
+    // std::cout << "----------------------------------\n";
+    PrintHeading("Running code for Array Constructors()", 2);
 
     std::cout << "Constructor(1) --> Array()\n";
     DS::Array<int> Array_001;
@@ -55,12 +56,36 @@ void RunArray_Constructors()
 
 }
 
+void RunArray_Get()
+{
+    // std::cout << "Running code for Array Get()\n";
+    // std::cout << "----------------------------------\n";
+    PrintHeading("Running code for Array Get()", 2);
+
+    std::cout << "Get() --> Array()\n";
+    try
+    {
+        DS::Array<int> Array_001;
+        std::cout << "          Array_001: " << Array_001 << "\n";
+        std::cout << Array_001.Get(8) << "\n";
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << "\n";
+    }
+}
+
 int main()
 {
     PrintProjectInfo();
     std::cout << "\n";
-    std::cout << "Sample code for Array module\n";
-    std::cout << "============================\n\n";
+
+    // std::cout << "Sample code for Array module\n";
+    // std::cout << "============================\n\n";
+    PrintHeading("Sample code for Array module", 1);
+
     RunArray_Constructors();
+    RunArray_Get();
+
     return 0;
 }

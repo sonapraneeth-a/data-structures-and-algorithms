@@ -28,6 +28,8 @@
 #include <cstdlib>
 #include <ostream>
 
+#include "IndexOutOfBoundsException.h"
+
 namespace DS
 {
     /*! @interface IArray
@@ -83,8 +85,12 @@ namespace DS
         if (index < this->_Size)
         {
             value = this->_Container[index];
+            return value;
         }
-        return value;
+        std::string message = "index: " + std::to_string(index)
+                                + " is greater than "
+                                + "size of array: " + std::to_string(this->_Size);
+        throw Exception::IndexOutOfBoundsException(message);
     }
 
     /**

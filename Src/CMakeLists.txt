@@ -32,6 +32,8 @@ message("-- Generating CMake for Source of Data Structures and Algorithms")
 
 include_directories(Headers)
 
+include_directories(Exception)
+
 add_subdirectory(DataStructures)
 include_directories(DataStructures)
 
