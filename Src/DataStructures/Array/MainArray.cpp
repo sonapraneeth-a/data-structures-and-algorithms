@@ -3,7 +3,7 @@
  *
  *        Filename: MainArray.cpp
  *      Created on: 13 December 2018
- *   Last modified: 13 December 2018
+ *   Last modified: 15 January 2019
  *         Authors: sonapraneeth-a
  *         Details: File for main executable of the project - array
  */
@@ -14,6 +14,8 @@
  * Date (DD-MM-YYYY)            Author               Update
  * 13-12-2018               sonapraneeth-a      - Creation of the file
  * 14-12-2018               sonapraneeth-a      - Added code for RunArray_Constructors()
+ * 15-12-2018               sonapraneeth-a      - Updated code to use DS namespace
+ * 15-01-2019               sonapraneeth-a      - Added empty comments for functions
  */
 
 
@@ -21,10 +23,15 @@
 
 #include "Array.h"
 
-void RunArray_Constructors()
+/**
+ * @brief   Code for manual testing of Array constructors
+ * @details
+ *
+ * @return
+ */
+void
+RunArray_Constructors()
 {
-    // std::cout << "Running code for Array Constructor\n";
-    // std::cout << "----------------------------------\n";
     PrintHeading("Running code for Array Constructors()", 2);
 
     std::cout << "Constructor(1) --> Array()\n";
@@ -56,10 +63,15 @@ void RunArray_Constructors()
 
 }
 
-void RunArray_Get()
+/**
+ * @brief   Code for manual testing of Array Get()
+ * @details
+ *
+ * @return
+ */
+void
+RunArray_Get()
 {
-    // std::cout << "Running code for Array Get()\n";
-    // std::cout << "----------------------------------\n";
     PrintHeading("Running code for Array Get()", 2);
 
     std::cout << "Get() --> Array()\n";
@@ -75,13 +87,18 @@ void RunArray_Get()
     }
 }
 
-int main()
+/**
+ * @brief   Code for manual testing of Array module
+ * @details
+ *
+ * @return
+ */
+int
+main()
 {
     PrintProjectInfo();
     std::cout << "\n";
 
-    // std::cout << "Sample code for Array module\n";
-    // std::cout << "============================\n\n";
     PrintHeading("Sample code for Array module", 1);
 
     RunArray_Constructors();
