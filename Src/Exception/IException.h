@@ -1,7 +1,7 @@
 /**
  * File description
  *      Created on: 17 December 2018
- *   Last modified: 17 December 2018
+ *   Last modified: 15 January 2019
  *         Authors: sonapraneeth-a
  *         Details: Header for exception interface
  */
@@ -13,6 +13,9 @@
  * 17-12-2018               sonapraneeth-a      - Creation of the file
  *                                              - Added sample implementation for
  *                                                exception interface
+ * 15-01-2019               sonaprneeth-a       - Fixed a cppcheck error caused
+ *                                                due to message.c_str() getting
+ *                                                destroyed after function return
  */
 
 
@@ -21,6 +24,7 @@
 
 #include <exception>
 #include <string>
+#include <cstring>
 
 namespace Exception
 {
@@ -47,7 +51,8 @@ namespace Exception
         message += "   Type:: " + _ExceptionName + "\n";
         message += " Reason:: " + _DefaultMessage + "\n";
         message += "Message:: " + _CustomMessage + "\n";
-        return message.c_str();
+        // Reference: https://stackoverflow.com/questions/22330250/how-to-return-a-stdstring-c-str
+        return strdup(message.c_str());
     }
 
 }
