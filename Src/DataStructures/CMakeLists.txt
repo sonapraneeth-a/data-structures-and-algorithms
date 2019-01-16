@@ -31,6 +31,9 @@ message("--   Generating CMake for Data Structures")
 add_subdirectory(Array)
 include_directories(Array)
 
+add_subdirectory(Node)
+include_directories(Node)
+
 ## Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
