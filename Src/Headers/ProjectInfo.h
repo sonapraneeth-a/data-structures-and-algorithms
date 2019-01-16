@@ -19,7 +19,7 @@
 #ifndef PROJECT_INFO_H
 #define PROJECT_INFO_H
 
-#define __PROJECT_VERSION__ "0.0.1"
+#define __PROJECT_VERSION__ "0.1.0"
 #define __PROJECT_NAME__ "Data Structures and Algorithms"
 
 #endif // PROJECT_INFO_H
