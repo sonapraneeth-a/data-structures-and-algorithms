@@ -166,7 +166,6 @@ DS::Array<T>::Remove(
  * @brief   Destructor for the class Array
  * @details Deletes the memory assigned for the Array and sets it back to null
  *
- * @tparam  T Generic parameter
  */
 template <typename T>
 DS::Array<T>::~Array()

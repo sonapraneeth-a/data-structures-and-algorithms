@@ -67,7 +67,6 @@ namespace DS
      *          exception is thrown.
      *           **Time complexity:** O(1)
      *          **Space complexity:** O(1)
-     * @todo    Add OutOfBoundsException to the Get() code
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Index of the array for which user wants the contents
@@ -82,6 +81,8 @@ namespace DS
             ) const
     {
         T value;
+        // Values inside the _Container can be accessed if the index requested
+        // is less than the size of IArray object
         if (index < this->_Size)
         {
             value = this->_Container[index];
@@ -114,11 +115,14 @@ namespace DS
             T value
             )
     {
-        if (index >= this->_Capacity)
+        if (index < this->_Capacity)
         {
-
+            this->_Container[index] = value;
         }
-        this->_Container[index] = value;
+        std::string message = "index: " + std::to_string(index)
+                              + " is greater than "
+                              + "size of array: " + std::to_string(this->_Size);
+        throw Exception::IndexOutOfBoundsException(message);
     }
 
     /**
@@ -178,6 +182,10 @@ namespace DS
         {
             return this->_Container[index];
         }
+        std::string message = "index: " + std::to_string(index)
+                              + " is greater than "
+                              + "size of array: " + std::to_string(this->_Size);
+        throw Exception::IndexOutOfBoundsException(message);
     }
 
     /**
@@ -195,14 +203,35 @@ namespace DS
             size_t index
             ) const
     {
-        // Values inside the _Container can be accessed if the index requested
-        // is less than the size of Array object
-        if(index < this->_Size)
-        {
-            return this->_Container[index];
-        }
+        this->Get(index);
     }
 
+    /**
+     * @brief   Prints the contents of the array to the ostream operator
+     * @details
+     *
+     * @tparam  T Generic parameter
+     * @param   [std::ostream] os - Ostream operator to which contents of the array have
+     *                        to be printed
+     * @param   [IArray<T>&] array - Array which has to be printed
+     * @return  [std::ostream] os - Ostream operator with the array contents
+     */
+    template<typename T>
+    std::ostream &operator<<(std::ostream &os, const IArray<T> &array)
+    {
+        for (size_t __index = 0; __index < array.Size(); ++__index)
+        {
+            if (__index != array.Size() - 1)
+            {
+                os << array.Get(__index) << ", ";
+            }
+            else
+            {
+                os << array.Get(__index);// << "\n";
+            }
+        }
+        return os;
+    }
 }
 
 #endif // IARRAY_H
