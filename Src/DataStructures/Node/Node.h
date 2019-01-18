@@ -22,7 +22,7 @@
 #define NODE_H
 
 #include <cstdlib>
-#include <ostream>
+#include <sstream>
 
 namespace DS
 {

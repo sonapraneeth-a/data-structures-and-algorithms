@@ -94,10 +94,10 @@ DS::Node<T>::ToString()
  * @details
  *
  * @tparam  T Generic parameter
- * @param   [std::ostream] os - Ostream operator to which contents of the array have
+ * @param   [std::ostream] os - Ostream operator to which contents of the node have
  *                        to be printed
  * @param   [Node<T>&] node - Node which has to be printed
- * @return  [std::ostream] os - Ostream operator with the array contents
+ * @return  [std::ostream] os - Ostream operator with the noed contents
  */
 template<typename T>
 std::ostream &
