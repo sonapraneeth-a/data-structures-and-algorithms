@@ -1,10 +1,10 @@
 ## File description
 ##
-##         Project: Data Structures
+##         Project: Data Structures -> Array
 ##         Authors: sonapraneeth-a
 ##      Created on: 12 December 2018
 ##   Last modified: 14 December 2018
-##         Details: File for main executable for data structures project
+##         Details: File for main executable for data structures -> array project
 ##
 
 ## Changelog

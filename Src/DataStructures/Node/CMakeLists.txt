@@ -1,10 +1,10 @@
 ## File description
 ##
-##         Project: Data Structures
+##         Project: Data Structures -> Node
 ##         Authors: sonapraneeth-a
 ##      Created on: 15 January 2019
 ##   Last modified: 15 January 2019
-##         Details: File for main executable for node project
+##         Details: File for main executable for data strucutures-> node project
 ##
 
 ## Changelog
