@@ -3,7 +3,7 @@
 ##         Project: Data Structures
 ##         Authors: sonapraneeth-a
 ##      Created on: 12 December 2018
-##   Last modified: 12 December 2018
+##   Last modified: 18 January 2018
 ##         Details: File for main executable for data structures project
 ##
 
@@ -14,6 +14,8 @@
 ##                                              - Including Headers directory
 ##                                              - Adding Main.cpp to executable
 ## 13-12-2018               sonapraneeth-a      - Added Array module to the project
+## 15-01-2019               sonapraneeth-a      - Added Node module to the project
+## 18-01-2019               sonapraneeth-a      - Added Node module to the project
 ##
 
 
@@ -33,6 +35,9 @@ include_directories(Array)
 
 add_subdirectory(Node)
 include_directories(Node)
+
+add_subdirectory(Stack)
+include_directories(Stack)
 
 ## Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
