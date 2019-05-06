@@ -3,7 +3,7 @@
  *
  *        Filename: Stack.cpp
  *      Created on: 22 March 2018
- *   Last modified: 17 January 2019
+ *   Last modified: 03 April 2019
  *          Author: sonapraneeth-a
  *         Details: Implementation for stack (Imported from master branch)
  */
@@ -32,6 +32,7 @@
  * 18-01-2019               sonapraneeth-a        - Moved the code to DS namespace
  *                                                - Renamed _MaxSize variable to
  *                                                  _Capacity
+ * 03-04-2019               sonapraneeth-a        - Fixed an issue in Stack destructor
  */
 
 /**
@@ -49,7 +50,7 @@ DS::Stack<T>::Stack()
 }
 
 /**
- * @brief   Constructor which fixes the maximum capacity it can have
+ * @brief   Constructor which fixes the maximum capacity stack can have
  * @details 
  * 
  * @tparam  T Generic parameter
@@ -65,7 +66,7 @@ DS::Stack<T>::Stack(T value)
 
 /**
  * @brief   Get the element at the top of the stack
- * @details If the stack is empty it throws an EmptyException
+ * @details If the stack is empty it throws an AccessViolationException
  * 
  * @tparam  T Generic parameter
  * @return  [T] Value which is present at the top of the stack
@@ -86,7 +87,7 @@ DS::Stack<T>::Peek()
 /**
  * @brief   Removes the element from the top of the stack and returns the value
  *          which was present at the top of the stack
- * @details If the stack is empty it throws an EmptyException
+ * @details If the stack is empty it throws an AccessViolationException
  * 
  * @tparam  T Generic parameter
  * @return  [T] Value which was present at the top of the stack
@@ -102,6 +103,10 @@ DS::Stack<T>::Pop()
         // Get the value present in the top pointer
         T value = __TempNode->Data();
         this->_Top = this->_Top->Next();
+        if (this->_Size == 1)
+        {
+            this->_Top = nullptr;
+        }
         // Free the memory for the top of the stack in order to remove the element
         delete __TempNode;
         // Reduce the size of the stack by 1
@@ -190,11 +195,14 @@ template <typename T>
 DS::Stack<T>::~Stack()
 {
     DS::Node<T> *__TempNode = this->_Top;
+    // Pop out all the elements from the stack until the stack is empty
     while(__TempNode != nullptr)
     {
         this->Pop();
+        // Reset the _Top pointer for continued pop
         __TempNode = this->_Top;
     }
+    this->_Top = nullptr;
     this->_Capacity = 0;
 }
 
