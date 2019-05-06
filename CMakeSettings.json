@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "buildCommandArgs": "-v",
+            "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+            "cmakeCommandArgs": "",
+            "configurationType": "Debug",
+            "ctestCommandArgs": "",
+            "environments": [
+                {
+                    "MINGW64_ROOT": "C:\\MinGW",
+                    "BIN_ROOT": "${env.MINGW64_ROOT}\\bin",
+                    "FLAVOR": "x86_64-w64-mingw32",
+                    "TOOLSET_VERSION": "8.2.0",
+                    "PATH": "${env.MINGW64_ROOT}\\bin;${env.MINGW64_ROOT}\\..\\usr\\local\\bin;${env.MINGW64_ROOT}\\..\\usr\\bin;${env.MINGW64_ROOT}\\..\\bin;${env.PATH}",
+                    "INCLUDE": "${env.INCLUDE};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION};${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\tr1;${env.MINGW64_ROOT}\\include\\c++\\${env.TOOLSET_VERSION}\\${env.FLAVOR}",
+                    "environment": "mingw_64"
+                }
+            ],
+            "generator": "Ninja",
+            "inheritEnvironments": [ "mingw_64" ],
+            "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+            "intelliSenseMode": "linux-gcc-x64",
+            "name": "MinGW x64 Debug",
+            "variables": [
+                {
+                    "name": "CMAKE_C_COMPILER",
+                    "value": "C:\\MinGW\\bin\\gcc.exe",
+                    "type": "STRING"
+                },
+                {
+                    "name": "CMAKE_CXX_COMPILER",
+                    "value": "C:\\MinGW\\bin\\g++.exe",
+                    "type": "STRING"
+                }
+            ]
+        }
+    ]
+}
