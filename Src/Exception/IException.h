@@ -52,7 +52,11 @@ namespace Exception
         message += " Reason:: " + _DefaultMessage + "\n";
         message += "Message:: " + _CustomMessage + "\n";
         // Reference: https://stackoverflow.com/questions/22330250/how-to-return-a-stdstring-c-str
-        return strdup(message.c_str());
+        // return strdup(message.c_str());
+        char* message_char_string = new char[message.length() + 1];
+        strcpy_s(message_char_string, message.length() + 1, message.c_str());
+        return message_char_string;
+        // return message.c_str();
     }
 
 }

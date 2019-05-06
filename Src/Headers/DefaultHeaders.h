@@ -22,6 +22,7 @@
 
 #include <iterator>
 #include <sstream>
+#include <cstddef>
 
 #include "StandardHeaders.h"
 #include "ProjectInfo.h"
