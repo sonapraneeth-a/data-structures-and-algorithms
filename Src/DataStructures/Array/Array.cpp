@@ -3,7 +3,7 @@
  *
  *        Filename: Array.cpp
  *      Created on: 13 December 2018
- *   Last modified: 13 December 2018
+ *   Last modified: 04 March 2018
  *         Authors: sonapraneeth-a
  *         Details: File for implementation of static array class functions
  */
@@ -16,6 +16,8 @@
  *                                              - Creation of Static Array class
  *                                                definitions
  * 14-12-2018               sonapraneeth-a      - Fixed code to follow Coding guidelines
+ * 04-03-2018               sonapraneeth-a      - Added time complexity for remove
+ *                                                and insert functions
  */
 
 
@@ -105,7 +107,7 @@ DS::Array<T>::Array (
 
 /**
  * @brief   Inserts an element at the specified location in the Array
- * @details
+ * @details **Time Complexity:** O(n)
  * @todo    Add tests for this function
  *
  * @tparam  T Generic parameter
@@ -139,6 +141,7 @@ DS::Array<T>::Insert(
  * @brief   Removes the elements present at index^{th} location in the Array
  * @details If index^{th} element does not exist, then "OutOfBoundsException" is
  *          thrown
+ *          **Time Complexity:** O(n)
  * @todo    Add tests for this function
  *
  * @tparam  T Generic parameter

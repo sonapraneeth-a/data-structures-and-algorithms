@@ -27,6 +27,7 @@
 
 #include <cstdlib>
 #include <ostream>
+#include <cstddef>
 
 #include "IndexOutOfBoundsException.h"
 
@@ -127,9 +128,7 @@ namespace DS
 
     /**
      * @brief   Returns the current size of the array
-     * @details If index is greater than the size of the array an exception
-     *          "OutOfBoundsException" is thrown
-     *          **Time complexity:** O(1)
+     * @details **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
@@ -145,9 +144,7 @@ namespace DS
 
     /**
      * @brief   Returns true if array is empty else false
-     * @details If index is greater than the size of the array an exception
-     *          "OutOfBoundsException" is thrown
-     *           **Time complexity:** O(1)
+     * @details **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
@@ -191,7 +188,7 @@ namespace DS
     /**
      * @brief   Get the value present in the array at the location indexed by
      *          variable 'index'
-     * @details  **Time complexity:** O(1)
+     * @details **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
