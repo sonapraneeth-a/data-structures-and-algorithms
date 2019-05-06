@@ -3,7 +3,7 @@
 ##         Project: Data Structures
 ##         Authors: sonapraneeth-a
 ##      Created on: 12 December 2018
-##   Last modified: 18 January 2018
+##   Last modified: 19 January 2018
 ##         Details: File for main executable for data structures project
 ##
 
@@ -15,7 +15,8 @@
 ##                                              - Adding Main.cpp to executable
 ## 13-12-2018               sonapraneeth-a      - Added Array module to the project
 ## 15-01-2019               sonapraneeth-a      - Added Node module to the project
-## 18-01-2019               sonapraneeth-a      - Added Node module to the project
+## 18-01-2019               sonapraneeth-a      - Added Stack module to the project
+## 19-01-2019               sonapraneeth-a      - Added Queue module to the project
 ##
 
 
@@ -23,7 +24,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 ## Name of the project
-project(Source-DataStructures)
+project(DataStructures)
 
 ## C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
@@ -39,10 +40,13 @@ include_directories(Node)
 add_subdirectory(Stack)
 include_directories(Stack)
 
+add_subdirectory(Queue)
+include_directories(Queue)
+
 ## Debug libraries are prefixed with "d"
 set(CMAKE_DEBUG_POSTFIX "_debug")
 
 ## Adding the source code for executable
-add_executable(${PROJECT_NAME} Main.cpp)
+add_executable(Source-Main${PROJECT_NAME} Main${PROJECT_NAME}.cpp)
 
 message("--   Completing generation of CMake files for Data Structures")
