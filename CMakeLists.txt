@@ -22,6 +22,10 @@ project(DataStructuresAndAlgorithms)
 # C++ Standard used
 set(CMAKE_CXX_STANDARD 11)
 
+# Reference: https://stackoverflow.com/questions/13550153/no-tests-found-when-using-gtest-with-cmake-ctest/13551858
+# Need to call enable_testing on top level CMakeLists.txt
+enable_testing()
+
 # Adding google test directory
 add_subdirectory("Lib/googletest")
 

@@ -36,6 +36,8 @@ include_directories("../Lib/googletest/googlemock/include")
 
 SET(TEST_PREFIX Test-)
 
+include_directories("../Src/Exception")
+
 SET(SRC_HEADERS_DIR ../Src/Headers)
 include_directories("${SRC_HEADERS_DIR}")
 
@@ -58,3 +60,5 @@ target_link_libraries(${TEST_PREFIX}DataStructures gmock gmock_main)
 add_executable(${PROJECT_NAME} ${PROJECT_NAME}.cpp ${DS_TEST_FILES})
 target_link_libraries(${PROJECT_NAME} gtest gtest_main)
 target_link_libraries(${PROJECT_NAME} gmock gmock_main)
+
+add_test(DataStructures ${TEST_PREFIX}DataStructures)
