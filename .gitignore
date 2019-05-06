@@ -4,6 +4,7 @@ Build*
 ## Executable directories
 Bin*
 
+## JetBrains directories
 .idea
 
 ## Visual Studio
@@ -12,3 +13,6 @@ x64
 x86
 Debug
 Release
+
+## Visual Studio Code
+.vscode
