@@ -85,7 +85,10 @@ std::string
 DS::Node<T>::ToString()
 {
     std::stringstream out;
-    out << this->_Data << " -> " << this->_Next;
+    if (this->_Next)
+        out << this->_Data << " -> " << this->_Next;
+    else
+        out << this->_Data << " -> nullptr";
     return out.str();
 }
 
