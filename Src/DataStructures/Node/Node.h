@@ -65,7 +65,9 @@ namespace DS
         Node<T> *Next() const;
         void Next(Node<T> *nextLink);
 
-        std::string ToString();
+        std::string Address() const;
+
+        std::string ToString() const;
 
         ~Node();
 

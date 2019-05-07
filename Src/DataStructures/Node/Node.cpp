@@ -1,3 +1,4 @@
+#include "Node.h"
 /**
  * File description
  *
@@ -73,6 +74,16 @@ DS::Node<T>::Next(Node<T> *nextLink)
     this->_Next = nextLink;
 }
 
+template <typename T>
+std::string
+DS::Node<T>::Address() const
+{
+    const void* address = static_cast<const void*>(this);
+    std::stringstream ss;
+    ss << address;
+    return ss.str();
+}
+
 /**
  * @brief   Converts the Node object to std::string
  * @details
@@ -82,7 +93,7 @@ DS::Node<T>::Next(Node<T> *nextLink)
  */
 template <typename T>
 std::string
-DS::Node<T>::ToString()
+DS::Node<T>::ToString() const
 {
     std::stringstream out;
     if (this->_Next)
