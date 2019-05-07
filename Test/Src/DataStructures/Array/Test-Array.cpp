@@ -26,7 +26,7 @@
  *
  *  @details This is a test class for Static Array
  */
-class ArrayTest : public ::testing::Test
+class Array_Test : public ::testing::Test
 {
 
 protected:
@@ -65,7 +65,7 @@ protected:
  *
  *  @details This is a test class for Static Array Size() function
  */
-class ArraySizeTest: public ArrayTest
+class Array_SizeTest: public Array_Test
 {};
 
 /*! @class ArrayEmptyTest
@@ -73,7 +73,7 @@ class ArraySizeTest: public ArrayTest
  *
  *  @details This is a test class for Static Array IsEmpty() function
  */
-class ArrayEmptyTest: public ArrayTest
+class Array_EmptyTest: public Array_Test
 {};
 
 /**
@@ -81,7 +81,7 @@ class ArrayEmptyTest: public ArrayTest
  *          for various array constructors
  * @details
  */
-TEST_F(ArraySizeTest, ConstructorZeroSizeTest)
+TEST_F(Array_SizeTest, ConstructorZeroSizeTest)
 {
     EXPECT_EQ(0, _Array_int_000->Size());
     EXPECT_EQ(0, _Array_int_100->Size());
@@ -92,7 +92,7 @@ TEST_F(ArraySizeTest, ConstructorZeroSizeTest)
  *          of array for various array constructors
  * @details
  */
-TEST_F(ArraySizeTest, ConstructorGreaterThanZeroSizeTest)
+TEST_F(Array_SizeTest, ConstructorGreaterThanZeroSizeTest)
 {
     EXPECT_EQ(1, _Array_int_101->Size());
     EXPECT_EQ(10, _Array_int_210_0->Size());
@@ -103,7 +103,7 @@ TEST_F(ArraySizeTest, ConstructorGreaterThanZeroSizeTest)
  *          array constructors
  * @details
  */
-TEST_F(ArrayEmptyTest, ConstructorEmptyTest)
+TEST_F(Array_EmptyTest, ConstructorEmptyTest)
 {
     EXPECT_EQ(true, _Array_int_000->IsEmpty());
     EXPECT_EQ(true, _Array_int_100->IsEmpty());
@@ -114,7 +114,7 @@ TEST_F(ArrayEmptyTest, ConstructorEmptyTest)
  *          array constructors
  * @details
  */
-TEST_F(ArrayEmptyTest, ConstructorNotEmptyTest)
+TEST_F(Array_EmptyTest, ConstructorNotEmptyTest)
 {
     EXPECT_EQ(false, _Array_int_101->IsEmpty());
     EXPECT_EQ(false, _Array_int_210_0->IsEmpty());
