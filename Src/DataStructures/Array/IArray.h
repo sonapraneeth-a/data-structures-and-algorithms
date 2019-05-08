@@ -3,7 +3,7 @@
  *
  *        Filename: IArray.h
  *      Created on: 13 December 2018
- *   Last modified: 17 December 2018
+ *   Last modified: 07 May 2019
  *         Authors: sonapraneeth-a
  *         Details: File for interface of array
  */
@@ -20,6 +20,8 @@
  *                                                to comments
  *                                              - Added base implementations for
  *                                                operators []
+ * 07-05-2019               sonapraneeth-a      - Minor updates to comments
+ *                                              - Added Reset() and ToString()
  */
 
 #ifndef IARRAY_H
@@ -27,6 +29,7 @@
 
 #include <cstdlib>
 #include <ostream>
+#include <sstream>
 #include <cstddef>
 
 #include "IndexOutOfBoundsException.h"
@@ -50,6 +53,8 @@ namespace DS
         void Set(size_t index, T value);
         T operator[] (size_t index) const;
         T& operator[] (size_t index);
+        void Reset();
+        std::string ToString() const;
 
         virtual void Insert(size_t index, T value) = 0;
         virtual void Remove(size_t index) = 0;
@@ -64,16 +69,16 @@ namespace DS
 
     /**
      * @brief   Returns value present in the index^{th} block of the array
-     * @details If the index given is invalid, then an "OutOfBoundsException"
+     * @details If the index given is invalid, then an "IndexOutOfBoundsException"
      *          exception is thrown.
-     *           **Time complexity:** O(1)
+     *          **Time complexity:** O(1)
      *          **Space complexity:** O(1)
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Index of the array for which user wants the contents
      * @return  [T] - Value in the Array at that location. If value is not set (or)
      *                index trying to access invalid location then an exception
-     *                "OutOfBoundsException" is thrown
+     *                "IndexOutOfBoundsException" is thrown
      */
     template<typename T>
     T
@@ -99,10 +104,10 @@ namespace DS
      * @brief   Sets value present in the index^{th} block of the array to the one
      *          provided by the user
      * @details If index is greater than the size of the array an exception
-     *          "OutOfBoundsException" is thrown
-     *           **Time complexity:** O(1)
+     *          "IndexOutOfBoundsException" is thrown
+     *          **Time complexity:** O(1)
      *          **Space complexity:** O(1)
-     * @todo    Add OutOfBoundsException to the Set() code
+     * @todo    Add IndexOutOfBoundsException to the Set() code
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Location in array whose value has to be modified
@@ -216,6 +221,7 @@ namespace DS
     template<typename T>
     std::ostream &operator<<(std::ostream &os, const IArray<T> &array)
     {
+        os << "[";
         for (size_t __index = 0; __index < array.Size(); ++__index)
         {
             if (__index != array.Size() - 1)
@@ -227,8 +233,53 @@ namespace DS
                 os << array.Get(__index);// << "\n";
             }
         }
+        os << "]";
         return os;
     }
+
+    /**
+     * @brief   Reset the contents of the array with default value
+     * @details
+     *
+     * @tparam  T Generic parameter
+     * @return  void
+     */
+    template<typename T>
+    void IArray<T>::Reset()
+    {
+        for (size_t __index = 0; __index < this->_Size; ++__index)
+        {
+            this->_Container[__index] = T();
+        }
+    }
+
+    /**
+     * @brief   Return the contents of the array as string
+     * @details
+     *
+     * @tparam  T Generic parameter
+     * @return  [std::string] - String representation of the array
+     */
+    template<typename T>
+    std::string IArray<T>::ToString() const
+    {
+        std::stringstream ss;
+        ss << "[";
+        for (size_t __index = 0; __index < this->_Size; ++__index)
+        {
+            if (__index != this->_Size - 1)
+            {
+                ss << this.Get(__index) << ", ";
+            }
+            else
+            {
+                ss << this.Get(__index);// << "\n";
+            }
+        }
+        ss << "]";
+        return ss.str();
+    }
+
 }
 
 #endif // IARRAY_H
