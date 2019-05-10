@@ -26,7 +26,9 @@
 
 #include "Node.h"
 
-#define __PRETTY_FUNCTION__ __FUNCSIG__
+#if defined(_MSC_VER)
+    #define __PRETTY_FUNCTION__ __FUNCSIG__
+#endif
 
 /**
  * @brief   Code for testing Node constructors
