@@ -33,6 +33,7 @@
 #include <cstddef>
 
 #include "IndexOutOfBoundsException.h"
+#include "MemoryAllocationException.h"
 
 namespace DS
 {
@@ -51,10 +52,15 @@ namespace DS
         size_t Size() const;
         T Get(size_t index) const;
         void Set(size_t index, T value);
-        T operator[] (size_t index) const;
-        T& operator[] (size_t index);
         void Reset();
         std::string ToString() const;
+        T Front() const;
+        T Back() const;
+
+        // Operator code
+        T operator[] (size_t index) const;
+        T& operator[] (size_t index);
+
 
         virtual void Insert(size_t index, T value) = 0;
         virtual void Remove(size_t index) = 0;
@@ -107,7 +113,6 @@ namespace DS
      *          "IndexOutOfBoundsException" is thrown
      *          **Time complexity:** O(1)
      *          **Space complexity:** O(1)
-     * @todo    Add IndexOutOfBoundsException to the Set() code
      *
      * @tparam  T Generic parameter
      * @param   [size_t] index - Location in array whose value has to be modified
@@ -279,6 +284,48 @@ namespace DS
         ss << "]";
         return ss.str();
     }
+
+    /**
+     * @brief   Returns the elements present in the first part of the array
+     * @details If the array is empty, an exception "EmptyException" is thrown
+     *
+     * @tparam T Generic parameter
+     * @return [T] - Value present in the first block of the array (First element of the array)
+     */
+    template <typename T>
+    T IArray<T>::Front() const
+    {
+        if (this->_Size == 0)
+        {
+            std::string message = "index: " + std::to_string(0)
+                + " is greater than "
+                + "size of array: " + std::to_string(this->_Size);
+            throw Exception::IndexOutOfBoundsException(message);
+        }
+        return this->_Container[0];
+    }
+
+    /**
+     * @brief   Returns the elements present in the last part of the array
+     * @details If the array is empty, an exception "EmptyException" is thrown
+     *
+     * @tparam T Generic parameter
+     * @return [T] - Value present in the last block of the array (Last element of the array)
+     */
+    template <typename T>
+    T IArray<T>::Back() const
+    {
+        if (this->_Size == 0)
+        {
+            std::string message = "index: " + std::to_string(0)
+                + " is greater than "
+                + "size of array: " + std::to_string(this->_Size);
+            throw Exception::IndexOutOfBoundsException(message);
+        }
+        return this->_Container[this->_Size - 1];
+    }
+
+
 
 }
 
