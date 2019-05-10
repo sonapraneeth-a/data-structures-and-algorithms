@@ -2,7 +2,7 @@
  * File description
  *
  *      Created on: 14 December 2018
- *   Last modified: 14 December 2018
+ *   Last modified: 07 May 2019
  *          Author: Sona Praneeth Akula
  *         Details: Tests for Static array
  */
@@ -11,10 +11,12 @@
  * Changelog
  *
  * Date (DD-MM-YYYY)            Author               Update
- * 14-12-2018             Sona Praneeth Akula   - Creation of file
+ * 14-12-2018               sonapraneeth-a      - Creation of file
  *                                              - Addition of tests for Size(),
  *                                                Empty()
  *                                              - Added comments to test codes
+ * 07-05-2019               sonapraneeth-a      - Added classes for Get(), Set(), Operator [],
+ *                                                Insert(), Remove()
  */
 
 #include "Array.h"
@@ -60,20 +62,60 @@ protected:
 
 };
 
-/*! @class ArraySizeTest
- *  @brief A Test class for Static Array Size() function.
+/*! @class Array_SizeTest
+ *  @brief A Test class for Fixed Array Size() function.
  *
- *  @details This is a test class for Static Array Size() function
+ *  @details This is a test class for Fixed Array Size() function
  */
 class Array_SizeTest: public Array_Test
 {};
 
-/*! @class ArrayEmptyTest
- *  @brief A Test class for Static Array IsEmpty() function.
+/*! @class Array_EmptyTest
+ *  @brief A Test class for Fixed Array IsEmpty() function.
  *
- *  @details This is a test class for Static Array IsEmpty() function
+ *  @details This is a test class for Fixed Array IsEmpty() function
  */
 class Array_EmptyTest: public Array_Test
+{};
+
+/*! @class Array_GetElementTest
+ *  @brief A Test class for Fixed Array Get() function.
+ *
+ *  @details This is a test class for Fixed Array Get() function
+ */
+class Array_GetElementTest : public Array_Test
+{};
+
+/*! @class Array_GetElementTest
+ *  @brief A Test class for Fixed Array Get() function.
+ *
+ *  @details This is a test class for Fixed Array Get() function
+ */
+class Array_SetElementTest : public Array_Test
+{};
+
+/*! @class Array_GetElementTest
+ *  @brief A Test class for Fixed Array Get() function.
+ *
+ *  @details This is a test class for Fixed Array Get() function
+ */
+class Array_InsertElementTest : public Array_Test
+{};
+
+/*! @class Array_GetElementTest
+ *  @brief A Test class for Fixed Array Get() function.
+ *
+ *  @details This is a test class for Fixed Array Get() function
+ */
+class Array_RemoveElementTest : public Array_Test
+{};
+
+/*! @class Array_GetElementTest
+ *  @brief A Test class for Fixed Array Get() function.
+ *
+ *  @details This is a test class for Fixed Array Get() function
+ */
+class Array_GetSetOperatorTest : public Array_Test
 {};
 
 /**

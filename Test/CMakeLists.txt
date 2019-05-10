@@ -43,13 +43,16 @@ include_directories("${SRC_HEADERS_DIR}")
 
 SET(TEST_DS_DIR ./Src/DataStructures)
 SET(TEST_ARRAY_DIR ${TEST_DS_DIR}/Array)
+SET(TEST_NODE_DIR ${TEST_DS_DIR}/Node)
 
 SET(SRC_DS_DIR ../Src/DataStructures)
 include_directories("${SRC_DS_DIR}/Array")
+include_directories("${SRC_DS_DIR}/Node")
 
-set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}Array.cpp)
+set(ARRAY_TEST_FILES ${TEST_ARRAY_DIR}/${TEST_PREFIX}Array.cpp ${TEST_ARRAY_DIR}/${TEST_PREFIX}DynamicArray.cpp)
+set(NODE_TEST_FILES ${TEST_NODE_DIR}/${TEST_PREFIX}Node.cpp)
 
-set(DS_TEST_FILES ${ARRAY_TEST_FILES})
+set(DS_TEST_FILES ${ARRAY_TEST_FILES} ${NODE_TEST_FILES})
 
 # Create executable for the data structures test
 add_executable(${TEST_PREFIX}DataStructures ${TEST_DS_DIR}/${TEST_PREFIX}DataStructures.cpp ${DS_TEST_FILES})
