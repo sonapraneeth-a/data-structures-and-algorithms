@@ -34,7 +34,7 @@ namespace Exception
 
     public:
 
-        const char* what() const noexcept(true);
+        const char* what() const noexcept(true) override;
 
     protected:
 
@@ -44,7 +44,7 @@ namespace Exception
 
     };
 
-    const char*
+    inline const char*
     IException::what() const noexcept(true)
     {
         std::string message = "";
@@ -54,7 +54,12 @@ namespace Exception
         // Reference: https://stackoverflow.com/questions/22330250/how-to-return-a-stdstring-c-str
         // return strdup(message.c_str());
         char* message_char_string = new char[message.length() + 1];
+        // Reference: https://blog.kowalczyk.info/article/j/guide-to-predefined-macros-in-c-compilers-gcc-clang-msvc-etc..html
+#if defined(_MSC_VER)
         strcpy_s(message_char_string, message.length() + 1, message.c_str());
+#elif defined(__GNUC__) || defined(__MINGW32__) || defined(__MINGW64__)
+        strncpy(message_char_string, message.c_str(), (size_t)message.length() + 1);
+#endif
         return message_char_string;
         // return message.c_str();
     }
