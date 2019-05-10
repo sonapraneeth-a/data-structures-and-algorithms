@@ -45,6 +45,11 @@ RunArray_Constructors()
     std::cout << "          Array_101: " << Array_101 << "\n";
     std::cout << "   Array_101.Size(): " << Array_101.Size() << "\n";
     std::cout << "Array_101.IsEmpty(): " << Array_101.IsEmpty() << "\n";
+    std::cout << "Constructor(2) --> Array(size_t Capacity)\n";
+    DS::Array<int> Array_102(5);
+    std::cout << "          Array_102: " << Array_102 << "\n";
+    std::cout << "   Array_102.Size(): " << Array_102.Size() << "\n";
+    std::cout << "Array_102.IsEmpty(): " << Array_102.IsEmpty() << "\n";
 
     std::cout << "Constructor(3) --> Array(size_t Capacity, T DefaultValue)\n";
     DS::Array<int> Array_201(5, 5);
