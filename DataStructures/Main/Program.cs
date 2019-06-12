@@ -8,9 +8,9 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            ListNode<int> Node = new ListNode<int>();
-            Node.Data = 10;
-            Console.WriteLine($"{Node}");
+            Console.Write($"Assembly Runtime: {typeof(string).Assembly.ImageRuntimeVersion}\n");
+            NodeMain.Constructor();
+            TreeNodeMain.Constructor();
         }
     }
 }
