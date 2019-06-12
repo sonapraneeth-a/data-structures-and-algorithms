@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Include="..\Lib\Node\ListNode.cs" Link="ListNode.cs" />
+    <Compile Include="..\Lib\Node\TreeNode.cs" Link="TreeNode.cs" />
   </ItemGroup>
 
 </Project>
