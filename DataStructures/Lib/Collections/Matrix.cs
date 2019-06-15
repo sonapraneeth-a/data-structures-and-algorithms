@@ -8,8 +8,8 @@ namespace Collections
         {
             RowMajor, ColumnMajor
         }
-        private T[] _Matrix;
-        public int[] Dimensions { get; private set; }
+        protected T[] _Matrix;
+        public int[] Dimensions { get; protected set; }
         public MatrixOrder Order { get; private set; } = MatrixOrder.RowMajor;
         public Matrix(params int[] dims)
         {

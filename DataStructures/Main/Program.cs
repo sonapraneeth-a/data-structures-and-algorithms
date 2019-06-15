@@ -10,8 +10,9 @@ namespace Main
         {
             Console.Write($"Assembly Runtime: {typeof(string).Assembly.ImageRuntimeVersion}\n");
             /*NodeMain.Constructor();
-            TreeNodeMain.Constructor();*/
-            MatrixMain.All();
+            TreeNodeMain.Constructor();
+            MatrixMain.All();*/
+            Board.Constructor();
         }
     }
 }

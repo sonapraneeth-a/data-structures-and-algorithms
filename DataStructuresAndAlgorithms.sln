@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "DataStructures\Main
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures", "DataStructures\Export\DataStructures.csproj", "{DF4B590D-98A3-400E-AB80-CAD0FCD0527C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "DataStructures\Lib\Collections\Collections.csproj", "{97969DED-4E10-4A23-891E-A39928B5FA67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "DataStructures\Lib\Collections\Collections.csproj", "{97969DED-4E10-4A23-891E-A39928B5FA67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miscellaneous", "DataStructures\Lib\Miscellaneous\Miscellaneous.csproj", "{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{97969DED-4E10-4A23-891E-A39928B5FA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97969DED-4E10-4A23-891E-A39928B5FA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97969DED-4E10-4A23-891E-A39928B5FA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{F3C38F87-2E5D-431D-AE90-352E3B007088} = {D1349B1A-6B18-46A5-A8C2-C15D54CC6F2B}
 		{DF4B590D-98A3-400E-AB80-CAD0FCD0527C} = {D1349B1A-6B18-46A5-A8C2-C15D54CC6F2B}
 		{97969DED-4E10-4A23-891E-A39928B5FA67} = {A6679B72-0FB3-457B-82DE-FF63A0EF92C8}
+		{8C4B60FF-CE0C-4BDD-98AE-9E6DCEC0BE5C} = {A6679B72-0FB3-457B-82DE-FF63A0EF92C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7771371-6E99-4024-AEEC-BE28D0DE17B2}

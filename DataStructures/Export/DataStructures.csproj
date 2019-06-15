@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Include="..\Lib\Collections\Matrix.cs" Link="Matrix.cs" />
+    <Compile Include="..\Lib\Miscellaneous\Board.cs" Link="Board.cs" />
     <Compile Include="..\Lib\Node\ListNode.cs" Link="ListNode.cs" />
     <Compile Include="..\Lib\Node\TreeNode.cs" Link="TreeNode.cs" />
   </ItemGroup>
