@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Lib\Backtracking\NQueens.cs" Link="NQueens.cs" />
+    <Compile Include="..\Lib\Backtracking\Subsets.cs" Link="Subsets.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataStructures\Export\DataStructures.csproj" />
+  </ItemGroup>
+
+</Project>
