@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Backtracking;
 
+using Extensions;
+
 namespace MainAlgo
 {
     class Program

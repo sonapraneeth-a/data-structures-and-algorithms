@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Extensions;
 
 namespace Backtracking
 {
@@ -13,35 +14,25 @@ namespace Backtracking
             int call = 0;
             EnumerateHelper(list, currentSubset, call);
         }
-        public static string Print<T>(List<T> list)
-        {
-            string rep = "[ ";
-            for (int index = 0; index < list.Count; index++)
-            {
-                rep += $"{list[index]} ";
-            }
-            rep += "]";
-            return rep;
-        }
         private static void EnumerateHelper<T>(List<T> list, List<T> currentSubset, int call)
         {
             string tab = new string('\t', call);
-            if(Debug) Console.WriteLine($"{tab} {call} -- Function started with {Print(list)} with {Print(currentSubset)}");
+            if(Debug) Console.WriteLine($"{tab} {call} -- Function started with {list.StringRepresentation()} with {currentSubset.StringRepresentation()}");
             if (list.Count == 0)
             {
                 if (Debug) Console.Write($"{tab} (P) Solution: ");
-                Console.WriteLine($"{Print(currentSubset)}");
+                Console.WriteLine($"{currentSubset.StringRepresentation()}");
                 return;
             }
             List<T> _list = new List<T>(list);
             T value = _list[0];
             currentSubset.Add(value);
             _list.RemoveAt(0);
-            if (Debug) Console.WriteLine($"{tab} (left) Recursive call on {Print(_list)} with {Print(currentSubset)}");
+            if (Debug) Console.WriteLine($"{tab} (left) Recursive call on {_list.StringRepresentation()} with {currentSubset.StringRepresentation()}");
             EnumerateHelper(_list, currentSubset, call+1);
-            if (Debug) Console.WriteLine($"{tab} (after left) List: {Print(_list)}, Current subset: {Print(currentSubset)}");
+            if (Debug) Console.WriteLine($"{tab} (after left) List: {_list.StringRepresentation()}, Current subset: {currentSubset.StringRepresentation()}");
             currentSubset.RemoveAt(currentSubset.Count - 1);
-            if (Debug) Console.WriteLine($"{tab} (right) Recursive call on {Print(_list)} with {Print(currentSubset)}");
+            if (Debug) Console.WriteLine($"{tab} (right) Recursive call on {_list.StringRepresentation()} with {currentSubset.StringRepresentation()}");
             EnumerateHelper(_list, currentSubset, call+2);
         }
     }
