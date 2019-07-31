@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Graph
+namespace DS.Graph
 {
     public class DirectedGraph
     {

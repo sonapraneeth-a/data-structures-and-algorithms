@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Backtracking;
+using Algo.Backtracking;
 
 using Extensions;
 
-namespace MainAlgo
+namespace Algo.MainAlgo
 {
     class Program
     {

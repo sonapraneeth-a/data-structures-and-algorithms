@@ -20,7 +20,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Node
+namespace DS.Node
 {
     /// <summary>
     /// Node class for <c>Tree</c> related classes

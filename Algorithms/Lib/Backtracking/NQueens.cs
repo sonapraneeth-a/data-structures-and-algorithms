@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Miscellaneous;
+using DS.Miscellaneous;
 
-namespace Backtracking
+namespace Algo.Backtracking
 {
     public static class NQueens
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Node;
+using DS.Node;
 
-namespace Main
+namespace DS.Main
 {
     class Program
     {

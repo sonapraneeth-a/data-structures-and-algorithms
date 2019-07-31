@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LinkedList
+namespace DS.LinkedList
 {
     class CircularLinkedList
     {

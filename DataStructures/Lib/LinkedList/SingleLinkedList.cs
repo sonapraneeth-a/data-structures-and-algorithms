@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LinkedList
+namespace DS.LinkedList
 {
     public class SingleLinkedList
     {

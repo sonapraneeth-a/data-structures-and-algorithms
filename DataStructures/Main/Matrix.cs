@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Collections;
+using DS.Collections;
 
-namespace Main
+namespace DS.Main
 {
     public static class MatrixMain
     {

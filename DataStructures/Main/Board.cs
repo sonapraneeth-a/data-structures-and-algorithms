@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Miscellaneous;
+using DS.Miscellaneous;
 
-namespace Main
+namespace DS.Main
 {
     public static class Board
     {

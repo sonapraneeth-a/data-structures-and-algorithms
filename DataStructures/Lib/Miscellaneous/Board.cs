@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Collections;
+using DS.Collections;
 
-namespace Miscellaneous
+namespace DS.Miscellaneous
 {
     public class Board<T> : Matrix<T>
     {

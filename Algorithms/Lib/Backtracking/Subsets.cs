@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Extensions;
 
-namespace Backtracking
+namespace Algo.Backtracking
 {
     public static class Subsets
     {

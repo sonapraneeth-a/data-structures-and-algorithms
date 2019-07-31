@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Collections
+namespace DS.Collections
 {
     public class Matrix<T>
     {

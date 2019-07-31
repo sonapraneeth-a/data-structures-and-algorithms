@@ -1,4 +1,4 @@
-﻿namespace Node
+﻿namespace DS.Node
 {
     public class ListNode<T>
     {

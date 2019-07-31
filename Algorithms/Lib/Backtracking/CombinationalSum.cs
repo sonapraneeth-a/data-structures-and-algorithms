@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Extensions;
 
-namespace Backtracking
+namespace Algo.Backtracking
 {
     /// <summary>
     ///     <para>

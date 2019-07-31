@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stack
+namespace DS.Stack
 {
     public class Stack
     {

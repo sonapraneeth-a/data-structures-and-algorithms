@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tree
+namespace DS.Tree
 {
     public class BinaryTree
     {

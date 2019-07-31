@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Queue
+namespace DS.Queue
 {
     public class Queue
     {
