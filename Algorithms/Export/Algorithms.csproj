@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Lib\Backtracking\CombinationalSum.cs" Link="CombinationalSum.cs" />
     <Compile Include="..\Lib\Backtracking\NQueens.cs" Link="NQueens.cs" />
     <Compile Include="..\Lib\Backtracking\Subsets.cs" Link="Subsets.cs" />
   </ItemGroup>

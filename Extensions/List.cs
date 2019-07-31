@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace Extensions
 {
@@ -17,6 +18,24 @@ namespace Extensions
             }
             rep += "}";
             return rep;
+        }
+        public static void RemoveDuplicates<T>(this List<T> list)
+        {
+            Dictionary<T, int> dict = new Dictionary<T, int>();
+            int index = 0;
+            while(index < list.Count)
+            {
+                if (dict.ContainsKey(list[index]))
+                {
+                    list.RemoveAt(index);
+                }
+                else
+                {
+                    dict.Add(list[index], index);
+                }
+                index++;
+            }
+            dict.Clear();
         }
     }
 }
