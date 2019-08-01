@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections.Generic;
 
 namespace Extensions
 {
@@ -23,7 +21,7 @@ namespace Extensions
         {
             Dictionary<T, int> dict = new Dictionary<T, int>();
             int index = 0;
-            while(index < list.Count)
+            while (index < list.Count)
             {
                 if (dict.ContainsKey(list[index]))
                 {
@@ -32,8 +30,8 @@ namespace Extensions
                 else
                 {
                     dict.Add(list[index], index);
+                    index++;
                 }
-                index++;
             }
             dict.Clear();
         }
